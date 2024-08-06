@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <NoWarn>$(NoWarn);NETSDK1206</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Abstractions\generators\LangChain.Providers.Generators\LangChain.Providers.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\Amazon.Bedrock\src\LangChain.Providers.Amazon.Bedrock.csproj" />
+        <ProjectReference Include="..\Anthropic\src\LangChain.Providers.Anthropic.csproj" />
+        <ProjectReference Include="..\Anyscale\src\LangChain.Providers.Anyscale.csproj" />
+        <ProjectReference Include="..\Automatic1111\src\LangChain.Providers.Automatic1111.csproj" />
+        <ProjectReference Include="..\Azure\src\LangChain.Providers.Azure.csproj" />
+        <ProjectReference Include="..\DeepInfra\src\LangChain.Providers.DeepInfra.csproj" />
+        <ProjectReference Include="..\DeepSeek\src\LangChain.Providers.DeepSeek.csproj" />
+        <ProjectReference Include="..\Fireworks\src\LangChain.Providers.Fireworks.csproj" />
+        <ProjectReference Include="..\Google\src\LangChain.Providers.Google.csproj" />
+        <ProjectReference Include="..\Groq\src\LangChain.Providers.Groq.csproj" />
+        <ProjectReference Include="..\LLamaSharp\src\LangChain.Providers.LLamaSharp.csproj" />
+        <ProjectReference Include="..\Ollama\src\LangChain.Providers.Ollama.csproj" />
+        <ProjectReference Include="..\OpenRouter\src\LangChain.Providers.OpenRouter.csproj" />
+        <ProjectReference Include="..\TogetherAI\src\LangChain.Providers.TogetherAi.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="LangChain.Core" />
+    </ItemGroup>
+
+</Project>
