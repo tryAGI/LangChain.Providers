@@ -155,7 +155,7 @@ public static class Helpers
                 {
                     var apiKey =
                         Environment.GetEnvironmentVariable("DEEPSEEK_API_KEY") ??
-                        throw new InvalidOperationException("DEEPSEEK_API_KEY is not set");
+                        throw new InconclusiveException("DEEPSEEK_API_KEY is not set");
                     var llm = new DeepSeekChatModel(new DeepSeekProvider(apiKey));
 
                     // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
@@ -169,13 +169,13 @@ public static class Helpers
                 {
                     var apiKey =
                         Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY", EnvironmentVariableTarget.User) ??
-                        throw new InvalidOperationException("AZURE_OPENAI_API_KEY is not set");
+                        throw new InconclusiveException("AZURE_OPENAI_API_KEY is not set");
                     var apiEndpoint =
                         Environment.GetEnvironmentVariable("AZURE_OPENAI_API_ENDPOINT", EnvironmentVariableTarget.User) ??
-                        throw new InvalidOperationException("AZURE_OPENAI_API_ENDPOINT is not set");
+                        throw new InconclusiveException("AZURE_OPENAI_API_ENDPOINT is not set");
                     var deploymentName =
                         Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_NAME", EnvironmentVariableTarget.User) ??
-                        throw new InvalidOperationException("AZURE_OPENAI_DEPLOYMENT_NAME is not set");
+                        throw new InconclusiveException("AZURE_OPENAI_DEPLOYMENT_NAME is not set");
 
                     var configuration = new AzureOpenAiConfiguration
                     {
