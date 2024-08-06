@@ -81,7 +81,7 @@ public static class Helpers
                     var provider = new OpenRouterProvider(
                         apiKey: Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ??
                                 throw new InconclusiveException("OPENROUTER_API_KEY is not set"));
-                    var llm = new Providers.OpenRouter.Predefined.OpenAiGpt4OModel(provider);
+                    var llm = new OpenRouterModel(provider, id: "meta-llama/llama-3.1-8b-instruct");
 
                     // Use OpenAI embeddings for now because OpenRouter doesn't have embeddings yet
                     var embeddings = new TextEmbeddingV3SmallModel(
@@ -154,9 +154,9 @@ public static class Helpers
             case ProviderType.DeepSeek:
                 {
                     var apiKey =
-                        Environment.GetEnvironmentVariable("DEEPSEEK_API_KEY", EnvironmentVariableTarget.User) ??
+                        Environment.GetEnvironmentVariable("DEEPSEEK_API_KEY") ??
                         throw new InvalidOperationException("DEEPSEEK_API_KEY is not set");
-                    var llm = new DeepSeekCoderModel(new DeepSeekProvider(apiKey));
+                    var llm = new DeepSeekChatModel(new DeepSeekProvider(apiKey));
 
                     // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
                     var embeddings = new TextEmbeddingV3SmallModel(

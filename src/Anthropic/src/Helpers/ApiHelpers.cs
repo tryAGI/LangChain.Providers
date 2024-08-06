@@ -26,6 +26,7 @@ public static class ApiHelpers
             CreateMessageRequestModel.Claude3Sonnet20240229 => 3.00,
             CreateMessageRequestModel.Claude3Opus20240229 => 15.00,
             CreateMessageRequestModel.ClaudeInstant12 => 0.80,
+            CreateMessageRequestModel.Claude35Sonnet20240620 => 3.00,
 
             _ => throw new NotImplementedException()
         } * 0.001 * 0.001;
@@ -37,6 +38,8 @@ public static class ApiHelpers
             CreateMessageRequestModel.Claude3Sonnet20240229 => 5.00,
             CreateMessageRequestModel.Claude3Opus20240229 => 75.00,
             CreateMessageRequestModel.ClaudeInstant12 => 5.51,
+            CreateMessageRequestModel.Claude35Sonnet20240620 => 15.00,
+            
             _ => throw new NotImplementedException()
         } * 0.001 * 0.001;
 

@@ -9,13 +9,13 @@ namespace LangChain.IntegrationTests;
 public class BaseTests
 {
     [TestCase(ProviderType.OpenAi)]
-    [TestCase(ProviderType.Anyscale)]
     [TestCase(ProviderType.Together)]
     [TestCase(ProviderType.OpenRouter)]
-    [TestCase(ProviderType.DeepInfra)]
-    //[TestCase(ProviderType.Fireworks)]
+    [TestCase(ProviderType.Fireworks)]
     //[TestCase(ProviderType.Google)]
-    //[TestCase(ProviderType.Anthropic)]
+    [TestCase(ProviderType.Anthropic)]
+    [TestCase(ProviderType.DeepInfra)]
+    [TestCase(ProviderType.DeepSeek)]
     public async Task FiveRandomWords(ProviderType providerType)
     {
         var (llm, _) = Helpers.GetModels(providerType);
@@ -34,13 +34,13 @@ public class BaseTests
     }
 
     [TestCase(ProviderType.OpenAi)]
-    //[TestCase(ProviderType.Anyscale)]
-    //[TestCase(ProviderType.Together)]
-    //[TestCase(ProviderType.Fireworks)]
-    //[TestCase(ProviderType.OpenRouter)]
-    //[TestCase(ProviderType.DeepInfra)]
+    [TestCase(ProviderType.Together)]
+    [TestCase(ProviderType.OpenRouter)]
+    [TestCase(ProviderType.Fireworks)]
     //[TestCase(ProviderType.Google)]
-    //[TestCase(ProviderType.Anthropic)]
+    [TestCase(ProviderType.Anthropic)]
+    [TestCase(ProviderType.DeepInfra)]
+    [TestCase(ProviderType.DeepSeek)]
     public async Task Streaming(ProviderType providerType)
     {
         var (llm, _) = Helpers.GetModels(providerType);
@@ -59,13 +59,13 @@ public class BaseTests
     }
 
     [TestCase(ProviderType.OpenAi)]
-    //[TestCase(ProviderType.Anyscale)]
-    //[TestCase(ProviderType.Together)]
-    //[TestCase(ProviderType.Fireworks)]
-    //[TestCase(ProviderType.OpenRouter)]
-    //[TestCase(ProviderType.DeepInfra)]
+    [TestCase(ProviderType.Together)]
+    [TestCase(ProviderType.OpenRouter)]
+    [TestCase(ProviderType.Fireworks)]
     //[TestCase(ProviderType.Google)]
     //[TestCase(ProviderType.Anthropic)]
+    //[TestCase(ProviderType.DeepInfra)]
+    [TestCase(ProviderType.DeepSeek)]
     public async Task SimpleChain(ProviderType providerType)
     {
         var (llm, _) = Helpers.GetModels(providerType);
@@ -87,14 +87,13 @@ public class BaseTests
     }
 
     [TestCase(ProviderType.OpenAi)]
-    //[TestCase(ProviderType.Anyscale)]
-    [TestCase(ProviderType.Together)]
-    [TestCase(ProviderType.OpenRouter)]
-    //[TestCase(ProviderType.Fireworks)]
-    //[TestCase(ProviderType.OpenRouter)]
-    //[TestCase(ProviderType.DeepInfra)]
+    // [TestCase(ProviderType.Together)]
+    // [TestCase(ProviderType.OpenRouter)]
+    // [TestCase(ProviderType.Fireworks)]
     //[TestCase(ProviderType.Google)]
-    //[TestCase(ProviderType.Anthropic)]
+    // [TestCase(ProviderType.Anthropic)]
+    // [TestCase(ProviderType.DeepInfra)]
+    // [TestCase(ProviderType.DeepSeek)]
     public async Task Tools_Weather(ProviderType providerType)
     {
         var (llm, _) = Helpers.GetModels(providerType);

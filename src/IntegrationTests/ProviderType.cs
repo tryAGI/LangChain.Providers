@@ -13,4 +13,5 @@ public enum ProviderType
     Groq,
     DeepSeek,
     Azure,
+    Reka,
 }
