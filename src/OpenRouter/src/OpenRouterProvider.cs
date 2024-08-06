@@ -1,4 +1,5 @@
 using LangChain.Providers.OpenAI;
+using OpenAI;
 
 namespace LangChain.Providers.OpenRouter;
 
@@ -8,7 +9,7 @@ public class OpenRouterProvider : OpenAiProvider
     {
     }
 
-    public OpenRouterProvider(string apiKey) : base(apiKey, customEndpoint: "openrouter.ai/api")
+    public OpenRouterProvider(string apiKey) : base(apiKey, customEndpoint: CustomProviders.OpenRouterBaseUrl)
     {
     }
 }

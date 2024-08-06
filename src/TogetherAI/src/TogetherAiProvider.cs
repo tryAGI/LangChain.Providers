@@ -1,4 +1,5 @@
 using LangChain.Providers.OpenAI;
+using OpenAI;
 
 namespace LangChain.Providers.TogetherAi;
 
@@ -8,7 +9,7 @@ public class TogetherAiProvider : OpenAiProvider
     {
     }
 
-    public TogetherAiProvider(string apiKey) : base(apiKey, "https://api.together.xyz/")
+    public TogetherAiProvider(string apiKey) : base(apiKey, CustomProviders.TogetherBaseUrl)
     {
     }
 }
