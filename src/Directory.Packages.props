@@ -36,9 +36,9 @@
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
     <PackageVersion Include="IsExternalInit" Version="1.0.3" />
     <PackageVersion Include="LangChain.Core" Version="0.15.1-dev.78" />
-    <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.1-dev.77" />
-    <PackageVersion Include="LangChain.Databases.InMemory" Version="0.15.1-dev.77" />
-    <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.1-dev.77" />
+    <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.2" />
+    <PackageVersion Include="LangChain.Databases.InMemory" Version="0.15.2" />
+    <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.2" />
     <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.1-dev.78" />
     <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.1-dev.78" />
     <PackageVersion Include="LangChain.Polyfills" Version="0.15.1-dev.78" />
