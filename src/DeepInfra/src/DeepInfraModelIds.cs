@@ -469,6 +469,17 @@ public enum DeepInfraModelIds
     Nemotron4340BInstruct,
 
     /// <summary>
+    /// Name: MiniCPM-Llama3-V-2_5 <br/>
+    /// Organization: openbmb <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.34/MTok <br/>
+    /// Completion Cost: $0.34/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5">https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5</a> 
+    /// </summary>
+    MinicpmLlama3V25,
+
+    /// <summary>
     /// Name: openchat_3.5 <br/>
     /// Organization: openchat <br/>
     /// Context Length: 8192 <br/>

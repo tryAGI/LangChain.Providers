@@ -51,6 +51,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.Mistral7BInstructV02, ToMetadata("mistralai/Mistral-7B-Instruct-v0.2",32768,6E-08,6E-08)},
         { DeepInfraModelIds.Mixtral8X22bV01, ToMetadata("mistralai/Mixtral-8x22B-v0.1",65536,6.5E-07,6.5E-07)},
         { DeepInfraModelIds.Nemotron4340BInstruct, ToMetadata("nvidia/Nemotron-4-340B-Instruct",4096,4.2000000000000004E-06,4.2000000000000004E-06)},
+        { DeepInfraModelIds.MinicpmLlama3V25, ToMetadata("openbmb/MiniCPM-Llama3-V-2_5",8192,3.4000000000000003E-07,3.4000000000000003E-07)},
         { DeepInfraModelIds.OpenChat35, ToMetadata("openchat/openchat_3.5",8192,6E-08,6E-08)},
 
     };
