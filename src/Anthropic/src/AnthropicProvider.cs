@@ -1,7 +1,7 @@
 namespace LangChain.Providers.Anthropic;
 
 /// <inheritdoc />
-public class AnthropicProvider(string apiKey) 
+public class AnthropicProvider(string apiKey)
     : Provider(id: AnthropicConfiguration.SectionName)
 {
     public AnthropicApi Api { get; } = new(apiKey);

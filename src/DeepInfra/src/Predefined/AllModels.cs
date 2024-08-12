@@ -210,6 +210,11 @@ public class Mixtral8X22bV01Model(DeepInfraProvider provider) : DeepInfraModel(p
 public class Nemotron4340BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Nemotron4340BInstruct);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.MinicpmLlama3V25"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class MinicpmLlama3V25Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MinicpmLlama3V25);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.OpenChat35"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class OpenChat35Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.OpenChat35);
