@@ -11,7 +11,6 @@ public class OpenAiTextToImageModel(
     string id)
     : TextToImageModel(id), ITextToImageModel
 {
-    [CLSCompliant(false)]
     public OpenAiTextToImageModel(
         OpenAiProvider provider,
         CreateImageRequestModel id)

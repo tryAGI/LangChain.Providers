@@ -6,7 +6,6 @@ public class OpenAiModerationModel(
     string id)
     : Model(id), IModerationModel
 {
-    [CLSCompliant(false)]
     public OpenAiModerationModel(
         OpenAiProvider provider,
         CreateModerationRequestModel id)

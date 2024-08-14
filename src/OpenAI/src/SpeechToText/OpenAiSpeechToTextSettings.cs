@@ -23,7 +23,6 @@ public class OpenAiSpeechToTextSettings : SpeechToTextSettings
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public CreateTranscriptionRequestModel? Model { get; init; }
 
     /// <summary>
@@ -39,7 +38,6 @@ public class OpenAiSpeechToTextSettings : SpeechToTextSettings
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public CreateTranscriptionRequestResponseFormat? ResponseFormat { get; init; }
 
     /// <summary>

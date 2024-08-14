@@ -12,14 +12,12 @@ public class OpenAiProvider : Provider
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public OpenAiApi Api { get; private set; }
 
     #endregion
 
     #region Constructors
 
-    [CLSCompliant(false)]
     public OpenAiProvider(OpenAiApi openAiApi)
         : base(id: OpenAiConfiguration.SectionName)
     {

@@ -48,7 +48,6 @@ public partial class OpenAiChatModel(
         }
     }
 
-    [CLSCompliant(false)]
     protected virtual ChatCompletionRequestMessage ToRequestMessage(Message message)
     {
         switch (message.Role)

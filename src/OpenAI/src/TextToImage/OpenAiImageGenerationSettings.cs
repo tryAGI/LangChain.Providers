@@ -53,25 +53,21 @@ public class OpenAiTextToImageSettings : TextToImageSettings
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public CreateImageRequestQuality? Quality { get; init; }
 
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public CreateImageRequestResponseFormat? ResponseFormat { get; init; }
 
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public CreateImageRequestSize? Size { get; init; }
 
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public CreateImageRequestStyle? Style { get; init; }
 
     /// <summary>

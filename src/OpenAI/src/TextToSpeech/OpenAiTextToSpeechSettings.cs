@@ -20,19 +20,16 @@ public class OpenAiTextToSpeechSettings : TextToSpeechSettings
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public AnyOf<string, CreateSpeechRequestModel>? Model { get; init; }
 
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public CreateSpeechRequestVoice? Voice { get; init; }
 
     /// <summary>
     /// 
     /// </summary>
-    [CLSCompliant(false)]
     public CreateSpeechRequestResponseFormat? ResponseFormat { get; init; }
 
     /// <summary>

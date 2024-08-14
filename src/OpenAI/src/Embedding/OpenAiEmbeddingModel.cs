@@ -8,7 +8,6 @@ public class OpenAiEmbeddingModel(
     string id)
     : Model<EmbeddingSettings>(id), IEmbeddingModel
 {
-    [CLSCompliant(false)]
     public OpenAiEmbeddingModel(
         OpenAiProvider provider,
         CreateEmbeddingRequestModel id)

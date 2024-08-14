@@ -11,7 +11,6 @@ public class OpenAiTextToSpeechModel(
     string id)
     : Model<TextToSpeechSettings>(id), ITextToSpeechModel
 {
-    [CLSCompliant(false)]
     public OpenAiTextToSpeechModel(
         OpenAiProvider provider,
         CreateSpeechRequestModel id)

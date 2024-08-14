@@ -12,7 +12,6 @@ public class OpenAiSpeechToTextModel(
     string id)
     : Model<SpeechToTextSettings>(id), ISpeechToTextModel
 {
-    [CLSCompliant(false)]
     public OpenAiSpeechToTextModel(
         OpenAiProvider provider,
         CreateTranscriptionRequestModel id)
@@ -21,7 +20,6 @@ public class OpenAiSpeechToTextModel(
     }
 
     /// <inheritdoc/>
-    [CLSCompliant(false)]
     public async Task<SpeechToTextResponse> TranscribeAsync(
         SpeechToTextRequest request,
         SpeechToTextSettings? settings = default,
