@@ -37,8 +37,8 @@ jobs:
 #
 #      - name: Format code
 #        run: |
-#          dotnet format LangChain.Providers.sln
-#          dotnet format LangChain.Providers.sln analyzers --diagnostics=RS0016
+#          dotnet format
+#          dotnet format analyzers --diagnostics=RS0016
 #
 #      - name: Check for changes
 #        id: changes
