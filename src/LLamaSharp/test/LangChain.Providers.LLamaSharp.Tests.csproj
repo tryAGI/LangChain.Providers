@@ -12,6 +12,8 @@
     <PackageReference Include="LangChain.Extensions.Docker" />
     <PackageReference Include="LLamaSharp.Backend.Cpu" />
     <PackageReference Include="LangChain.Core" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>

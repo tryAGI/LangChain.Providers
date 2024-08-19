@@ -12,6 +12,7 @@
     <PackageReference Include="LangChain.Databases.Sqlite" />
     <PackageReference Include="LangChain.Core" />
     <PackageReference Include="LangChain.DocumentLoaders.Pdf" />
+    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>

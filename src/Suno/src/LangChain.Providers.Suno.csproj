@@ -17,6 +17,7 @@
     <ItemGroup>
         <PackageReference Include="System.Net.Http.Json" />
         <PackageReference Include="LangChain.Polyfills" />
+        <PackageReference Include="System.Text.Json" />
     </ItemGroup>
 
     <ItemGroup>

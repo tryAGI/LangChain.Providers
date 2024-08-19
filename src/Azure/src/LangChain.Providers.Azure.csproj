@@ -16,6 +16,8 @@
 
     <ItemGroup>
         <PackageReference Include="Azure.AI.OpenAI" />
+        <PackageReference Include="System.Memory.Data" />
+        <PackageReference Include="System.Text.Json" />
         <PackageReference Include="tryAGI.OpenAI" />
     </ItemGroup>
 

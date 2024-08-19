@@ -10,6 +10,7 @@
     <PackageReference Include="MSTest.TestFramework" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing.MSTest" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" />
+    <PackageReference Include="Newtonsoft.Json" />
     <PackageReference Include="Verify.MSTest" />
     <PackageReference Include="Verify.SourceGenerators" />
   </ItemGroup>
