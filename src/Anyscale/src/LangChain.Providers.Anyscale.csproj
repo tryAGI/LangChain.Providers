@@ -16,6 +16,8 @@
 
     <ItemGroup>
         <PackageReference Include="Anyscale" />
+        <PackageReference Include="System.Text.Json" />
+        <PackageReference Include="Tiktoken" />
     </ItemGroup>
 
     <ItemGroup>
