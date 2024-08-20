@@ -18,6 +18,8 @@
     <ItemGroup>
         <PackageReference Include="HuggingFace" />
         <PackageReference Include="LangChain.Polyfills" />
+        <PackageReference Include="System.Text.Json" />
+        <PackageReference Include="Tiktoken" />
     </ItemGroup>
 
     <ItemGroup>

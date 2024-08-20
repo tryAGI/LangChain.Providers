@@ -5,12 +5,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Whisper.net.Runtime"/>
-        <PackageReference Include="LangChain.Core"/>
+        <PackageReference Include="Newtonsoft.Json" />
+        <PackageReference Include="System.Text.Json" />
+        <PackageReference Include="Whisper.net.Runtime" />
+        <PackageReference Include="LangChain.Core" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\src\LangChain.Providers.WhisperNet.csproj"/>
+        <ProjectReference Include="..\src\LangChain.Providers.WhisperNet.csproj" />
     </ItemGroup>
 
     <ItemGroup>
