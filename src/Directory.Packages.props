@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.0.1" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.401.6" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.401.9" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.401.7" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.401.10" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="1.0.0-beta.17" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.4" />
     <PackageVersion Include="FluentAssertions" Version="6.12.0" />
@@ -26,14 +26,14 @@
     </PackageVersion>
     <PackageVersion Include="HtmlAgilityPack" Version="1.11.64" />
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
-    <PackageVersion Include="LangChain.Core" Version="0.15.1-dev.98" />
+    <PackageVersion Include="LangChain.Core" Version="0.15.1-dev.100" />
     <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.2" />
     <PackageVersion Include="LangChain.Databases.InMemory" Version="0.15.2" />
     <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.2" />
-    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.1-dev.98" />
-    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.1-dev.98" />
-    <PackageVersion Include="LangChain.Polyfills" Version="0.15.1-dev.98" />
-    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.1-dev.98" />
+    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.1-dev.100" />
+    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.1-dev.100" />
+    <PackageVersion Include="LangChain.Polyfills" Version="0.15.1-dev.100" />
+    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.1-dev.100" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.14.0" />
     <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.15.0" />
