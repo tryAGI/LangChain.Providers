@@ -22,12 +22,24 @@ internal static class GoogleGeminiExtensions
                 {
                     Name = x.Type,
                     Description = x.Description,
-                    Parameters = new ChatCompletionFunctionParameters(),
+                    Parameters = x.ToFunctionParameters()
                 }).ToList(),
             }
         ]);
     }
+    public static ChatCompletionFunctionParameters ToFunctionParameters(this OpenApiSchema schema)
+    {
+        if (schema.Items == null) return new ChatCompletionFunctionParameters();
+        var parameters = new ChatCompletionFunctionParameters();
 
+        parameters.AdditionalProperties.Add("type", schema.Items.Type);
+        if (!string.IsNullOrEmpty(schema.Items.Description))
+            parameters.AdditionalProperties.Add("description", schema.Items.Description);
+        parameters.AdditionalProperties.Add("properties", schema.Items.Properties);
+        parameters.AdditionalProperties.Add("required", schema.Items.Required);
+
+        return parameters;
+    }
     public static string GetString(this IDictionary<string, object>? arguments)
     {
         if (arguments == null)
