@@ -90,7 +90,7 @@ public class BaseTests
     // [TestCase(ProviderType.Together)]
     // [TestCase(ProviderType.OpenRouter)]
     // [TestCase(ProviderType.Fireworks)]
-    //[TestCase(ProviderType.Google)]
+    [TestCase(ProviderType.Google)]
     // [TestCase(ProviderType.Anthropic)]
     // [TestCase(ProviderType.DeepInfra)]
     // [TestCase(ProviderType.DeepSeek)]
