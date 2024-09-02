@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.0.1" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.403" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.403.1" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403.1" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="1.0.0-beta.17" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.4" />
     <PackageVersion Include="FluentAssertions" Version="6.12.0" />
@@ -24,19 +24,19 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="HtmlAgilityPack" Version="1.11.64" />
+    <PackageVersion Include="HtmlAgilityPack" Version="1.11.65" />
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
-    <PackageVersion Include="LangChain.Core" Version="0.15.1-dev.104" />
+    <PackageVersion Include="LangChain.Core" Version="0.15.1-dev.112" />
     <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.2" />
     <PackageVersion Include="LangChain.Databases.InMemory" Version="0.15.2" />
     <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.2" />
-    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.1-dev.104" />
-    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.1-dev.104" />
-    <PackageVersion Include="LangChain.Polyfills" Version="0.15.1-dev.104" />
-    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.1-dev.104" />
+    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.1-dev.112" />
+    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.1-dev.112" />
+    <PackageVersion Include="LangChain.Polyfills" Version="0.15.1-dev.112" />
+    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.1-dev.112" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.14.0" />
-    <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.15.0" />
+    <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.16.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4" />
@@ -46,12 +46,12 @@
     <PackageVersion Include="MSTest.TestAdapter" Version="3.5.2" />
     <PackageVersion Include="MSTest.TestFramework" Version="3.5.2" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing.MSTest" Version="1.1.2" />
-    <PackageVersion Include="Verify.MSTest" Version="26.2.0" />
+    <PackageVersion Include="Verify.MSTest" Version="26.3.1" />
     <PackageVersion Include="Verify.SourceGenerators" Version="2.4.0" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Npgsql" Version="8.0.3" />
     <PackageVersion Include="Ollama" Version="1.4.3" />
-    <PackageVersion Include="NUnit" Version="4.2.1" />
+    <PackageVersion Include="NUnit" Version="4.2.2" />
     <PackageVersion Include="NUnit3TestAdapter" Version="4.6.0" />
     <PackageVersion Include="PolySharp" Version="1.14.1">
       <PrivateAssets>all</PrivateAssets>
