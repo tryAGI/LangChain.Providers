@@ -32,7 +32,7 @@ jobs:
       - name: Generate code
         run: |
           cd src/TogetherAI/tools/LangChain.Providers.TogetherAi.CodeGenerator
-          dotnet run --output ../../src --key ${{ secrets.TOGETHER_AI_API_KEY }}
+          dotnet run --output ../../src --key ${{ secrets.TOGETHER_API_KEY }}
 
       - name: Format code
         run: |
