@@ -1,5 +1,5 @@
 // ReSharper disable once CheckNamespace
-namespace LangChain.Providers.Amazon.Bedrock;
+namespace LangChain.Providers.Amazon.Bedrock.TextToImage.Settings;
 
 public class BedrockImageSettings : TextToImageSettings
 {
