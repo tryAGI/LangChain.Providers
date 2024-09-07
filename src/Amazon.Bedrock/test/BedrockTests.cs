@@ -233,16 +233,30 @@ Helpful Answer:";
     public async Task CanGetImage2()
     {
         var provider = new BedrockProvider();
-        var model = new StableDiffusionExtraLargeV1Model(provider);
+        var model = new StableDiffusionSDXLModel(provider);
         var response = await model.GenerateImageAsync(
             "i'm going to prepare a recipe.  show me an image of realistic food ingredients");
 
-        var path = Path.Combine(Path.GetTempPath(), "food.png");
+        var path = Path.Combine(Path.GetTempPath(), "food2.png");
 
         await File.WriteAllBytesAsync(path, response.Images[0].ToByteArray());
-
-        Process.Start(path);
     }
+
+    [Test]
+    public async Task CanGetStableDiffusionSD3Image()
+    {
+        var provider = new BedrockProvider(RegionEndpoint.USWest2);
+        var model = new StableDiffusionSD3LargeModel(provider);
+       // var model = new StableDiffusionImageCoreModel(provider);
+        //var model = new StableDiffusionImageUltraModel(provider);
+        var response = await model.GenerateImageAsync(
+            "i'm going to prepare a recipe.  show me an image of realistic food ingredients");
+
+        var path = Path.Combine(Path.GetTempPath(), "food1.png");
+
+        await File.WriteAllBytesAsync(path, response.Images[0].ToByteArray());
+    }
+
 
     [Test]
     public async Task ClaudeImageToText()

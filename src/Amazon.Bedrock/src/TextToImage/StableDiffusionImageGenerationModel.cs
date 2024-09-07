@@ -6,7 +6,7 @@ using LangChain.Providers.Amazon.Bedrock.Internal;
 // ReSharper disable once CheckNamespace
 namespace LangChain.Providers.Amazon.Bedrock;
 
-public class StableDiffusionTextToImageModel(
+public class StableDiffusionTextToImageV1Model(
     BedrockProvider provider,
     string id)
     : TextToImageModel(id), ITextToImageModel

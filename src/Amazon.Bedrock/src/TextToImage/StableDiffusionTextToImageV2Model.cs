@@ -1,13 +1,11 @@
 ﻿using System.Diagnostics;
-using System.Net.Mime;
 using System.Text.Json.Nodes;
 using LangChain.Providers.Amazon.Bedrock.Internal;
-using LangChain.Providers.Amazon.Bedrock.TextToImage.Settings;
 
 // ReSharper disable once CheckNamespace
 namespace LangChain.Providers.Amazon.Bedrock;
 
-public class AmazonTitanTextToImageModel(
+public class StableDiffusionTextToImageV2Model(
     BedrockProvider provider,
     string id)
     : TextToImageModel(id), ITextToImageModel
@@ -21,29 +19,16 @@ public class AmazonTitanTextToImageModel(
 
         var watch = Stopwatch.StartNew();
 
-        var usedSettings = BedrockImageSettings.Calculate(
+        var usedSettings = StableDiffusionSettings.Calculate(
             requestSettings: settings,
             modelSettings: Settings,
             providerSettings: provider.TextToImageSettings);
-        var response = await provider.Api.InvokeModelAsync<AmazonTitanTextToImageResponse>(
+
+        var bodyJson = CreateBodyJson(request.Prompt, usedSettings);
+
+        var response = await provider.Api.InvokeModelAsync<StableDiffusionSD3Response>(
             Id,
-            new JsonObject
-            {
-                ["taskType"] = "TEXT_IMAGE",
-                ["textToImageParams"] = new JsonObject
-                {
-                    ["text"] = request.Prompt
-                },
-                ["imageGenerationConfig"] = new JsonObject
-                {
-                    ["quality"] = "standard",
-                    ["width"] = usedSettings.Width!.Value,
-                    ["height"] = usedSettings.Height!.Value,
-                    ["cfgScale"] = 8.0,
-                    ["seed"] = usedSettings.Seed!.Value,
-                    ["numberOfImages"] = usedSettings.NumOfImages!.Value,
-                }
-            },
+            bodyJson,
             cancellationToken).ConfigureAwait(false);
 
         var images = response?.Images.Select(Data.FromBase64).ToList() ?? [];
@@ -61,5 +46,23 @@ public class AmazonTitanTextToImageModel(
             UsedSettings = TextToImageSettings.Default,
             Usage = usage,
         };
+    }
+
+    /// <summary>
+    /// Creates the request body JSON for the Cohere model based on the provided prompt and settings.
+    /// </summary>
+    /// <param name="prompt">The input prompt for the model.</param>
+    /// <param name="usedSettings">The settings to use for the request.</param>
+    /// <returns>A `JsonObject` representing the request body.</returns>
+    private static JsonObject CreateBodyJson(string prompt, StableDiffusionSettings usedSettings)
+    {
+        var bodyJson = new JsonObject
+        {
+            ["prompt"] = prompt,
+            ["mode"] = usedSettings.Mode,
+            ["aspect_ratio"] = usedSettings.AspectRatio,
+            ["output_format"] = usedSettings.OutputFormat,
+        };
+        return bodyJson;
     }
 }
