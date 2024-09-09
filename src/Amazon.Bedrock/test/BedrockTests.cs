@@ -247,7 +247,7 @@ Helpful Answer:";
     {
         var provider = new BedrockProvider(RegionEndpoint.USWest2);
         var model = new StableDiffusionSD3LargeModel(provider);
-       // var model = new StableDiffusionImageCoreModel(provider);
+        // var model = new StableDiffusionImageCoreModel(provider);
         //var model = new StableDiffusionImageUltraModel(provider);
         var response = await model.GenerateImageAsync(
             "i'm going to prepare a recipe.  show me an image of realistic food ingredients");
