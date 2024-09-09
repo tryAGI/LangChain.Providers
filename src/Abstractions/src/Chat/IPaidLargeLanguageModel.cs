@@ -11,5 +11,5 @@ public interface IPaidLargeLanguageModel
     /// <param name="inputTokens"></param>
     /// <param name="outputTokens"></param>
     /// <returns></returns>
-    public double CalculatePriceInUsd(int inputTokens, int outputTokens);
+    public double? TryCalculatePriceInUsd(int inputTokens, int outputTokens);
 }
