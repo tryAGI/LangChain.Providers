@@ -13,7 +13,7 @@ public class StableDiffusionSettings : TextToImageSettings
     /// <summary>
     /// 
     /// </summary>
-    public string? Mode{ get; init; }
+    public string? Mode { get; init; }
     /// <summary>
     /// 
     /// </summary>
@@ -24,7 +24,7 @@ public class StableDiffusionSettings : TextToImageSettings
     /// </summary>
     public string? OutputFormat { get; init; }
 
-    
+
     /// <summary>
     /// Calculate the settings to use for the request.
     /// </summary>
