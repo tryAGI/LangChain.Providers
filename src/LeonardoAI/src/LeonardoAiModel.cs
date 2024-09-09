@@ -1,4 +1,4 @@
-namespace LangChain.Providers.LeonardoAi;
+namespace LangChain.Providers.Leonardo;
 
 public class LeonardoAiModel(
     LeonardoAiProvider provider,

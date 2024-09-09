@@ -55,7 +55,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HuggingFace", "HuggingFace"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LLamaSharp", "LLamaSharp", "{8266C51A-BE2E-458C-9434-DDAFF788181A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeonardoAI", "LeonardoAI", "{DE00D366-5CA9-4EB9-98CC-18793B8229AB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Leonardo", "Leonardo", "{DE00D366-5CA9-4EB9-98CC-18793B8229AB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Google", "Google", "{A23BD019-BE70-42D5-9DD4-A79DEDDE54F4}"
 EndProject
@@ -85,7 +85,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.Google"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.HuggingFace", "src\HuggingFace\src\LangChain.Providers.HuggingFace.csproj", "{F9F8E323-5B23-43F1-ABBD-05CD0D5CAC35}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.LeonardoAI", "src\LeonardoAI\src\LangChain.Providers.LeonardoAI.csproj", "{786BD899-CB12-4A3F-9107-FF28A8C90B42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.Leonardo", "src\LeonardoAI\src\LangChain.Providers.Leonardo.csproj", "{786BD899-CB12-4A3F-9107-FF28A8C90B42}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.LLamaSharp", "src\LLamaSharp\src\LangChain.Providers.LLamaSharp.csproj", "{72C0A9D6-D59C-4217-813C-11469761E9F8}"
 EndProject
