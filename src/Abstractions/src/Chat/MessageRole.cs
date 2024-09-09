@@ -27,12 +27,12 @@ public enum MessageRole
     Chat,
 
     /// <summary>
-    /// Role of message that defines a function call request.
+    /// Role of message that defines a tool call request.
     /// </summary>
-    FunctionCall,
+    ToolCall,
 
     /// <summary>
-    /// Role of message that defines a function call response.
+    /// Role of message that defines a tool call response.
     /// </summary>
-    FunctionResult,
+    ToolResult,
 }

@@ -56,7 +56,7 @@ public static class MessageStringExtensions
     /// <returns></returns>
     public static Message AsFunctionCallMessage(this string text, string functionName)
     {
-        return new Message(text, MessageRole.FunctionCall, FunctionName: functionName);
+        return new Message(text, MessageRole.ToolCall, FunctionName: functionName);
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ public static class MessageStringExtensions
     /// <returns></returns>
     public static Message AsFunctionResultMessage(this string text, string functionName)
     {
-        return new Message(text, MessageRole.FunctionResult, FunctionName: functionName);
+        return new Message(text, MessageRole.ToolResult, FunctionName: functionName);
     }
 
     /// <summary>
@@ -86,25 +86,25 @@ public static class MessageStringExtensions
             {
                 MessageRole.System => "System: ",
                 MessageRole.Ai => "AI: ",
-                MessageRole.FunctionCall => "Function call: ",
+                MessageRole.ToolCall => "Tool call: ",
                 MessageRole.Human => "Human: ",
-                MessageRole.FunctionResult => "Function result: ",
+                MessageRole.ToolResult => "Tool result: ",
                 _ => "Human: ",
             });
-            if (message.Role is MessageRole.FunctionCall or MessageRole.FunctionResult)
+            if (message.Role is MessageRole.ToolCall or MessageRole.ToolResult)
             {
                 builder.Append(message.FunctionName);
             }
-            if (message.Role == MessageRole.FunctionCall)
+            if (message.Role == MessageRole.ToolCall)
             {
                 builder.Append('(');
             }
-            else if (message.Role == MessageRole.FunctionResult)
+            else if (message.Role == MessageRole.ToolResult)
             {
                 builder.Append(" -> ");
             }
             builder.Append(message.Content);
-            if (message.Role == MessageRole.FunctionCall)
+            if (message.Role == MessageRole.ToolCall)
             {
                 builder.Append(')');
             }
