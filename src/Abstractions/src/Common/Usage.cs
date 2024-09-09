@@ -14,7 +14,7 @@ public readonly partial record struct Usage(
     int OutputTokens,
     int Messages,
     TimeSpan Time,
-    double PriceInUsd)
+    double? PriceInUsd)
 {
     /// <summary>
     /// 
@@ -24,7 +24,7 @@ public readonly partial record struct Usage(
         OutputTokens: 0,
         Messages: 0,
         Time: TimeSpan.Zero,
-        PriceInUsd: 0.0d);
+        PriceInUsd: null);
 
     /// <summary>
     /// 
