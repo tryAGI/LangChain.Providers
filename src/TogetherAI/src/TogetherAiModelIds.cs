@@ -7,17 +7,6 @@ public enum TogetherAiModelIds
 {
 
     /// <summary>
-    /// Name: WizardLM v1.2 (13B) <br/>
-    /// Organization: WizardLM <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: This model achieves a substantial and comprehensive improvement on coding, mathematical reasoning and open-domain conversation capacities <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/WizardLM/WizardLM-13B-V1.2">https://huggingface.co/WizardLM/WizardLM-13B-V1.2</a>
-    /// </summary>
-    WizardlmV1213B,
-
-    /// <summary>
     /// Name: Code Llama Instruct (34B) <br/>
     /// Organization: Meta <br/>
     /// Context Length: 16384 <br/>
@@ -40,7 +29,238 @@ public enum TogetherAiModelIds
     UpstageSolarInstructV111B,
 
     /// <summary>
-    /// Name: Meta Llama 3 70B Reference <br/>
+    /// Name: Nous Hermes-2 Yi (34B) <br/>
+    /// Organization: NousResearch <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.8/MTok <br/>
+    /// Completion Cost: $0.8/MTok <br/>
+    /// Description: Nous Hermes 2 - Yi-34B is a state of the art Yi Fine-tune <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B">https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B</a>
+    /// </summary>
+    NousHermes2Yi34B,
+
+    /// <summary>
+    /// Name: Llama3 8B Chat HF INT4 <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/Llama-3-8b-chat-hf-int4">https://huggingface.co/togethercomputer/Llama-3-8b-chat-hf-int4</a>
+    /// </summary>
+    Llama38BChatHfInt4,
+
+    /// <summary>
+    /// Name: StripedHyena Nous (7B) <br/>
+    /// Organization: Together <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: A hybrid architecture composed of multi-head, grouped-query attention and gated convolutions arranged in Hyena blocks, different from traditional decoder-only Transformers <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/StripedHyena-Nous-7B">https://huggingface.co/togethercomputer/StripedHyena-Nous-7B</a>
+    /// </summary>
+    StripedhyenaNous7B,
+
+    /// <summary>
+    /// Name: Gemma Instruct (2B) <br/>
+    /// Organization: Google <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.1/MTok <br/>
+    /// Completion Cost: $0.1/MTok <br/>
+    /// Description: Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-2b-it">https://huggingface.co/google/gemma-2b-it</a>
+    /// </summary>
+    GemmaInstruct2B,
+
+    /// <summary>
+    /// Name: MythoMax-L2 (13B) <br/>
+    /// Organization: Gryphe <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.3/MTok <br/>
+    /// Completion Cost: $0.3/MTok <br/>
+    /// Description: MythoLogic-L2 and Huginn merge using a highly experimental tensor type merge technique. The main difference with MythoMix is that I allowed more of Huginn to intermingle with the single tensors located at the front and end of a model <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Gryphe/MythoMax-L2-13b">https://huggingface.co/Gryphe/MythoMax-L2-13b</a>
+    /// </summary>
+    MythomaxL213B,
+
+    /// <summary>
+    /// Name: Mistral (7B) Instruct <br/>
+    /// Organization: mistralai <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: instruct fine-tuned version of Mistral-7B-v0.1 <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1</a>
+    /// </summary>
+    Mistral7BInstruct,
+
+    /// <summary>
+    /// Name: Mistral (7B) Instruct v0.2 <br/>
+    /// Organization: mistralai <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: The Mistral-7B-Instruct-v0.2 Large Language Model (LLM) is an improved instruct fine-tuned version of Mistral-7B-Instruct-v0.1. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2</a>
+    /// </summary>
+    Mistral7BInstructV02,
+
+    /// <summary>
+    /// Name: Qwen 2 Instruct (72B) <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.9/MTok <br/>
+    /// Completion Cost: $0.9/MTok <br/>
+    /// Description: Qwen2 is the new series of Qwen large language models. For Qwen2, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters, including a Mixture-of-Experts model. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-72B-Instruct">https://huggingface.co/Qwen/Qwen2-72B-Instruct</a>
+    /// </summary>
+    Qwen2Instruct72B,
+
+    /// <summary>
+    /// Name: Qwen 1.5 Chat (72B) <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.9/MTok <br/>
+    /// Completion Cost: $0.9/MTok <br/>
+    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-72B-Chat">https://huggingface.co/Qwen/Qwen1.5-72B-Chat</a>
+    /// </summary>
+    Qwen15Chat72B,
+
+    /// <summary>
+    /// Name: DeepSeek LLM Chat (67B) <br/>
+    /// Organization: DeepSeek <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.9/MTok <br/>
+    /// Completion Cost: $0.9/MTok <br/>
+    /// Description: trained from scratch on a vast dataset of 2 trillion tokens in both English and Chinese <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/deepseek-llm-67b-chat">https://huggingface.co/deepseek-ai/deepseek-llm-67b-chat</a>
+    /// </summary>
+    DeepseekLlmChat67B,
+
+    /// <summary>
+    /// Name: Togethercomputer Llama3 8B Instruct Int8 <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/Llama-3-8b-chat-hf-int8">https://huggingface.co/togethercomputer/Llama-3-8b-chat-hf-int8</a>
+    /// </summary>
+    TogethercomputerLlama38BInstructInt8,
+
+    /// <summary>
+    /// Name: Mistral (7B) Instruct v0.3 <br/>
+    /// Organization: mistralai <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: The Mistral-7B-Instruct-v0.3 Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B-v0.3. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3</a>
+    /// </summary>
+    Mistral7BInstructV03,
+
+    /// <summary>
+    /// Name: Qwen 1.5 Chat (110B) <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $1.8/MTok <br/>
+    /// Completion Cost: $1.8/MTok <br/>
+    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-110B-Chat">https://huggingface.co/Qwen/Qwen1.5-110B-Chat</a>
+    /// </summary>
+    Qwen15Chat110B,
+
+    /// <summary>
+    /// Name: LLaMA-2 Chat (13B) <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.22/MTok <br/>
+    /// Completion Cost: $0.22/MTok <br/>
+    /// Description: Llama 2-chat leverages publicly available instruction datasets and over 1 million human annotations. Available in three sizes: 7B, 13B and 70B parameters <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-2-13b-chat-hf">https://huggingface.co/meta-llama/Llama-2-13b-chat-hf</a>
+    /// </summary>
+    Llama2Chat13B,
+
+    /// <summary>
+    /// Name: Gemma-2 Instruct (27B) <br/>
+    /// Organization: Google <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.8/MTok <br/>
+    /// Completion Cost: $0.8/MTok <br/>
+    /// Description: Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-2-27b-it">https://huggingface.co/google/gemma-2-27b-it</a>
+    /// </summary>
+    Gemma2Instruct27B,
+
+    /// <summary>
+    /// Name: Meta Llama 3 70B Instruct Turbo <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.88/MTok <br/>
+    /// Completion Cost: $0.88/MTok <br/>
+    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct-Turbo</a>
+    /// </summary>
+    MetaLlama370BInstructTurbo,
+
+    /// <summary>
+    /// Name: Meta Llama 3 70B Instruct Lite <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.54/MTok <br/>
+    /// Completion Cost: $0.54/MTok <br/>
+    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct-Lite">https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct-Lite</a>
+    /// </summary>
+    MetaLlama370BInstructLite,
+
+    /// <summary>
+    /// Name: Gemma-2 Instruct (9B) <br/>
+    /// Organization: google <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.3/MTok <br/>
+    /// Completion Cost: $0.3/MTok <br/>
+    /// Description: Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-2-9b-it">https://huggingface.co/google/gemma-2-9b-it</a>
+    /// </summary>
+    Gemma2Instruct9B,
+
+    /// <summary>
+    /// Name: Meta Llama 3 8B Instruct Reference <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3-8b-chat-hf">https://huggingface.co/meta-llama/Llama-3-8b-chat-hf</a>
+    /// </summary>
+    MetaLlama38BInstructReference,
+
+    /// <summary>
+    /// Name: WizardLM-2 (8x22B) <br/>
+    /// Organization: microsoft <br/>
+    /// Context Length: 65536 <br/>
+    /// Prompt Cost: $1.2/MTok <br/>
+    /// Completion Cost: $1.2/MTok <br/>
+    /// Description: WizardLM-2 8x22B is Wizard's most advanced model, demonstrates highly competitive performance compared to those leading proprietary works and consistently outperforms all the existing state-of-the-art opensource models. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/microsoft/WizardLM-2-8x22B">https://huggingface.co/microsoft/WizardLM-2-8x22B</a>
+    /// </summary>
+    Wizardlm28X22b,
+
+    /// <summary>
+    /// Name: Mixtral-8x7B Instruct v0.1 <br/>
+    /// Organization: mistralai <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.6/MTok <br/>
+    /// Completion Cost: $0.6/MTok <br/>
+    /// Description: The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1">https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1</a>
+    /// </summary>
+    Mixtral8X7BInstructV01,
+
+    /// <summary>
+    /// Name: Meta Llama 3 70B Instruct Reference <br/>
     /// Organization: Meta <br/>
     /// Context Length: 8192 <br/>
     /// Prompt Cost: $0.9/MTok <br/>
@@ -48,7 +268,139 @@ public enum TogetherAiModelIds
     /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3-70b-chat-hf">https://huggingface.co/meta-llama/Llama-3-70b-chat-hf</a>
     /// </summary>
-    MetaLlama370BReference,
+    MetaLlama370BInstructReference,
+
+    /// <summary>
+    /// Name: DBRX Instruct <br/>
+    /// Organization: Databricks <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $1.2/MTok <br/>
+    /// Completion Cost: $1.2/MTok <br/>
+    /// Description: DBRX Instruct is a mixture-of-experts (MoE) large language model trained from scratch by Databricks. DBRX Instruct specializes in few-turn interactions. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/databricks/dbrx-instruct">https://huggingface.co/databricks/dbrx-instruct</a>
+    /// </summary>
+    DbrxInstruct,
+
+    /// <summary>
+    /// Name: Nous Hermes 2 - Mixtral 8x7B-DPO  <br/>
+    /// Organization: NousResearch <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.6/MTok <br/>
+    /// Completion Cost: $0.6/MTok <br/>
+    /// Description: Nous Hermes 2 Mixtral 7bx8 DPO is the new flagship Nous Research model trained over the Mixtral 7bx8 MoE LLM. The model was trained on over 1,000,000 entries of primarily GPT-4 generated data, as well as other high quality data from open datasets across the AI landscape, achieving state of the art performance on a variety of tasks. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO">https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO</a>
+    /// </summary>
+    NousHermes2Mixtral8X7BDpo,
+
+    /// <summary>
+    /// Name: Meta Llama 3 8B Instruct Turbo <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.18/MTok <br/>
+    /// Completion Cost: $0.18/MTok <br/>
+    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct-Turbo</a>
+    /// </summary>
+    MetaLlama38BInstructTurbo,
+
+    /// <summary>
+    /// Name: Meta Llama 3 8B Instruct Lite <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.1/MTok <br/>
+    /// Completion Cost: $0.1/MTok <br/>
+    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct-Lite">https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct-Lite</a>
+    /// </summary>
+    MetaLlama38BInstructLite,
+
+    /// <summary>
+    /// Name: Meta Llama 3.1 8B Instruct <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 16384 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Reference">https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Reference</a>
+    /// </summary>
+    MetaLlama318BInstruct,
+
+    /// <summary>
+    /// Name: Mixtral-8x22B Instruct v0.1 <br/>
+    /// Organization: mistralai <br/>
+    /// Context Length: 65536 <br/>
+    /// Prompt Cost: $1.2/MTok <br/>
+    /// Completion Cost: $1.2/MTok <br/>
+    /// Description: The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1">https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1</a>
+    /// </summary>
+    Mixtral8X22bInstructV01,
+
+    /// <summary>
+    /// Name: Meta Llama 3.1 70B Instruct Turbo <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.88/MTok <br/>
+    /// Completion Cost: $0.88/MTok <br/>
+    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo</a>
+    /// </summary>
+    MetaLlama3170BInstructTurbo,
+
+    /// <summary>
+    /// Name: Gryphe MythoMax L2 Lite (13B) <br/>
+    /// Organization: Gryphe <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: MythoLogic-L2 and Huginn merge using a highly experimental tensor type merge technique. The main difference with MythoMix is that I allowed more of Huginn to intermingle with the single tensors located at the front and end of a model <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Gryphe/MythoMax-L2-13b-Lite">https://huggingface.co/Gryphe/MythoMax-L2-13b-Lite</a>
+    /// </summary>
+    GrypheMythomaxL2Lite13B,
+
+    /// <summary>
+    /// Name: Meta Llama 3.1 8B Instruct Turbo <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.18/MTok <br/>
+    /// Completion Cost: $0.18/MTok <br/>
+    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo</a>
+    /// </summary>
+    MetaLlama318BInstructTurbo,
+
+    /// <summary>
+    /// Name: Meta Llama 3.1 405B Instruct Turbo <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $5/MTok <br/>
+    /// Completion Cost: $5/MTok <br/>
+    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo</a>
+    /// </summary>
+    MetaLlama31405BInstructTurbo,
+
+    /// <summary>
+    /// Name: WizardLM v1.2 (13B) <br/>
+    /// Organization: WizardLM <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: This model achieves a substantial and comprehensive improvement on coding, mathematical reasoning and open-domain conversation capacities <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/WizardLM/WizardLM-13B-V1.2">https://huggingface.co/WizardLM/WizardLM-13B-V1.2</a>
+    /// </summary>
+    WizardlmV1213B,
+
+    /// <summary>
+    /// Name: Qwen 2 Instruct (1.5B) <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.02/MTok <br/>
+    /// Completion Cost: $0.02/MTok <br/>
+    /// Description: Qwen2 is the new series of Qwen large language models. For Qwen2, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters, including a Mixture-of-Experts model. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-1.5B-Instruct">https://huggingface.co/Qwen/Qwen2-1.5B-Instruct</a>
+    /// </summary>
+    Qwen2Instruct15B,
 
     /// <summary>
     /// Name: OpenHermes-2-Mistral (7B) <br/>
@@ -62,15 +414,15 @@ public enum TogetherAiModelIds
     OpenHermes2Mistral7B,
 
     /// <summary>
-    /// Name: LLaMA-2-7B-32K-Instruct (7B) <br/>
-    /// Organization: Together <br/>
+    /// Name: Qwen 2 Instruct (7B) <br/>
+    /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Extending LLaMA-2 to 32K context, built with Meta's Position Interpolation and Together AI's data recipe and system optimizations, instruction tuned by Together <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/Llama-2-7B-32K-Instruct">https://huggingface.co/togethercomputer/Llama-2-7B-32K-Instruct</a>
+    /// Prompt Cost: $0.9/MTok <br/>
+    /// Completion Cost: $0.9/MTok <br/>
+    /// Description: Qwen2 is the new series of Qwen large language models. For Qwen2, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters, including a Mixture-of-Experts model. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-7B-Instruct">https://huggingface.co/Qwen/Qwen2-7B-Instruct</a>
     /// </summary>
-    Llama27B32KInstruct7B,
+    Qwen2Instruct7B,
 
     /// <summary>
     /// Name: ReMM SLERP L2 (13B) <br/>
@@ -139,17 +491,6 @@ public enum TogetherAiModelIds
     SnorkelMistralPairrmDpo7B,
 
     /// <summary>
-    /// Name: Qwen 1.5 Chat (7B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-7B-Chat">https://huggingface.co/Qwen/Qwen1.5-7B-Chat</a>
-    /// </summary>
-    Qwen15Chat7B,
-
-    /// <summary>
     /// Name: Qwen 1.5 Chat (14B) <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
@@ -183,17 +524,6 @@ public enum TogetherAiModelIds
     SnowflakeArcticInstruct,
 
     /// <summary>
-    /// Name: Code Llama Python (13B) <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 16384 <br/>
-    /// Prompt Cost: $0.22/MTok <br/>
-    /// Completion Cost: $0.22/MTok <br/>
-    /// Description: Code Llama is a family of large language models for code based on Llama 2 providing infilling capabilities, support for large input contexts, and zero-shot instruction following ability for programming tasks. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-13b-Python-hf">https://huggingface.co/codellama/CodeLlama-13b-Python-hf</a>
-    /// </summary>
-    CodeLlamaPython13B,
-
-    /// <summary>
     /// Name: Nous Hermes 2 - Mixtral 8x7B-SFT <br/>
     /// Organization: NousResearch <br/>
     /// Context Length: 32768 <br/>
@@ -203,17 +533,6 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-SFT">https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-SFT</a>
     /// </summary>
     NousHermes2Mixtral8X7BSft,
-
-    /// <summary>
-    /// Name: Nous Hermes 2 - Mixtral 8x7B-DPO  <br/>
-    /// Organization: NousResearch <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.6/MTok <br/>
-    /// Completion Cost: $0.6/MTok <br/>
-    /// Description: Nous Hermes 2 Mixtral 7bx8 DPO is the new flagship Nous Research model trained over the Mixtral 7bx8 MoE LLM. The model was trained on over 1,000,000 entries of primarily GPT-4 generated data, as well as other high quality data from open datasets across the AI landscape, achieving state of the art performance on a variety of tasks. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO">https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO</a>
-    /// </summary>
-    NousHermes2Mixtral8X7BDpo,
 
     /// <summary>
     /// Name: Deepseek Coder Instruct (33B) <br/>
@@ -260,17 +579,6 @@ public enum TogetherAiModelIds
     VicunaV1513B,
 
     /// <summary>
-    /// Name: Qwen 1.5 Chat (0.5B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.1/MTok <br/>
-    /// Completion Cost: $0.1/MTok <br/>
-    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-0.5B-Chat">https://huggingface.co/Qwen/Qwen1.5-0.5B-Chat</a>
-    /// </summary>
-    Qwen15Chat05B,
-
-    /// <summary>
     /// Name: Code Llama Python (70B) <br/>
     /// Organization: Meta <br/>
     /// Context Length: 4096 <br/>
@@ -280,28 +588,6 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-70b-Python-hf">https://huggingface.co/codellama/CodeLlama-70b-Python-hf</a>
     /// </summary>
     CodeLlamaPython70B,
-
-    /// <summary>
-    /// Name: Code Llama Instruct (7B) <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 16384 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Code Llama is a family of large language models for code based on Llama 2 providing infilling capabilities, support for large input contexts, and zero-shot instruction following ability for programming tasks. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-7b-Instruct-hf">https://huggingface.co/codellama/CodeLlama-7b-Instruct-hf</a>
-    /// </summary>
-    CodeLlamaInstruct7B,
-
-    /// <summary>
-    /// Name: Nous Hermes-2 Yi (34B) <br/>
-    /// Organization: NousResearch <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.8/MTok <br/>
-    /// Completion Cost: $0.8/MTok <br/>
-    /// Description: Nous Hermes 2 - Yi-34B is a state of the art Yi Fine-tune <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B">https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B</a>
-    /// </summary>
-    NousHermes2Yi34B,
 
     /// <summary>
     /// Name: Code Llama Instruct (13B) <br/>
@@ -315,50 +601,6 @@ public enum TogetherAiModelIds
     CodeLlamaInstruct13B,
 
     /// <summary>
-    /// Name: Llama3 8B Chat HF INT4 <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/Llama-3-8b-chat-hf-int4">https://huggingface.co/togethercomputer/Llama-3-8b-chat-hf-int4</a>
-    /// </summary>
-    Llama38BChatHfInt4,
-
-    /// <summary>
-    /// Name: Meta Llama 3.1 405B Instruct Turbo <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $5/MTok <br/>
-    /// Completion Cost: $5/MTok <br/>
-    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo</a>
-    /// </summary>
-    MetaLlama31405BInstructTurbo,
-
-    /// <summary>
-    /// Name: OpenHermes-2.5-Mistral (7B) <br/>
-    /// Organization: teknium <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Continuation of OpenHermes 2 Mistral model trained on additional code datasets <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/teknium/OpenHermes-2p5-Mistral-7B">https://huggingface.co/teknium/OpenHermes-2p5-Mistral-7B</a>
-    /// </summary>
-    OpenHermes25Mistral7B,
-
-    /// <summary>
-    /// Name: Nous Capybara v1.9 (7B) <br/>
-    /// Organization: NousResearch <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: first Nous collection of dataset and models made by fine-tuning mostly on data created by Nous in-house <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Nous-Capybara-7B-V1p9">https://huggingface.co/NousResearch/Nous-Capybara-7B-V1p9</a>
-    /// </summary>
-    NousCapybaraV197B,
-
-    /// <summary>
     /// Name: WizardCoder Python v1.0 (34B) <br/>
     /// Organization: WizardLM <br/>
     /// Context Length: 8192 <br/>
@@ -370,28 +612,6 @@ public enum TogetherAiModelIds
     WizardcoderPythonV1034B,
 
     /// <summary>
-    /// Name: Meta Llama 3.1 70B Instruct Turbo <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.88/MTok <br/>
-    /// Completion Cost: $0.88/MTok <br/>
-    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo</a>
-    /// </summary>
-    MetaLlama3170BInstructTurbo,
-
-    /// <summary>
-    /// Name: Meta Llama 3.1 8B Instruct Turbo <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.18/MTok <br/>
-    /// Completion Cost: $0.18/MTok <br/>
-    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo</a>
-    /// </summary>
-    MetaLlama318BInstructTurbo,
-
-    /// <summary>
     /// Name: Nous Hermes 2 - Mistral DPO (7B) <br/>
     /// Organization: NousResearch <br/>
     /// Context Length: 32768 <br/>
@@ -401,17 +621,6 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Nous-Hermes-2-Mistral-7B-DPO">https://huggingface.co/NousResearch/Nous-Hermes-2-Mistral-7B-DPO</a>
     /// </summary>
     NousHermes2MistralDpo7B,
-
-    /// <summary>
-    /// Name: StripedHyena Nous (7B) <br/>
-    /// Organization: Together <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: A hybrid architecture composed of multi-head, grouped-query attention and gated convolutions arranged in Hyena blocks, different from traditional decoder-only Transformers <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/StripedHyena-Nous-7B">https://huggingface.co/togethercomputer/StripedHyena-Nous-7B</a>
-    /// </summary>
-    StripedhyenaNous7B,
 
     /// <summary>
     /// Name: Alpaca (7B) <br/>
@@ -436,17 +645,6 @@ public enum TogetherAiModelIds
     Platypus2Instruct70B,
 
     /// <summary>
-    /// Name: Gemma Instruct (2B) <br/>
-    /// Organization: Google <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.1/MTok <br/>
-    /// Completion Cost: $0.1/MTok <br/>
-    /// Description: Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-2b-it">https://huggingface.co/google/gemma-2b-it</a>
-    /// </summary>
-    GemmaInstruct2B,
-
-    /// <summary>
     /// Name: Gemma Instruct (7B) <br/>
     /// Organization: Google <br/>
     /// Context Length: 8192 <br/>
@@ -456,6 +654,17 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-7b-it">https://huggingface.co/google/gemma-7b-it</a>
     /// </summary>
     GemmaInstruct7B,
+
+    /// <summary>
+    /// Name: LLaMA-2 Chat (7B) <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: Llama 2-chat leverages publicly available instruction datasets and over 1 million human annotations. Available in three sizes: 7B, 13B and 70B parameters <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">https://huggingface.co/meta-llama/Llama-2-7b-chat-hf</a>
+    /// </summary>
+    Llama2Chat7B,
 
     /// <summary>
     /// Name: OLMo Instruct (7B) <br/>
@@ -469,48 +678,15 @@ public enum TogetherAiModelIds
     OlmoInstruct7B,
 
     /// <summary>
-    /// Name: Qwen 1.5 Chat (4B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.1/MTok <br/>
-    /// Completion Cost: $0.1/MTok <br/>
-    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-4B-Chat">https://huggingface.co/Qwen/Qwen1.5-4B-Chat</a>
-    /// </summary>
-    Qwen15Chat4B,
-
-    /// <summary>
-    /// Name: MythoMax-L2 (13B) <br/>
-    /// Organization: Gryphe <br/>
+    /// Name: Upstage SOLAR Instruct v1 (11B)-Int4 <br/>
+    /// Organization: upstage <br/>
     /// Context Length: 4096 <br/>
     /// Prompt Cost: $0.3/MTok <br/>
     /// Completion Cost: $0.3/MTok <br/>
-    /// Description: MythoLogic-L2 and Huginn merge using a highly experimental tensor type merge technique. The main difference with MythoMix is that I allowed more of Huginn to intermingle with the single tensors located at the front and end of a model <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Gryphe/MythoMax-L2-13b">https://huggingface.co/Gryphe/MythoMax-L2-13b</a>
+    /// Description: Built on the Llama2 architecture, SOLAR-10.7B incorporates the innovative Upstage Depth Up-Scaling <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/SOLAR-10.7B-Instruct-v1.0-int4">https://huggingface.co/togethercomputer/SOLAR-10.7B-Instruct-v1.0-int4</a>
     /// </summary>
-    MythomaxL213B,
-
-    /// <summary>
-    /// Name: Mistral (7B) Instruct <br/>
-    /// Organization: mistralai <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: instruct fine-tuned version of Mistral-7B-v0.1 <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1</a>
-    /// </summary>
-    Mistral7BInstruct,
-
-    /// <summary>
-    /// Name: Mistral (7B) Instruct v0.2 <br/>
-    /// Organization: mistralai <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: The Mistral-7B-Instruct-v0.2 Large Language Model (LLM) is an improved instruct fine-tuned version of Mistral-7B-Instruct-v0.1. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2</a>
-    /// </summary>
-    Mistral7BInstructV02,
+    UpstageSolarInstructV111BInt4,
 
     /// <summary>
     /// Name: OpenOrca Mistral (7B) 8K <br/>
@@ -546,37 +722,26 @@ public enum TogetherAiModelIds
     Qwen15Chat32B,
 
     /// <summary>
-    /// Name: Qwen 2 Instruct (72B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
-    /// Description: Qwen2 is the new series of Qwen large language models. For Qwen2, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters, including a Mixture-of-Experts model. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-72B-Instruct">https://huggingface.co/Qwen/Qwen2-72B-Instruct</a>
+    /// Name: Nous Capybara v1.9 (7B) <br/>
+    /// Organization: NousResearch <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: first Nous collection of dataset and models made by fine-tuning mostly on data created by Nous in-house <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Nous-Capybara-7B-V1p9">https://huggingface.co/NousResearch/Nous-Capybara-7B-V1p9</a>
     /// </summary>
-    Qwen2Instruct72B,
+    NousCapybaraV197B,
 
     /// <summary>
-    /// Name: Qwen 1.5 Chat (72B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
-    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-72B-Chat">https://huggingface.co/Qwen/Qwen1.5-72B-Chat</a>
+    /// Name: Meta Llama 3 8B Instruct <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct</a>
     /// </summary>
-    Qwen15Chat72B,
-
-    /// <summary>
-    /// Name: DeepSeek LLM Chat (67B) <br/>
-    /// Organization: DeepSeek <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
-    /// Description: trained from scratch on a vast dataset of 2 trillion tokens in both English and Chinese <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/deepseek-llm-67b-chat">https://huggingface.co/deepseek-ai/deepseek-llm-67b-chat</a>
-    /// </summary>
-    DeepseekLlmChat67B,
+    MetaLlama38BInstruct,
 
     /// <summary>
     /// Name: Vicuna v1.5 (7B) <br/>
@@ -590,72 +755,6 @@ public enum TogetherAiModelIds
     VicunaV157B,
 
     /// <summary>
-    /// Name: WizardLM-2 (8x22B) <br/>
-    /// Organization: microsoft <br/>
-    /// Context Length: 65536 <br/>
-    /// Prompt Cost: $1.2/MTok <br/>
-    /// Completion Cost: $1.2/MTok <br/>
-    /// Description: WizardLM-2 8x22B is Wizard's most advanced model, demonstrates highly competitive performance compared to those leading proprietary works and consistently outperforms all the existing state-of-the-art opensource models. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/microsoft/WizardLM-2-8x22B">https://huggingface.co/microsoft/WizardLM-2-8x22B</a>
-    /// </summary>
-    Wizardlm28X22b,
-
-    /// <summary>
-    /// Name: Togethercomputer Llama3 8B Instruct Int8 <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/Llama-3-8b-chat-hf-int8">https://huggingface.co/togethercomputer/Llama-3-8b-chat-hf-int8</a>
-    /// </summary>
-    TogethercomputerLlama38BInstructInt8,
-
-    /// <summary>
-    /// Name: Mistral (7B) Instruct v0.3 <br/>
-    /// Organization: mistralai <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: The Mistral-7B-Instruct-v0.3 Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B-v0.3. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3</a>
-    /// </summary>
-    Mistral7BInstructV03,
-
-    /// <summary>
-    /// Name: Qwen 1.5 Chat (110B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $1.8/MTok <br/>
-    /// Completion Cost: $1.8/MTok <br/>
-    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-110B-Chat">https://huggingface.co/Qwen/Qwen1.5-110B-Chat</a>
-    /// </summary>
-    Qwen15Chat110B,
-
-    /// <summary>
-    /// Name: LLaMA-2 Chat (13B) <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.22/MTok <br/>
-    /// Completion Cost: $0.22/MTok <br/>
-    /// Description: Llama 2-chat leverages publicly available instruction datasets and over 1 million human annotations. Available in three sizes: 7B, 13B and 70B parameters <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-2-13b-chat-hf">https://huggingface.co/meta-llama/Llama-2-13b-chat-hf</a>
-    /// </summary>
-    Llama2Chat13B,
-
-    /// <summary>
-    /// Name: Gemma-2 Instruct (27B) <br/>
-    /// Organization: Google <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.8/MTok <br/>
-    /// Completion Cost: $0.8/MTok <br/>
-    /// Description: Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-2-27b-it">https://huggingface.co/google/gemma-2-27b-it</a>
-    /// </summary>
-    Gemma2Instruct27B,
-
-    /// <summary>
     /// Name: 01-ai Yi Chat (34B) <br/>
     /// Organization: 01.AI <br/>
     /// Context Length: 4096 <br/>
@@ -667,59 +766,15 @@ public enum TogetherAiModelIds
     _01AiYiChat34B,
 
     /// <summary>
-    /// Name: Meta Llama 3 70B Instruct Turbo <br/>
+    /// Name: Meta Llama 3 70B Instruct <br/>
     /// Organization: Meta <br/>
     /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.88/MTok <br/>
-    /// Completion Cost: $0.88/MTok <br/>
+    /// Prompt Cost: $0.9/MTok <br/>
+    /// Completion Cost: $0.9/MTok <br/>
     /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct-Turbo</a>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct</a>
     /// </summary>
-    MetaLlama370BInstructTurbo,
-
-    /// <summary>
-    /// Name: Meta Llama 3 70B Instruct Lite <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.54/MTok <br/>
-    /// Completion Cost: $0.54/MTok <br/>
-    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct-Lite">https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct-Lite</a>
-    /// </summary>
-    MetaLlama370BInstructLite,
-
-    /// <summary>
-    /// Name: Gemma-2 Instruct (9B) <br/>
-    /// Organization: google <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.3/MTok <br/>
-    /// Completion Cost: $0.3/MTok <br/>
-    /// Description: Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-2-9b-it">https://huggingface.co/google/gemma-2-9b-it</a>
-    /// </summary>
-    Gemma2Instruct9B,
-
-    /// <summary>
-    /// Name: Meta Llama 3 8B Reference <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3-8b-chat-hf">https://huggingface.co/meta-llama/Llama-3-8b-chat-hf</a>
-    /// </summary>
-    MetaLlama38BReference,
-
-    /// <summary>
-    /// Name: Mixtral-8x7B Instruct v0.1 <br/>
-    /// Organization: mistralai <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.6/MTok <br/>
-    /// Completion Cost: $0.6/MTok <br/>
-    /// Description: The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1">https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1</a>
-    /// </summary>
-    Mixtral8X7BInstructV01,
+    MetaLlama370BInstruct,
 
     /// <summary>
     /// Name: Code Llama (70B) <br/>
@@ -733,37 +788,37 @@ public enum TogetherAiModelIds
     CodeLlama70B,
 
     /// <summary>
-    /// Name: DBRX Instruct <br/>
-    /// Organization: Databricks <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $1.2/MTok <br/>
-    /// Completion Cost: $1.2/MTok <br/>
-    /// Description: DBRX Instruct is a mixture-of-experts (MoE) large language model trained from scratch by Databricks. DBRX Instruct specializes in few-turn interactions. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/databricks/dbrx-instruct">https://huggingface.co/databricks/dbrx-instruct</a>
+    /// Name: Code Llama Instruct (70B) <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.9/MTok <br/>
+    /// Completion Cost: $0.9/MTok <br/>
+    /// Description: Code Llama is a family of large language models for code based on Llama 2 providing infilling capabilities, support for large input contexts, and zero-shot instruction following ability for programming tasks. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf">https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf</a>
     /// </summary>
-    DbrxInstruct,
+    CodeLlamaInstruct70B,
 
     /// <summary>
-    /// Name: Meta Llama 3.1 8B Instruct <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 16384 <br/>
+    /// Name: Hermes 2 Theta Llama-3 70B <br/>
+    /// Organization: NousResearch <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0/MTok <br/>
+    /// Completion Cost: $0/MTok <br/>
+    /// Description: Hermes-2 Θ (Theta) 70B is the continuation of our experimental merged model released by Nous Research, in collaboration with Charles Goddard and Arcee AI, the team behind MergeKit. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Hermes-2-Theta-Llama-3-70B">https://huggingface.co/NousResearch/Hermes-2-Theta-Llama-3-70B</a>
+    /// </summary>
+    Hermes2ThetaLlama370B,
+
+    /// <summary>
+    /// Name: Qwen 1.5 Chat (7B) <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
     /// Prompt Cost: $0.2/MTok <br/>
     /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Reference">https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Reference</a>
+    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-7B-Chat">https://huggingface.co/Qwen/Qwen1.5-7B-Chat</a>
     /// </summary>
-    MetaLlama318BInstruct,
-
-    /// <summary>
-    /// Name: Meta Llama 3 8B Instruct Turbo <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.18/MTok <br/>
-    /// Completion Cost: $0.18/MTok <br/>
-    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct-Turbo</a>
-    /// </summary>
-    MetaLlama38BInstructTurbo,
+    Qwen15Chat7B,
 
     /// <summary>
     /// Name: Dolphin 2.5 Mixtral 8x7b <br/>
@@ -777,48 +832,59 @@ public enum TogetherAiModelIds
     Dolphin25Mixtral8X7B,
 
     /// <summary>
-    /// Name: Mixtral-8x22B Instruct v0.1 <br/>
-    /// Organization: mistralai <br/>
-    /// Context Length: 65536 <br/>
-    /// Prompt Cost: $1.2/MTok <br/>
-    /// Completion Cost: $1.2/MTok <br/>
-    /// Description: The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1">https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1</a>
-    /// </summary>
-    Mixtral8X22bInstructV01,
-
-    /// <summary>
-    /// Name: Code Llama Instruct (70B) <br/>
+    /// Name: Code Llama Python (13B) <br/>
     /// Organization: Meta <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
+    /// Context Length: 16384 <br/>
+    /// Prompt Cost: $0.22/MTok <br/>
+    /// Completion Cost: $0.22/MTok <br/>
     /// Description: Code Llama is a family of large language models for code based on Llama 2 providing infilling capabilities, support for large input contexts, and zero-shot instruction following ability for programming tasks. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf">https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf</a>
+    /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-13b-Python-hf">https://huggingface.co/codellama/CodeLlama-13b-Python-hf</a>
     /// </summary>
-    CodeLlamaInstruct70B,
+    CodeLlamaPython13B,
 
     /// <summary>
-    /// Name: Meta Llama 3 8B Instruct Lite <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
+    /// Name: Qwen 1.5 Chat (0.5B) <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
     /// Prompt Cost: $0.1/MTok <br/>
     /// Completion Cost: $0.1/MTok <br/>
-    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct-Lite">https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct-Lite</a>
+    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-0.5B-Chat">https://huggingface.co/Qwen/Qwen1.5-0.5B-Chat</a>
     /// </summary>
-    MetaLlama38BInstructLite,
+    Qwen15Chat05B,
 
     /// <summary>
-    /// Name: LLaMA-2 Chat (7B) <br/>
+    /// Name: Code Llama Instruct (7B) <br/>
     /// Organization: Meta <br/>
-    /// Context Length: 4096 <br/>
+    /// Context Length: 16384 <br/>
     /// Prompt Cost: $0.2/MTok <br/>
     /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Llama 2-chat leverages publicly available instruction datasets and over 1 million human annotations. Available in three sizes: 7B, 13B and 70B parameters <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">https://huggingface.co/meta-llama/Llama-2-7b-chat-hf</a>
+    /// Description: Code Llama is a family of large language models for code based on Llama 2 providing infilling capabilities, support for large input contexts, and zero-shot instruction following ability for programming tasks. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-7b-Instruct-hf">https://huggingface.co/codellama/CodeLlama-7b-Instruct-hf</a>
     /// </summary>
-    Llama2Chat7B,
+    CodeLlamaInstruct7B,
+
+    /// <summary>
+    /// Name: OpenHermes-2.5-Mistral (7B) <br/>
+    /// Organization: teknium <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: Continuation of OpenHermes 2 Mistral model trained on additional code datasets <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/teknium/OpenHermes-2p5-Mistral-7B">https://huggingface.co/teknium/OpenHermes-2p5-Mistral-7B</a>
+    /// </summary>
+    OpenHermes25Mistral7B,
+
+    /// <summary>
+    /// Name: Qwen 1.5 Chat (4B) <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.1/MTok <br/>
+    /// Completion Cost: $0.1/MTok <br/>
+    /// Description: Qwen1.5 is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen1.5-4B-Chat">https://huggingface.co/Qwen/Qwen1.5-4B-Chat</a>
+    /// </summary>
+    Qwen15Chat4B,
 
     /// <summary>
     /// Name: LLaMA-2 Chat (70B) <br/>
@@ -841,127 +907,6 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-7b-Python-hf">https://huggingface.co/codellama/CodeLlama-7b-Python-hf</a>
     /// </summary>
     CodeLlamaPython7B,
-
-    /// <summary>
-    /// Name: Qwen 2 Instruct (1.5B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.02/MTok <br/>
-    /// Completion Cost: $0.02/MTok <br/>
-    /// Description: Qwen2 is the new series of Qwen large language models. For Qwen2, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters, including a Mixture-of-Experts model. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-1.5B-Instruct">https://huggingface.co/Qwen/Qwen2-1.5B-Instruct</a>
-    /// </summary>
-    Qwen2Instruct15B,
-
-    /// <summary>
-    /// Name: Qwen 2 Instruct (7B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
-    /// Description: Qwen2 is the new series of Qwen large language models. For Qwen2, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters, including a Mixture-of-Experts model. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-7B-Instruct">https://huggingface.co/Qwen/Qwen2-7B-Instruct</a>
-    /// </summary>
-    Qwen2Instruct7B,
-
-    /// <summary>
-    /// Name: Qwen 2 (72B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0/MTok <br/>
-    /// Completion Cost: $0/MTok <br/>
-    /// Description: Qwen2 is the new series of Qwen large language models. For Qwen2, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters, including a Mixture-of-Experts model. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-72B">https://huggingface.co/Qwen/Qwen2-72B</a>
-    /// </summary>
-    Qwen272B,
-
-    /// <summary>
-    /// Name: Qwen 2 (7B) <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0/MTok <br/>
-    /// Completion Cost: $0/MTok <br/>
-    /// Description: Qwen2 is the new series of Qwen large language models. For Qwen2, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters, including a Mixture-of-Experts model. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-7B">https://huggingface.co/Qwen/Qwen2-7B</a>
-    /// </summary>
-    Qwen27B,
-
-    /// <summary>
-    /// Name: Upstage SOLAR Instruct v1 (11B)-Int4 <br/>
-    /// Organization: upstage <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.3/MTok <br/>
-    /// Completion Cost: $0.3/MTok <br/>
-    /// Description: Built on the Llama2 architecture, SOLAR-10.7B incorporates the innovative Upstage Depth Up-Scaling <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/SOLAR-10.7B-Instruct-v1.0-int4">https://huggingface.co/togethercomputer/SOLAR-10.7B-Instruct-v1.0-int4</a>
-    /// </summary>
-    UpstageSolarInstructV111BInt4,
-
-    /// <summary>
-    /// Name: Meta Llama 3 8B Instruct <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct</a>
-    /// </summary>
-    MetaLlama38BInstruct,
-
-    /// <summary>
-    /// Name: Meta Llama 3 70B Instruct <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
-    /// Description: Llama 3 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct</a>
-    /// </summary>
-    MetaLlama370BInstruct,
-
-    /// <summary>
-    /// Name: Hermes 2 Theta Llama-3 70B <br/>
-    /// Organization: NousResearch <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0/MTok <br/>
-    /// Completion Cost: $0/MTok <br/>
-    /// Description: Hermes-2 Θ (Theta) 70B is the continuation of our experimental merged model released by Nous Research, in collaboration with Charles Goddard and Arcee AI, the team behind MergeKit. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Hermes-2-Theta-Llama-3-70B">https://huggingface.co/NousResearch/Hermes-2-Theta-Llama-3-70B</a>
-    /// </summary>
-    Hermes2ThetaLlama370B,
-
-    /// <summary>
-    /// Name: carson ml318bit <br/>
-    /// Organization: carson <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: carson <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/carson/ml318bit">https://huggingface.co/carson/ml318bit</a>
-    /// </summary>
-    CarsonMl318bit,
-
-    /// <summary>
-    /// Name: carson ml31405bit <br/>
-    /// Organization: carson <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $4.4/MTok <br/>
-    /// Completion Cost: $4.4/MTok <br/>
-    /// Description: carson <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/carson/ml31405bit">https://huggingface.co/carson/ml31405bit</a>
-    /// </summary>
-    CarsonMl31405bit,
-
-    /// <summary>
-    /// Name: carson ml3170bit <br/>
-    /// Organization: carson <br/>
-    /// Context Length: 16384 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
-    /// Description: carson <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/carson/ml3170bit">https://huggingface.co/carson/ml3170bit</a>
-    /// </summary>
-    CarsonMl3170bit,
 
     /// <summary>
     /// Name: carson ml318br <br/>
@@ -995,16 +940,5 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Reference">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Reference</a>
     /// </summary>
     MetaLlama3170BInstruct,
-
-    /// <summary>
-    /// Name: Meta Llama 3.1 70B <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
-    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Reference">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Reference</a>
-    /// </summary>
-    MetaLlama3170B,
 
 }
