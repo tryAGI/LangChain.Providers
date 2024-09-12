@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.0.1" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.403.6" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403.6" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.404" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403.7" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="1.0.0-beta.17" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
     <PackageVersion Include="FluentAssertions" Version="6.12.1" />
@@ -26,14 +26,14 @@
     </PackageVersion>
     <PackageVersion Include="HtmlAgilityPack" Version="1.11.65" />
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
-    <PackageVersion Include="LangChain.Core" Version="0.15.1-dev.120" />
+    <PackageVersion Include="LangChain.Core" Version="0.15.1-dev.125" />
     <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.2" />
     <PackageVersion Include="LangChain.Databases.InMemory" Version="0.15.2" />
     <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.2" />
-    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.1-dev.120" />
-    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.1-dev.120" />
-    <PackageVersion Include="LangChain.Polyfills" Version="0.15.1-dev.120" />
-    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.1-dev.120" />
+    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.1-dev.125" />
+    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.1-dev.125" />
+    <PackageVersion Include="LangChain.Polyfills" Version="0.15.1-dev.125" />
+    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.1-dev.125" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.14.0" />
     <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.16.0" />
@@ -47,7 +47,7 @@
     <PackageVersion Include="MSTest.TestFramework" Version="3.6.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing.MSTest" Version="1.1.2" />
     <PackageVersion Include="Verify.MSTest" Version="26.4.4" />
-    <PackageVersion Include="Verify.SourceGenerators" Version="2.4.0" />
+    <PackageVersion Include="Verify.SourceGenerators" Version="2.4.1" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Npgsql" Version="8.0.4" />
     <PackageVersion Include="Ollama" Version="1.4.3" />
