@@ -47,7 +47,7 @@
     <PackageVersion Include="MSTest.TestFramework" Version="3.6.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing.MSTest" Version="1.1.2" />
     <PackageVersion Include="Verify.MSTest" Version="26.4.4" />
-    <PackageVersion Include="Verify.SourceGenerators" Version="2.4.1" />
+    <PackageVersion Include="Verify.SourceGenerators" Version="2.4.3" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Npgsql" Version="8.0.4" />
     <PackageVersion Include="Ollama" Version="1.4.3" />
