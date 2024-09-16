@@ -12,6 +12,7 @@ using LangChain.Providers.Google;
 using LangChain.Providers.Google.Predefined;
 using LangChain.Providers.Groq;
 using LangChain.Providers.Groq.Predefined;
+using LangChain.Providers.Ollama;
 using LangChain.Providers.OpenAI;
 using LangChain.Providers.OpenAI.Predefined;
 using LangChain.Providers.OpenRouter;
@@ -21,7 +22,7 @@ namespace LangChain.IntegrationTests;
 
 public static class Helpers
 {
-    public static (IChatModel ChatModel, IEmbeddingModel EmbeddingModel) GetModels(ProviderType providerType)
+    public static (IChatModel ChatModel, IEmbeddingModel EmbeddingModel, IProvider Provider) GetModels(ProviderType providerType)
     {
         switch (providerType)
         {
@@ -33,8 +34,17 @@ public static class Helpers
                     var llm = new OpenAiLatestFastChatModel(provider);
                     var embeddings = new TextEmbeddingV3SmallModel(provider);
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
+            case ProviderType.Ollama:
+            {
+                // url: "http://10.10.0.125:11434/api"
+                var provider = new OllamaProvider(url: "http://10.10.0.125:11434/api");
+                var llm = new OllamaChatModel(provider, id: "llama3.1");
+                var embeddings = new OllamaEmbeddingModel(provider, id: "all-minilm");
+
+                return (llm, embeddings, provider);
+            }
             case ProviderType.Together:
                 {
                     // https://www.together.ai/blog/embeddings-endpoint-release
@@ -44,7 +54,7 @@ public static class Helpers
                     var llm = new TogetherAiModel(provider, id: "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo");
                     var embeddings = new OpenAiEmbeddingModel(provider, id: "togethercomputer/m2-bert-80M-2k-retrieval");
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.Anyscale:
                 {
@@ -59,7 +69,7 @@ public static class Helpers
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.Fireworks:
                 {
@@ -74,7 +84,7 @@ public static class Helpers
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.OpenRouter:
                 {
@@ -88,7 +98,7 @@ public static class Helpers
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.DeepInfra:
                 {
@@ -102,7 +112,7 @@ public static class Helpers
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.Google:
                 {
@@ -117,7 +127,7 @@ public static class Helpers
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.Anthropic:
                 {
@@ -131,7 +141,7 @@ public static class Helpers
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.Groq:
                 {
@@ -149,21 +159,22 @@ public static class Helpers
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.DeepSeek:
                 {
                     var apiKey =
                         Environment.GetEnvironmentVariable("DEEPSEEK_API_KEY") ??
                         throw new InconclusiveException("DEEPSEEK_API_KEY is not set");
-                    var llm = new DeepSeekChatModel(new DeepSeekProvider(apiKey));
+                    var provider = new DeepSeekProvider(apiKey);
+                    var llm = new DeepSeekChatModel(provider);
 
                     // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
                     var embeddings = new TextEmbeddingV3SmallModel(
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
             case ProviderType.Azure:
                 {
@@ -191,7 +202,7 @@ public static class Helpers
                         Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
                         throw new InconclusiveException("OPENAI_API_KEY is not set"));
 
-                    return (llm, embeddings);
+                    return (llm, embeddings, provider);
                 }
 
             default:

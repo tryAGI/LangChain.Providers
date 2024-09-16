@@ -14,4 +14,6 @@ public enum ProviderType
     DeepSeek,
     Azure,
     Reka,
+    GitHub,
+    Ollama,
 }
