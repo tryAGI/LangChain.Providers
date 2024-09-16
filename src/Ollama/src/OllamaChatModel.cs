@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text;
 using Ollama;
 
 namespace LangChain.Providers.Ollama;
@@ -17,108 +19,169 @@ public class OllamaChatModel(
     public OllamaProvider Provider { get; } = provider ?? throw new ArgumentNullException(nameof(provider));
 
     /// <inheritdoc />
-    public override int ContextLength => 0;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public bool UseJson { get; set; }
-
-    /// <inheritdoc />
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
         try
         {
-            await Provider.Api.Models.PullModelAndEnsureSuccessAsync(Id, cancellationToken: cancellationToken).ConfigureAwait(false);
+            await Provider.Api.Models.PullModelAsync(Id, cancellationToken: cancellationToken)
+                .EnsureSuccessAsync().ConfigureAwait(false);
         }
         catch (HttpRequestException)
         {
             // Ignore
         }
 
-        var prompt = ToPrompt(request.Messages);
+        var usedSettings = OllamaChatSettings.Calculate(
+            requestSettings: settings,
+            modelSettings: Settings,
+            providerSettings: provider.ChatSettings);
         var watch = Stopwatch.StartNew();
-        var response = Provider.Api.Completions.GenerateCompletionAsync(new GenerateCompletionRequest
-        {
-            Prompt = prompt,
-            Model = Id,
-            Options = Provider.Options,
-            Stream = true,
-            Raw = true,
-            Format = UseJson ? ResponseFormat.Json : null,
-        }, cancellationToken);
+        var tools = request.Tools
+            .Concat(GlobalTools)
+            .Select(x => new Tool
+            {
+                Type = ToolType.Function,
+                Function = new ToolFunction
+                {
+                    Name = x.Type,
+                    Description = x.Description,
+                    Parameters = x.Items != null
+                        ? ToTool<ToolFunctionParams>(x.Items)
+                        : new ToolFunctionParams(),
+                },
+            })
+            .ToArray();
+        tools = tools.Length > 0 ? tools : null;
+        var response = Provider.Api.Chat.GenerateChatCompletionAsync(
+            model: Id,
+            messages: request.Messages.Select(x => new global::Ollama.Message
+            {
+                Role = x.Role switch
+                {
+                    MessageRole.Human => global::Ollama.MessageRole.User,
+                    MessageRole.Ai => global::Ollama.MessageRole.Assistant,
+                    MessageRole.System => global::Ollama.MessageRole.System,
+                    MessageRole.ToolCall => global::Ollama.MessageRole.Tool,
+                    _ => global::Ollama.MessageRole.User,
+                },
+                Content = x.Content,
+            }).ToList(),
+            format: usedSettings.Format,
+            options: new RequestOptions
+            {
+                Temperature = usedSettings.Temperature,
+                Stop = usedSettings.StopSequences?.ToList(),
+                
+                NumKeep = usedSettings.NumKeep,
+                Seed = usedSettings.Seed,
+                NumPredict = usedSettings.NumPredict,
+                TopK = usedSettings.TopK,
+                TopP = usedSettings.TopP,
+                MinP = usedSettings.MinP,
+                TfsZ = usedSettings.TfsZ,
+                TypicalP = usedSettings.TypicalP,
+                RepeatLastN = usedSettings.RepeatLastN,
+                RepeatPenalty = usedSettings.RepeatPenalty,
+                PresencePenalty = usedSettings.PresencePenalty,
+                FrequencyPenalty = usedSettings.FrequencyPenalty,
+                Mirostat = usedSettings.Mirostat,
+                MirostatTau = usedSettings.MirostatTau,
+                MirostatEta = usedSettings.MirostatEta,
+                PenalizeNewline = usedSettings.PenalizeNewline,
+                Numa = usedSettings.Numa,
+                NumCtx = usedSettings.NumCtx,
+                NumBatch = usedSettings.NumBatch,
+                NumGpu = usedSettings.NumGpu,
+                MainGpu = usedSettings.MainGpu,
+                LowVram = usedSettings.LowVram,
+                F16Kv = usedSettings.F16Kv,
+                LogitsAll = usedSettings.LogitsAll,
+                VocabOnly = usedSettings.VocabOnly,
+                UseMmap = usedSettings.UseMmap,
+                UseMlock = usedSettings.UseMlock,
+                NumThread = usedSettings.NumThread,
+            },
+            stream: usedSettings.UseStreaming ?? true,
+            keepAlive: usedSettings.KeepAlive,
+            tools: tools,
+            cancellationToken: cancellationToken);
 
-        OnPromptSent(prompt);
+        OnRequestSent(request);
 
-        var buf = "";
+        GenerateChatCompletionResponse? lastResponse = null;
+        IReadOnlyList<ChatToolCall>? toolCalls = null;
+        var stringBuilder = new StringBuilder(capacity: 1024);
         await foreach (var completion in response)
         {
-            buf += completion.Response;
-            OnPartialResponseGenerated(completion.Response ?? string.Empty);
+            lastResponse = completion;
+            var delta = new ChatResponseDelta
+            {
+                Content = completion.Message.Content,
+            };
+
+            toolCalls ??= completion.Message.ToolCalls?.Select(x => new ChatToolCall
+            {
+                Id = x.Function?.Name ?? string.Empty,
+                ToolName = x.Function?.Name ?? string.Empty,
+                ToolArguments = x.Function?.Arguments.AsJson() ?? string.Empty,
+            }).ToList();
+            OnDeltaReceived(delta);
+            stringBuilder.Append(delta.Content);
         }
 
-        OnCompletedResponseGenerated(buf);
-
         var result = request.Messages.ToList();
-        result.Add(buf.AsAiMessage());
+        result.Add(stringBuilder.ToString().AsAiMessage());
 
-        watch.Stop();
-
-        // Unsupported
         var usage = Usage.Empty with
         {
+            InputTokens = lastResponse?.PromptEvalCount ?? 0,
+            OutputTokens = lastResponse?.EvalCount ?? 0,
+            Messages = 1,
             Time = watch.Elapsed,
         };
         AddUsage(usage);
         provider.AddUsage(usage);
 
-        return new ChatResponse
+        var chatResponse = new ChatResponse
         {
             Messages = result,
             Usage = usage,
-            UsedSettings = ChatSettings.Default,
+            UsedSettings = usedSettings,
+            FinishReason = lastResponse?.DoneReason?.Value2 switch
+            {
+                DoneReasonEnum.Stop => ChatResponseFinishReason.Stop,
+                DoneReasonEnum.Length => ChatResponseFinishReason.Length,
+                DoneReasonEnum.Load => null,
+                _ => null,
+            },
         };
+        OnResponseReceived(chatResponse);
+
+        yield return chatResponse;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="role"></param>
-    /// <returns></returns>
-    /// <exception cref="NotSupportedException"></exception>
-    protected static string ConvertRole(MessageRole role)
+    private static T ToTool<T>(OpenApiSchema schema) where T : global::Ollama.OpenApiSchema, new()
     {
-        return role switch
+        schema = schema ?? throw new ArgumentNullException(nameof(schema));
+
+        return new T
         {
-            MessageRole.Human => "Human: ",
-            MessageRole.Ai => "Assistant: ",
-            MessageRole.System => "",
-            _ => throw new NotSupportedException($"the role {role} is not supported")
+            Type = schema.Type,
+            Description = schema.Description,
+            Items = schema.Items != null
+                ? ToTool<global::Ollama.OpenApiSchema>(schema.Items)
+                : null,
+            Properties = schema.Properties
+                .ToDictionary(
+                    x => x.Key,
+                    x => ToTool<global::Ollama.OpenApiSchema>(x.Value)),
+            Required = schema.Required,
+            Enum = schema.Enum,
         };
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="message"></param>
-    /// <returns></returns>
-    protected static string ConvertMessage(Message message)
-    {
-        return $"{ConvertRole(message.Role)}{message.Content}";
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="messages"></param>
-    /// <returns></returns>
-    protected static string ToPrompt(IEnumerable<Message> messages)
-    {
-        return string.Join("\n", messages.Select(ConvertMessage).ToArray());
     }
 }

@@ -7,7 +7,7 @@ namespace LangChain.Providers.Ollama;
 /// </summary>
 public class OllamaEmbeddingModel(
     OllamaProvider provider,
-    string id = "ollama")
+    string id)
     : Model<EmbeddingSettings>(id), IEmbeddingModel
 {
     /// <summary>
@@ -27,7 +27,8 @@ public class OllamaEmbeddingModel(
 
         try
         {
-            await Provider.Api.Models.PullModelAndEnsureSuccessAsync(Id, cancellationToken: cancellationToken).ConfigureAwait(false);
+            await Provider.Api.Models.PullModelAsync(Id, cancellationToken: cancellationToken)
+                .EnsureSuccessAsync().ConfigureAwait(false);
         }
         catch (HttpRequestException)
         {
@@ -37,12 +38,15 @@ public class OllamaEmbeddingModel(
         var results = new List<IList<double>>(capacity: request.Strings.Count);
         foreach (var prompt in request.Strings)
         {
-            var response = await Provider.Api.Embeddings.GenerateEmbeddingAsync(new GenerateEmbeddingRequest
-            {
-                Prompt = prompt,
-                Model = Id,
-                Options = Provider.Options,
-            }, cancellationToken).ConfigureAwait(false);
+            var response = await Provider.Api.Embeddings.GenerateEmbeddingAsync(
+                model: Id,
+                prompt: prompt,
+                options: new RequestOptions
+                {
+                    F16Kv = null,
+                },
+                keepAlive: null,
+                cancellationToken).ConfigureAwait(false);
 
             results.Add(response.Embedding ?? []);
         }

@@ -6,11 +6,9 @@ namespace LangChain.Providers.Ollama;
 /// 
 /// </summary>
 /// <param name="url"></param>
-/// <param name="options"></param>
-public class OllamaProvider(
-    string url = "http://localhost:11434/api",
-    RequestOptions? options = null)
-    : Provider(id: "ollama")
+public sealed class OllamaProvider(
+    string url = "http://localhost:11434/api")
+    : Provider(id: "ollama"), IDisposable
 {
     /// <summary>
     /// 
@@ -20,8 +18,8 @@ public class OllamaProvider(
         Timeout = TimeSpan.FromHours(1),
     }, baseUri: new Uri(url));
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public RequestOptions Options { get; } = options ?? new RequestOptions();
+    public void Dispose()
+    {
+        Api.Dispose();
+    }
 }
