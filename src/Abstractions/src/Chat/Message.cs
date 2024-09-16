@@ -6,11 +6,11 @@ namespace LangChain.Providers;
 /// </summary>
 /// <param name="Content"></param>
 /// <param name="Role"></param>
-/// <param name="FunctionName"></param>
+/// <param name="ToolName"></param>
 public readonly record struct Message(
     string Content,
     MessageRole Role,
-    string? FunctionName = null)
+    string? ToolName = null)
 {
     /// <summary>
     /// 
@@ -32,7 +32,7 @@ public readonly record struct Message(
     public static Message Empty { get; } = new(
         Content: string.Empty,
         Role: MessageRole.Human,
-        FunctionName: null);
+        ToolName: null);
 
     /// <summary>
     /// 
@@ -62,10 +62,11 @@ public readonly record struct Message(
     /// <returns></returns>
     public override string ToString()
     {
-        if (FunctionName != null)
+        if (ToolName != null)
         {
-            return $"{Role}({FunctionName}):\n{Content}";
+            return $"{Role}({ToolName}):\n{Content}";
         }
+        
         return $"{Role}: {Content}";
     }
 }

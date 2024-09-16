@@ -23,17 +23,17 @@ public interface IChatModel : IModel<ChatSettings>
     /// <summary>
     /// Occurs when token generated in streaming mode.
     /// </summary>
-    event EventHandler<string>? PartialResponseGenerated;
+    event EventHandler<ChatResponseDelta>? DeltaReceived;
 
     /// <summary>
     /// Occurs when completed response generated.
     /// </summary>
-    event EventHandler<string>? CompletedResponseGenerated;
+    event EventHandler<ChatResponse>? ResponseReceived;
 
     /// <summary>
-    /// Occurs before prompt is sent to the model.
+    /// Occurs before request is sent to the model.
     /// </summary>
-    event EventHandler<string>? PromptSent;
+    event EventHandler<ChatRequest>? RequestSent;
 
 
     /// <summary>
@@ -43,7 +43,7 @@ public interface IChatModel : IModel<ChatSettings>
     /// <param name="settings"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public Task<ChatResponse> GenerateAsync(
+    public IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
         CancellationToken cancellationToken = default);

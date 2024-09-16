@@ -52,24 +52,38 @@ public static class MessageStringExtensions
     /// 
     /// </summary>
     /// <param name="text"></param>
-    /// <param name="functionName"></param>
+    /// <param name="toolName"></param>
     /// <returns></returns>
-    public static Message AsFunctionCallMessage(this string text, string functionName)
+    public static Message AsToolCallMessage(this string text, string toolName)
     {
-        return new Message(text, MessageRole.ToolCall, FunctionName: functionName);
+        return new Message(text, MessageRole.ToolCall, ToolName: toolName);
     }
 
     /// <summary>
     /// 
     /// </summary>
     /// <param name="text"></param>
-    /// <param name="functionName"></param>
+    /// <param name="toolName"></param>
     /// <returns></returns>
-    public static Message AsFunctionResultMessage(this string text, string functionName)
+    public static Message AsToolResultMessage(this string text, string toolName)
     {
-        return new Message(text, MessageRole.ToolResult, FunctionName: functionName);
+        return new Message(text, MessageRole.ToolResult, ToolName: toolName);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="json"></param>
+    /// <param name="call"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public static Message AsToolResultMessage(this string json, ChatToolCall call)
+    {
+        call = call ?? throw new ArgumentNullException(nameof(call));
+
+        return new Message(json, MessageRole.ToolResult, $"{call.ToolName}:{call.Id}");
+    }
+    
     /// <summary>
     /// 
     /// </summary>
@@ -93,7 +107,7 @@ public static class MessageStringExtensions
             });
             if (message.Role is MessageRole.ToolCall or MessageRole.ToolResult)
             {
-                builder.Append(message.FunctionName);
+                builder.Append(message.ToolName);
             }
             if (message.Role == MessageRole.ToolCall)
             {

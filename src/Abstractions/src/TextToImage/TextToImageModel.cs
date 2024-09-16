@@ -4,12 +4,12 @@ public abstract class TextToImageModel(string id) : Model<TextToImageSettings>(i
 {
     #region Events
 
-    /// <inheritdoc cref="IChatModel.PromptSent"/>
-    public event EventHandler<string>? PromptSent;
+    /// <inheritdoc cref="IChatModel.RequestSent"/>
+    public event EventHandler<TextToImageRequest>? RequestSent;
 
-    protected void OnPromptSent(string prompt)
+    protected void OnRequestSent(TextToImageRequest request)
     {
-        PromptSent?.Invoke(this, prompt);
+        RequestSent?.Invoke(this, request);
     }
 
     #endregion

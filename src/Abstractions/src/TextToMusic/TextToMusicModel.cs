@@ -4,12 +4,12 @@ public abstract class TextToMusicModel(string id) : Model<TextToMusicSettings>(i
 {
     #region Events
 
-    /// <inheritdoc cref="IChatModel.PromptSent"/>
-    public event EventHandler<string>? PromptSent;
+    /// <inheritdoc cref="IChatModel.RequestSent"/>
+    public event EventHandler<TextToMusicRequest>? RequestSent;
 
-    protected void OnPromptSent(string prompt)
+    protected void OnRequestSent(TextToMusicRequest request)
     {
-        PromptSent?.Invoke(this, prompt);
+        RequestSent?.Invoke(this, request);
     }
 
     #endregion

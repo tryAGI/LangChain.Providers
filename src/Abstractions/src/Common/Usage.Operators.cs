@@ -16,7 +16,9 @@ public readonly partial record struct Usage
             OutputTokens: a.OutputTokens + b.OutputTokens,
             Messages: a.Messages + b.Messages,
             Time: a.Time + b.Time,
-            PriceInUsd: a.PriceInUsd + b.PriceInUsd);
+            PriceInUsd: a.PriceInUsd != null
+                ? a.PriceInUsd + b.PriceInUsd
+                : b.PriceInUsd);
     }
 
     /// <summary>
@@ -32,7 +34,9 @@ public readonly partial record struct Usage
             OutputTokens: a.OutputTokens - b.OutputTokens,
             Messages: a.Messages - b.Messages,
             Time: a.Time - b.Time,
-            PriceInUsd: a.PriceInUsd - b.PriceInUsd);
+            PriceInUsd: a.PriceInUsd != null
+                ? a.PriceInUsd - b.PriceInUsd
+                : - b.PriceInUsd);
     }
 
     /// <summary>

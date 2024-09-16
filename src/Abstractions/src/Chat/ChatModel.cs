@@ -7,34 +7,33 @@ public abstract partial class ChatModel(string id) : Model<ChatSettings>(id), IC
 
     public virtual int ContextLength { get; protected set; }
 
-    /// <inheritdoc cref="IChatModel.PartialResponseGenerated"/>
-    public event EventHandler<string>? PartialResponseGenerated;
+    /// <inheritdoc cref="IChatModel.DeltaReceived"/>
+    public event EventHandler<ChatResponseDelta>? DeltaReceived;
 
-    protected void OnPartialResponseGenerated(string token)
+    protected void OnDeltaReceived(ChatResponseDelta delta)
     {
-        PartialResponseGenerated?.Invoke(this, token);
+        DeltaReceived?.Invoke(this, delta);
     }
 
-    /// <inheritdoc cref="IChatModel.CompletedResponseGenerated"/>
-    public event EventHandler<string>? CompletedResponseGenerated;
+    /// <inheritdoc cref="IChatModel.ResponseReceived"/>
+    public event EventHandler<ChatResponse>? ResponseReceived;
 
-    protected void OnCompletedResponseGenerated(string token)
+    protected void OnResponseReceived(ChatResponse response)
     {
-        CompletedResponseGenerated?.Invoke(this, token);
+        ResponseReceived?.Invoke(this, response);
     }
 
-    /// <inheritdoc cref="IChatModel.PromptSent"/>
-    public event EventHandler<string>? PromptSent;
+    /// <inheritdoc cref="IChatModel.RequestSent"/>
+    public event EventHandler<ChatRequest>? RequestSent;
 
-
-    protected void OnPromptSent(string prompt)
+    protected void OnRequestSent(ChatRequest request)
     {
-        PromptSent?.Invoke(this, prompt);
+        RequestSent?.Invoke(this, request);
     }
 
     #endregion
 
-    public abstract Task<ChatResponse> GenerateAsync(
+    public abstract IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
         CancellationToken cancellationToken = default);

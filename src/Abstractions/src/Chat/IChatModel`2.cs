@@ -1,9 +1,10 @@
+// ReSharper disable once CheckNamespace
 namespace LangChain.Providers;
 
 /// <summary>
 /// Defines a large language model that can be used for chat.
 /// </summary>
-public interface IChatModel<in TRequest, TResponse, in TSettings> : IChatModel
+public interface IChatModel<in TRequest, out TResponse, in TSettings> : IChatModel
 {
     /// <summary>
     /// Run the LLM on the given prompt and input.
@@ -12,7 +13,7 @@ public interface IChatModel<in TRequest, TResponse, in TSettings> : IChatModel
     /// <param name="settings"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public Task<TResponse> GenerateAsync(
+    public IAsyncEnumerable<TResponse> GenerateAsync(
         TRequest request,
         TSettings? settings = default,
         CancellationToken cancellationToken = default);

@@ -9,7 +9,7 @@ public interface ITextToMusicModel : IModel<TextToMusicSettings>
     /// <summary>
     /// Occurs before prompt is sent to the model.
     /// </summary>
-    event EventHandler<string>? PromptSent;
+    event EventHandler<TextToMusicRequest>? RequestSent;
 
     /// <summary>
     /// 

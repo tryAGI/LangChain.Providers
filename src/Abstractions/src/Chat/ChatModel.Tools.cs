@@ -43,6 +43,22 @@ public partial class ChatModel
         GlobalTools.Clear();
         Calls.Clear();
     }
+    
+    protected virtual async Task CallToolsAsync(
+        IReadOnlyList<ChatToolCall> toolCalls,
+        IList<Message> messages,
+        CancellationToken cancellationToken = default)
+    {
+        toolCalls = toolCalls ?? throw new ArgumentNullException(nameof(toolCalls));
+        messages = messages ?? throw new ArgumentNullException(nameof(messages));
+
+        foreach (var call in toolCalls)
+        {
+            var func = Calls[call.ToolName];
+            var json = await func(call.ToolArguments, cancellationToken).ConfigureAwait(false);
+            messages.Add(json.AsToolResultMessage(call));
+        }
+    }
 
     #endregion
 }
