@@ -40,17 +40,6 @@ public enum DeepInfraModelIds
     MetaLlama318BInstruct,
 
     /// <summary>
-    /// Name: Reflection-Llama-3.1-70B <br/>
-    /// Organization: mattshumer <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.35/MTok <br/>
-    /// Completion Cost: $0.35/MTok <br/>
-    /// Description: Reflection Llama-3.1 70B is trained with a new technique called Reflection-Tuning that teaches a LLM to detect mistakes in its reasoning and correct course.  The model was trained on synthetic data. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/mattshumer/Reflection-Llama-3.1-70B">https://huggingface.co/mattshumer/Reflection-Llama-3.1-70B</a> 
-    /// </summary>
-    ReflectionLlama3170B,
-
-    /// <summary>
     /// Name: Mistral-Nemo-Instruct-2407 <br/>
     /// Organization: mistralai <br/>
     /// Context Length: 131072 <br/>
@@ -148,17 +137,6 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct</a> 
     /// </summary>
     MetaLlama38BInstruct,
-
-    /// <summary>
-    /// Name: Mixtral-8x22B-Instruct-v0.1 <br/>
-    /// Organization: mistralai <br/>
-    /// Context Length: 65536 <br/>
-    /// Prompt Cost: $0.65/MTok <br/>
-    /// Completion Cost: $0.65/MTok <br/>
-    /// Description: This is the instruction fine-tuned version of Mixtral-8x22B - the latest and largest mixture of experts large language model (LLM) from Mistral AI. This state of the art machine learning model uses a mixture 8 of experts (MoE) 22b models. During inference 2 experts are selected. This architecture allows large models to be fast and cheap at inference. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1">https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1</a> 
-    /// </summary>
-    Mixtral8X22bInstructV01,
 
     /// <summary>
     /// Name: WizardLM-2-8x22B <br/>
@@ -282,6 +260,17 @@ public enum DeepInfraModelIds
     Qwen27BInstruct,
 
     /// <summary>
+    /// Name: L3.1-70B-Euryale-v2.2 <br/>
+    /// Organization: Sao10K <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.35/MTok <br/>
+    /// Completion Cost: $0.35/MTok <br/>
+    /// Description: Euryale 3.1 - 70B v2.2 is a model focused on creative roleplay from Sao10k <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3.1-70B-Euryale-v2.2">https://huggingface.co/Sao10K/L3.1-70B-Euryale-v2.2</a> 
+    /// </summary>
+    L3170BEuryaleV22,
+
+    /// <summary>
     /// Name: starcoder2-15b <br/>
     /// Organization: bigcode <br/>
     /// Context Length: 16384 <br/>
@@ -392,6 +381,17 @@ public enum DeepInfraModelIds
     Gemma117BIt,
 
     /// <summary>
+    /// Name: Reflection-Llama-3.1-70B <br/>
+    /// Organization: mattshumer <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.35/MTok <br/>
+    /// Completion Cost: $0.35/MTok <br/>
+    /// Description: Reflection Llama-3.1 70B is trained with a new technique called Reflection-Tuning that teaches a LLM to detect mistakes in its reasoning and correct course.  The model was trained on synthetic data. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/mattshumer/Reflection-Llama-3.1-70B">https://huggingface.co/mattshumer/Reflection-Llama-3.1-70B</a> 
+    /// </summary>
+    ReflectionLlama3170B,
+
+    /// <summary>
     /// Name: Llama-2-13b-chat-hf <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 4096 <br/>
@@ -456,6 +456,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2</a> 
     /// </summary>
     Mistral7BInstructV02,
+
+    /// <summary>
+    /// Name: Mixtral-8x22B-Instruct-v0.1 <br/>
+    /// Organization: mistralai <br/>
+    /// Context Length: 65536 <br/>
+    /// Prompt Cost: $0.65/MTok <br/>
+    /// Completion Cost: $0.65/MTok <br/>
+    /// Description: This is the instruction fine-tuned version of Mixtral-8x22B - the latest and largest mixture of experts large language model (LLM) from Mistral AI. This state of the art machine learning model uses a mixture 8 of experts (MoE) 22b models. During inference 2 experts are selected. This architecture allows large models to be fast and cheap at inference. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1">https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1</a> 
+    /// </summary>
+    Mixtral8X22bInstructV01,
 
     /// <summary>
     /// Name: Mixtral-8x22B-v0.1 <br/>
