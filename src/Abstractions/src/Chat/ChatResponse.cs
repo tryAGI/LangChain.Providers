@@ -18,15 +18,15 @@ public class ChatResponse
     /// 
     /// </summary>
     public required ChatSettings UsedSettings { get; init; }
-    
+
     /// <summary>
     /// 
     /// </summary>
     public ChatResponseDelta? Delta { get; init; }
-    
+
     /// <inheritdoc cref="ChatResponseFinishReason"/>
     public ChatResponseFinishReason? FinishReason { get; init; }
-    
+
     /// <summary>
     /// 
     /// </summary>

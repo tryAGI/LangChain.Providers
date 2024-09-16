@@ -36,7 +36,7 @@ public readonly partial record struct Usage
             Time: a.Time - b.Time,
             PriceInUsd: a.PriceInUsd != null
                 ? a.PriceInUsd - b.PriceInUsd
-                : - b.PriceInUsd);
+                : -b.PriceInUsd);
     }
 
     /// <summary>

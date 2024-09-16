@@ -66,7 +66,7 @@ public readonly record struct Message(
         {
             return $"{Role}({ToolName}):\n{Content}";
         }
-        
+
         return $"{Role}: {Content}";
     }
 }

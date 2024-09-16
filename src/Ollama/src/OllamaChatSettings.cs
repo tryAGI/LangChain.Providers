@@ -21,7 +21,7 @@ public class OllamaChatSettings : ChatSettings
 
     /// <inheritdoc cref="GenerateChatCompletionRequest.KeepAlive"/>
     public int? KeepAlive { get; init; }
-    
+
     /// <inheritdoc cref="RequestOptions.NumKeep"/>
     public int? NumKeep { get; set; }
 
@@ -108,7 +108,7 @@ public class OllamaChatSettings : ChatSettings
 
     /// <inheritdoc cref="RequestOptions.NumThread"/>
     public int? NumThread { get; set; }
-    
+
     /// <summary>
     /// Calculate the settings to use for the request.
     /// </summary>
@@ -146,12 +146,12 @@ public class OllamaChatSettings : ChatSettings
                 providerSettings?.UseStreaming ??
                 Default.UseStreaming ??
                 throw new InvalidOperationException("Default UseStreaming is not set."),
-            Format = 
+            Format =
                 requestSettingsCasted?.Format ??
                 modelSettingsCasted?.Format ??
                 providerSettingsCasted?.Format ??
                 Default.Format,
-            KeepAlive = 
+            KeepAlive =
                 requestSettingsCasted?.KeepAlive ??
                 modelSettingsCasted?.KeepAlive ??
                 providerSettingsCasted?.KeepAlive ??
@@ -161,77 +161,77 @@ public class OllamaChatSettings : ChatSettings
                 modelSettingsCasted?.NumKeep ??
                 providerSettingsCasted?.NumKeep ??
                 Default.NumKeep,
-            Seed = 
+            Seed =
                 requestSettingsCasted?.Seed ??
                 modelSettingsCasted?.Seed ??
                 providerSettingsCasted?.Seed ??
                 Default.Seed,
-            NumPredict = 
+            NumPredict =
                 requestSettingsCasted?.NumPredict ??
                 modelSettingsCasted?.NumPredict ??
                 providerSettingsCasted?.NumPredict ??
                 Default.NumPredict,
-            TopK = 
+            TopK =
                 requestSettingsCasted?.TopK ??
                 modelSettingsCasted?.TopK ??
                 providerSettingsCasted?.TopK ??
                 Default.TopK,
-            TopP = 
+            TopP =
                 requestSettingsCasted?.TopP ??
                 modelSettingsCasted?.TopP ??
                 providerSettingsCasted?.TopP ??
                 Default.TopP,
-            MinP = 
+            MinP =
                 requestSettingsCasted?.MinP ??
                 modelSettingsCasted?.MinP ??
                 providerSettingsCasted?.MinP ??
                 Default.MinP,
-            TfsZ = 
+            TfsZ =
                 requestSettingsCasted?.TfsZ ??
                 modelSettingsCasted?.TfsZ ??
                 providerSettingsCasted?.TfsZ ??
                 Default.TfsZ,
-            TypicalP = 
+            TypicalP =
                 requestSettingsCasted?.TypicalP ??
                 modelSettingsCasted?.TypicalP ??
                 providerSettingsCasted?.TypicalP ??
                 Default.TypicalP,
-            RepeatLastN = 
+            RepeatLastN =
                 requestSettingsCasted?.RepeatLastN ??
                 modelSettingsCasted?.RepeatLastN ??
                 providerSettingsCasted?.RepeatLastN ??
                 Default.RepeatLastN,
-            Temperature = 
+            Temperature =
                 requestSettingsCasted?.Temperature ??
                 modelSettingsCasted?.Temperature ??
                 providerSettingsCasted?.Temperature ??
                 Default.Temperature,
-            RepeatPenalty = 
+            RepeatPenalty =
                 requestSettingsCasted?.RepeatPenalty ??
                 modelSettingsCasted?.RepeatPenalty ??
                 providerSettingsCasted?.RepeatPenalty ??
                 Default.RepeatPenalty,
-            PresencePenalty = 
+            PresencePenalty =
                 requestSettingsCasted?.PresencePenalty ??
                 modelSettingsCasted?.PresencePenalty ??
                 providerSettingsCasted?.PresencePenalty ??
                 Default.PresencePenalty,
-            FrequencyPenalty = 
+            FrequencyPenalty =
                 requestSettingsCasted?.FrequencyPenalty ??
                 modelSettingsCasted?.FrequencyPenalty ??
                 providerSettingsCasted?.FrequencyPenalty ??
                 Default.FrequencyPenalty,
-            Mirostat = 
+            Mirostat =
                 requestSettingsCasted?.Mirostat ??
                 modelSettingsCasted?.Mirostat ??
                 providerSettingsCasted?.Mirostat ??
                 Default.Mirostat,
-            MirostatTau = 
+            MirostatTau =
                 requestSettingsCasted?.MirostatTau ??
                 modelSettingsCasted?.MirostatTau ??
                 providerSettingsCasted?.MirostatTau ??
                 Default.MirostatTau,
-            MirostatEta = 
+            MirostatEta =
                 requestSettingsCasted?.MirostatEta ??
                 modelSettingsCasted?.MirostatEta ??
                 providerSettingsCasted?.MirostatEta ??
@@ -241,7 +241,7 @@ public class OllamaChatSettings : ChatSettings
                 modelSettingsCasted?.PenalizeNewline ??
                 providerSettingsCasted?.PenalizeNewline ??
                 Default.PenalizeNewline,
-            Numa = 
+            Numa =
                 requestSettingsCasted?.Numa ??
                 modelSettingsCasted?.Numa ??
                 providerSettingsCasted?.Numa ??
@@ -251,52 +251,52 @@ public class OllamaChatSettings : ChatSettings
                 modelSettingsCasted?.NumCtx ??
                 providerSettingsCasted?.NumCtx ??
                 Default.NumCtx,
-            NumBatch = 
+            NumBatch =
                 requestSettingsCasted?.NumBatch ??
                 modelSettingsCasted?.NumBatch ??
                 providerSettingsCasted?.NumBatch ??
                 Default.NumBatch,
-            NumGpu = 
+            NumGpu =
                 requestSettingsCasted?.NumGpu ??
                 modelSettingsCasted?.NumGpu ??
                 providerSettingsCasted?.NumGpu ??
                 Default.NumGpu,
-            MainGpu = 
+            MainGpu =
                 requestSettingsCasted?.MainGpu ??
                 modelSettingsCasted?.MainGpu ??
                 providerSettingsCasted?.MainGpu ??
                 Default.MainGpu,
-            LowVram = 
+            LowVram =
                 requestSettingsCasted?.LowVram ??
                 modelSettingsCasted?.LowVram ??
                 providerSettingsCasted?.LowVram ??
                 Default.LowVram,
-            F16Kv = 
+            F16Kv =
                 requestSettingsCasted?.F16Kv ??
                 modelSettingsCasted?.F16Kv ??
                 providerSettingsCasted?.F16Kv ??
                 Default.F16Kv,
-            LogitsAll = 
+            LogitsAll =
                 requestSettingsCasted?.LogitsAll ??
                 modelSettingsCasted?.LogitsAll ??
                 providerSettingsCasted?.LogitsAll ??
                 Default.LogitsAll,
-            VocabOnly = 
+            VocabOnly =
                 requestSettingsCasted?.VocabOnly ??
                 modelSettingsCasted?.VocabOnly ??
                 providerSettingsCasted?.VocabOnly ??
                 Default.VocabOnly,
-            UseMmap = 
+            UseMmap =
                 requestSettingsCasted?.UseMmap ??
                 modelSettingsCasted?.UseMmap ??
                 providerSettingsCasted?.UseMmap ??
                 Default.UseMmap,
-            UseMlock = 
+            UseMlock =
                 requestSettingsCasted?.UseMlock ??
                 modelSettingsCasted?.UseMlock ??
                 providerSettingsCasted?.UseMlock ??
                 Default.UseMlock,
-            NumThread = 
+            NumThread =
                 requestSettingsCasted?.NumThread ??
                 modelSettingsCasted?.NumThread ??
                 providerSettingsCasted?.NumThread ??

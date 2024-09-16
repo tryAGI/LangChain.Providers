@@ -90,7 +90,7 @@ public abstract class CohereCommandRModel(
             Usage = usage,
         };
         OnResponseReceived(chatResponse);
-        
+
         yield return chatResponse;
     }
 

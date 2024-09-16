@@ -83,7 +83,7 @@ public static class MessageStringExtensions
 
         return new Message(json, MessageRole.ToolResult, $"{call.ToolName}:{call.Id}");
     }
-    
+
     /// <summary>
     /// 
     /// </summary>

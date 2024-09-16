@@ -61,7 +61,7 @@ public partial class AnthropicChatModel(
                 inputTokens: promptTokens),
         };
     }
-    
+
     private Usage GetUsage(global::Anthropic.MessageDeltaUsage? usage)
     {
         var completionTokens = usage?.OutputTokens ?? 0;
@@ -108,7 +108,7 @@ public partial class AnthropicChatModel(
         //     .ToArray();
         // tools = tools.Length > 0 ? tools : null;
         var systemMessage = messages.FirstOrDefault(m => m.Role == MessageRole.System).Content;
-        
+
         do
         {
             var chatRequest = new CreateMessageRequest
@@ -166,10 +166,10 @@ public partial class AnthropicChatModel(
                         StopReason.ToolUse => ChatResponseFinishReason.ToolCalls,
                         _ => null,
                     };
-                    
+
                     OnDeltaReceived(delta);
                     stringBuilder.Append(delta.Content);
-                    
+
                     yield return new ChatResponse
                     {
                         Messages = messages,
@@ -183,7 +183,7 @@ public partial class AnthropicChatModel(
                     Content = Environment.NewLine,
                 });
                 stringBuilder.Append(Environment.NewLine);
-                
+
                 Message newMessage = stringBuilder.ToString().AsAiMessage();
                 messages.Add(newMessage);
             }
@@ -240,11 +240,11 @@ public partial class AnthropicChatModel(
             };
             OnResponseReceived(newResponse);
             yield return newResponse;
-            
+
             if (CallToolsAutomatically && toolCalls is { Count: > 0 })
             {
                 await CallToolsAsync(toolCalls, messages, cancellationToken).ConfigureAwait(false);
-                
+
                 if (!ReplyToToolCallsAutomatically)
                 {
                     yield break;

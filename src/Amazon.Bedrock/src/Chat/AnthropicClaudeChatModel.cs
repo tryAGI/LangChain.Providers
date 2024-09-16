@@ -100,7 +100,7 @@ public class AnthropicClaudeChatModel(
             Usage = usage,
         };
         OnResponseReceived(chatResponse);
-        
+
         yield return chatResponse;
     }
 
