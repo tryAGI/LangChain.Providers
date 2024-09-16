@@ -37,14 +37,14 @@ public static class Helpers
                     return (llm, embeddings, provider);
                 }
             case ProviderType.Ollama:
-            {
-                // url: "http://10.10.0.125:11434/api"
-                var provider = new OllamaProvider(url: "http://10.10.0.125:11434/api");
-                var llm = new OllamaChatModel(provider, id: "llama3.1");
-                var embeddings = new OllamaEmbeddingModel(provider, id: "all-minilm");
+                {
+                    // url: "http://10.10.0.125:11434/api"
+                    var provider = new OllamaProvider(url: "http://10.10.0.125:11434/api");
+                    var llm = new OllamaChatModel(provider, id: "llama3.1");
+                    var embeddings = new OllamaEmbeddingModel(provider, id: "all-minilm");
 
-                return (llm, embeddings, provider);
-            }
+                    return (llm, embeddings, provider);
+                }
             case ProviderType.Together:
                 {
                     // https://www.together.ai/blog/embeddings-endpoint-release

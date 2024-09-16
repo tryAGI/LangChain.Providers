@@ -101,7 +101,7 @@ public abstract class MistralModel(
             Usage = usage,
         };
         OnResponseReceived(chatResponse);
-        
+
         yield return chatResponse;
     }
 

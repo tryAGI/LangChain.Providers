@@ -113,7 +113,7 @@ public class LLamaSharpModelInstruction : LLamaSharpModelBase, IChatModel
             UsedSettings = ChatSettings.Default,
         };
         OnResponseReceived(chatResponse);
-        
+
         yield return chatResponse;
     }
 }

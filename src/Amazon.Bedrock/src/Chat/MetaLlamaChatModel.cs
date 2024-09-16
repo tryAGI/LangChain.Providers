@@ -91,7 +91,7 @@ public class MetaLlamaChatModel(
             Usage = usage,
         };
         OnResponseReceived(chatResponse);
-        
+
         yield return chatResponse;
     }
 

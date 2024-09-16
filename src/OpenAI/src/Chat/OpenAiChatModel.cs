@@ -136,14 +136,14 @@ public partial class OpenAiChatModel(
             PriceInUsd = priceInUsd,
         };
     }
-    
+
     private Usage? GetUsage(CreateChatCompletionStreamResponse response)
     {
         if (response.Usage == null)
         {
             return null;
         }
-        
+
         var outputTokens = response.Usage?.CompletionTokens ?? 0;
         var inputTokens = response.Usage?.PromptTokens ?? 0;
         var priceInUsd = TryCalculatePriceInUsd(
@@ -257,12 +257,12 @@ public partial class OpenAiChatModel(
                         CreateChatCompletionStreamResponseChoiceFinishReason.ContentFilter => ChatResponseFinishReason.ContentFilter,
                         CreateChatCompletionStreamResponseChoiceFinishReason.FunctionCall => ChatResponseFinishReason.ToolCalls,
                         CreateChatCompletionStreamResponseChoiceFinishReason.ToolCalls => ChatResponseFinishReason.ToolCalls,
-                        _ => null, 
+                        _ => null,
                     };
-                    
+
                     OnDeltaReceived(delta);
                     stringBuilder.Append(delta.Content);
-                    
+
                     yield return new ChatResponse
                     {
                         Messages = messages,
@@ -276,7 +276,7 @@ public partial class OpenAiChatModel(
                     Content = Environment.NewLine,
                 });
                 stringBuilder.Append(Environment.NewLine);
-                
+
                 Message newMessage = stringBuilder.ToString().AsAiMessage();
                 messages.Add(newMessage);
             }
@@ -310,7 +310,7 @@ public partial class OpenAiChatModel(
                     CreateChatCompletionResponseChoiceFinishReason.ContentFilter => ChatResponseFinishReason.ContentFilter,
                     CreateChatCompletionResponseChoiceFinishReason.FunctionCall => ChatResponseFinishReason.ToolCalls,
                     CreateChatCompletionResponseChoiceFinishReason.ToolCalls => ChatResponseFinishReason.ToolCalls,
-                    _ => null, 
+                    _ => null,
                 };
             }
 
@@ -332,11 +332,11 @@ public partial class OpenAiChatModel(
             };
             OnResponseReceived(newResponse);
             yield return newResponse;
-            
+
             if (CallToolsAutomatically && toolCalls is { Count: > 0 })
             {
                 await CallToolsAsync(toolCalls, messages, cancellationToken).ConfigureAwait(false);
-                
+
                 if (!ReplyToToolCallsAutomatically)
                 {
                     yield break;

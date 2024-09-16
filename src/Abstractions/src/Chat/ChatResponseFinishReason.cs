@@ -12,17 +12,17 @@ public enum ChatResponseFinishReason
     /// 
     /// </summary>
     Stop,
-    
+
     /// <summary>
     /// 
     /// </summary>
     Length,
-    
+
     /// <summary>
     /// 
     /// </summary>
     ToolCalls,
-    
+
     /// <summary>
     /// 
     /// </summary>

@@ -213,7 +213,7 @@ public partial class GoogleChatModel(
             UsedSettings = ChatSettings.Default
         };
         OnResponseReceived(chatResponse);
-        
+
         yield return chatResponse;
     }
     private Usage GetUsage(EnhancedGenerateContentResponse response)

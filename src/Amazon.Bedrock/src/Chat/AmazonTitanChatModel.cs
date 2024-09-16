@@ -101,7 +101,7 @@ public abstract class AmazonTitanChatModel(
             Usage = usage,
         };
         OnResponseReceived(chatResponse);
-        
+
         yield return chatResponse;
     }
 

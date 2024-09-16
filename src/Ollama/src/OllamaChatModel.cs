@@ -76,7 +76,7 @@ public class OllamaChatModel(
             {
                 Temperature = usedSettings.Temperature,
                 Stop = usedSettings.StopSequences?.ToList(),
-                
+
                 NumKeep = usedSettings.NumKeep,
                 Seed = usedSettings.Seed,
                 NumPredict = usedSettings.NumPredict,

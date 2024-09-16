@@ -11,7 +11,7 @@ namespace LangChain.Providers.Google.VertexAI
         ) : ChatModel(id), IChatModel
     {
         private VertexAIProvider Provider { get; } = provider ?? throw new ArgumentNullException(nameof(provider));
-        
+
         public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
             ChatRequest request,
             ChatSettings? settings = null,

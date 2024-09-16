@@ -22,7 +22,7 @@ public class BaseTests
         var requests = new List<ChatRequest>();
         var deltas = new List<ChatResponseDelta>();
         var responses = new List<ChatResponse>();
-        
+
         var (llm, _, provider) = Helpers.GetModels(providerType);
         llm.RequestSent += (_, request) =>
         {
@@ -46,13 +46,13 @@ public class BaseTests
 
         Console.WriteLine($"LLM response: {response}"); // The cloaked figure.
         Console.WriteLine($"Usage: {response.Usage}"); // Print usage and price
-        
+
         requests.Should().HaveCount(1);
         deltas.Should().HaveCount(1);
         responses.Should().HaveCount(1);
 
         response.LastMessageContent.Should().NotBeNull();
-        
+
         response.Usage.Messages.Should().Be(1);
         response.Usage.Time.Should().BeGreaterThan(TimeSpan.Zero);
         if (providerType != ProviderType.OpenRouter)
@@ -65,10 +65,10 @@ public class BaseTests
         {
             response.Usage.PriceInUsd.Should().HaveValue().And.BeGreaterThan(0);
         }
-        
+
         llm.Usage.Should().BeEquivalentTo(response.Usage);
         provider.Usage.Should().BeEquivalentTo(response.Usage);
-        
+
         response.Messages.Should().HaveCount(2);
         response.Messages[0].Role.Should().Be(MessageRole.Human);
         response.Messages[0].Content.Should().NotBeNullOrEmpty();
@@ -97,7 +97,7 @@ public class BaseTests
         var requests = new List<ChatRequest>();
         var deltas = new List<ChatResponseDelta>();
         var responses = new List<ChatResponse>();
-        
+
         var (llm, _, provider) = Helpers.GetModels(providerType);
         llm.RequestSent += (_, request) =>
         {
@@ -125,13 +125,13 @@ public class BaseTests
 
         Console.WriteLine($"LLM response: {response}"); // The cloaked figure.
         Console.WriteLine($"Usage: {response.Usage}"); // Print usage and price
-        
+
         requests.Should().HaveCount(1);
         deltas.Should().HaveCountGreaterOrEqualTo(5);
         responses.Should().HaveCount(1);
 
         response.LastMessageContent.Should().NotBeNull();
-        
+
         response.Usage.Messages.Should().Be(1);
         response.Usage.Time.Should().BeGreaterThan(TimeSpan.Zero);
         if (providerType != ProviderType.OpenRouter)
@@ -144,10 +144,10 @@ public class BaseTests
         {
             response.Usage.PriceInUsd.Should().HaveValue().And.BeGreaterThan(0);
         }
-        
+
         llm.Usage.Should().BeEquivalentTo(response.Usage);
         provider.Usage.Should().BeEquivalentTo(response.Usage);
-        
+
         response.Messages.Should().HaveCount(2);
         response.Messages[0].Role.Should().Be(MessageRole.Human);
         response.Messages[0].Content.Should().NotBeNullOrEmpty();
@@ -185,7 +185,7 @@ public class BaseTests
         }));
 
         Console.WriteLine(result.Value["text"]);
-        
+
         // The result is an object with a `text` property.
         result.Value["text"].ToString().Should().NotBeEmpty();
     }

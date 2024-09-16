@@ -43,7 +43,7 @@ public partial class ChatModel
         GlobalTools.Clear();
         Calls.Clear();
     }
-    
+
     protected virtual async Task CallToolsAsync(
         IReadOnlyList<ChatToolCall> toolCalls,
         IList<Message> messages,
