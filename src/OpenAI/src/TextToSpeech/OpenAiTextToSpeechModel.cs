@@ -40,7 +40,7 @@ public class OpenAiTextToSpeechModel(
 
         var usage = Usage.Empty with
         {
-            PriceInUsd = usedSettings.Model?.Value2.GetPriceInUsd(characters: request.Prompt.Length) ?? double.NaN,
+            PriceInUsd = usedSettings.Model?.Value2?.GetPriceInUsd(characters: request.Prompt.Length),
         };
         AddUsage(usage);
         provider.AddUsage(usage);

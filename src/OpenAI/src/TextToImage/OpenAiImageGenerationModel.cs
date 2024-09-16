@@ -26,7 +26,7 @@ public class OpenAiTextToImageModel(
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
-        OnPromptSent(request.Prompt);
+        OnRequestSent(request.Prompt);
 
         var usedSettings = OpenAiTextToImageSettings.Calculate(
             requestSettings: settings,
@@ -49,7 +49,7 @@ public class OpenAiTextToImageModel(
         {
             PriceInUsd = CreateImageRequestModelExtensions.ToEnum(Id)?.GetPriceInUsd(
                 size: usedSettings.Size!.Value,
-                quality: usedSettings.Quality) ?? double.NaN,
+                quality: usedSettings.Quality),
         };
         AddUsage(usage);
         provider.AddUsage(usage);

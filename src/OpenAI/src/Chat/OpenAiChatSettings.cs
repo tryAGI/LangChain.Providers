@@ -12,7 +12,7 @@ public class OpenAiChatSettings : ChatSettings
         User = ChatSettings.Default.User,
         UseStreaming = ChatSettings.Default.UseStreaming,
         Temperature = null,
-        MaxTokens = null,
+        MaxCompletionTokens = null,
         TopP = null,
         Seed = null,
         FrequencyPenalty = null,
@@ -35,7 +35,7 @@ public class OpenAiChatSettings : ChatSettings
     /// The total length of input tokens and generated tokens is limited by the model's context length. <br/>
     /// Defaults to int.MaxValue. <br/>
     /// </summary>
-    public int? MaxTokens { get; set; }
+    public int? MaxCompletionTokens { get; set; }
 
     /// <summary>
     /// An alternative to sampling with temperature, called nucleus sampling,
@@ -129,11 +129,11 @@ public class OpenAiChatSettings : ChatSettings
                 modelSettingsCasted?.Temperature ??
                 providerSettingsCasted?.Temperature ??
                 Default.Temperature,
-            MaxTokens =
-                requestSettingsCasted?.MaxTokens ??
-                modelSettingsCasted?.MaxTokens ??
-                providerSettingsCasted?.MaxTokens ??
-                Default.MaxTokens,
+            MaxCompletionTokens =
+                requestSettingsCasted?.MaxCompletionTokens ??
+                modelSettingsCasted?.MaxCompletionTokens ??
+                providerSettingsCasted?.MaxCompletionTokens ??
+                Default.MaxCompletionTokens,
             TopP =
                 requestSettingsCasted?.TopP ??
                 modelSettingsCasted?.TopP ??

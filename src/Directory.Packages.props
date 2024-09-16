@@ -3,12 +3,12 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Anthropic" Version="1.0.1" />
+    <PackageVersion Include="Anthropic" Version="1.2.1-dev.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
     <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.403.3" />
     <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403.3" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="1.0.0-beta.17" />
-    <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.4" />
+    <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
     <PackageVersion Include="FluentAssertions" Version="6.12.0" />
     <PackageVersion Include="GitHubActionsTestLogger" Version="2.4.1" />
     <PackageVersion Include="Google.Cloud.AIPlatform.V1" Version="3.6.0" />
@@ -37,6 +37,7 @@
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.14.0" />
     <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.16.0" />
+    <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4" />
@@ -65,7 +66,7 @@
     <PackageVersion Include="System.Net.Http.Json" Version="8.0.0" />
     <PackageVersion Include="System.Text.Json" Version="8.0.4" />
     <PackageVersion Include="Tiktoken" Version="2.0.3" />
-    <PackageVersion Include="tryAGI.OpenAI" Version="3.6.3" />
+    <PackageVersion Include="tryAGI.OpenAI" Version="3.7.1-dev.3" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />

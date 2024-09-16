@@ -29,7 +29,7 @@ public class OpenAiEmbeddingModel(
     {
         var tokens = response.Usage.PromptTokens;
         var priceInUsd = CreateEmbeddingRequestModelExtensions.ToEnum(Id)?
-            .GetPriceInUsd(tokens: tokens) ?? double.NaN;
+            .GetPriceInUsd(tokens: tokens);
 
         return Usage.Empty with
         {

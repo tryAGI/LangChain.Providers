@@ -20,7 +20,7 @@ public class OpenAiTextToSpeechSettings : TextToSpeechSettings
     /// <summary>
     /// 
     /// </summary>
-    public AnyOf<string, CreateSpeechRequestModel>? Model { get; init; }
+    public AnyOf<string, CreateSpeechRequestModel?>? Model { get; init; }
 
     /// <summary>
     /// 

@@ -1,4 +1,5 @@
 ﻿using LangChain.Providers.OpenAI;
+using OpenAI;
 
 namespace LangChain.Providers.Fireworks;
 
@@ -15,5 +16,5 @@ public class FireworksConfiguration : OpenAiConfiguration
     /// <summary>
     /// 
     /// </summary>
-    public new string? Endpoint { get; set; } = "https://api.fireworks.ai/inference/v1";
+    public new string? Endpoint { get; set; } = CustomProviders.FireworksBaseUrl;
 }

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
@@ -32,22 +33,6 @@ public partial class OpenAiChatModel(
 
     #region Methods
 
-    protected virtual async Task CallFunctionsAsync(
-        ChatCompletionResponseMessage message,
-        IList<Message> messages,
-        CancellationToken cancellationToken = default)
-    {
-        message = message ?? throw new ArgumentNullException(nameof(message));
-        messages = messages ?? throw new ArgumentNullException(nameof(messages));
-
-        foreach (var tool in message.ToolCalls ?? [])
-        {
-            var func = Calls[tool.Function.Name];
-            var json = await func(tool.Function.Arguments, cancellationToken).ConfigureAwait(false);
-            messages.Add(json.AsFunctionResultMessage(tool));
-        }
-    }
-
     protected virtual ChatCompletionRequestMessage ToRequestMessage(Message message)
     {
         switch (message.Role)
@@ -70,15 +55,15 @@ public partial class OpenAiChatModel(
                     Role = ChatCompletionRequestUserMessageRole.User,
                     Content = message.Content,
                 };
-            case MessageRole.FunctionCall:
+            case MessageRole.ToolCall:
                 return new ChatCompletionRequestAssistantMessage
                 {
                     Role = ChatCompletionRequestAssistantMessageRole.Assistant,
                     Content = message.Content,
                     ToolCalls = message.ToToolCalls(),
                 };
-            case MessageRole.FunctionResult:
-                var nameAndId = message.FunctionName?.Split(':') ??
+            case MessageRole.ToolResult:
+                var nameAndId = message.ToolName?.Split(':') ??
                     throw new ArgumentException("Invalid functionCall name and id string");
 
                 return new ChatCompletionRequestToolMessage
@@ -96,12 +81,6 @@ public partial class OpenAiChatModel(
     {
         message = message ?? throw new ArgumentNullException(nameof(message));
 
-        var role = message.Role switch
-        {
-            ChatCompletionResponseMessageRole.Assistant => MessageRole.Ai,
-            _ => MessageRole.Ai,
-        };
-
         if (message.ToolCalls?.Count > 0)
         {
             var messages = new List<Message>();
@@ -109,8 +88,8 @@ public partial class OpenAiChatModel(
             {
                 messages.Add(new Message(
                     Content: call.Function.Arguments,
-                    Role: MessageRole.FunctionCall,
-                    FunctionName: $"{call.Function.Name}:{call.Id}"));
+                    Role: MessageRole.ToolCall,
+                    ToolName: $"{call.Function.Name}:{call.Id}"));
             }
 
             return messages;
@@ -118,7 +97,7 @@ public partial class OpenAiChatModel(
 
         return [new Message(
             Content: message.Content ?? string.Empty,
-            Role: role)];
+            Role: MessageRole.Ai)];
     }
 
     protected static T ToTool<T>(OpenApiSchema schema) where T : global::OpenAI.OpenApiSchema, new()
@@ -145,7 +124,29 @@ public partial class OpenAiChatModel(
     {
         var outputTokens = response.Usage?.CompletionTokens ?? 0;
         var inputTokens = response.Usage?.PromptTokens ?? 0;
-        var priceInUsd = CalculatePriceInUsd(
+        var priceInUsd = TryCalculatePriceInUsd(
+            outputTokens: outputTokens,
+            inputTokens: inputTokens);
+
+        return Usage.Empty with
+        {
+            InputTokens = inputTokens,
+            OutputTokens = outputTokens,
+            Messages = 1,
+            PriceInUsd = priceInUsd,
+        };
+    }
+    
+    private Usage? GetUsage(CreateChatCompletionStreamResponse response)
+    {
+        if (response.Usage == null)
+        {
+            return null;
+        }
+        
+        var outputTokens = response.Usage?.CompletionTokens ?? 0;
+        var inputTokens = response.Usage?.PromptTokens ?? 0;
+        var priceInUsd = TryCalculatePriceInUsd(
             outputTokens: outputTokens,
             inputTokens: inputTokens);
 
@@ -159,17 +160,15 @@ public partial class OpenAiChatModel(
     }
 
     /// <inheritdoc cref="IChatModel.GenerateAsync(ChatRequest, ChatSettings, CancellationToken)"/>
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
         var messages = request.Messages.ToList();
         var watch = Stopwatch.StartNew();
-
-        OnPromptSent(request.Messages.AsHistory());
 
         var usedSettings = OpenAiChatSettings.Calculate(
             requestSettings: settings,
@@ -192,130 +191,166 @@ public partial class OpenAiChatModel(
             .ToArray();
         tools = tools.Length > 0 ? tools : null;
 
-        var chatRequest = new CreateChatCompletionRequest
+        do
         {
-            Model = Id,
-            Messages = request.Messages
-                .Select(ToRequestMessage)
-                .ToArray(),
-            Seed = usedSettings.Seed,
-            Stop = usedSettings.StopSequences!.ToArray(),
-            User = usedSettings.User,
-            Temperature = usedSettings.Temperature,
-            FrequencyPenalty = usedSettings.FrequencyPenalty,
-            N = usedSettings.Number,
-            MaxTokens = usedSettings.MaxTokens,
-            TopP = usedSettings.TopP,
-            PresencePenalty = usedSettings.PresencePenalty,
-            LogitBias = usedSettings.LogitBias,
-            Tools = tools,
-        };
-        if (usedSettings.UseStreaming == true)
-        {
-            var enumerable = provider.Api.Chat.CreateChatCompletionAsStreamAsync(
-                chatRequest,
-                cancellationToken).ConfigureAwait(false);
-
-            var stringBuilder = new StringBuilder(capacity: 1024);
-            await foreach (var response in enumerable)
+            var chatRequest = new CreateChatCompletionRequest
             {
-                var delta = response.Choices.ElementAt(0).Delta;
-                var deltaContent = delta.Content ?? string.Empty;
+                Model = Id,
+                Messages = messages
+                    .Select(ToRequestMessage)
+                    .ToArray(),
+                Seed = usedSettings.Seed,
+                Stop = usedSettings.StopSequences!.ToArray(),
+                User = usedSettings.User,
+                Temperature = usedSettings.Temperature,
+                FrequencyPenalty = usedSettings.FrequencyPenalty,
+                N = usedSettings.Number,
+                MaxCompletionTokens = usedSettings.MaxCompletionTokens,
+                TopP = usedSettings.TopP,
+                PresencePenalty = usedSettings.PresencePenalty,
+                LogitBias = new CreateChatCompletionRequestLogitBias
+                {
+                    AdditionalProperties = usedSettings.LogitBias?
+                        .ToDictionary(
+                            x => x.Key,
+                            x => (object)x.Value) ?? [],
+                },
+                Tools = tools,
+                StreamOptions = usedSettings.UseStreaming == true
+                    ? new ChatCompletionStreamOptions
+                    {
+                        IncludeUsage = true,
+                    }
+                    : null,
+            };
+            OnRequestSent(request);
 
-                OnPartialResponseGenerated(deltaContent);
-                stringBuilder.Append(deltaContent);
+            IReadOnlyList<ChatToolCall>? toolCalls = null;
+            Usage? usage = null;
+            ChatResponseFinishReason? finishReason = null;
+            if (usedSettings.UseStreaming == true)
+            {
+                var enumerable = provider.Api.Chat.CreateChatCompletionAsStreamAsync(
+                    chatRequest,
+                    cancellationToken).ConfigureAwait(false);
+
+                var stringBuilder = new StringBuilder(capacity: 1024);
+                await foreach (CreateChatCompletionStreamResponse streamResponse in enumerable)
+                {
+                    var choice = streamResponse.Choices.ElementAtOrDefault(0);
+                    var streamDelta = choice?.Delta;
+                    var delta = new ChatResponseDelta
+                    {
+                        Content = streamDelta?.Content ?? string.Empty,
+                    };
+                    toolCalls ??= streamDelta?.ToolCalls?.Select(x => new ChatToolCall
+                    {
+                        Id = x.Id ?? string.Empty,
+                        ToolName = x.Function?.Name ?? string.Empty,
+                        ToolArguments = x.Function?.Arguments ?? string.Empty,
+                    }).ToList();
+                    usage ??= GetUsage(streamResponse);
+                    finishReason ??= choice?.FinishReason switch
+                    {
+                        CreateChatCompletionStreamResponseChoiceFinishReason.Length => ChatResponseFinishReason.Length,
+                        CreateChatCompletionStreamResponseChoiceFinishReason.Stop => ChatResponseFinishReason.Stop,
+                        CreateChatCompletionStreamResponseChoiceFinishReason.ContentFilter => ChatResponseFinishReason.ContentFilter,
+                        CreateChatCompletionStreamResponseChoiceFinishReason.FunctionCall => ChatResponseFinishReason.ToolCalls,
+                        CreateChatCompletionStreamResponseChoiceFinishReason.ToolCalls => ChatResponseFinishReason.ToolCalls,
+                        _ => null, 
+                    };
+                    
+                    OnDeltaReceived(delta);
+                    stringBuilder.Append(delta.Content);
+                    
+                    yield return new ChatResponse
+                    {
+                        Messages = messages,
+                        UsedSettings = usedSettings,
+                        Delta = delta,
+                        Usage = Usage.Empty,
+                    };
+                }
+                OnDeltaReceived(new ChatResponseDelta
+                {
+                    Content = Environment.NewLine,
+                });
+                stringBuilder.Append(Environment.NewLine);
+                
+                Message newMessage = stringBuilder.ToString().AsAiMessage();
+                messages.Add(newMessage);
             }
-            OnPartialResponseGenerated(Environment.NewLine);
-            stringBuilder.Append(Environment.NewLine);
+            else
+            {
+                var response = await provider.Api.Chat.CreateChatCompletionAsync(
+                    chatRequest,
+                    cancellationToken).ConfigureAwait(false);
+                var message = response.Choices.First().Message;
+                var newMessages = ToMessages(message);
+                messages.AddRange(newMessages);
+                toolCalls = message.ToolCalls?.Select(x => new ChatToolCall
+                {
+                    Id = x.Id,
+                    ToolName = x.Function.Name,
+                    ToolArguments = x.Function.Arguments,
+                }).ToList();
 
-            var newMessage = new Message(
-                Content: stringBuilder.ToString(),
-                Role: MessageRole.Ai);
-            messages.Add(newMessage);
+                OnDeltaReceived(new ChatResponseDelta
+                {
+                    Content = message.Content + Environment.NewLine,
+                });
+                usage = GetUsage(response) with
+                {
+                    Time = watch.Elapsed,
+                };
+                finishReason = response.Choices.First().FinishReason switch
+                {
+                    CreateChatCompletionResponseChoiceFinishReason.Length => ChatResponseFinishReason.Length,
+                    CreateChatCompletionResponseChoiceFinishReason.Stop => ChatResponseFinishReason.Stop,
+                    CreateChatCompletionResponseChoiceFinishReason.ContentFilter => ChatResponseFinishReason.ContentFilter,
+                    CreateChatCompletionResponseChoiceFinishReason.FunctionCall => ChatResponseFinishReason.ToolCalls,
+                    CreateChatCompletionResponseChoiceFinishReason.ToolCalls => ChatResponseFinishReason.ToolCalls,
+                    _ => null, 
+                };
+            }
 
-            OnCompletedResponseGenerated(newMessage.Content);
-
-            var usage = Usage.Empty with
+            usage ??= Usage.Empty;
+            usage = usage.Value with
             {
                 Time = watch.Elapsed,
             };
-            AddUsage(usage);
-            provider.AddUsage(usage);
+            AddUsage(usage.Value);
+            provider.AddUsage(usage.Value);
 
-            return new ChatResponse
+            var newResponse = new ChatResponse
             {
                 Messages = messages,
                 UsedSettings = usedSettings,
-                Usage = usage,
+                Usage = usage.Value,
+                ToolCalls = toolCalls ?? [],
+                FinishReason = finishReason,
             };
-        }
-        else
-        {
-            var response = await provider.Api.Chat.CreateChatCompletionAsync(
-                chatRequest,
-                cancellationToken).ConfigureAwait(false);
-            var message = response.Choices.First().Message;
-            var newMessages = ToMessages(message);
-            messages.AddRange(newMessages);
-
-            OnPartialResponseGenerated(newMessages.First().Content);
-            OnPartialResponseGenerated(Environment.NewLine);
-            OnCompletedResponseGenerated(newMessages.First().Content);
-
-            var usage = GetUsage(response) with
+            OnResponseReceived(newResponse);
+            yield return newResponse;
+            
+            if (CallToolsAutomatically && toolCalls is { Count: > 0 })
             {
-                Time = watch.Elapsed,
-            };
-            AddUsage(usage);
-            provider.AddUsage(usage);
-
-
-            while (CallToolsAutomatically && message.ToolCalls != null && message.ToolCalls.Count > 0)
-            {
-                await CallFunctionsAsync(message, messages, cancellationToken).ConfigureAwait(false);
-
-                if (ReplyToToolCallsAutomatically)
+                await CallToolsAsync(toolCalls, messages, cancellationToken).ConfigureAwait(false);
+                
+                if (!ReplyToToolCallsAutomatically)
                 {
-                    response = await provider.Api.Chat.CreateChatCompletionAsync(
-                        messages: messages
-                            .Select(ToRequestMessage)
-                            .ToArray(),
-                        model: Id,
-                        stop: usedSettings.StopSequences!.ToArray(),
-                        user: usedSettings.User!,
-                        temperature: usedSettings.Temperature,
-                        tools: tools,
-                        cancellationToken: cancellationToken).ConfigureAwait(false);
-                    message = response.Choices.First().Message;
-                    newMessages = ToMessages(message);
-                    messages.AddRange(newMessages);
-
-                    OnPartialResponseGenerated(newMessages.First().Content);
-                    OnPartialResponseGenerated(Environment.NewLine);
-                    OnCompletedResponseGenerated(newMessages.First().Content);
-
-                    var usage2 = GetUsage(response) with
-                    {
-                        Time = watch.Elapsed,
-                    };
-                    AddUsage(usage2);
-                    provider.AddUsage(usage2);
-                    usage += usage2;
+                    yield break;
                 }
             }
-
-            return new ChatResponse
+            else
             {
-                Messages = messages,
-                UsedSettings = usedSettings,
-                Usage = usage,
-            };
+                yield break;
+            }
         }
+        while (true);
     }
 
-
-
-    public Task<ChatResponse> GenerateAsync(
+    public IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         OpenAiChatSettings? settings = default,
         CancellationToken cancellationToken = default)
@@ -324,13 +359,13 @@ public partial class OpenAiChatModel(
     }
 
     /// <inheritdoc/>
-    public double CalculatePriceInUsd(int inputTokens, int outputTokens)
+    public double? TryCalculatePriceInUsd(int inputTokens, int outputTokens)
     {
         return CreateChatCompletionRequestModelExtensions
             .ToEnum(ChatModel)?
-            .GetPriceInUsd(
+            .TryGetPriceInUsd(
                 outputTokens: outputTokens,
-                inputTokens: inputTokens) ?? double.NaN;
+                inputTokens: inputTokens);
     }
 
     #endregion
