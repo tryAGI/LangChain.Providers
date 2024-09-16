@@ -128,6 +128,17 @@ public enum TogetherAiModelIds
     Qwen15Chat72B,
 
     /// <summary>
+    /// Name: Meta Llama 3.1 405B Instruct Turbo <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $5/MTok <br/>
+    /// Completion Cost: $5/MTok <br/>
+    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo</a>
+    /// </summary>
+    MetaLlama31405BInstructTurbo,
+
+    /// <summary>
     /// Name: DeepSeek LLM Chat (67B) <br/>
     /// Organization: DeepSeek <br/>
     /// Context Length: 4096 <br/>
@@ -370,15 +381,15 @@ public enum TogetherAiModelIds
     MetaLlama318BInstructTurbo,
 
     /// <summary>
-    /// Name: Meta Llama 3.1 405B Instruct Turbo <br/>
+    /// Name: LLaMA-2 Chat (7B) <br/>
     /// Organization: Meta <br/>
     /// Context Length: 4096 <br/>
-    /// Prompt Cost: $5/MTok <br/>
-    /// Completion Cost: $5/MTok <br/>
-    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo</a>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: Llama 2-chat leverages publicly available instruction datasets and over 1 million human annotations. Available in three sizes: 7B, 13B and 70B parameters <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">https://huggingface.co/meta-llama/Llama-2-7b-chat-hf</a>
     /// </summary>
-    MetaLlama31405BInstructTurbo,
+    Llama2Chat7B,
 
     /// <summary>
     /// Name: WizardLM v1.2 (13B) <br/>
@@ -656,17 +667,6 @@ public enum TogetherAiModelIds
     GemmaInstruct7B,
 
     /// <summary>
-    /// Name: LLaMA-2 Chat (7B) <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.2/MTok <br/>
-    /// Completion Cost: $0.2/MTok <br/>
-    /// Description: Llama 2-chat leverages publicly available instruction datasets and over 1 million human annotations. Available in three sizes: 7B, 13B and 70B parameters <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">https://huggingface.co/meta-llama/Llama-2-7b-chat-hf</a>
-    /// </summary>
-    Llama2Chat7B,
-
-    /// <summary>
     /// Name: OLMo Instruct (7B) <br/>
     /// Organization: AllenAI <br/>
     /// Context Length: 2048 <br/>
@@ -918,6 +918,17 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/carson/ml318br">https://huggingface.co/carson/ml318br</a>
     /// </summary>
     CarsonMl318br,
+
+    /// <summary>
+    /// Name: Meta Llama 3.1 70B Instruct Turbo <br/>
+    /// Organization: Meta <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0/MTok <br/>
+    /// Completion Cost: $0/MTok <br/>
+    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/albert/meta-llama-3-1-70b-instruct-turbo">https://huggingface.co/albert/meta-llama-3-1-70b-instruct-turbo</a>
+    /// </summary>
+    MetaLlama3170BInstructTurbo,
 
     /// <summary>
     /// Name: Llama-3 70B Instruct Gradient 1048K <br/>
