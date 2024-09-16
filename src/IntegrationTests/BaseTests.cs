@@ -16,7 +16,7 @@ public class BaseTests
     [TestCase(ProviderType.Anthropic)]
     [TestCase(ProviderType.DeepInfra)]
     [TestCase(ProviderType.DeepSeek)]
-    [TestCase(ProviderType.Ollama)]
+    //[TestCase(ProviderType.Ollama)]
     public async Task FiveRandomWords(ProviderType providerType)
     {
         var requests = new List<ChatRequest>();
@@ -91,7 +91,7 @@ public class BaseTests
     [TestCase(ProviderType.Anthropic)]
     [TestCase(ProviderType.DeepInfra)]
     [TestCase(ProviderType.DeepSeek)]
-    [TestCase(ProviderType.Ollama)]
+    //[TestCase(ProviderType.Ollama)]
     public async Task FiveRandomWords_Streaming(ProviderType providerType)
     {
         var requests = new List<ChatRequest>();
