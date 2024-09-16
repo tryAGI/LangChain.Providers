@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -20,10 +21,10 @@ public class AnthropicClaudeChatModel(
     /// <param name="settings">Optional `ChatSettings` to override the model's default settings.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
     /// <returns>A `ChatResponse` containing the generated messages and usage information.</returns>
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
@@ -52,7 +53,10 @@ public class AnthropicClaudeChatModel(
                     .ConfigureAwait(false);
                 var delta = chunk?["completion"]!.GetValue<string>();
 
-                OnPartialResponseGenerated(delta!);
+                OnDeltaReceived(new ChatResponseDelta
+                {
+                    Content = delta ?? string.Empty,
+                });
                 stringBuilder.Append(delta);
 
                 var finished = chunk?["completionReason"]?.GetValue<string>();
@@ -62,15 +66,16 @@ public class AnthropicClaudeChatModel(
                 }
             }
 
-            OnPartialResponseGenerated(Environment.NewLine);
+            OnDeltaReceived(new ChatResponseDelta
+            {
+                Content = Environment.NewLine,
+            });
             stringBuilder.Append(Environment.NewLine);
 
             var newMessage = new Message(
                 Content: stringBuilder.ToString(),
                 Role: MessageRole.Ai);
             messages.Add(newMessage);
-
-            OnCompletedResponseGenerated(newMessage.Content);
         }
         else
         {
@@ -79,7 +84,6 @@ public class AnthropicClaudeChatModel(
             var generatedText = response?["completion"]?.GetValue<string>() ?? "";
 
             messages.Add(generatedText.AsAiMessage());
-            OnCompletedResponseGenerated(generatedText);
         }
 
         var usage = Usage.Empty with
@@ -89,12 +93,15 @@ public class AnthropicClaudeChatModel(
         AddUsage(usage);
         provider.AddUsage(usage);
 
-        return new ChatResponse
+        var chatResponse = new ChatResponse
         {
             Messages = messages,
             UsedSettings = usedSettings,
             Usage = usage,
         };
+        OnResponseReceived(chatResponse);
+        
+        yield return chatResponse;
     }
 
     /// <summary>

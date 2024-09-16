@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text.Json.Nodes;
 using LangChain.Providers.Amazon.Bedrock.Internal;
 
@@ -17,10 +18,10 @@ public class Ai21LabsJurassic2ChatModel(
     /// <param name="settings">Optional `ChatSettings` to override the model's default settings.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
     /// <returns>A `ChatResponse` containing the generated messages and usage information.</returns>
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
@@ -51,7 +52,7 @@ public class Ai21LabsJurassic2ChatModel(
         AddUsage(usage);
         provider.AddUsage(usage);
 
-        return new ChatResponse
+        yield return new ChatResponse
         {
             Messages = result,
             UsedSettings = usedSettings,

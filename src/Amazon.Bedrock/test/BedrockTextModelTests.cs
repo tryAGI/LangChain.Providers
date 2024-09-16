@@ -9,7 +9,7 @@ namespace LangChain.Providers.Amazon.Bedrock.Tests;
 public class BedrockTextModelTests
 {
     [Test]
-    public Task TestAllTextLLMs()
+    public async Task TestAllTextLLMs()
     {
         var srcDir = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\";
         var predefined = @"src\Predefined\";
@@ -49,11 +49,11 @@ public class BedrockTextModelTests
                 var llm = (ChatModel)Activator.CreateInstance(type, args)!;
                 try
                 {
-                    var result = llm.GenerateAsync("who's your favorite superhero?");
+                    var result = await llm.GenerateAsync("who's your favorite superhero?");
 
-                    workingTypes.Add(className, result.Result.Usage.Time.TotalSeconds);
+                    workingTypes.Add(className, result.Usage.Time.TotalSeconds);
 
-                    Console.WriteLine(result.Result + "\n\n\n");
+                    Console.WriteLine(result + "\n\n\n");
                 }
                 catch (Exception e)
                 {
@@ -80,8 +80,6 @@ public class BedrockTextModelTests
             Console.WriteLine($"{i}. {workingTypesEnum.Current.Key}\t\t{workingTypesEnum.Current.Value}");
             workingTypesEnum.MoveNext();
         }
-
-        return Task.CompletedTask;
     }
 
     public static List<string> FindDerivedTypes(string folderPath)

@@ -130,8 +130,8 @@ internal static class BedrockExtensions
                 case MessageRole.Human:
                 case MessageRole.System:
                 case MessageRole.Chat:
-                case MessageRole.FunctionCall:
-                case MessageRole.FunctionResult:
+                case MessageRole.ToolCall:
+                case MessageRole.ToolResult:
                     sb.Append("Human: " + item.Content);
                     break;
 

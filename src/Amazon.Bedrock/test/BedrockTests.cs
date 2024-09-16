@@ -287,9 +287,9 @@ Helpful Answer:";
         var provider = new BedrockProvider();
         var llm = new CommandRModel(provider);
 
-        llm.PromptSent += (_, prompt) => Console.WriteLine($"Prompt: {prompt}");
-        llm.PartialResponseGenerated += (_, delta) => Console.Write(delta);
-        llm.CompletedResponseGenerated += (_, prompt) => Console.WriteLine($"Completed response: {prompt}");
+        llm.RequestSent += (_, request) => Console.WriteLine($"Prompt: {request.Messages.AsHistory()}");
+        llm.DeltaReceived += (_, delta) => Console.Write(delta.Content);
+        llm.ResponseReceived += (_, response) => Console.WriteLine($"Completed response: {response}");
 
         var prompt = @"
 you are a comic book writer.  you will be given a question and you will answer it. 
