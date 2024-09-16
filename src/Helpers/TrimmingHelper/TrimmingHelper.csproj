@@ -10,54 +10,56 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj" />
-    <ProjectReference Include="..\..\Amazon.Bedrock\src\LangChain.Providers.Amazon.Bedrock.csproj" />
-    <ProjectReference Include="..\..\Amazon.Sagemaker\src\LangChain.Providers.Amazon.SageMaker.csproj" />
-    <ProjectReference Include="..\..\Anthropic\src\LangChain.Providers.Anthropic.csproj" />
-    <ProjectReference Include="..\..\Anyscale\src\LangChain.Providers.Anyscale.csproj" />
-    <ProjectReference Include="..\..\Automatic1111\src\LangChain.Providers.Automatic1111.csproj" />
-    <ProjectReference Include="..\..\Azure\src\LangChain.Providers.Azure.csproj" />
-    <ProjectReference Include="..\..\DeepInfra\src\LangChain.Providers.DeepInfra.csproj" />
-    <ProjectReference Include="..\..\DeepSeek\src\LangChain.Providers.DeepSeek.csproj" />
-    <ProjectReference Include="..\..\Fireworks\src\LangChain.Providers.Fireworks.csproj" />
-    <ProjectReference Include="..\..\Google.VertexAI\src\LangChain.Providers.Google.VertexAI.csproj" />
-    <ProjectReference Include="..\..\Google\src\LangChain.Providers.Google.csproj" />
-    <ProjectReference Include="..\..\Groq\src\LangChain.Providers.Groq.csproj" />
-    <ProjectReference Include="..\..\HuggingFace\src\LangChain.Providers.HuggingFace.csproj" />
-    <ProjectReference Include="..\..\LeonardoAI\src\LangChain.Providers.LeonardoAI.csproj" />
-    <ProjectReference Include="..\..\LLamaSharp\src\LangChain.Providers.LLamaSharp.csproj" />
-    <ProjectReference Include="..\..\Ollama\src\LangChain.Providers.Ollama.csproj" />
-    <ProjectReference Include="..\..\OpenAI\src\LangChain.Providers.OpenAI.csproj" />
-    <ProjectReference Include="..\..\OpenRouter\src\LangChain.Providers.OpenRouter.csproj" />
-    <ProjectReference Include="..\..\Reka\src\LangChain.Providers.Reka.csproj" />
-    <ProjectReference Include="..\..\Suno\src\LangChain.Providers.Suno.csproj" />
-    <ProjectReference Include="..\..\TogetherAI\src\LangChain.Providers.TogetherAi.csproj" />
-    <ProjectReference Include="..\..\WhisperNet\src\LangChain.Providers.WhisperNet.csproj" />
+<!--    <ProjectReference Include="..\..\Amazon.Bedrock\src\LangChain.Providers.Amazon.Bedrock.csproj" />-->
+<!--    <ProjectReference Include="..\..\Amazon.Sagemaker\src\LangChain.Providers.Amazon.SageMaker.csproj" />-->
+<!--    <ProjectReference Include="..\..\Anthropic\src\LangChain.Providers.Anthropic.csproj" />-->
+<!--    <ProjectReference Include="..\..\Anyscale\src\LangChain.Providers.Anyscale.csproj" />-->
+<!--    <ProjectReference Include="..\..\Automatic1111\src\LangChain.Providers.Automatic1111.csproj" />-->
+<!--    <ProjectReference Include="..\..\Azure\src\LangChain.Providers.Azure.csproj" />-->
+<!--    <ProjectReference Include="..\..\DeepInfra\src\LangChain.Providers.DeepInfra.csproj" />-->
+<!--    <ProjectReference Include="..\..\DeepSeek\src\LangChain.Providers.DeepSeek.csproj" />-->
+<!--    <ProjectReference Include="..\..\Fireworks\src\LangChain.Providers.Fireworks.csproj" />-->
+<!--    <ProjectReference Include="..\..\Google.VertexAI\src\LangChain.Providers.Google.VertexAI.csproj" />-->
+<!--    <ProjectReference Include="..\..\Google\src\LangChain.Providers.Google.csproj" />-->
+<!--    <ProjectReference Include="..\..\Groq\src\LangChain.Providers.Groq.csproj" />-->
+<!--    <ProjectReference Include="..\..\HuggingFace\src\LangChain.Providers.HuggingFace.csproj" />-->
+<!--    <ProjectReference Include="..\..\LeonardoAI\src\LangChain.Providers.Leonardo.csproj" />-->
+<!--    <ProjectReference Include="..\..\LLamaSharp\src\LangChain.Providers.LLamaSharp.csproj" />-->
+<!--    <ProjectReference Include="..\..\Ollama\src\LangChain.Providers.Ollama.csproj" />-->
+<!--    <ProjectReference Include="..\..\OpenAI\src\LangChain.Providers.OpenAI.csproj" />-->
+<!--    <ProjectReference Include="..\..\OpenRouter\src\LangChain.Providers.OpenRouter.csproj" />-->
+<!--    <ProjectReference Include="..\..\Reka\src\LangChain.Providers.Reka.csproj" />-->
+<!--    <ProjectReference Include="..\..\Suno\src\LangChain.Providers.Suno.csproj" />-->
+<!--    <ProjectReference Include="..\..\TogetherAI\src\LangChain.Providers.TogetherAi.csproj" />-->
+<!--    <ProjectReference Include="..\..\WhisperNet\src\LangChain.Providers.WhisperNet.csproj" />-->
   </ItemGroup>
 
   <ItemGroup>
     <TrimmerRootAssembly Include="LangChain.Providers.Abstractions" />
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.Amazon.Bedrock" />-->
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.Amazon.SageMaker" />-->
-    <TrimmerRootAssembly Include="LangChain.Providers.Anthropic" />
-    <TrimmerRootAssembly Include="LangChain.Providers.Anyscale" />
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.Automatic1111" />-->
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.Azure" />-->
-    <TrimmerRootAssembly Include="LangChain.Providers.DeepInfra" />
-    <TrimmerRootAssembly Include="LangChain.Providers.DeepSeek" />
-    <TrimmerRootAssembly Include="LangChain.Providers.Fireworks" />
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.Google.VertexAI" />-->
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.Google" />-->
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.Groq" />-->
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.HuggingFace" />-->
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.LeonardoAI" />-->
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.LLamaSharp" />-->
-    <TrimmerRootAssembly Include="LangChain.Providers.Ollama" />
-    <TrimmerRootAssembly Include="LangChain.Providers.OpenAI" />
-    <TrimmerRootAssembly Include="LangChain.Providers.OpenRouter" />
-    <TrimmerRootAssembly Include="LangChain.Providers.Reka" />
-    <TrimmerRootAssembly Include="LangChain.Providers.Suno" />
-    <TrimmerRootAssembly Include="LangChain.Providers.TogetherAi" />
-    <TrimmerRootAssembly Include="LangChain.Providers.WhisperNet" />
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.Anthropic" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.Anyscale" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.DeepInfra" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.DeepSeek" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.Fireworks" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.Ollama" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.OpenAI" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.OpenRouter" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.Reka" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.Suno" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.TogetherAi" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.WhisperNet" />-->
+
+
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.Amazon.Bedrock" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.Amazon.SageMaker" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.Automatic1111" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.Azure" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.Google.VertexAI" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.Google" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.Groq" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.HuggingFace" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.LeonardoAI" />-->
+    <!--    <TrimmerRootAssembly Include="LangChain.Providers.LLamaSharp" />-->
   </ItemGroup>
 
   <PropertyGroup Label="Publish">
