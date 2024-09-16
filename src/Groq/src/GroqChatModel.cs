@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using GroqSharp.Models;
 using MessageGroq = GroqSharp.Models.Message;
 
@@ -11,10 +12,10 @@ public class GroqChatModel(
 {
     private GroqProvider Provider { get; } = provider ?? throw new ArgumentNullException(nameof(provider));
 
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
         var prompt = ToPrompt(request.Messages);
@@ -32,7 +33,7 @@ public class GroqChatModel(
         var result = request.Messages.ToList();
         result.Add(response.AsAiMessage());
 
-        return new ChatResponse
+        yield return new ChatResponse
         {
             Messages = result,
             Usage = usage,

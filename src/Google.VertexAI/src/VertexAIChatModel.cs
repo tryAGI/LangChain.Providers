@@ -1,6 +1,7 @@
 ﻿using Google.Apis.Auth.OAuth2;
 using Google.Cloud.AIPlatform.V1;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace LangChain.Providers.Google.VertexAI
 {
@@ -10,7 +11,11 @@ namespace LangChain.Providers.Google.VertexAI
         ) : ChatModel(id), IChatModel
     {
         private VertexAIProvider Provider { get; } = provider ?? throw new ArgumentNullException(nameof(provider));
-        public override async Task<ChatResponse> GenerateAsync(ChatRequest request, ChatSettings? settings = null, CancellationToken cancellationToken = default)
+        
+        public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
+            ChatRequest request,
+            ChatSettings? settings = null,
+            [EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
@@ -29,7 +34,7 @@ namespace LangChain.Providers.Google.VertexAI
                 OutputTokens = response.UsageMetadata.CandidatesTokenCount
             };
 
-            return new ChatResponse
+            yield return new ChatResponse
             {
                 Messages = result,
                 Usage = usage,

@@ -1,6 +1,7 @@
 ﻿using LLama.Common;
 using LLama;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace LangChain.Providers.LLamaSharp;
 
@@ -46,10 +47,10 @@ public class LLamaSharpModelInstruction : LLamaSharpModelBase, IChatModel
     }
 
     /// <inheritdoc />
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
@@ -69,7 +70,7 @@ public class LLamaSharpModelInstruction : LLamaSharpModelBase, IChatModel
             RepeatPenalty = Configuration.RepeatPenalty
         };
 
-        OnPromptSent(prompt);
+        OnRequestSent(request);
 
         var buf = "";
         await foreach (var text in ex.InferAsync(prompt,
@@ -85,11 +86,13 @@ public class LLamaSharpModelInstruction : LLamaSharpModelBase, IChatModel
                 }
             }
 
-            OnPartialResponseGenerated(text);
+            OnDeltaReceived(new ChatResponseDelta
+            {
+                Content = text,
+            });
         }
 
         buf = SanitizeOutput(buf);
-        OnCompletedResponseGenerated(buf);
 
         var result = request.Messages.ToList();
         result.Add(buf.AsAiMessage());
@@ -103,11 +106,14 @@ public class LLamaSharpModelInstruction : LLamaSharpModelBase, IChatModel
         };
         TotalUsage += usage;
 
-        return new ChatResponse
+        var chatResponse = new ChatResponse
         {
             Messages = result,
             Usage = usage,
             UsedSettings = ChatSettings.Default,
         };
+        OnResponseReceived(chatResponse);
+        
+        yield return chatResponse;
     }
 }

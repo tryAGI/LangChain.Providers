@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using GenerativeAI.Models;
 using GenerativeAI.Types;
 using LangChain.Providers.Google.Extensions;
@@ -45,8 +46,8 @@ public partial class GoogleChatModel(
             MessageRole.Ai => message.Content.AsModelContent(),
             MessageRole.Human => message.Content.AsUserContent(),
             MessageRole.Chat => message.Content.AsUserContent(),
-            MessageRole.FunctionCall => message.Content.AsFunctionCallContent(message.FunctionName ?? string.Empty),
-            MessageRole.FunctionResult => message.Content.AsFunctionResultContent(message.FunctionName ?? string.Empty),
+            MessageRole.ToolCall => message.Content.AsFunctionCallContent(message.ToolName ?? string.Empty),
+            MessageRole.ToolResult => message.Content.AsFunctionResultContent(message.ToolName ?? string.Empty),
             _ => throw new NotImplementedException()
         };
     }
@@ -58,7 +59,7 @@ public partial class GoogleChatModel(
             var function = message.GetFunction();
 
             return new Message(function?.Arguments.GetString() ?? string.Empty,
-                MessageRole.FunctionCall, function?.Name);
+                MessageRole.ToolCall, function?.Name);
         }
 
         return new Message(
@@ -103,26 +104,33 @@ public partial class GoogleChatModel(
                 TopP = provider.Configuration.TopP,
                 Temperature = provider.Configuration.Temperature
             };
-        var res = await Api.StreamContentAsync(request, OnPartialResponseGenerated, cancellationToken)
+        var res = await Api.StreamContentAsync(request, OnDeltaReceived, cancellationToken)
             .ConfigureAwait(false);
 
-        OnCompletedResponseGenerated(res);
         return new Message(
             res,
             MessageRole.Ai);
     }
 
+    private void OnDeltaReceived(string content)
+    {
+        OnDeltaReceived(new ChatResponseDelta
+        {
+            Content = content,
+        });
+    }
+
     /// <inheritdoc />
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
         var messages = request.Messages.ToList();
         var watch = Stopwatch.StartNew();
-        OnPromptSent(request.Messages.AsHistory());
+        OnRequestSent(request);
         var usedSettings = GoogleGeminiChatSettings.Calculate(
             settings,
             Settings,
@@ -145,10 +153,8 @@ public partial class GoogleChatModel(
             var message = ToMessage(response);
             messages.Add(message);
 
-            OnPartialResponseGenerated(response.Text() ?? string.Empty);
-            OnPartialResponseGenerated(Environment.NewLine);
-            OnCompletedResponseGenerated(response.Text() ?? string.Empty);
-
+            OnDeltaReceived(response.Text() ?? string.Empty);
+            OnDeltaReceived(Environment.NewLine);
 
             usage = GetUsage(response) with
             {
@@ -170,7 +176,7 @@ public partial class GoogleChatModel(
                     var args = function?.Arguments.GetString() ?? string.Empty;
 
                     var jsonResult = await func(args, cancellationToken).ConfigureAwait(false);
-                    messages.Add(jsonResult.AsFunctionResultMessage(name));
+                    messages.Add(jsonResult.AsToolResultMessage(name));
                 }
                 else
                 {
@@ -183,9 +189,8 @@ public partial class GoogleChatModel(
 
                     message = ToMessage(response);
 
-                    OnPartialResponseGenerated(message.Content);
-                    OnPartialResponseGenerated(Environment.NewLine);
-                    OnCompletedResponseGenerated(message.Content);
+                    OnDeltaReceived(message.Content);
+                    OnDeltaReceived(Environment.NewLine);
 
                     messages.Add(message);
 
@@ -201,12 +206,15 @@ public partial class GoogleChatModel(
             }
         }
 
-        return new ChatResponse
+        var chatResponse = new ChatResponse
         {
             Messages = messages,
             Usage = usage,
             UsedSettings = ChatSettings.Default
         };
+        OnResponseReceived(chatResponse);
+        
+        yield return chatResponse;
     }
     private Usage GetUsage(EnhancedGenerateContentResponse response)
     {
@@ -259,7 +267,7 @@ public partial class GoogleChatModel(
         //    }
         //};
 
-        return new Message(jsonResult, MessageRole.FunctionResult, functionName);
+        return new Message(jsonResult, MessageRole.ToolResult, functionName);
     }
 
     #endregion

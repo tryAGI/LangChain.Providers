@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 
@@ -10,10 +11,10 @@ public class SageMakerModel(
     string endpointName)
     : ChatModel(id: endpointName ?? throw new ArgumentNullException(nameof(endpointName), "SageMaker Endpoint Name is not defined"))
 {
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
@@ -47,7 +48,7 @@ public class SageMakerModel(
         AddUsage(usage);
         provider.AddUsage(usage);
 
-        return new ChatResponse
+        yield return new ChatResponse
         {
             Messages = messages,
             UsedSettings = usedSettings,

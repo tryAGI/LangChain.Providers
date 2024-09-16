@@ -15,7 +15,7 @@ public class LeonardoAiModel(
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
-        OnPromptSent(request.Prompt);
+        OnRequestSent(request);
 
         var createResponse = await provider.Api.CreateGenerationAsync(new Body
         {

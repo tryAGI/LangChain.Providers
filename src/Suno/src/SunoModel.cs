@@ -17,7 +17,7 @@ public class SunoModel(
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
-        OnPromptSent(request.Prompt);
+        OnRequestSent(request);
 
         var createResponse = await provider.HttpClient.GenerateV2Async(
             request: new GenerateV2Request

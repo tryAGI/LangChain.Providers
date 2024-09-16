@@ -1,5 +1,6 @@
 using Azure.AI.OpenAI;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace LangChain.Providers.Azure;
 
@@ -17,10 +18,10 @@ public class AzureOpenAiChatModel(
     #region Methods
 
     /// <inheritdoc/>
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
@@ -46,7 +47,7 @@ public class AzureOpenAiChatModel(
         AddUsage(usage);
         //provider.AddUsage(usage);
 
-        return new ChatResponse
+        yield return new ChatResponse
         {
             Messages = messages,
             Usage = usage,
@@ -61,8 +62,8 @@ public class AzureOpenAiChatModel(
             MessageRole.System => new ChatRequestSystemMessage(message.Content),
             MessageRole.Ai => new ChatRequestAssistantMessage(message.Content),
             MessageRole.Human => new ChatRequestUserMessage(message.Content),
-            MessageRole.FunctionCall => throw new NotImplementedException(),
-            MessageRole.FunctionResult => throw new NotImplementedException(),
+            MessageRole.ToolCall => throw new NotImplementedException(),
+            MessageRole.ToolResult => throw new NotImplementedException(),
             _ => throw new NotImplementedException()
         };
     }

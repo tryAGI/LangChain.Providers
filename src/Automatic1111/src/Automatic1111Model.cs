@@ -20,7 +20,7 @@ public class Automatic1111Model(
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
-        OnPromptSent(request.Prompt);
+        OnRequestSent(request.Prompt);
 
         var usedSettings = Automatic1111ModelSettings.Calculate(
             requestSettings: settings,

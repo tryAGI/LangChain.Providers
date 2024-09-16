@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <PackageReference Include="Google_GenerativeAI" />
+      <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
       <PackageReference Include="System.Text.Json" />
     </ItemGroup>
 

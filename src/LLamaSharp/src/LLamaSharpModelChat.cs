@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using LLama;
 using LLama.Common;
 
@@ -44,10 +45,10 @@ public class LLamaSharpModelChat : LLamaSharpModelBase
             .Trim();
     }
 
-    public override async Task<ChatResponse> GenerateAsync(
+    public override async IAsyncEnumerable<ChatResponse> GenerateAsync(
         ChatRequest request,
         ChatSettings? settings = null,
-        CancellationToken cancellationToken = default)
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
@@ -89,7 +90,7 @@ public class LLamaSharpModelChat : LLamaSharpModelBase
         };
         TotalUsage += usage;
 
-        return new ChatResponse
+        yield return new ChatResponse
         {
             Messages = result,
             Usage = usage,
