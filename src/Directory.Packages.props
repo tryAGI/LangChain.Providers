@@ -26,14 +26,14 @@
     </PackageVersion>
     <PackageVersion Include="HtmlAgilityPack" Version="1.11.65" />
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
-    <PackageVersion Include="LangChain.Core" Version="0.15.1-dev.129" />
-    <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.2" />
-    <PackageVersion Include="LangChain.Databases.InMemory" Version="0.15.2" />
-    <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.2" />
-    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.1-dev.129" />
-    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.1-dev.129" />
-    <PackageVersion Include="LangChain.Polyfills" Version="0.15.1-dev.129" />
-    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.1-dev.129" />
+    <PackageVersion Include="LangChain.Core" Version="0.15.2" />
+    <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.3" />
+    <PackageVersion Include="LangChain.Databases.InMemory" Version="0.15.3" />
+    <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.3" />
+    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.2" />
+    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.2" />
+    <PackageVersion Include="LangChain.Polyfills" Version="0.15.2" />
+    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.2" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.14.0" />
     <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.16.0" />
@@ -47,8 +47,8 @@
     <PackageVersion Include="MSTest.TestAdapter" Version="3.6.0" />
     <PackageVersion Include="MSTest.TestFramework" Version="3.6.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing.MSTest" Version="1.1.2" />
-    <PackageVersion Include="Verify.MSTest" Version="26.4.5" />
-    <PackageVersion Include="Verify.SourceGenerators" Version="2.4.3" />
+    <PackageVersion Include="Verify.MSTest" Version="26.5.0" />
+    <PackageVersion Include="Verify.SourceGenerators" Version="2.5.0" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Npgsql" Version="8.0.4" />
     <PackageVersion Include="Ollama" Version="1.10.0" />
