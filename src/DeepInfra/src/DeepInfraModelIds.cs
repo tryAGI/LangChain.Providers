@@ -18,6 +18,17 @@ public enum DeepInfraModelIds
     MetaLlama31405BInstruct,
 
     /// <summary>
+    /// Name: Qwen2.5-72B-Instruct <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.35/MTok <br/>
+    /// Completion Cost: $0.35/MTok <br/>
+    /// Description: Qwen2.5 is a model pretrained on a large-scale dataset of up to 18 trillion tokens, offering significant improvements in knowledge, coding, mathematics, and instruction following compared to its predecessor Qwen2. The model also features enhanced capabilities in generating long texts, understanding structured data, and generating structured outputs, while supporting multilingual capabilities for over 29 languages. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-72B-Instruct">https://huggingface.co/Qwen/Qwen2.5-72B-Instruct</a> 
+    /// </summary>
+    Qwen2572BInstruct,
+
+    /// <summary>
     /// Name: Meta-Llama-3.1-70B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
@@ -60,6 +71,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5">https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5</a> 
     /// </summary>
     MinicpmLlama3V25,
+
+    /// <summary>
+    /// Name: Qwen2.5-Coder-7B <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.06/MTok <br/>
+    /// Completion Cost: $0.06/MTok <br/>
+    /// Description: Qwen2.5-Coder-7B is a powerful code-specific large language model with 7.61 billion parameters. It's designed for code generation, reasoning, and fixing tasks. The model covers 92 programming languages and has been trained on 5.5 trillion tokens of data, including source code, text-code grounding, and synthetic data. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-7B">https://huggingface.co/Qwen/Qwen2.5-Coder-7B</a> 
+    /// </summary>
+    Qwen25Coder7B,
 
     /// <summary>
     /// Name: gemma-2-27b-it <br/>
