@@ -10,10 +10,12 @@ public static class DeepInfraModelProvider
     private static Dictionary<DeepInfraModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
         { DeepInfraModelIds.MetaLlama31405BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-405B-Instruct",32768,1.79E-06,1.79E-06)},
+        { DeepInfraModelIds.Qwen2572BInstruct, ToMetadata("Qwen/Qwen2.5-72B-Instruct",32768,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama3170BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct",131072,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama318BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-8B-Instruct",131072,6E-08,6E-08)},
         { DeepInfraModelIds.MistralNemoInstruct2407, ToMetadata("mistralai/Mistral-Nemo-Instruct-2407",131072,1.3E-07,1.3E-07)},
         { DeepInfraModelIds.MinicpmLlama3V25, ToMetadata("openbmb/MiniCPM-Llama3-V-2_5",8192,3.4000000000000003E-07,3.4000000000000003E-07)},
+        { DeepInfraModelIds.Qwen25Coder7B, ToMetadata("Qwen/Qwen2.5-Coder-7B",32768,6E-08,6E-08)},
         { DeepInfraModelIds.Gemma227BIt, ToMetadata("google/gemma-2-27b-it",8192,2.7E-07,2.7E-07)},
         { DeepInfraModelIds.Gemma29BIt, ToMetadata("google/gemma-2-9b-it",8192,6E-08,6E-08)},
         { DeepInfraModelIds.L370BEuryaleV21, ToMetadata("Sao10K/L3-70B-Euryale-v2.1",8192,3.5E-07,4.0000000000000003E-07)},

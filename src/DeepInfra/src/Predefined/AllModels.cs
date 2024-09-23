@@ -5,6 +5,11 @@ namespace LangChain.Providers.DeepInfra.Predefined;
 public class MetaLlama31405BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama31405BInstruct);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.Qwen2572BInstruct"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Qwen2572BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwen2572BInstruct);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.MetaLlama3170BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class MetaLlama3170BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama3170BInstruct);
@@ -23,6 +28,11 @@ public class MistralNemoInstruct2407Model(DeepInfraProvider provider) : DeepInfr
 /// <inheritdoc cref="DeepInfraModelIds.MinicpmLlama3V25"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class MinicpmLlama3V25Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MinicpmLlama3V25);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.Qwen25Coder7B"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Qwen25Coder7BModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwen25Coder7B);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.Gemma227BIt"/>
