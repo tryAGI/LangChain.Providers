@@ -1,8 +1,8 @@
 using LangChain.Providers.OpenAI;
 
-namespace LangChain.Providers.TogetherAi;
+namespace LangChain.Providers.Together;
 
 /// <summary>
 /// </summary>
-public class TogetherEmbeddingModel(TogetherAiProvider provider, string id)
+public class TogetherEmbeddingModel(TogetherProvider provider, string id)
     : OpenAiEmbeddingModel(provider, id);

@@ -20,7 +20,7 @@
         <ProjectReference Include="..\LLamaSharp\src\LangChain.Providers.LLamaSharp.csproj" />
         <ProjectReference Include="..\Ollama\src\LangChain.Providers.Ollama.csproj" />
         <ProjectReference Include="..\OpenRouter\src\LangChain.Providers.OpenRouter.csproj" />
-        <ProjectReference Include="..\TogetherAI\src\LangChain.Providers.TogetherAi.csproj" />
+        <ProjectReference Include="..\TogetherAI\src\LangChain.Providers.Together.csproj" />
     </ItemGroup>
 
     <ItemGroup>

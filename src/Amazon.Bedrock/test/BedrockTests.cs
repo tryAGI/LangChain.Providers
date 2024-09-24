@@ -87,7 +87,7 @@ public class BedrockTests
     }
 
     [Test]
-    public void LlmChainTest()
+    public async Task LlmChainTest()
     {
         var provider = new BedrockProvider();
         var llm = new Jurassic2MidModel(provider);
@@ -108,7 +108,7 @@ The pet name is
             | Template(promptText, outputKey: "prompt")
             | LLM(llm, inputKey: "prompt", outputKey: "text");
 
-        var res = chain.RunAsync(resultKey: "text", CancellationToken.None).Result;
+        var res = await chain.RunAsync(resultKey: "text");
         Console.WriteLine(res);
     }
 
@@ -156,7 +156,7 @@ Answer: ";
             | Template(prompt1Text, outputKey: "prompt")
             | LLM(llm, inputKey: "prompt", outputKey: "pet_sentence");
 
-        //  var chainQuestionRes = chainQuestion.Run(resultKey: "pet_sentence").Result;
+        //  var chainQuestionRes = await chainQuestion.RunAsync(resultKey: "pet_sentence");
 
         var chainFilter =
             // do not move the entire dictionary from the other chain
@@ -164,7 +164,7 @@ Answer: ";
             | Template(prompt2Text, outputKey: "prompt")
             | LLM(llm, inputKey: "prompt", outputKey: "text");
 
-        var res = chainFilter.RunAsync(resultKey: "text", CancellationToken.None).Result;
+        var res = await chainFilter.RunAsync(resultKey: "text");
         Console.WriteLine(res);
     }
 
@@ -209,7 +209,7 @@ Helpful Answer:";
             | Template(promptText)                                                              // replace context and question in the prompt with their values
             | LLM(llm);                                                                       // send the result to the language model
 
-        var res = await chain.RunAsync("text", CancellationToken.None);
+        var res = await chain.RunAsync("text");
         Console.WriteLine(res);
     }
 

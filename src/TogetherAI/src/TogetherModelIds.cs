@@ -1,9 +1,9 @@
-namespace LangChain.Providers.TogetherAi;
+namespace LangChain.Providers.Together;
 
 /// <summary>
 /// List of all the Predefined Together Ai Models
 /// </summary>
-public enum TogetherAiModelIds
+public enum TogetherModelIds
 {
 
     /// <summary>
@@ -280,17 +280,6 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1">https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1</a>
     /// </summary>
     Mixtral8X7BInstructV01,
-
-    /// <summary>
-    /// Name: Meta Llama 3.1 405B Instruct Turbo <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0/MTok <br/>
-    /// Completion Cost: $0/MTok <br/>
-    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Lite-Pro">https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct-Lite-Pro</a>
-    /// </summary>
-    MetaLlama31405BInstructTurbo,
 
     /// <summary>
     /// Name: Meta Llama 3.1 405B Instruct Turbo <br/>
@@ -940,17 +929,6 @@ public enum TogetherAiModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/carson/ml318br">https://huggingface.co/carson/ml318br</a>
     /// </summary>
     CarsonMl318br,
-
-    /// <summary>
-    /// Name: Meta Llama 3.1 70B Instruct Turbo <br/>
-    /// Organization: Meta <br/>
-    /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0/MTok <br/>
-    /// Completion Cost: $0/MTok <br/>
-    /// Description: Llama 3.1 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align with human preferences for helpfulness and safety. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/albert/meta-llama-3-1-70b-instruct-turbo">https://huggingface.co/albert/meta-llama-3-1-70b-instruct-turbo</a>
-    /// </summary>
-    MetaLlama3170BInstructTurbo,
 
     /// <summary>
     /// Name: Llama-3 70B Instruct Gradient 1048K <br/>

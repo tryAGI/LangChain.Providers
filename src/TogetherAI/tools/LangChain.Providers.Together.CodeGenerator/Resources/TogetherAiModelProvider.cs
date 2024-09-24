@@ -1,13 +1,13 @@
 ﻿using OpenAI;
 
-namespace LangChain.Providers.TogetherAi;
+namespace LangChain.Providers.Together;
 
 /// <summary>
 /// Contains all the Together Ai models.
 /// </summary>
-public static class TogetherAiModelProvider
+public static class TogetherModelProvider
 {
-    private static Dictionary<TogetherAiModelIds, ChatModelMetadata> Models { get; set; } = new()
+    private static Dictionary<TogetherModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
         {{DicAdd}}
     };
@@ -24,7 +24,7 @@ public static class TogetherAiModelProvider
     }
 
     [CLSCompliant(false)]
-    public static ChatModelMetadata GetModelById(TogetherAiModelIds modelId)
+    public static ChatModelMetadata GetModelById(TogetherModelIds modelId)
     {
         if (Models.TryGetValue(modelId, out var id))
         {

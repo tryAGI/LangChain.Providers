@@ -1,6 +1,6 @@
 ﻿using System.CommandLine;
 using System.CommandLine.NamingConventionBinder;
-using LangChain.Providers.TogetherAi.CodeGenerator.Main;
+using LangChain.Providers.Together.CodeGenerator.Main;
 
 var rootCommand = new RootCommand(
     "Create Codes for Together AI Models")
@@ -10,7 +10,7 @@ var rootCommand = new RootCommand(
     new Option<string>(
         ["--output", "-o"], () => "../../../../../src", "Output directory"),
     new Option<string?>(
-    ["--key", "-k"], () => Environment.GetEnvironmentVariable("TogetherAi_Api_Key"), "Together AI API Key")
+    ["--key", "-k"], () => Environment.GetEnvironmentVariable("Together_Api_Key"), "Together AI API Key")
 };
 
 rootCommand.Handler = CommandHandler.Create(async (bool underscore, string output, string key) =>
@@ -33,10 +33,10 @@ rootCommand.Handler = CommandHandler.Create(async (bool underscore, string outpu
     };
     if (underscore) replaces[" "] = "_";
 
-    await TogetherAiCodeGenerator.GenerateCodesAsync(new GenerationOptions
+    await TogetherCodeGenerator.GenerateCodesAsync(new GenerationOptions
     {
         OutputFolder = output,
-        TogetherAiApiKey = key,
+        TogetherApiKey = key,
         ReplaceEnumNameFunc = ReplaceFunc
     }).ConfigureAwait(false);
     return;

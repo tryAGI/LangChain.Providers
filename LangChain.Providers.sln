@@ -115,9 +115,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeepSeek", "DeepSeek", "{67
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.DeepSeek", "src\DeepSeek\src\LangChain.Providers.DeepSeek.csproj", "{6217F9EB-35EE-4E36-BF29-B1E49CEDC5A5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TogetherAi", "TogetherAi", "{CD001ADE-7B22-4325-9B3C-5C7D3B812797}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Together", "Together", "{CD001ADE-7B22-4325-9B3C-5C7D3B812797}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.TogetherAi", "src\TogetherAI\src\LangChain.Providers.TogetherAi.csproj", "{15D318BC-3954-4B32-B72A-B0FC97048EB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.Together", "src\TogetherAI\src\LangChain.Providers.Together.csproj", "{15D318BC-3954-4B32-B72A-B0FC97048EB3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bedrock", "Bedrock", "{6622DE9C-A23A-44E6-B661-EC784CE6C75C}"
 	ProjectSection(SolutionItems) = preProject
@@ -132,7 +132,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.Suno", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.Suno.Tests", "src\Suno\test\LangChain.Providers.Suno.Tests.csproj", "{F3A3A951-F83E-4072-92D7-A7D8C75CF9F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.TogetherAi.CodeGenerator", "src\TogetherAI\tools\LangChain.Providers.TogetherAi.CodeGenerator\LangChain.Providers.TogetherAi.CodeGenerator.csproj", "{5FF0458E-0E77-4934-B170-ED05CAE3DFDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.Together.CodeGenerator", "src\TogetherAI\tools\LangChain.Providers.Together.CodeGenerator\LangChain.Providers.Together.CodeGenerator.csproj", "{5FF0458E-0E77-4934-B170-ED05CAE3DFDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeepInfra", "DeepInfra", "{97A6B334-EB72-4B7E-A4EA-2073604DD94B}"
 EndProject

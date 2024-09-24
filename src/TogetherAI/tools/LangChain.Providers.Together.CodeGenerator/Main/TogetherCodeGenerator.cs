@@ -1,16 +1,16 @@
 ﻿using System.Net;
 using System.Text;
 using H;
-using LangChain.Providers.TogetherAi.CodeGenerator.Classes;
+using LangChain.Providers.Together.CodeGenerator.Classes;
 using Newtonsoft.Json.Linq;
 using static System.Globalization.CultureInfo;
 using static System.Text.RegularExpressions.Regex;
 
 // ReSharper disable LocalizableElement
 
-namespace LangChain.Providers.TogetherAi.CodeGenerator.Main;
+namespace LangChain.Providers.Together.CodeGenerator.Main;
 
-public static class TogetherAiCodeGenerator
+public static class TogetherCodeGenerator
 {
     #region Public Methods
 
@@ -23,8 +23,8 @@ public static class TogetherAiCodeGenerator
     {
         options = options ?? throw new ArgumentNullException(nameof(options));
 
-        if (string.IsNullOrEmpty(options.TogetherAiApiKey))
-            throw new ArgumentException(nameof(options.TogetherAiApiKey));
+        if (string.IsNullOrEmpty(options.TogetherApiKey))
+            throw new ArgumentException(nameof(options.TogetherApiKey));
 
         //Initialize fields.
         var list = new List<ModelInfo>();
@@ -57,13 +57,13 @@ public static class TogetherAiCodeGenerator
         Console.WriteLine("Creating AllModels.cs...");
         await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
-        //Create TogetherAiModelIds.cs
-        Console.WriteLine("Creating TogetherAiModelIds.cs...");
-        await CreateTogetherAiModelIdsFile(sorted, options.OutputFolder).ConfigureAwait(false);
+        //Create TogetherModelIds.cs
+        Console.WriteLine("Creating TogetherModelIds.cs...");
+        await CreateTogetherModelIdsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
-        //Create TogetherAiModelIds.cs
-        Console.WriteLine("Creating TogetherAiModelProvider.cs...");
-        await CreateTogetherAiModelProviderFile(sorted, options.OutputFolder).ConfigureAwait(false);
+        //Create TogetherModelIds.cs
+        Console.WriteLine("Creating TogetherModelProvider.cs...");
+        await CreateTogetherModelProviderFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
         Console.WriteLine($"{count} Models added into repo.");
         Console.WriteLine("Task Completed!");
@@ -82,12 +82,12 @@ public static class TogetherAiCodeGenerator
     #region Private Methods
 
     /// <summary>
-    ///     Creates Codes\TogetherAiModelProvider.cs
+    ///     Creates Codes\TogetherModelProvider.cs
     /// </summary>
     /// <param name="sorted"></param>
     /// <param name="outputFolder"></param>
     /// <returns></returns>
-    private static async Task CreateTogetherAiModelProviderFile(List<ModelInfo> sorted, string outputFolder)
+    private static async Task CreateTogetherModelProviderFile(List<ModelInfo> sorted, string outputFolder)
     {
         var sb3 = new StringBuilder();
         var first = true;
@@ -111,18 +111,18 @@ public static class TogetherAiCodeGenerator
             Resources.TogetherAiModelProvider_cs.AsString()
                 .Replace("{{DicAdd}}", sb3.ToString(), StringComparison.InvariantCulture);
         Directory.CreateDirectory(outputFolder);
-        var fileName = Path.Combine(outputFolder, "TogetherAiModelProvider.cs");
+        var fileName = Path.Combine(outputFolder, "TogetherModelProvider.cs");
         await File.WriteAllTextAsync(fileName, dicsAdd).ConfigureAwait(false);
         Console.WriteLine($"Saved to {fileName}");
     }
 
     /// <summary>
-    ///     Creates Codes\TogetherAiModelIds.cs
+    ///     Creates Codes\TogetherModelIds.cs
     /// </summary>
     /// <param name="sorted"></param>
     /// <param name="outputFolder"></param>
     /// <returns></returns>
-    private static async Task CreateTogetherAiModelIdsFile(List<ModelInfo> sorted, string outputFolder)
+    private static async Task CreateTogetherModelIdsFile(List<ModelInfo> sorted, string outputFolder)
     {
         var sb3 = new StringBuilder();
         foreach (var item in sorted)
@@ -138,7 +138,7 @@ public static class TogetherAiCodeGenerator
             Resources.TogetherAiModelIds_cs.AsString()
                 .Replace("{{ModelIds}}", sb3.ToString(), StringComparison.InvariantCulture);
         Directory.CreateDirectory(outputFolder);
-        var fileName = Path.Combine(outputFolder, "TogetherAiModelIds.cs");
+        var fileName = Path.Combine(outputFolder, "TogetherModelIds.cs");
         await File.WriteAllTextAsync(fileName, modelIdsContent).ConfigureAwait(false);
         Console.WriteLine($"Saved to {fileName}");
     }
@@ -160,7 +160,7 @@ public static class TogetherAiCodeGenerator
 
         var classesFileContent =
             Resources.AllModels_cs.AsString()
-                .Replace("{{TogetherAiClasses}}", sb3.ToString(), StringComparison.InvariantCulture);
+                .Replace("{{TogetherClasses}}", sb3.ToString(), StringComparison.InvariantCulture);
         var path1 = Path.Join(outputFolder, "Predefined");
         Directory.CreateDirectory(path1);
         var fileName = Path.Combine(path1, "AllModels.cs");
@@ -249,9 +249,9 @@ public static class TogetherAiCodeGenerator
     {
         var sb = new StringBuilder();
         sb.AppendLine(
-            $"/// <inheritdoc cref=\"TogetherAiModelIds.{enumMemberName}\"/>\r\n/// <param name=\"provider\">Open Router Provider Instance</param>");
+            $"/// <inheritdoc cref=\"TogetherModelIds.{enumMemberName}\"/>\r\n/// <param name=\"provider\">Open Router Provider Instance</param>");
         sb.AppendLine(
-            $"public class {enumMemberName}Model(TogetherAiProvider provider) : TogetherAiModel(provider, TogetherAiModelIds.{enumMemberName});");
+            $"public class {enumMemberName}Model(TogetherProvider provider) : TogetherModel(provider, TogetherModelIds.{enumMemberName});");
         return sb.ToString();
     }
 
@@ -259,7 +259,7 @@ public static class TogetherAiCodeGenerator
         double completionCost)
     {
         return "{ " +
-               FormattableString.Invariant($"TogetherAiModelIds.{enumMemberName}, ToMetadata(\"{modelId}\",{tokenLength},{promptCost},{completionCost})") +
+               FormattableString.Invariant($"TogetherModelIds.{enumMemberName}, ToMetadata(\"{modelId}\",{tokenLength},{promptCost},{completionCost})") +
                "},";
     }
 
@@ -304,7 +304,7 @@ public static class TogetherAiCodeGenerator
         client.DefaultRequestHeaders.Add("UserAgent",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36");
         client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
-        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {options.TogetherAiApiKey}");
+        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {options.TogetherApiKey}");
 
         using var cancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
         cancellationTokenSource.CancelAfter(TimeSpan.FromMinutes(5));

@@ -1,4 +1,4 @@
-﻿namespace LangChain.Providers.TogetherAi.CodeGenerator.Classes;
+﻿namespace LangChain.Providers.Together.CodeGenerator.Classes;
 
 public class ModelInfo
 {

@@ -110,7 +110,7 @@ The pet name is
             | Template(promptText, outputKey: "prompt")
             | LLM(model, inputKey: "prompt", outputKey: "text");
 
-        var res = await chain.RunAsync(resultKey: "text", CancellationToken.None);
+        var res = await chain.RunAsync(resultKey: "text");
         Console.WriteLine(res);
     }
 
@@ -131,8 +131,8 @@ The pet name is
     //             "This icecream is delicious",
     //             "It is cold in space"
     //         }.ToDocuments();
-    //         var index = InMemoryVectorStore
-    //             .CreateIndexFromDocuments(embeddings, documents).Result;
+    //         var index = await InMemoryVectorStore
+    //             .CreateIndexFromDocuments(embeddings, documents);
     //
     //         string prompt1Text =
     //             @"Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
@@ -159,7 +159,7 @@ The pet name is
     //             | Template(prompt1Text, outputKey: "prompt")
     //             | LLM(llm, inputKey: "prompt", outputKey: "pet_sentence");
     //
-    //         //  var chainQuestionRes = chainQuestion.Run(resultKey: "pet_sentence").Result;
+    //         //  var chainQuestionRes = await chainQuestion.RunAsync(resultKey: "pet_sentence");
     //
     //         var chainFilter =
     //             // do not move the entire dictionary from the other chain
@@ -167,7 +167,7 @@ The pet name is
     //             | Template(prompt2Text, outputKey: "prompt")
     //             | LLM(llm, inputKey: "prompt", outputKey: "text");
     //
-    //         var res = chainFilter.Run(resultKey: "text").Result;
+    //         var res = await chainFilter.RunAsync(resultKey: "text");
     //         Console.WriteLine(res);
     //     }
     //

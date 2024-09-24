@@ -137,10 +137,10 @@ public partial class LLamaSharpTests
 
         // test
         var question = "What is the good name for a pet?";
-        var answer = vectorDatabase.QueryAsync(embeddings, question, stuffDocumentsChain,
+        var answer = await vectorDatabase.QueryAsync(embeddings, question, stuffDocumentsChain,
             inputKey: "question" // variable name in prompt template for the question
                                  // it would be passed by to stuffDocumentsChain
-            ).Result ?? string.Empty;
+            ) ?? string.Empty;
 
         answer.Contains("Bob").Should().BeTrue();
     }

@@ -1,10 +1,10 @@
 ﻿using LangChain.Providers.OpenAI;
 
-namespace LangChain.Providers.TogetherAi;
+namespace LangChain.Providers.Together;
 
 /// <summary>
 /// </summary>
-public class TogetherAiConfiguration : OpenAiConfiguration
+public class TogetherConfiguration : OpenAiConfiguration
 {
     /// <summary>
     /// </summary>

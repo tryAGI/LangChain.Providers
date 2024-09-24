@@ -17,7 +17,7 @@ public class ChainTests
             | Set("Hello", outputKey: "var1")
             | Template("{var1}, {var2}", outputKey: "prompt");
 
-        var res = await chain.RunAsync(resultKey: "prompt", CancellationToken.None);
+        var res = await chain.RunAsync(resultKey: "prompt");
 
         res.Should().Be("Hello, World");
     }
@@ -60,7 +60,7 @@ The pet name is
             | Template(promptText, outputKey: "prompt")
             | LLM(llm, inputKey: "prompt", outputKey: "text");
 
-        var res = await chain.RunAsync(resultKey: "text", CancellationToken.None);
+        var res = await chain.RunAsync(resultKey: "text");
 
         res.Should().Be("Bob");
     }
@@ -119,7 +119,7 @@ Answer: ";
             | LLM(llm, inputKey: "prompt", outputKey: "text");
 
 
-        var res = await chainFilter.RunAsync(resultKey: "text", CancellationToken.None);
+        var res = await chainFilter.RunAsync(resultKey: "text");
         res.Should().Be("Bob");
     }
 }

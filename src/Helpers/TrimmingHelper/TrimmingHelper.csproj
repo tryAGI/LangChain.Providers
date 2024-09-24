@@ -30,7 +30,7 @@
 <!--    <ProjectReference Include="..\..\OpenRouter\src\LangChain.Providers.OpenRouter.csproj" />-->
 <!--    <ProjectReference Include="..\..\Reka\src\LangChain.Providers.Reka.csproj" />-->
 <!--    <ProjectReference Include="..\..\Suno\src\LangChain.Providers.Suno.csproj" />-->
-<!--    <ProjectReference Include="..\..\TogetherAI\src\LangChain.Providers.TogetherAi.csproj" />-->
+<!--    <ProjectReference Include="..\..\TogetherAI\src\LangChain.Providers.Together.csproj" />-->
 <!--    <ProjectReference Include="..\..\WhisperNet\src\LangChain.Providers.WhisperNet.csproj" />-->
   </ItemGroup>
 
@@ -46,7 +46,7 @@
 <!--    <TrimmerRootAssembly Include="LangChain.Providers.OpenRouter" />-->
 <!--    <TrimmerRootAssembly Include="LangChain.Providers.Reka" />-->
 <!--    <TrimmerRootAssembly Include="LangChain.Providers.Suno" />-->
-<!--    <TrimmerRootAssembly Include="LangChain.Providers.TogetherAi" />-->
+<!--    <TrimmerRootAssembly Include="LangChain.Providers.Together" />-->
 <!--    <TrimmerRootAssembly Include="LangChain.Providers.WhisperNet" />-->
 
 

@@ -100,9 +100,9 @@ namespace LangChain.Providers.Google.VertexAI.Test
                 | CombineDocuments(outputKey: "context")     // combine documents together and put them into context
                 | Template(promptTemplate)                   // replace context and question in the prompt with their values
                 | LLM(llm.UseConsoleForDebug());             // send the result to the language model
-            var chainAnswer = await chain.RunAsync("text", CancellationToken.None);  // get chain result
+            var chainAnswer = await chain.RunAsync("text");  // get chain result
 
-            var res = await chain.RunAsync("text", CancellationToken.None);
+            var res = await chain.RunAsync("text");
             Console.WriteLine(res);
         }
 

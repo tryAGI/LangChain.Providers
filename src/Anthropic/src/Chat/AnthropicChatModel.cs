@@ -144,7 +144,7 @@ public partial class AnthropicChatModel(
                     usage ??= Usage.Empty;
                     if (streamResponse.IsStart)
                     {
-                        usage += GetUsage(streamResponse.Start.Message.Usage);
+                        usage += GetUsage(streamResponse.Start?.Message.Usage);
                     }
                     var streamDelta = streamResponse.ContentBlockDelta;
                     var delta = new ChatResponseDelta

@@ -16,7 +16,7 @@ using LangChain.Providers.Ollama;
 using LangChain.Providers.OpenAI;
 using LangChain.Providers.OpenAI.Predefined;
 using LangChain.Providers.OpenRouter;
-using LangChain.Providers.TogetherAi;
+using LangChain.Providers.Together;
 
 namespace LangChain.IntegrationTests;
 
@@ -48,10 +48,10 @@ public static class Helpers
             case ProviderType.Together:
                 {
                     // https://www.together.ai/blog/embeddings-endpoint-release
-                    var provider = new TogetherAiProvider(
+                    var provider = new TogetherProvider(
                         apiKey: Environment.GetEnvironmentVariable("TOGETHER_API_KEY") ??
                         throw new InconclusiveException("TOGETHER_API_KEY is not set"));
-                    var llm = new TogetherAiModel(provider, id: "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo");
+                    var llm = new TogetherModel(provider, id: "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo");
                     var embeddings = new OpenAiEmbeddingModel(provider, id: "togethercomputer/m2-bert-80M-2k-retrieval");
 
                     return (llm, embeddings, provider);
