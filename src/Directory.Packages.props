@@ -5,13 +5,13 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.2.1-dev.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.404.4" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403.11" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.404.5" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403.12" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="1.0.0-beta.17" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
     <PackageVersion Include="FluentAssertions" Version="6.12.1" />
     <PackageVersion Include="GitHubActionsTestLogger" Version="2.4.1" />
-    <PackageVersion Include="Google.Cloud.AIPlatform.V1" Version="3.7.0" />
+    <PackageVersion Include="Google.Cloud.AIPlatform.V1" Version="3.8.0" />
     <PackageVersion Include="Google_GenerativeAI" Version="1.0.2" />
     <PackageVersion Include="GroqSharp" Version="1.1.2" />
     <PackageVersion Include="H.Generators.Extensions" Version="1.22.0" />
