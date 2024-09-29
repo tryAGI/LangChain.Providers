@@ -20,12 +20,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\auto-format.yml = .github\workflows\auto-format.yml
 		.github\workflows\auto-labeling.yml = .github\workflows\auto-labeling.yml
 		.github\workflows\auto-merge.yml = .github\workflows\auto-merge.yml
+		.github\workflows\deep-infra.yml = .github\workflows\deep-infra.yml
 		.github\dependabot.yml = .github\dependabot.yml
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		.github\workflows\mkdocs.yml = .github\workflows\mkdocs.yml
-		.github\workflows\pull-request.yml = .github\workflows\pull-request.yml
-		.github\workflows\deep-infra.yml = .github\workflows\deep-infra.yml
 		.github\workflows\open-router.yml = .github\workflows\open-router.yml
+		.github\workflows\pull-request.yml = .github\workflows\pull-request.yml
 		.github\workflows\together.yml = .github\workflows\together.yml
 	EndProjectSection
 EndProject
@@ -174,7 +174,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.Generat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Providers.Anthropic", "src\Anthropic\src\LangChain.Providers.Anthropic.csproj", "{BD9AF0B6-15C5-4365-9B78-6EF0C9CC3E2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LangChain.IntegrationTests", "src\IntegrationTests\LangChain.IntegrationTests.csproj", "{12C853A4-0669-4FB2-934F-37E8171D1300}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.IntegrationTests", "src\IntegrationTests\LangChain.IntegrationTests.csproj", "{12C853A4-0669-4FB2-934F-37E8171D1300}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AIStudio", "AIStudio", "{C4DD0101-BF33-4ECB-8716-20F0D0F5832D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangChain.Provider.Google.Tests", "src\Google\test\LangChain.Provider.Google.Tests.csproj", "{C0D9224B-DD45-4DEB-B45F-D4FDD7544629}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -338,6 +342,10 @@ Global
 		{12C853A4-0669-4FB2-934F-37E8171D1300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C853A4-0669-4FB2-934F-37E8171D1300}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C853A4-0669-4FB2-934F-37E8171D1300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D9224B-DD45-4DEB-B45F-D4FDD7544629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D9224B-DD45-4DEB-B45F-D4FDD7544629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D9224B-DD45-4DEB-B45F-D4FDD7544629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D9224B-DD45-4DEB-B45F-D4FDD7544629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -366,7 +374,7 @@ Global
 		{DA40F290-6B2D-451B-8BE2-9C577C4F1B11} = {0ACB8140-8198-4FA4-94DF-95A159E38E5C}
 		{4724E9F2-A344-4B64-9492-AD6A6964AF43} = {0ACB8140-8198-4FA4-94DF-95A159E38E5C}
 		{D0FC7D59-9535-4860-BF5B-D163AA06ECCF} = {964429FD-A7CB-4607-9188-0B128C6CEDCD}
-		{D692E628-1072-4465-9D1E-4840DC24DE97} = {A23BD019-BE70-42D5-9DD4-A79DEDDE54F4}
+		{D692E628-1072-4465-9D1E-4840DC24DE97} = {C4DD0101-BF33-4ECB-8716-20F0D0F5832D}
 		{F9F8E323-5B23-43F1-ABBD-05CD0D5CAC35} = {91B13316-6565-4CB6-9876-945FFE2DD20C}
 		{786BD899-CB12-4A3F-9107-FF28A8C90B42} = {DE00D366-5CA9-4EB9-98CC-18793B8229AB}
 		{72C0A9D6-D59C-4217-813C-11469761E9F8} = {8266C51A-BE2E-458C-9434-DDAFF788181A}
@@ -407,6 +415,8 @@ Global
 		{FCD9A4CB-C70A-499F-8179-A50836B809D6} = {FC28B45D-2604-4F4C-BC3E-F2301EDB3469}
 		{F78D9189-24B8-4403-89D2-7FBBB5D83556} = {FC28B45D-2604-4F4C-BC3E-F2301EDB3469}
 		{BD9AF0B6-15C5-4365-9B78-6EF0C9CC3E2F} = {7A2A589D-F8EF-4744-9BEE-B06A5F109851}
+		{C4DD0101-BF33-4ECB-8716-20F0D0F5832D} = {A23BD019-BE70-42D5-9DD4-A79DEDDE54F4}
+		{C0D9224B-DD45-4DEB-B45F-D4FDD7544629} = {C4DD0101-BF33-4ECB-8716-20F0D0F5832D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C00D0F1-6138-4ED9-846B-97E43D6DFF1C}
