@@ -6,13 +6,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Google_GenerativeAI" />
-      <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
-      <PackageReference Include="System.Text.Json" />
+        <PackageReference Include="Google_GenerativeAI"/>
     </ItemGroup>
 
     <ItemGroup Label="Usings">
-        <Using Include="System.Net.Http" />
+        <Using Include="System.Net.Http"/>
     </ItemGroup>
 
     <PropertyGroup Label="NuGet">
@@ -21,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj" />
+        <ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj"/>
     </ItemGroup>
 
 </Project>
