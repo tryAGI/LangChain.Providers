@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.2.1-dev.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.404.6" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403.13" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.404.7" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.403.14" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="1.0.0-beta.17" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
     <PackageVersion Include="FluentAssertions" Version="6.12.1" />
@@ -16,7 +16,7 @@
     <PackageVersion Include="GroqSharp" Version="1.1.2" />
     <PackageVersion Include="H.Generators.Extensions" Version="1.22.0" />
     <PackageVersion Include="H.Generators.Tests.Extensions" Version="1.22.0" />
-    <PackageVersion Include="H.NSwag.Generator" Version="14.0.7.76">
+    <PackageVersion Include="H.NSwag.Generator" Version="14.1.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
