@@ -18,6 +18,28 @@ public enum DeepInfraModelIds
     MetaLlama31405BInstruct,
 
     /// <summary>
+    /// Name: Llama-3.2-11B-Vision-Instruct <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.06/MTok <br/>
+    /// Completion Cost: $0.06/MTok <br/>
+    /// Description: Llama 3.2 11B Vision is a multimodal model with 11 billion parameters, designed to handle tasks combining visual and textual data. It excels in tasks such as image captioning and visual question answering, bridging the gap between language generation and visual reasoning. Pre-trained on a massive dataset of image-text pairs, it performs well in complex, high-accuracy image analysis.  Its ability to integrate visual understanding with language processing makes it an ideal solution for industries requiring comprehensive visual-linguistic AI applications, such as content creation, AI-driven customer service, and research. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct">https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct</a> 
+    /// </summary>
+    Llama3211BVisionInstruct,
+
+    /// <summary>
+    /// Name: Llama-3.2-90B-Vision-Instruct <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.35/MTok <br/>
+    /// Completion Cost: $0.35/MTok <br/>
+    /// Description: The Llama 90B Vision model is a top-tier, 90-billion-parameter multimodal model designed for the most challenging visual reasoning and language tasks. It offers unparalleled accuracy in image captioning, visual question answering, and advanced image-text comprehension. Pre-trained on vast multimodal datasets and fine-tuned with human feedback, the Llama 90B Vision is engineered to handle the most demanding image-based AI tasks.  This model is perfect for industries requiring cutting-edge multimodal AI capabilities, particularly those dealing with complex, real-time visual and textual analysis. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct">https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct</a> 
+    /// </summary>
+    Llama3290BVisionInstruct,
+
+    /// <summary>
     /// Name: Qwen2.5-72B-Instruct <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
@@ -49,6 +71,28 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct</a> 
     /// </summary>
     MetaLlama318BInstruct,
+
+    /// <summary>
+    /// Name: Llama-3.2-3B-Instruct <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.03/MTok <br/>
+    /// Completion Cost: $0.03/MTok <br/>
+    /// Description: The Meta Llama 3.2 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction-tuned generative models in 1B and 3B sizes (text in/text out) <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct">https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct</a> 
+    /// </summary>
+    Llama323BInstruct,
+
+    /// <summary>
+    /// Name: Llama-3.2-1B-Instruct <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.01/MTok <br/>
+    /// Completion Cost: $0.01/MTok <br/>
+    /// Description: The Meta Llama 3.2 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction-tuned generative models in 1B and 3B sizes (text in/text out). <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct">https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct</a> 
+    /// </summary>
+    Llama321BInstruct,
 
     /// <summary>
     /// Name: Mistral-Nemo-Instruct-2407 <br/>
@@ -258,6 +302,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1">https://huggingface.co/HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1</a> 
     /// </summary>
     ZephyrOrpo141BA35bV01,
+
+    /// <summary>
+    /// Name: LLaMA2-13B-Tiefighter <br/>
+    /// Organization: KoboldAI <br/>
+    /// Context Length: 4096 <br/>
+    /// Prompt Cost: $0.1/MTok <br/>
+    /// Completion Cost: $0.1/MTok <br/>
+    /// Description: LLaMA2-13B-Tiefighter is a highly creative and versatile language model, fine-tuned for storytelling, adventure, and conversational dialogue. It combines the strengths of multiple models and datasets, including retro-rodeo and choose-your-own-adventure, to generate engaging and imaginative content. With its ability to improvise and adapt to different styles and formats, Tiefighter is perfect for writers, creators, and anyone looking to spark their imagination. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/KoboldAI/LLaMA2-13B-Tiefighter">https://huggingface.co/KoboldAI/LLaMA2-13B-Tiefighter</a> 
+    /// </summary>
+    Llama213BTiefighter,
 
     /// <summary>
     /// Name: Phind-CodeLlama-34B-v2 <br/>
