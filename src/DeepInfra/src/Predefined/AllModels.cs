@@ -5,6 +5,16 @@ namespace LangChain.Providers.DeepInfra.Predefined;
 public class MetaLlama31405BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama31405BInstruct);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.Llama3211BVisionInstruct"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Llama3211BVisionInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama3211BVisionInstruct);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.Llama3290BVisionInstruct"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Llama3290BVisionInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama3290BVisionInstruct);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.Qwen2572BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class Qwen2572BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwen2572BInstruct);
@@ -18,6 +28,16 @@ public class MetaLlama3170BInstructModel(DeepInfraProvider provider) : DeepInfra
 /// <inheritdoc cref="DeepInfraModelIds.MetaLlama318BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class MetaLlama318BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama318BInstruct);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.Llama323BInstruct"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Llama323BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama323BInstruct);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.Llama321BInstruct"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Llama321BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama321BInstruct);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.MistralNemoInstruct2407"/>
@@ -113,6 +133,11 @@ public class MythomaxL213BTurboModel(DeepInfraProvider provider) : DeepInfraMode
 /// <inheritdoc cref="DeepInfraModelIds.ZephyrOrpo141BA35bV01"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class ZephyrOrpo141BA35bV01Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.ZephyrOrpo141BA35bV01);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.Llama213BTiefighter"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Llama213BTiefighterModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama213BTiefighter);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.PhindCodellama34BV2"/>

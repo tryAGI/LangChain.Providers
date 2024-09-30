@@ -10,9 +10,13 @@ public static class DeepInfraModelProvider
     private static Dictionary<DeepInfraModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
         { DeepInfraModelIds.MetaLlama31405BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-405B-Instruct",32768,1.79E-06,1.79E-06)},
+        { DeepInfraModelIds.Llama3211BVisionInstruct, ToMetadata("meta-llama/Llama-3.2-11B-Vision-Instruct",131072,6E-08,6E-08)},
+        { DeepInfraModelIds.Llama3290BVisionInstruct, ToMetadata("meta-llama/Llama-3.2-90B-Vision-Instruct",8192,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Qwen2572BInstruct, ToMetadata("Qwen/Qwen2.5-72B-Instruct",32768,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama3170BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct",131072,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama318BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-8B-Instruct",131072,6E-08,6E-08)},
+        { DeepInfraModelIds.Llama323BInstruct, ToMetadata("meta-llama/Llama-3.2-3B-Instruct",131072,3E-08,5.0000000000000004E-08)},
+        { DeepInfraModelIds.Llama321BInstruct, ToMetadata("meta-llama/Llama-3.2-1B-Instruct",131072,1E-08,2E-08)},
         { DeepInfraModelIds.MistralNemoInstruct2407, ToMetadata("mistralai/Mistral-Nemo-Instruct-2407",131072,1.3E-07,1.3E-07)},
         { DeepInfraModelIds.MinicpmLlama3V25, ToMetadata("openbmb/MiniCPM-Llama3-V-2_5",8192,3.4000000000000003E-07,3.4000000000000003E-07)},
         { DeepInfraModelIds.Qwen25Coder7B, ToMetadata("Qwen/Qwen2.5-Coder-7B",32768,6E-08,6E-08)},
@@ -32,6 +36,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.MythomaxL213B, ToMetadata("Gryphe/MythoMax-L2-13b",4096,1.0000000000000001E-07,1.0000000000000001E-07)},
         { DeepInfraModelIds.MythomaxL213BTurbo, ToMetadata("Gryphe/MythoMax-L2-13b-turbo",4096,1.3E-07,1.3E-07)},
         { DeepInfraModelIds.ZephyrOrpo141BA35bV01, ToMetadata("HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1",65536,6.5E-07,6.5E-07)},
+        { DeepInfraModelIds.Llama213BTiefighter, ToMetadata("KoboldAI/LLaMA2-13B-Tiefighter",4096,1.0000000000000001E-07,1.0000000000000001E-07)},
         { DeepInfraModelIds.PhindCodellama34BV2, ToMetadata("Phind/Phind-CodeLlama-34B-v2",4096,6E-07,6E-07)},
         { DeepInfraModelIds.Qwen27BInstruct, ToMetadata("Qwen/Qwen2-7B-Instruct",32768,6E-08,6E-08)},
         { DeepInfraModelIds.L3170BEuryaleV22, ToMetadata("Sao10K/L3.1-70B-Euryale-v2.2",131072,3.5E-07,4.0000000000000003E-07)},
