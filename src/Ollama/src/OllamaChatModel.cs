@@ -28,8 +28,13 @@ public class OllamaChatModel(
 
         try
         {
-            await Provider.Api.Models.PullModelAsync(Id, cancellationToken: cancellationToken)
-                .EnsureSuccessAsync().ConfigureAwait(false);
+            var runningModels = await GetRunningModels().ConfigureAwait(false);
+
+            if (!runningModels.Any(x => x.Contains(Id)))
+            {
+                await Provider.Api.Models.PullModelAsync(Id, cancellationToken: cancellationToken)
+                    .EnsureSuccessAsync().ConfigureAwait(false);
+            }
         }
         catch (HttpRequestException)
         {
@@ -163,6 +168,22 @@ public class OllamaChatModel(
         OnResponseReceived(chatResponse);
 
         yield return chatResponse;
+    }
+
+
+    private async Task<IReadOnlyList<string>> GetRunningModels()
+    {
+        var models = await Provider.Api.Models.ListRunningModelsAsync().ConfigureAwait(false);
+
+
+        List<string> runningModels = new List<string>();
+
+        foreach (var model in models.Models)
+        {
+            runningModels.Add(model.Model);
+        }
+
+        return runningModels;
     }
 
     private static T ToTool<T>(OpenApiSchema schema) where T : global::Ollama.OpenApiSchema, new()
