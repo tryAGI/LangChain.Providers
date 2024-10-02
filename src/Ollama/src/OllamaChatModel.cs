@@ -174,16 +174,7 @@ public class OllamaChatModel(
     private async Task<IReadOnlyList<string>> GetRunningModels()
     {
         var models = await Provider.Api.Models.ListRunningModelsAsync().ConfigureAwait(false);
-
-
-        List<string> runningModels = new List<string>();
-
-        foreach (var model in models.Models)
-        {
-            runningModels.Add(model.Model);
-        }
-
-        return runningModels;
+        return models.Models.Select(model => model.Model).ToList();
     }
 
     private static T ToTool<T>(OpenApiSchema schema) where T : global::Ollama.OpenApiSchema, new()
