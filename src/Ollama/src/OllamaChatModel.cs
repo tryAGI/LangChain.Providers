@@ -28,9 +28,9 @@ public class OllamaChatModel(
 
         try
         {
-            var runningModels = await GetRunningModels().ConfigureAwait(false);
-
-            if (!runningModels.Any(x => x.Contains(Id)))
+            var runningModels = await Provider.Api.Models.ListRunningModelsAsync(cancellationToken).ConfigureAwait(false);
+            if (runningModels.Models != null &&
+                runningModels.Models.All(x => x.Model?.Contains(Id) != true))
             {
                 await Provider.Api.Models.PullModelAsync(Id, cancellationToken: cancellationToken)
                     .EnsureSuccessAsync().ConfigureAwait(false);
@@ -168,13 +168,6 @@ public class OllamaChatModel(
         OnResponseReceived(chatResponse);
 
         yield return chatResponse;
-    }
-
-
-    private async Task<IReadOnlyList<string>> GetRunningModels()
-    {
-        var models = await Provider.Api.Models.ListRunningModelsAsync().ConfigureAwait(false);
-        return models.Models.Select(model => model.Model).ToList();
     }
 
     private static T ToTool<T>(OpenApiSchema schema) where T : global::Ollama.OpenApiSchema, new()
