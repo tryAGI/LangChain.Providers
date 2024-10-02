@@ -8,11 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\Ollama\src\LangChain.Providers.Ollama.csproj" />
+      <ProjectReference Include="..\..\src\Ollama\src\LangChain.Providers.Ollama.csproj" />
     </ItemGroup>
-
     <ItemGroup>
-      <PackageReference Include="LangChain.Core" Version="0.15.2" />
+        <PackageReference Include="LangChain.Core" Version="0.15.2" />
     </ItemGroup>
 
 </Project>
