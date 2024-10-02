@@ -27,8 +27,14 @@ public class OllamaEmbeddingModel(
 
         try
         {
-            await Provider.Api.Models.PullModelAsync(Id, cancellationToken: cancellationToken)
-                .EnsureSuccessAsync().ConfigureAwait(false);
+            var runningModels =
+                await Provider.Api.Models.ListRunningModelsAsync(cancellationToken).ConfigureAwait(false);
+            if (runningModels.Models != null &&
+                runningModels.Models.All(x => x.Model?.Contains(Id) != true))
+            {
+                await Provider.Api.Models.PullModelAsync(Id, cancellationToken: cancellationToken)
+                    .EnsureSuccessAsync().ConfigureAwait(false);
+            }
         }
         catch (HttpRequestException)
         {
