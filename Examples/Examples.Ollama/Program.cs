@@ -17,7 +17,7 @@ model.UseConsoleForDebug();
 
 Console.WriteLine("type exit to exit");
 Console.WriteLine("Enter the subject of the poem:");
-        
+
 chainValueDict["content"] = "";
 
 while (chainValueDict["content"].ToString()?.Trim() != "exit")
