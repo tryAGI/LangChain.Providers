@@ -106,17 +106,6 @@ public enum DeepInfraModelIds
     MistralNemoInstruct2407,
 
     /// <summary>
-    /// Name: MiniCPM-Llama3-V-2_5 <br/>
-    /// Organization: openbmb <br/>
-    /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.34/MTok <br/>
-    /// Completion Cost: $0.34/MTok <br/>
-    /// Description:  <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5">https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5</a> 
-    /// </summary>
-    MinicpmLlama3V25,
-
-    /// <summary>
     /// Name: Qwen2.5-Coder-7B <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
@@ -170,17 +159,6 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct</a> 
     /// </summary>
     MetaLlama370BInstruct,
-
-    /// <summary>
-    /// Name: Qwen2-72B-Instruct <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.35/MTok <br/>
-    /// Completion Cost: $0.35/MTok <br/>
-    /// Description: The 72 billion parameter Qwen2 excels in language understanding, multilingual capabilities, coding, mathematics, and reasoning. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-72B-Instruct">https://huggingface.co/Qwen/Qwen2-72B-Instruct</a> 
-    /// </summary>
-    Qwen272BInstruct,
 
     /// <summary>
     /// Name: Mistral-7B-Instruct-v0.3 <br/>
@@ -324,6 +302,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Phind/Phind-CodeLlama-34B-v2">https://huggingface.co/Phind/Phind-CodeLlama-34B-v2</a> 
     /// </summary>
     PhindCodellama34BV2,
+
+    /// <summary>
+    /// Name: Qwen2-72B-Instruct <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.35/MTok <br/>
+    /// Completion Cost: $0.35/MTok <br/>
+    /// Description: The 72 billion parameter Qwen2 excels in language understanding, multilingual capabilities, coding, mathematics, and reasoning. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-72B-Instruct">https://huggingface.co/Qwen/Qwen2-72B-Instruct</a> 
+    /// </summary>
+    Qwen272BInstruct,
 
     /// <summary>
     /// Name: Qwen2-7B-Instruct <br/>
@@ -566,6 +555,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/nvidia/Nemotron-4-340B-Instruct">https://huggingface.co/nvidia/Nemotron-4-340B-Instruct</a> 
     /// </summary>
     Nemotron4340BInstruct,
+
+    /// <summary>
+    /// Name: MiniCPM-Llama3-V-2_5 <br/>
+    /// Organization: openbmb <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.34/MTok <br/>
+    /// Completion Cost: $0.34/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5">https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5</a> 
+    /// </summary>
+    MinicpmLlama3V25,
 
     /// <summary>
     /// Name: openchat-3.6-8b <br/>

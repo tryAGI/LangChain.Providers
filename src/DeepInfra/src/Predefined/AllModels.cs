@@ -45,11 +45,6 @@ public class Llama321BInstructModel(DeepInfraProvider provider) : DeepInfraModel
 public class MistralNemoInstruct2407Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MistralNemoInstruct2407);
 
 
-/// <inheritdoc cref="DeepInfraModelIds.MinicpmLlama3V25"/>
-/// <param name="provider">Deep Infra Provider Instance</param>
-public class MinicpmLlama3V25Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MinicpmLlama3V25);
-
-
 /// <inheritdoc cref="DeepInfraModelIds.Qwen25Coder7B"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class Qwen25Coder7BModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwen25Coder7B);
@@ -73,11 +68,6 @@ public class L370BEuryaleV21Model(DeepInfraProvider provider) : DeepInfraModel(p
 /// <inheritdoc cref="DeepInfraModelIds.MetaLlama370BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class MetaLlama370BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama370BInstruct);
-
-
-/// <inheritdoc cref="DeepInfraModelIds.Qwen272BInstruct"/>
-/// <param name="provider">Deep Infra Provider Instance</param>
-public class Qwen272BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwen272BInstruct);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.Mistral7BInstructV03"/>
@@ -143,6 +133,11 @@ public class Llama213BTiefighterModel(DeepInfraProvider provider) : DeepInfraMod
 /// <inheritdoc cref="DeepInfraModelIds.PhindCodellama34BV2"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class PhindCodellama34BV2Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.PhindCodellama34BV2);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.Qwen272BInstruct"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Qwen272BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwen272BInstruct);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.Qwen27BInstruct"/>
@@ -253,6 +248,11 @@ public class Mixtral8X22bV01Model(DeepInfraProvider provider) : DeepInfraModel(p
 /// <inheritdoc cref="DeepInfraModelIds.Nemotron4340BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class Nemotron4340BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Nemotron4340BInstruct);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.MinicpmLlama3V25"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class MinicpmLlama3V25Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MinicpmLlama3V25);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.OpenChat368B"/>
