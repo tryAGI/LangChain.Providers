@@ -38,7 +38,7 @@ public class OpenAiSpeechToTextSettings : SpeechToTextSettings
     /// <summary>
     /// 
     /// </summary>
-    public CreateTranscriptionRequestResponseFormat? ResponseFormat { get; init; }
+    public AudioResponseFormat? ResponseFormat { get; init; }
 
     /// <summary>
     /// 
