@@ -12,6 +12,9 @@ PollinationsProvider provider = new(config);
 
 PollinationsModel  model = new(provider,"mistral");
 
-var response = await model.GenerateAsync("What is your name");
+Console.WriteLine("Mistral:");
 
-Console.WriteLine($"Response from mistral was : {response.LastMessageContent}\n");
+await foreach (var response in model.GenerateAsync("What is the meaning of life"))
+{
+    Console.Write(response);
+}
