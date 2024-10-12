@@ -37,3 +37,19 @@ public class Llama31With8BInstructBModel(BedrockProvider provider)
 /// <inheritdoc />
 public class Llama31With405BInstructBModel(BedrockProvider provider)
     : MetaLlamaChatModel(provider, id: "meta.llama3-1-405b-instruct-v1:0");
+
+/// <inheritdoc />
+public class Llama32With1BInstructModel(BedrockProvider provider)
+    : MetaLlama32ChatModel(provider, id: "us.meta.llama3-2-1b-instruct-v1:0");
+
+/// <inheritdoc />
+public class Llama32With3BInstructModel(BedrockProvider provider)
+    : MetaLlama32ChatModel(provider, id: "us.meta.llama3-2-3b-instruct-v1:0");
+
+/// <inheritdoc />
+public class Llama32With11BInstructModel(BedrockProvider provider)
+    : MetaLlama32ChatModel(provider, id: "us.meta.llama3-2-11b-instruct-v1:0");
+
+/// <inheritdoc />
+public class Llama32With90BInstructModel(BedrockProvider provider)
+    : MetaLlama32ChatModel(provider, id: "us.meta.llama3-2-90b-instruct-v1:0");

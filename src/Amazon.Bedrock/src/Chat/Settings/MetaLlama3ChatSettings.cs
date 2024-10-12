@@ -1,15 +1,15 @@
 // ReSharper disable once CheckNamespace
 namespace LangChain.Providers.Amazon.Bedrock;
 
-public class MetaLlama3ChatSettings : BedrockChatSettings
+public class MetaLlama2ChatSettings : BedrockChatSettings
 {
-    public new static MetaLlama3ChatSettings Default { get; } = new()
+    public new static MetaLlama2ChatSettings Default { get; } = new()
     {
         StopSequences = ChatSettings.Default.StopSequences,
         User = ChatSettings.Default.User,
         UseStreaming = false,
-        Temperature = 0.6,
-        MaxTokens = 512,
+        Temperature = 0.5,
+        MaxTokens = 2048,
         TopP = 0.9,
         TopK = 0.0
     };
@@ -22,16 +22,16 @@ public class MetaLlama3ChatSettings : BedrockChatSettings
     /// <param name="providerSettings"></param>
     /// <returns></returns>
     /// <exception cref="InvalidOperationException"></exception>
-    public new static MetaLlama3ChatSettings Calculate(
+    public new static MetaLlama2ChatSettings Calculate(
         ChatSettings? requestSettings,
         ChatSettings? modelSettings,
         ChatSettings? providerSettings)
     {
-        var requestSettingsCasted = requestSettings as MetaLlama3ChatSettings;
-        var modelSettingsCasted = modelSettings as MetaLlama3ChatSettings;
-        var providerSettingsCasted = providerSettings as MetaLlama3ChatSettings;
+        var requestSettingsCasted = requestSettings as MetaLlama2ChatSettings;
+        var modelSettingsCasted = modelSettings as MetaLlama2ChatSettings;
+        var providerSettingsCasted = providerSettings as MetaLlama2ChatSettings;
 
-        return new MetaLlama3ChatSettings
+        return new MetaLlama2ChatSettings
         {
             StopSequences =
                 requestSettingsCasted?.StopSequences ??
