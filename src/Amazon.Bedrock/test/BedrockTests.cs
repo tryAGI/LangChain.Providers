@@ -27,11 +27,12 @@ public class BedrockTests
     [Test]
     public async Task Chains()
     {
-        var provider = new BedrockProvider();
+        var provider = new BedrockProvider(RegionEndpoint.USWest2);
         //var llm = new Jurassic2MidModel(provider);
-        var llm = new Claude35SonnetModel(provider);
+        //var llm = new Claude35SonnetModel(provider);
         //var llm = new Mistral7BInstruct(provider);
         //var llm = new JambaInstructModel(provider);
+        var llm = new Llama32With3BInstructModel(provider);
 
         var template = "What is a good name for a company that makes {product}?";
         var prompt = new PromptTemplate(new PromptTemplateInput(template, new List<string>(1) { "product" }));

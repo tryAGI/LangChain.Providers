@@ -9,7 +9,7 @@ using LangChain.Providers.Amazon.Bedrock.Internal;
 // ReSharper disable once CheckNamespace
 namespace LangChain.Providers.Amazon.Bedrock;
 
-public class MetaLlama32ChatModel(
+public class MetaLlamaChatModel(
     BedrockProvider provider,
     string id)
     : ChatModel(id)
@@ -34,7 +34,7 @@ public class MetaLlama32ChatModel(
 
         var stringBuilder = new StringBuilder();
 
-        var usedSettings = MetaLlama3ChatSettings.Calculate(
+        var usedSettings = MetaLlama2ChatSettings.Calculate(
             requestSettings: settings,
             modelSettings: Settings,
             providerSettings: provider.ChatSettings);
@@ -101,14 +101,25 @@ public class MetaLlama32ChatModel(
     /// <param name="prompt">The input prompt for the model.</param>
     /// <param name="usedSettings">The settings to use for the request.</param>
     /// <returns>A `JsonObject` representing the request body.</returns>
-    private static JsonObject CreateBodyJson(string prompt, MetaLlama3ChatSettings usedSettings)
+    private static JsonObject CreateBodyJson(string prompt, MetaLlama2ChatSettings usedSettings)
     {
         var bodyJson = new JsonObject
         {
-            ["prompt"] = prompt,
-            ["max_gen_len"] = usedSettings.MaxTokens!.Value,
-            ["temperature"] = usedSettings.Temperature!.Value,
-            ["top_p"] = usedSettings.TopP!.Value,
+            ["inputs"] = new JsonArray
+            {
+                new JsonObject
+                {
+                    ["role"] = "user",
+                    ["content"] = prompt
+                }
+            },
+            ["parameters"] = new JsonObject
+            {
+                ["prompt"] = prompt,
+                ["max_new_tokens"] = usedSettings.MaxTokens!.Value,
+                ["temperature"] = usedSettings.Temperature!.Value,
+                ["top_p"] = usedSettings.TopP!.Value,
+            }
         };
         return bodyJson;
     }
