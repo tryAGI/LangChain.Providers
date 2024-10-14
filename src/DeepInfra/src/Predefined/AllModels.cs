@@ -130,6 +130,11 @@ public class ZephyrOrpo141BA35bV01Model(DeepInfraProvider provider) : DeepInfraM
 public class Llama213BTiefighterModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama213BTiefighter);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.Hermes3Llama31405B"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Hermes3Llama31405BModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Hermes3Llama31405B);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.PhindCodellama34BV2"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class PhindCodellama34BV2Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.PhindCodellama34BV2);

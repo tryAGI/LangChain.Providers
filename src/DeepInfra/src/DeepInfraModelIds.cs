@@ -293,6 +293,17 @@ public enum DeepInfraModelIds
     Llama213BTiefighter,
 
     /// <summary>
+    /// Name: Hermes-3-Llama-3.1-405B <br/>
+    /// Organization: NousResearch <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $1.79/MTok <br/>
+    /// Completion Cost: $1.79/MTok <br/>
+    /// Description: Hermes 3 is a cutting-edge language model that offers advanced capabilities in roleplaying, reasoning, and conversation. It's a fine-tuned version of the Llama-3.1 405B foundation model, designed to align with user needs and provide powerful control. Key features include reliable function calling, structured output, generalist assistant capabilities, and improved code generation. Hermes 3 is competitive with Llama-3.1 Instruct models, with its own strengths and weaknesses. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B">https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B</a> 
+    /// </summary>
+    Hermes3Llama31405B,
+
+    /// <summary>
     /// Name: Phind-CodeLlama-34B-v2 <br/>
     /// Organization: Phind <br/>
     /// Context Length: 4096 <br/>
