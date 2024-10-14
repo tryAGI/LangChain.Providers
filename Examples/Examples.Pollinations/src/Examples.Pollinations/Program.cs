@@ -10,7 +10,7 @@ PollinationsConfiguration config = new()
 };
 PollinationsProvider provider = new(config);
 
-PollinationsModel  model = new(provider,"mistral");
+PollinationsModel model = new(provider, "mistral");
 
 Console.WriteLine("Mistral:");
 
