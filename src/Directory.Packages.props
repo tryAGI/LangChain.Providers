@@ -35,7 +35,7 @@
     <PackageVersion Include="LangChain.Polyfills" Version="0.15.2" />
     <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.2" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
-    <PackageVersion Include="LLamaSharp" Version="0.14.0" />
+    <PackageVersion Include="LLamaSharp" Version="0.17.0" />
     <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.17.0" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />

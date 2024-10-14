@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using LLama;
 using LLama.Common;
+using LLama.Sampling;
 
 namespace LangChain.Providers.LLamaSharp;
 
@@ -62,10 +63,13 @@ public class LLamaSharpModelChat : LLamaSharpModelBase
         ChatSession session = new ChatSession(ex);
         var inferenceParams = new InferenceParams()
         {
-            Temperature = Configuration.Temperature,
             AntiPrompts = new List<string> { "Human:" },
             MaxTokens = Configuration.MaxTokens,
-
+            SamplingPipeline = new DefaultSamplingPipeline
+            {
+                RepeatPenalty = Configuration.RepeatPenalty,
+                Temperature = Configuration.Temperature,
+            },
         };
 
         var buf = "";

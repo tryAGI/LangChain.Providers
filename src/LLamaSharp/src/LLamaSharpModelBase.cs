@@ -48,14 +48,14 @@ public abstract class LLamaSharpModelBase
         Parameters = new ModelParams(configuration.PathToModelFile)
         {
             ContextSize = (uint)configuration.ContextSize,
-            Seed = (uint)configuration.Seed,
+            //Seed = (uint)configuration.Seed,
             MainGpu = configuration.MainGpu,
             SplitMode = configuration.SplitMode,
             GpuLayerCount = configuration.GpuLayerCount,
             UseMemorymap = configuration.UseMemorymap,
             UseMemoryLock = configuration.UseMemoryLock,
-            Threads = configuration.Threads,
-            BatchThreads = configuration.BatchThreads,
+            Threads = configuration.Threads.HasValue ? (int)configuration.Threads.Value : null,
+            BatchThreads = configuration.BatchThreads.HasValue ? (int)configuration.BatchThreads.Value : null,
             BatchSize = configuration.BatchSize,
             Embeddings = configuration.EmbeddingMode,
         };

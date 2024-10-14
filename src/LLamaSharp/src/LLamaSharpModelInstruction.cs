@@ -2,6 +2,7 @@
 using LLama;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using LLama.Sampling;
 
 namespace LangChain.Providers.LLamaSharp;
 
@@ -62,12 +63,15 @@ public class LLamaSharpModelInstruction : LLamaSharpModelBase, IChatModel
         var context = Model.CreateContext(Parameters);
         var ex = new InstructExecutor(context);
 
-        var inferenceParams = new InferenceParams()
+        var inferenceParams = new InferenceParams
         {
-            Temperature = Configuration.Temperature,
             AntiPrompts = Configuration.AntiPrompts,
             MaxTokens = Configuration.MaxTokens,
-            RepeatPenalty = Configuration.RepeatPenalty
+            SamplingPipeline = new DefaultSamplingPipeline
+            {
+                RepeatPenalty = Configuration.RepeatPenalty,
+                Temperature = Configuration.Temperature,
+            },
         };
 
         OnRequestSent(request);

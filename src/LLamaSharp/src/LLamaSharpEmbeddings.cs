@@ -40,7 +40,7 @@ public sealed class LLamaSharpEmbeddings
         var parameters = new ModelParams(configuration.PathToModelFile)
         {
             ContextSize = (uint)configuration.ContextSize,
-            Seed = (uint)configuration.Seed,
+            //Seed = (uint)configuration.Seed,
             Embeddings = configuration.EmbeddingMode
         };
         _model = LLamaWeights.LoadFromFile(parameters);
@@ -62,10 +62,10 @@ public sealed class LLamaSharpEmbeddings
 
         return new EmbeddingResponse
         {
-            Values = values,
+            Values = values.FirstOrDefault()?.ToArray() ?? Array.Empty<float[]>(),
             Usage = Usage.Empty,
             UsedSettings = EmbeddingSettings.Default,
-            Dimensions = values.FirstOrDefault()?.Length ?? 0,
+            Dimensions = values.FirstOrDefault()?.FirstOrDefault()?.Length ?? 0,
         };
     }
 
