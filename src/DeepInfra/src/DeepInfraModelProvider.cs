@@ -35,6 +35,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.MythomaxL213BTurbo, ToMetadata("Gryphe/MythoMax-L2-13b-turbo",4096,1.3E-07,1.3E-07)},
         { DeepInfraModelIds.ZephyrOrpo141BA35bV01, ToMetadata("HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1",65536,6.5E-07,6.5E-07)},
         { DeepInfraModelIds.Llama213BTiefighter, ToMetadata("KoboldAI/LLaMA2-13B-Tiefighter",4096,1.0000000000000001E-07,1.0000000000000001E-07)},
+        { DeepInfraModelIds.Hermes3Llama31405B, ToMetadata("NousResearch/Hermes-3-Llama-3.1-405B",131072,1.79E-06,2.4900000000000003E-06)},
         { DeepInfraModelIds.PhindCodellama34BV2, ToMetadata("Phind/Phind-CodeLlama-34B-v2",4096,6E-07,6E-07)},
         { DeepInfraModelIds.Qwen272BInstruct, ToMetadata("Qwen/Qwen2-72B-Instruct",32768,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Qwen27BInstruct, ToMetadata("Qwen/Qwen2-7B-Instruct",32768,6E-08,6E-08)},
