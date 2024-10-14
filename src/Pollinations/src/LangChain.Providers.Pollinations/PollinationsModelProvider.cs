@@ -5,7 +5,7 @@ namespace LangChain.Providers.Pollinations;
 
 public class PollinationsModelProvider
 {
-    
+
     public static async Task<List<ModelDefinition>> GetModels()
     {
         using (HttpClient client = new HttpClient())
@@ -21,7 +21,7 @@ public class PollinationsModelProvider
 
     public Dictionary<string, ModelDefinition> AvailableModels { get; } = new();
 
-   public PollinationsModelProvider()
+    public PollinationsModelProvider()
     {
         foreach (var modelDef in GetModels().Result)
         {
