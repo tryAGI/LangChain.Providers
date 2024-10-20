@@ -10,5 +10,6 @@ namespace LangChain.Providers.Google.VertexAI
         public string Publisher { get; set; } = "google";
         public GoogleCredential? GoogleCredential { get; set; }
         public GenerationConfig? GenerationConfig { get; set; }
+        public FunctionDeclaration? FunctionDeclaration { get; set; }
     }
 }
