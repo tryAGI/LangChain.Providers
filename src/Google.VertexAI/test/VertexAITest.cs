@@ -1,11 +1,15 @@
 using Google.Apis.Auth.OAuth2;
+using Google.Cloud.AIPlatform.V1;
 using LangChain.Databases.Sqlite;
 using LangChain.DocumentLoaders;
 using LangChain.Extensions;
 using LangChain.Providers.Google.VertexAI.Predefined;
+using System.Text.Json;
 using static LangChain.Chains.Chain;
+using OpenApiSchemaGoogle = Google.Cloud.AIPlatform.V1.OpenApiSchema;
+using Type = Google.Cloud.AIPlatform.V1.Type;
 
-namespace LangChain.Providers.Google.VertexAI.Test
+namespace LangChain.Providers.Google.VertexAI.Tests
 {
     [TestFixture]
     [Explicit]
@@ -37,6 +41,66 @@ namespace LangChain.Providers.Google.VertexAI.Test
             answer.Should().NotBeNull();
             Console.WriteLine(answer);
 
+        }
+
+        [Test]
+        public async Task StreamChat()
+        {
+            var config = new VertexAIConfiguration()
+            {
+                GoogleCredential = GoogleCredential.GetApplicationDefault(),
+            };
+
+            var provider = new VertexAIProvider(config);
+            var model = new Gemini15ProChatModel(provider);
+
+            await foreach (var response in model.GenerateAsync("Generate some random name:", new ChatSettings { UseStreaming = true }))
+            {
+                Console.WriteLine(response.LastMessageContent);
+            }
+        }
+
+        [Test]
+        public async Task ToolChat()
+        {
+            var functionName = "get_current_weather";
+            var getCurrentWeatherFunc = new FunctionDeclaration
+            {
+                Name = functionName,
+                Description = "Get the current weather in a given location",
+                Parameters = new OpenApiSchemaGoogle
+                {
+                    Type = Type.Object,
+                    Properties =
+                    {
+                        ["location"] = new()
+                        {
+                            Type = Type.String,
+                            Description = "Get the current weather in a given location"
+                        },
+                        ["unit"] = new()
+                        {
+                            Type = Type.String,
+                            Description = "The unit of measurement for the temperature",
+                            Enum = {"celsius", "fahrenheit"}
+                        }
+                    },
+                    Required = { "location" }
+                }
+            };
+
+            var config = new VertexAIConfiguration()
+            {
+                GoogleCredential = GoogleCredential.GetApplicationDefault(),
+                FunctionDeclaration = getCurrentWeatherFunc,
+            };
+
+            var provider = new VertexAIProvider(config);
+            var model = new Gemini15ProChatModel(provider);
+
+            var answer = await model.GenerateAsync("What is the weather like in Boston?");
+            answer.Should().NotBeNull();
+            Console.WriteLine(JsonSerializer.Serialize(answer.ToolCalls));
         }
 
         [Test]
