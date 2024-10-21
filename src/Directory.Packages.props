@@ -6,7 +6,7 @@
     <PackageVersion Include="Anthropic" Version="1.2.1-dev.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
     <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.405.8" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.404.8" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.405" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.0.0" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
     <PackageVersion Include="FluentAssertions" Version="6.12.1" />
@@ -36,7 +36,7 @@
     <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.2" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.17.0" />
-    <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.17.0" />
+    <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.18.0" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
