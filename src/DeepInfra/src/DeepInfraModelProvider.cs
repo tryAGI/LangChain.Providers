@@ -9,10 +9,12 @@ public static class DeepInfraModelProvider
 {
     private static Dictionary<DeepInfraModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
+        { DeepInfraModelIds.Llama31Nemotron70BInstruct, ToMetadata("nvidia/Llama-3.1-Nemotron-70B-Instruct",131072,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama31405BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-405B-Instruct",32768,1.79E-06,1.79E-06)},
         { DeepInfraModelIds.Llama3211BVisionInstruct, ToMetadata("meta-llama/Llama-3.2-11B-Vision-Instruct",131072,6E-08,6E-08)},
         { DeepInfraModelIds.Llama3290BVisionInstruct, ToMetadata("meta-llama/Llama-3.2-90B-Vision-Instruct",8192,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Qwen2572BInstruct, ToMetadata("Qwen/Qwen2.5-72B-Instruct",32768,3.5E-07,4.0000000000000003E-07)},
+        { DeepInfraModelIds.MetaLlama3170BInstructTurbo, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",131072,2.9E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama3170BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct",131072,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama318BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-8B-Instruct",131072,6E-08,6E-08)},
         { DeepInfraModelIds.Llama323BInstruct, ToMetadata("meta-llama/Llama-3.2-3B-Instruct",131072,3E-08,5.0000000000000004E-08)},

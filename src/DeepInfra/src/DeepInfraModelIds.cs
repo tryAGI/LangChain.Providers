@@ -7,6 +7,17 @@ public enum DeepInfraModelIds
 {
 
     /// <summary>
+    /// Name: Llama-3.1-Nemotron-70B-Instruct <br/>
+    /// Organization: nvidia <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.35/MTok <br/>
+    /// Completion Cost: $0.35/MTok <br/>
+    /// Description: Llama-3.1-Nemotron-70B-Instruct is a large language model customized by NVIDIA to improve the helpfulness of LLM generated responses to user queries. This model reaches Arena Hard of 85.0, AlpacaEval 2 LC of 57.6 and GPT-4-Turbo MT-Bench of 8.98, which are known to be predictive of LMSys Chatbot Arena Elo.  As of 16th Oct 2024, this model is #1 on all three automatic alignment benchmarks (verified tab for AlpacaEval 2 LC), edging out strong frontier models such as GPT-4o and Claude 3.5 Sonnet. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct">https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct</a> 
+    /// </summary>
+    Llama31Nemotron70BInstruct,
+
+    /// <summary>
     /// Name: Meta-Llama-3.1-405B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 32768 <br/>
@@ -49,6 +60,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-72B-Instruct">https://huggingface.co/Qwen/Qwen2.5-72B-Instruct</a> 
     /// </summary>
     Qwen2572BInstruct,
+
+    /// <summary>
+    /// Name: Meta-Llama-3.1-70B-Instruct-Turbo <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.29/MTok <br/>
+    /// Completion Cost: $0.29/MTok <br/>
+    /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo</a> 
+    /// </summary>
+    MetaLlama3170BInstructTurbo,
 
     /// <summary>
     /// Name: Meta-Llama-3.1-70B-Instruct <br/>
