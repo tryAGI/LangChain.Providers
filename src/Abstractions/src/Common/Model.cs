@@ -12,7 +12,7 @@ public abstract class Model(string id) : IModel
     #region Properties
 
     /// <inheritdoc/>
-    public string Id { get; } = id ?? throw new ArgumentNullException(nameof(id));
+    public string Id { get; protected set; } = id ?? throw new ArgumentNullException(nameof(id));
 
     /// <inheritdoc/>
     public Usage Usage { get; protected set; }
