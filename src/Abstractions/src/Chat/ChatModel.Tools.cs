@@ -1,4 +1,7 @@
 // ReSharper disable once CheckNamespace
+
+using CSharpToJsonSchema;
+
 namespace LangChain.Providers;
 
 public partial class ChatModel
@@ -12,7 +15,7 @@ public partial class ChatModel
     public bool ReplyToToolCallsAutomatically { get; set; } = true;
 
     [CLSCompliant(false)]
-    protected IList<OpenApiSchema> GlobalTools { get; } = [];
+    protected IList<Tool> GlobalTools { get; } = [];
     protected Dictionary<string, Func<string, CancellationToken, Task<string>>> Calls { get; } = [];
 
     #endregion
@@ -21,7 +24,7 @@ public partial class ChatModel
 
     /// <inheritdoc />
     public void AddGlobalTools(
-        ICollection<OpenApiSchema> tools,
+        ICollection<Tool> tools,
         IReadOnlyDictionary<string, Func<string, CancellationToken, Task<string>>> calls)
     {
         tools = tools ?? throw new ArgumentNullException(nameof(tools));

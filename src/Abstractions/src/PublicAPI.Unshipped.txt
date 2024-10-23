@@ -2,14 +2,14 @@ abstract LangChain.Providers.ChatModel.GenerateAsync(LangChain.Providers.ChatReq
 abstract LangChain.Providers.ImageToTextModel.GenerateTextFromImageAsync(LangChain.Providers.ImageToTextRequest! request, LangChain.Providers.ImageToTextSettings? settings = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<LangChain.Providers.ImageToTextResponse!>!
 LangChain.Providers.AsyncEnumerableExtensions
 LangChain.Providers.ChatModel
-LangChain.Providers.ChatModel.AddGlobalTools(System.Collections.Generic.ICollection<LangChain.Providers.OpenApiSchema!>! tools, System.Collections.Generic.IReadOnlyDictionary<string!, System.Func<string!, System.Threading.CancellationToken, System.Threading.Tasks.Task<string!>!>!>! calls) -> void
+LangChain.Providers.ChatModel.AddGlobalTools(System.Collections.Generic.ICollection<CSharpToJsonSchema.Tool!>! tools, System.Collections.Generic.IReadOnlyDictionary<string!, System.Func<string!, System.Threading.CancellationToken, System.Threading.Tasks.Task<string!>!>!>! calls) -> void
 LangChain.Providers.ChatModel.Calls.get -> System.Collections.Generic.Dictionary<string!, System.Func<string!, System.Threading.CancellationToken, System.Threading.Tasks.Task<string!>!>!>!
 LangChain.Providers.ChatModel.CallToolsAutomatically.get -> bool
 LangChain.Providers.ChatModel.CallToolsAutomatically.set -> void
 LangChain.Providers.ChatModel.ChatModel(string! id) -> void
 LangChain.Providers.ChatModel.ClearGlobalTools() -> void
 LangChain.Providers.ChatModel.DeltaReceived -> System.EventHandler<LangChain.Providers.ChatResponseDelta!>?
-LangChain.Providers.ChatModel.GlobalTools.get -> System.Collections.Generic.IList<LangChain.Providers.OpenApiSchema!>!
+LangChain.Providers.ChatModel.GlobalTools.get -> System.Collections.Generic.IList<CSharpToJsonSchema.Tool!>!
 LangChain.Providers.ChatModel.OnDeltaReceived(LangChain.Providers.ChatResponseDelta! delta) -> void
 LangChain.Providers.ChatModel.OnRequestSent(LangChain.Providers.ChatRequest! request) -> void
 LangChain.Providers.ChatModel.OnResponseReceived(LangChain.Providers.ChatResponse! response) -> void
@@ -24,7 +24,7 @@ LangChain.Providers.ChatRequest.Image.get -> System.BinaryData?
 LangChain.Providers.ChatRequest.Image.set -> void
 LangChain.Providers.ChatRequest.Messages.get -> System.Collections.Generic.IReadOnlyCollection<LangChain.Providers.Message>!
 LangChain.Providers.ChatRequest.Messages.init -> void
-LangChain.Providers.ChatRequest.Tools.get -> System.Collections.Generic.IReadOnlyCollection<LangChain.Providers.OpenApiSchema!>!
+LangChain.Providers.ChatRequest.Tools.get -> System.Collections.Generic.IReadOnlyCollection<CSharpToJsonSchema.Tool!>!
 LangChain.Providers.ChatRequest.Tools.init -> void
 LangChain.Providers.ChatResponse
 LangChain.Providers.ChatResponse.ChatResponse() -> void
@@ -96,7 +96,7 @@ LangChain.Providers.EmbeddingResponse.Values.init -> void
 LangChain.Providers.EmbeddingSettings
 LangChain.Providers.EmbeddingSettings.EmbeddingSettings() -> void
 LangChain.Providers.IChatModel
-LangChain.Providers.IChatModel.AddGlobalTools(System.Collections.Generic.ICollection<LangChain.Providers.OpenApiSchema!>! tools, System.Collections.Generic.IReadOnlyDictionary<string!, System.Func<string!, System.Threading.CancellationToken, System.Threading.Tasks.Task<string!>!>!>! calls) -> void
+LangChain.Providers.IChatModel.AddGlobalTools(System.Collections.Generic.ICollection<CSharpToJsonSchema.Tool!>! tools, System.Collections.Generic.IReadOnlyDictionary<string!, System.Func<string!, System.Threading.CancellationToken, System.Threading.Tasks.Task<string!>!>!>! calls) -> void
 LangChain.Providers.IChatModel.CallToolsAutomatically.get -> bool
 LangChain.Providers.IChatModel.CallToolsAutomatically.set -> void
 LangChain.Providers.IChatModel.ClearGlobalTools() -> void
@@ -177,17 +177,15 @@ LangChain.Providers.ITextToMusicModel.GenerateMusicAsync(LangChain.Providers.Tex
 LangChain.Providers.ITextToMusicModel.RequestSent -> System.EventHandler<LangChain.Providers.TextToMusicRequest!>?
 LangChain.Providers.ITextToSpeechModel
 LangChain.Providers.ITextToSpeechModel.GenerateSpeechAsync(LangChain.Providers.TextToSpeechRequest! request, LangChain.Providers.TextToSpeechSettings? settings = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<LangChain.Providers.TextToSpeechResponse!>!
-LangChain.Providers.LangChainToolsAttribute
-LangChain.Providers.LangChainToolsAttribute.LangChainToolsAttribute() -> void
 LangChain.Providers.Message
 LangChain.Providers.Message.Content.get -> string!
 LangChain.Providers.Message.Content.init -> void
-LangChain.Providers.Message.ToolName.get -> string?
-LangChain.Providers.Message.ToolName.init -> void
 LangChain.Providers.Message.Message() -> void
 LangChain.Providers.Message.Message(string! Content, LangChain.Providers.MessageRole Role, string? ToolName = null) -> void
 LangChain.Providers.Message.Role.get -> LangChain.Providers.MessageRole
 LangChain.Providers.Message.Role.init -> void
+LangChain.Providers.Message.ToolName.get -> string?
+LangChain.Providers.Message.ToolName.init -> void
 LangChain.Providers.MessageRole
 LangChain.Providers.MessageRole.Ai = 2 -> LangChain.Providers.MessageRole
 LangChain.Providers.MessageRole.Chat = 3 -> LangChain.Providers.MessageRole
@@ -199,6 +197,7 @@ LangChain.Providers.MessageStringExtensions
 LangChain.Providers.Model
 LangChain.Providers.Model.AddUsage(LangChain.Providers.Usage usage) -> void
 LangChain.Providers.Model.Id.get -> string!
+LangChain.Providers.Model.Id.set -> void
 LangChain.Providers.Model.Model(string! id) -> void
 LangChain.Providers.Model.Usage.get -> LangChain.Providers.Usage
 LangChain.Providers.Model.Usage.set -> void
@@ -220,22 +219,6 @@ LangChain.Providers.ModerationResponse.Usage.get -> LangChain.Providers.Usage
 LangChain.Providers.ModerationResponse.Usage.init -> void
 LangChain.Providers.ModerationSettings
 LangChain.Providers.ModerationSettings.ModerationSettings() -> void
-LangChain.Providers.OpenApiSchema
-LangChain.Providers.OpenApiSchema.Description.get -> string!
-LangChain.Providers.OpenApiSchema.Description.set -> void
-LangChain.Providers.OpenApiSchema.Enum.get -> System.Collections.Generic.IReadOnlyList<string!>!
-LangChain.Providers.OpenApiSchema.Enum.set -> void
-LangChain.Providers.OpenApiSchema.Format.get -> string?
-LangChain.Providers.OpenApiSchema.Format.set -> void
-LangChain.Providers.OpenApiSchema.Items.get -> LangChain.Providers.OpenApiSchema?
-LangChain.Providers.OpenApiSchema.Items.set -> void
-LangChain.Providers.OpenApiSchema.OpenApiSchema() -> void
-LangChain.Providers.OpenApiSchema.Properties.get -> System.Collections.Generic.IReadOnlyDictionary<string!, LangChain.Providers.OpenApiSchema!>!
-LangChain.Providers.OpenApiSchema.Properties.set -> void
-LangChain.Providers.OpenApiSchema.Required.get -> System.Collections.Generic.IReadOnlyList<string!>!
-LangChain.Providers.OpenApiSchema.Required.set -> void
-LangChain.Providers.OpenApiSchema.Type.get -> string!
-LangChain.Providers.OpenApiSchema.Type.set -> void
 LangChain.Providers.Provider
 LangChain.Providers.Provider.ChatSettings.get -> LangChain.Providers.ChatSettings?
 LangChain.Providers.Provider.ChatSettings.init -> void
@@ -388,12 +371,12 @@ static LangChain.Providers.Message.Human(string! content) -> LangChain.Providers
 static LangChain.Providers.Message.operator +(LangChain.Providers.Message a, LangChain.Providers.Message b) -> LangChain.Providers.Message
 static LangChain.Providers.MessageStringExtensions.AsAiMessage(this string! text) -> LangChain.Providers.Message
 static LangChain.Providers.MessageStringExtensions.AsChatMessage(this string! text) -> LangChain.Providers.Message
-static LangChain.Providers.MessageStringExtensions.AsToolCallMessage(this string! text, string! toolName) -> LangChain.Providers.Message
-static LangChain.Providers.MessageStringExtensions.AsToolResultMessage(this string! json, LangChain.Providers.ChatToolCall! call) -> LangChain.Providers.Message
-static LangChain.Providers.MessageStringExtensions.AsToolResultMessage(this string! text, string! toolName) -> LangChain.Providers.Message
 static LangChain.Providers.MessageStringExtensions.AsHistory(this System.Collections.Generic.IReadOnlyCollection<LangChain.Providers.Message>! messages) -> string!
 static LangChain.Providers.MessageStringExtensions.AsHumanMessage(this string! text) -> LangChain.Providers.Message
 static LangChain.Providers.MessageStringExtensions.AsSystemMessage(this string! text) -> LangChain.Providers.Message
+static LangChain.Providers.MessageStringExtensions.AsToolCallMessage(this string! text, string! toolName) -> LangChain.Providers.Message
+static LangChain.Providers.MessageStringExtensions.AsToolResultMessage(this string! json, LangChain.Providers.ChatToolCall! call) -> LangChain.Providers.Message
+static LangChain.Providers.MessageStringExtensions.AsToolResultMessage(this string! text, string! toolName) -> LangChain.Providers.Message
 static LangChain.Providers.ModerationRequest.implicit operator LangChain.Providers.ModerationRequest!(string! message) -> LangChain.Providers.ModerationRequest!
 static LangChain.Providers.ModerationRequest.ToModerationRequest(string! message) -> LangChain.Providers.ModerationRequest!
 static LangChain.Providers.ModerationResponse.implicit operator bool(LangChain.Providers.ModerationResponse! response) -> bool

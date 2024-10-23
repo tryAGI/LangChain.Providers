@@ -1,4 +1,5 @@
-﻿using LangChain.Chains.LLM;
+﻿using CSharpToJsonSchema;
+using LangChain.Chains.LLM;
 using LangChain.Prompts;
 using LangChain.Providers;
 using LangChain.Schema;

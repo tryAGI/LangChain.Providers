@@ -1,4 +1,4 @@
-﻿using LangChain.Providers;
+﻿using CSharpToJsonSchema;
 using DescriptionAttribute = System.ComponentModel.DescriptionAttribute;
 
 namespace LangChain.IntegrationTests;
@@ -9,7 +9,7 @@ public class GetAuthorBook
     public string Description { get; set; } = string.Empty;
 }
 
-[LangChainTools]
+[GenerateJsonSchema]
 public interface IBookStoreService
 {
     [Description("Get books written by some author")]

@@ -1,4 +1,7 @@
 // ReSharper disable once CheckNamespace
+
+using CSharpToJsonSchema;
+
 namespace LangChain.Providers;
 
 /// <summary>
@@ -14,7 +17,7 @@ public class ChatRequest
     /// <summary>
     /// Defines the user's tools.
     /// </summary>
-    public IReadOnlyCollection<OpenApiSchema> Tools { get; init; } = [];
+    public IReadOnlyCollection<Tool> Tools { get; init; } = [];
 
     /// <summary>
     /// Upload image

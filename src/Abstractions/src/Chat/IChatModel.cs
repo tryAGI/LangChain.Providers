@@ -1,3 +1,5 @@
+using CSharpToJsonSchema;
+
 namespace LangChain.Providers;
 
 /// <summary>
@@ -55,7 +57,7 @@ public interface IChatModel : IModel<ChatSettings>
     /// <param name="calls"></param>
     /// <returns></returns>
     void AddGlobalTools(
-        ICollection<OpenApiSchema> tools,
+        ICollection<Tool> tools,
         IReadOnlyDictionary<string, Func<string, CancellationToken, Task<string>>> calls);
 
     /// <summary>

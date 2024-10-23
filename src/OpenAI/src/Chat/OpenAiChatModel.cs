@@ -100,26 +100,6 @@ public partial class OpenAiChatModel(
             Role: MessageRole.Ai)];
     }
 
-    protected static T ToTool<T>(OpenApiSchema schema) where T : global::OpenAI.OpenApiSchema, new()
-    {
-        schema = schema ?? throw new ArgumentNullException(nameof(schema));
-
-        return new T
-        {
-            Type = schema.Type,
-            Description = schema.Description,
-            Items = schema.Items != null
-                ? ToTool<global::OpenAI.OpenApiSchema>(schema.Items)
-                : null,
-            Properties = schema.Properties
-                .ToDictionary(
-                    x => x.Key,
-                    x => ToTool<global::OpenAI.OpenApiSchema>(x.Value)),
-            Required = schema.Required,
-            Enum = schema.Enum,
-        };
-    }
-
     private Usage GetUsage(CreateChatCompletionResponse response)
     {
         var outputTokens = response.Usage?.CompletionTokens ?? 0;
@@ -181,11 +161,9 @@ public partial class OpenAiChatModel(
                 Type = ChatCompletionToolType.Function,
                 Function = new FunctionObject
                 {
-                    Name = x.Type,
+                    Name = x.Name ?? string.Empty,
                     Description = x.Description,
-                    Parameters = x.Items != null
-                        ? ToTool<FunctionParameters>(x.Items)
-                        : new FunctionParameters(),
+                    Parameters = x.Parameters ?? new FunctionParameters(),
                 },
             })
             .ToArray();
@@ -208,13 +186,10 @@ public partial class OpenAiChatModel(
                 MaxCompletionTokens = usedSettings.MaxCompletionTokens,
                 TopP = usedSettings.TopP,
                 PresencePenalty = usedSettings.PresencePenalty,
-                LogitBias = new CreateChatCompletionRequestLogitBias
-                {
-                    AdditionalProperties = usedSettings.LogitBias?
-                        .ToDictionary(
-                            x => x.Key,
-                            x => (object)x.Value) ?? [],
-                },
+                LogitBias = usedSettings.LogitBias?
+                    .ToDictionary(
+                        x => x.Key,
+                        x => (int)x.Value) ?? [],
                 Tools = tools,
                 StreamOptions = usedSettings.UseStreaming == true
                     ? new ChatCompletionStreamOptions

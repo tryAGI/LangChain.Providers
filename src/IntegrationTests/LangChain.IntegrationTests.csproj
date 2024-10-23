@@ -6,7 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Abstractions\generators\LangChain.Providers.Generators\LangChain.Providers.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\Amazon.Bedrock\src\LangChain.Providers.Amazon.Bedrock.csproj" />
         <ProjectReference Include="..\Anthropic\src\LangChain.Providers.Anthropic.csproj" />
         <ProjectReference Include="..\Anyscale\src\LangChain.Providers.Anyscale.csproj" />

@@ -53,11 +53,9 @@ public class OllamaChatModel(
                 Type = ToolType.Function,
                 Function = new ToolFunction
                 {
-                    Name = x.Type,
-                    Description = x.Description,
-                    Parameters = x.Items != null
-                        ? ToTool<ToolFunctionParams>(x.Items)
-                        : new ToolFunctionParams(),
+                    Name = x.Name ?? string.Empty,
+                    Description = x.Description ?? string.Empty,
+                    Parameters = x.Parameters ?? new ToolFunctionParams(),
                 },
             })
             .ToArray();
@@ -168,25 +166,5 @@ public class OllamaChatModel(
         OnResponseReceived(chatResponse);
 
         yield return chatResponse;
-    }
-
-    private static T ToTool<T>(OpenApiSchema schema) where T : global::Ollama.OpenApiSchema, new()
-    {
-        schema = schema ?? throw new ArgumentNullException(nameof(schema));
-
-        return new T
-        {
-            Type = schema.Type,
-            Description = schema.Description,
-            Items = schema.Items != null
-                ? ToTool<global::Ollama.OpenApiSchema>(schema.Items)
-                : null,
-            Properties = schema.Properties
-                .ToDictionary(
-                    x => x.Key,
-                    x => ToTool<global::Ollama.OpenApiSchema>(x.Value)),
-            Required = schema.Required,
-            Enum = schema.Enum,
-        };
     }
 }

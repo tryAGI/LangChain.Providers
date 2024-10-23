@@ -1,6 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using CSharpToJsonSchema;
 using GenerativeAI.Tools;
 using GenerativeAI.Types;
 
@@ -13,16 +13,16 @@ internal static class GoogleGeminiExtensions
         return response.GetFunction() != null;
     }
 
-    public static List<GenerativeAITool> ToGenerativeAiTools(this IEnumerable<OpenApiSchema> functions)
+    public static List<GenerativeAITool> ToGenerativeAiTools(this IEnumerable<Tool> functions)
     {
         return new List<GenerativeAITool>([
             new GenerativeAITool
             {
                 FunctionDeclaration = functions.Select(x => new ChatCompletionFunction
                 {
-                    Name = x.Type,
-                    Description = x.Description,
-                    Parameters = x.ToFunctionParameters()
+                    Name = x.Name ?? string.Empty,
+                    Description = x.Description ?? string.Empty,
+                    Parameters = ToFunctionParameters((OpenApiSchema)x.Parameters!),
                 }).ToList(),
             }
         ]);
@@ -33,10 +33,12 @@ internal static class GoogleGeminiExtensions
         var parameters = new ChatCompletionFunctionParameters();
 
         parameters.AdditionalProperties.Add("type", schema.Items.Type);
-        if (!string.IsNullOrEmpty(schema.Items.Description))
+        if (schema.Items.Description != null && !string.IsNullOrEmpty(schema.Items.Description))
             parameters.AdditionalProperties.Add("description", schema.Items.Description);
-        parameters.AdditionalProperties.Add("properties", schema.Items.Properties);
-        parameters.AdditionalProperties.Add("required", schema.Items.Required);
+        if (schema.Items.Properties != null)
+            parameters.AdditionalProperties.Add("properties", schema.Items.Properties);
+        if (schema.Items.Required != null)
+            parameters.AdditionalProperties.Add("required", schema.Items.Required);
 
         return parameters;
     }
