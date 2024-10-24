@@ -27,8 +27,26 @@ public partial class AnthropicChatModel(
                 Role = global::Anthropic.MessageRole.User,
                 Content = message.Content,
             },
-            MessageRole.ToolCall => throw new NotImplementedException(),
-            MessageRole.ToolResult => throw new NotImplementedException(),
+            MessageRole.ToolCall => new global::Anthropic.Message
+            {
+                Role = global::Anthropic.MessageRole.User,
+                Content = new List<Block>
+                {
+                    message.ToToolUseBlock(),
+                },
+            },
+            MessageRole.ToolResult => new global::Anthropic.Message
+            {
+                Role = global::Anthropic.MessageRole.User,
+                Content = new List<Block>
+                {
+                    new ToolResultBlock
+                    {
+                        ToolUseId = message.ToolName?.Split(':').ElementAtOrDefault(1) ?? string.Empty,
+                        Content = message.Content,
+                    },
+                },
+            },
             _ => throw new NotImplementedException()
         };
     }
@@ -91,22 +109,17 @@ public partial class AnthropicChatModel(
             requestSettings: settings,
             modelSettings: Settings,
             providerSettings: provider.ChatSettings);
-        // var tools = request.Tools
-        //     .Concat(GlobalTools)
-        //     .Select(x => new ChatCompletionTool
-        //     {
-        //         Type = ChatCompletionToolType.Function,
-        //         Function = new FunctionObject
-        //         {
-        //             Name = x.Type,
-        //             Description = x.Description,
-        //             Parameters = x.Items != null
-        //                 ? ToTool<FunctionParameters>(x.Items)
-        //                 : new FunctionParameters(),
-        //         },
-        //     })
-        //     .ToArray();
-        // tools = tools.Length > 0 ? tools : null;
+        var tools = request.Tools
+            .Concat(GlobalTools)
+            .Select(x => (Tool)new ToolCustom
+            {
+                Type = "custom",
+                Name = x.Name ?? string.Empty,
+                Description = x.Description ?? string.Empty,
+                InputSchema = x.Parameters ?? new ToolCustomInputSchema(),
+            })
+            .ToArray();
+        tools = tools.Length > 0 ? tools : null;
         var systemMessage = messages.FirstOrDefault(m => m.Role == MessageRole.System).Content;
 
         do
@@ -117,7 +130,7 @@ public partial class AnthropicChatModel(
                 Messages = messages
                     .Select(ToRequestMessage)
                     .ToList(),
-                System = string.IsNullOrWhiteSpace(systemMessage) ? null : systemMessage,
+                System = string.IsNullOrWhiteSpace(systemMessage) ? (OneOf<string, IList<Block>>?)null : systemMessage,
                 MaxTokens =
                     usedSettings.MaxTokens ??
                     CreateMessageRequestModelExtensions.ToEnum(Id)?.GetOutputLength() ??
@@ -125,7 +138,7 @@ public partial class AnthropicChatModel(
                 Stream = usedSettings.UseStreaming ?? false,
                 StopSequences = usedSettings.StopSequences?.ToArray(),
                 Temperature = usedSettings.Temperature ?? 1.0,
-                Tools = null,
+                Tools = tools,
             };
             OnRequestSent(request);
 
