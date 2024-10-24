@@ -11,7 +11,6 @@ using LangChain.Providers.Fireworks;
 using LangChain.Providers.Google;
 using LangChain.Providers.Google.Predefined;
 using LangChain.Providers.Groq;
-using LangChain.Providers.Groq.Predefined;
 using LangChain.Providers.Ollama;
 using LangChain.Providers.OpenAI;
 using LangChain.Providers.OpenAI.Predefined;
@@ -152,7 +151,7 @@ public static class Helpers
                     };
 
                     var provider = new GroqProvider(config);
-                    var llm = new Llama370B(provider);
+                    var llm = new GroqChatModel(provider, id: "llama3-70b-8192");
 
                     // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
                     var embeddings = new TextEmbeddingV3SmallModel(
