@@ -44,7 +44,7 @@ namespace LangChain.Providers.Google.VertexAI
             (GenerateContentResponse response, ChatRequest request, ChatSettings? settings, Stopwatch watch)
         {
             var functionCall = response.Candidates[0].Content.Parts[0].FunctionCall;
-            var result = request.Messages.Append(response.Candidates[0].Content.Parts[0].Text.AsAiMessage()).ToList();
+            var result = request.Messages.Concat([response.Candidates[0].Content.Parts[0].Text.AsAiMessage()]).ToList();
             var usage = CalculateUsage(watch, response);
             var chatResponse = new ChatResponse
             {
