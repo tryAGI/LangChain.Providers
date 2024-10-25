@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
+﻿using GroqSharp.Models;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using GroqSharp.Models;
 using MessageGroq = GroqSharp.Models.Message;
 
 namespace LangChain.Providers.Groq;
@@ -21,23 +21,39 @@ public class GroqChatModel(
         var prompt = ToPrompt(request.Messages);
         Provider.Api.SetModel(Id);
         var watch = Stopwatch.StartNew();
-        var response = await Provider.Api.CreateChatCompletionAsync(prompt).ConfigureAwait(false);
 
+        if (settings?.UseStreaming == true)
+        {
+            var responseStream = Provider.Api.CreateChatCompletionStreamAsync(prompt);
+            await foreach (var response in responseStream.WithCancellation(cancellationToken))
+            {
+                yield return BuildChatResponse(response, request, settings, watch);
+            }
+        }
+        else
+        {
+            var response = await Provider.Api.CreateChatCompletionAsync(prompt).ConfigureAwait(false);
+            yield return BuildChatResponse(response, request, settings, watch);
+        }
+
+    }
+
+    private ChatResponse BuildChatResponse(string response, ChatRequest request, ChatSettings? settings, Stopwatch watch)
+    {
         var usage = Usage.Empty with
         {
             Time = watch.Elapsed,
         };
-        AddUsage(usage);
-        provider.AddUsage(usage);
 
         var result = request.Messages.ToList();
+        provider.AddUsage(usage);
         result.Add(response.AsAiMessage());
 
-        yield return new ChatResponse
+        return new ChatResponse
         {
             Messages = result,
             Usage = usage,
-            UsedSettings = ChatSettings.Default,
+            UsedSettings = settings ?? ChatSettings.Default,
         };
     }
 

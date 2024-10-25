@@ -19,8 +19,7 @@ namespace LangChain.Providers.Google.VertexAI
         ChatSettings? settings = null,
         [EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
-            if (request == null)
-                throw new ArgumentNullException(nameof(request));
+            request = request ?? throw new ArgumentNullException(nameof(request));
 
             var prompt = ToPrompt(request.Messages);
             var watch = Stopwatch.StartNew();
