@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.3-dev.1" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.406.2" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.406.1" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.406.3" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.406.2" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.0.0" />
     <PackageVersion Include="CSharpToJsonSchema" Version="3.9.1" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
@@ -25,7 +25,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="HtmlAgilityPack" Version="1.11.68" />
+    <PackageVersion Include="HtmlAgilityPack" Version="1.11.69" />
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
     <PackageVersion Include="LangChain.Core" Version="0.15.2" />
     <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.3" />
