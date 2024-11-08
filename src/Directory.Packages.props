@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.3-dev.1" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.406.9" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.407.3" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.406.10" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.408" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.0.0" />
     <PackageVersion Include="CSharpToJsonSchema" Version="3.9.1" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
