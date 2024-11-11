@@ -75,7 +75,7 @@ public enum DeepInfraModelIds
     /// <summary>
     /// Name: Llama-3.2-90B-Vision-Instruct <br/>
     /// Organization: meta-llama <br/>
-    /// Context Length: 8192 <br/>
+    /// Context Length: 32768 <br/>
     /// Prompt Cost: $0.35/MTok <br/>
     /// Completion Cost: $0.35/MTok <br/>
     /// Description: The Llama 90B Vision model is a top-tier, 90-billion-parameter multimodal model designed for the most challenging visual reasoning and language tasks. It offers unparalleled accuracy in image captioning, visual question answering, and advanced image-text comprehension. Pre-trained on vast multimodal datasets and fine-tuned with human feedback, the Llama 90B Vision is engineered to handle the most demanding image-based AI tasks.  This model is perfect for industries requiring cutting-edge multimodal AI capabilities, particularly those dealing with complex, real-time visual and textual analysis. <br/>

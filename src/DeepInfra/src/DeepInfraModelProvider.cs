@@ -15,7 +15,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.MetaLlama3170BInstructTurbo, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",131072,2.9E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Llama31Nemotron70BInstruct, ToMetadata("nvidia/Llama-3.1-Nemotron-70B-Instruct",131072,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Qwen2572BInstruct, ToMetadata("Qwen/Qwen2.5-72B-Instruct",32768,3.5E-07,4.0000000000000003E-07)},
-        { DeepInfraModelIds.Llama3290BVisionInstruct, ToMetadata("meta-llama/Llama-3.2-90B-Vision-Instruct",8192,3.5E-07,4.0000000000000003E-07)},
+        { DeepInfraModelIds.Llama3290BVisionInstruct, ToMetadata("meta-llama/Llama-3.2-90B-Vision-Instruct",32768,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Llama3211BVisionInstruct, ToMetadata("meta-llama/Llama-3.2-11B-Vision-Instruct",131072,6E-08,6E-08)},
         { DeepInfraModelIds.Wizardlm28X22b, ToMetadata("microsoft/WizardLM-2-8x22B",65536,5E-07,5E-07)},
         { DeepInfraModelIds.Yi34BChat, ToMetadata("01-ai/Yi-34B-Chat",4096,6E-07,6E-07)},
