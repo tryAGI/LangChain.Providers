@@ -1,10 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFrameworks>net4.6.2;netstandard2.0;net8.0</TargetFrameworks>
         <NoWarn>$(NoWarn);CA1822</NoWarn>
     </PropertyGroup>
-
+	<ItemGroup>		
+		<PackageReference Include="Newtonsoft.Json" />		
+		<PackageReference Include="System.Memory.Data" />
+		<PackageReference Include="System.Text.Json" />
+		<PackageReference Include="Azure.AI.OpenAI" />
+		<PackageReference Include="LangChain.Polyfills" />				
+	</ItemGroup>
+	
     <ItemGroup Label="Usings">
         <Using Include="System.Net.Http" />
     </ItemGroup>
@@ -12,18 +19,10 @@
     <PropertyGroup Label="NuGet">
         <Description>OpenAI API LLM and Chat model provider.</Description>
         <PackageTags>$(PackageTags);openai;api</PackageTags>
-    </PropertyGroup>
+    </PropertyGroup>   
 
     <ItemGroup>
-        <PackageReference Include="Azure.AI.OpenAI" />
-        <PackageReference Include="System.Memory.Data" />
-        <PackageReference Include="System.Text.Json" />
-        <PackageReference Include="tryAGI.OpenAI" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj" />
-        <ProjectReference Include="..\..\OpenAI\src\LangChain.Providers.OpenAI.csproj" />
+        <ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj" />        
     </ItemGroup>
 
 </Project>
