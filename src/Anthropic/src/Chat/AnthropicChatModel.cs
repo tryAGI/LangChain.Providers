@@ -155,14 +155,14 @@ public partial class AnthropicChatModel(
                 await foreach (MessageStreamEvent streamResponse in enumerable)
                 {
                     usage ??= Usage.Empty;
-                    if (streamResponse.IsStart)
+                    if (streamResponse.IsMessageStart)
                     {
-                        usage += GetUsage(streamResponse.Start?.Message.Usage);
+                        usage += GetUsage(streamResponse.MessageStart?.Message.Usage);
                     }
                     var streamDelta = streamResponse.ContentBlockDelta;
                     var delta = new ChatResponseDelta
                     {
-                        Content = streamDelta?.Delta.Text?.Text ?? string.Empty,
+                        Content = streamDelta?.Delta.TextDelta?.Text ?? string.Empty,
                     };
                     // toolCalls ??= streamDelta?.ToolCalls?.Select(x => new ChatToolCall
                     // {
@@ -170,8 +170,8 @@ public partial class AnthropicChatModel(
                     //     ToolName = x.Function?.Name ?? string.Empty,
                     //     ToolArguments = x.Function?.Arguments ?? string.Empty,
                     // }).ToList();
-                    usage += GetUsage(streamResponse.Delta?.Usage);
-                    finishReason ??= streamResponse.Delta?.Delta.StopReason switch
+                    usage += GetUsage(streamResponse.MessageDelta?.Usage);
+                    finishReason ??= streamResponse.MessageDelta?.Delta.StopReason switch
                     {
                         StopReason.EndTurn => ChatResponseFinishReason.Stop,
                         StopReason.MaxTokens => ChatResponseFinishReason.Length,
