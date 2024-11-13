@@ -52,6 +52,11 @@ public class ChatResponse
     /// <inheritdoc />
     public override string ToString()
     {
+        if (Delta != null)
+        {
+            return Delta.ToString();
+        }
+        
         return LastMessageContent;
     }
 
@@ -85,7 +90,7 @@ public class ChatResponse
 
     public static implicit operator string(ChatResponse response)
     {
-        return response?.LastMessageContent ?? string.Empty;
+        return response?.ToString() ?? string.Empty;
     }
 
     public static implicit operator Usage(ChatResponse response)
