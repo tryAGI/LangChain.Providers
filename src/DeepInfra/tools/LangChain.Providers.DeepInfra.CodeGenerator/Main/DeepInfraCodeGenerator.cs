@@ -13,7 +13,7 @@ using static System.Text.RegularExpressions.Regex;
 
 namespace LangChain.Providers.DeepInfra.CodeGenerator.Main;
 
-public static class DeepInfraCodeGenerator
+internal static class DeepInfraCodeGenerator
 {
     #region Public Methods
 

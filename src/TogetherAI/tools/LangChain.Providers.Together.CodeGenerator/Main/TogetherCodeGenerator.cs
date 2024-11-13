@@ -10,7 +10,7 @@ using static System.Text.RegularExpressions.Regex;
 
 namespace LangChain.Providers.Together.CodeGenerator.Main;
 
-public static class TogetherCodeGenerator
+internal static class TogetherCodeGenerator
 {
     #region Public Methods
 

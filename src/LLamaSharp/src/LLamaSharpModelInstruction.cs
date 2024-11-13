@@ -78,7 +78,7 @@ public class LLamaSharpModelInstruction : LLamaSharpModelBase, IChatModel
 
         var buf = "";
         await foreach (var text in ex.InferAsync(prompt,
-                           inferenceParams, cancellationToken))
+                           inferenceParams, cancellationToken).ConfigureAwait(false))
         {
             buf += text;
             foreach (string antiPrompt in Configuration.AntiPrompts)

@@ -1,6 +1,6 @@
 namespace LangChain.Providers.Together.CodeGenerator.Main;
 
-public class GenerationOptions
+internal sealed class GenerationOptions
 {
     public string OutputFolder { get; set; } = "Generated";
     public Func<string, string, string, string>? ReplaceEnumNameFunc { get; set; }

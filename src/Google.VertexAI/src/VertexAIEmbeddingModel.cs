@@ -13,9 +13,7 @@ namespace LangChain.Providers.Google.VertexAI
         private VertexAIProvider Provider { get; } = provider ?? throw new ArgumentNullException(nameof(provider));
         public async Task<EmbeddingResponse> CreateEmbeddingsAsync(EmbeddingRequest request, EmbeddingSettings? settings = null, CancellationToken cancellationToken = default)
         {
-
-            if (request == null)
-                throw new ArgumentNullException(nameof(request));
+            request = request ?? throw new ArgumentNullException(nameof(request));
 
             var serviceAccountCredential = Provider.Configuration.GoogleCredential?.UnderlyingCredential as ServiceAccountCredential;
             var endpoint = EndpointName.FromProjectLocationPublisherModel(

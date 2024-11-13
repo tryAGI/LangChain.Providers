@@ -76,7 +76,7 @@ public class LLamaSharpModelChat : LLamaSharpModelBase
         await foreach (var text in session.ChatAsync(
            message: new ChatHistory.Message(AuthorRole.User, prompt),
            inferenceParams: inferenceParams,
-           cancellationToken: cancellationToken))
+           cancellationToken: cancellationToken).ConfigureAwait(false))
         {
             buf += text;
         }

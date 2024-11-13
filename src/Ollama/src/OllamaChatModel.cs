@@ -119,7 +119,7 @@ public class OllamaChatModel(
         GenerateChatCompletionResponse? lastResponse = null;
         IReadOnlyList<ChatToolCall>? toolCalls = null;
         var stringBuilder = new StringBuilder(capacity: 1024);
-        await foreach (var completion in response)
+        await foreach (var completion in response.ConfigureAwait(false))
         {
             lastResponse = completion;
             var delta = new ChatResponseDelta

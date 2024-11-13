@@ -4,7 +4,7 @@ using HtmlAgilityPack;
 
 namespace LangChain.Providers.OpenRouter.CodeGenerator.Helpers;
 
-public class DocumentHelper
+internal sealed class DocumentHelper
 {
     private string _docHtml = string.Empty;
 
@@ -12,7 +12,7 @@ public class DocumentHelper
     {
         Document = new HtmlDocument();
         DocumentText = "";
-        ServicePointManager.Expect100Continue = false;
+        //ServicePointManager.Expect100Continue = false;
 
         HtmlNode.ElementsFlags.Remove("form");
         HtmlNode.ElementsFlags.Remove("option");

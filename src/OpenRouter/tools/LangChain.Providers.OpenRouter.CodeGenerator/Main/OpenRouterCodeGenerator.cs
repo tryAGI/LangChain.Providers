@@ -11,7 +11,7 @@ using static System.Text.RegularExpressions.Regex;
 
 namespace LangChain.Providers.OpenRouter.CodeGenerator.Main;
 
-public static class OpenRouterCodeGenerator
+internal static class OpenRouterCodeGenerator
 {
     #region Public Methods
 

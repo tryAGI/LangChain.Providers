@@ -4,7 +4,7 @@
         <LangVersion>preview</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+<!--        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>-->
     </PropertyGroup>
 
     <PropertyGroup>

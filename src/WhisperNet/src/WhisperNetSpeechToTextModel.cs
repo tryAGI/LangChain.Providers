@@ -51,7 +51,7 @@ public class WhisperNetSpeechToTextModel : Model<SpeechToTextSettings>, ISpeechT
 
             using var audioProcessor = builder.Build();
             var sb = new StringBuilder();
-            await foreach (var result in audioProcessor.ProcessAsync(request.Stream, cancellationToken))
+            await foreach (var result in audioProcessor.ProcessAsync(request.Stream, cancellationToken).ConfigureAwait(false))
             {
                 sb.Append(result.Text);
             }

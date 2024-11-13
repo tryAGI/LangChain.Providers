@@ -11,8 +11,7 @@ namespace LangChain.Providers.Google.VertexAI
         private VertexAIProvider Provider { get; } = provider ?? throw new ArgumentNullException(nameof(provider));
         public async Task<TextToImageResponse> GenerateImageAsync(TextToImageRequest request, TextToImageSettings? settings = null, CancellationToken cancellationToken = default)
         {
-            if (request == null)
-                throw new ArgumentNullException(nameof(request));
+            request = request ?? throw new ArgumentNullException(nameof(request));
 
             var watch = Stopwatch.StartNew();
             var serviceAccountCredential = Provider.Configuration.GoogleCredential?.UnderlyingCredential as ServiceAccountCredential;

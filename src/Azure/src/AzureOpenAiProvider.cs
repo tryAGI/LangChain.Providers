@@ -28,7 +28,10 @@ public class AzureOpenAiProvider : Provider
     [CLSCompliant(false)]
     public AzureOpenAIClient Client { get; set; }
 
-    
+    /// <summary>
+    /// Azure OpenAI Chat Client
+    /// </summary>
+    [CLSCompliant(false)]
     public ChatClient ChatClient { get; set; }
 
     public AzureOpenAiConfiguration Configurations { get; }
@@ -40,6 +43,7 @@ public class AzureOpenAiProvider : Provider
     /// </summary>
     /// <param name="apiKey">API Key</param>
     /// <param name="endpoint">Azure Open AI Resource URI</param>
+    /// <param name="deploymentID"></param>
     /// <exception cref="ArgumentNullException"></exception>
     public AzureOpenAiProvider(string apiKey, string endpoint, string deploymentID) : base(id: "AzureOpenAI")
     {

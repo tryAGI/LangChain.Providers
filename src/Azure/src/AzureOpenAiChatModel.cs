@@ -1,15 +1,10 @@
-using Azure.AI.OpenAI;
-using OpenAI;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
-using OpenAI;
 using OpenAI.Chat;
 using System.Text.Json;
-using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.Json.Serialization;
-using ChatToolCall = OpenAI.Chat.ChatToolCall;
 namespace LangChain.Providers.Azure;
 
 /// <summary>
@@ -23,7 +18,6 @@ public class AzureOpenAiChatModel(
         IPaidLargeLanguageModel,
         IChatModel<ChatRequest, ChatResponse, AzureOpenAiChatSettings>
 {
-    /// <inheritdoc/>
     #region Properties
 
     private string ChatModel { get; } = id;
@@ -67,7 +61,7 @@ public class AzureOpenAiChatModel(
             };
 #pragma warning restore OPENAI001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
-            usedSettings.StopSequences.ToList().ForEach(stop =>
+            usedSettings.StopSequences?.ToList().ForEach(stop =>
             {
                 chatCompletionsOptions.StopSequences.Add(stop);
             });
@@ -112,7 +106,7 @@ public class AzureOpenAiChatModel(
                             ToolArguments = x.FunctionArgumentsUpdate?.ToString() ?? string.Empty,
                         }).ToList();
 
-                        usage ??= GetUsage(streamResponse.Usage);
+                        usage ??= GetUsage(streamResponse?.Usage);
                         finishReason ??= streamResponse?.FinishReason switch
                         {
                             ChatFinishReason.Length => ChatResponseFinishReason.Length,
@@ -147,9 +141,13 @@ public class AzureOpenAiChatModel(
                     chatMessage,
                     chatCompletionsOptions,
                     cancellationToken).ConfigureAwait(false);
+                if (response == null)
+                {
+                    yield break;
+                }
                 
-                var message = response?.Value.Content.FirstOrDefault()?.Text;
-                var newMessages = ToMessages(response?.Value);
+                var message = response.Value.Content.FirstOrDefault()?.Text;
+                var newMessages = ToMessages(response.Value);
                 messages.AddRange(newMessages);
                 toolCalls = response.Value?.ToolCalls.Select(x => new ChatToolCall
                 {
@@ -237,14 +235,12 @@ public class AzureOpenAiChatModel(
         //             """u8.ToArray());
 
         var tools = request.Tools.Concat(GlobalTools).Select(s => ChatTool.CreateFunctionTool(
-            s.Name ?? string.Empty, s.Description, BinaryData.FromString(JsonSerializer.Serialize(s.Parameters, new JsonSerializerOptions
-            {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
-            }))
+            s.Name ?? string.Empty, s.Description, BinaryData.FromString(JsonSerializer.Serialize(s.Parameters, SourceGenerationContext.Default.String))
             )).ToList();
         return tools;
     }
 
+    [CLSCompliant(false)]
     protected virtual ChatMessage ToRequestMessage(Message message)
     {
         switch (message.Role)
@@ -277,7 +273,7 @@ public class AzureOpenAiChatModel(
         }
     }
     
-
+    [CLSCompliant(false)]
     protected static IReadOnlyCollection<Message> ToMessages(ChatCompletion message)
     {
         message = message ?? throw new ArgumentNullException(nameof(message));
@@ -297,11 +293,11 @@ public class AzureOpenAiChatModel(
         }
 
         return [new Message(
-            Content: message.Content[0]?.Text,
+            Content: message.Content[0]?.Text ?? string.Empty,
             Role: MessageRole.Ai)];
     }
 
-    private Usage GetUsage(ChatTokenUsage chatTokenUsage)
+    private Usage GetUsage(ChatTokenUsage? chatTokenUsage)
     {
         var outputTokens = chatTokenUsage?.OutputTokenCount ?? 0;
         var inputTokens = chatTokenUsage?.InputTokenCount ?? 0;
@@ -344,7 +340,9 @@ public class AzureOpenAiChatModel(
         throw new NotImplementedException();
     }
 
-
-
     #endregion
 }
+
+[JsonSourceGenerationOptions(DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault)]
+[JsonSerializable(typeof(string))]
+public partial class SourceGenerationContext : JsonSerializerContext;

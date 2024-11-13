@@ -1,6 +1,6 @@
 ﻿namespace LangChain.Providers.OpenRouter.CodeGenerator.Classes;
 
-public class ModelInfo
+internal sealed class ModelInfo
 {
     public int Index { get; set; }
     public string? ModelId { get; set; }

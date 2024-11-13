@@ -326,6 +326,7 @@ LangChain.Providers.Usage.Usage() -> void
 LangChain.Providers.Usage.Usage(int InputTokens, int OutputTokens, int Messages, System.TimeSpan Time, double? PriceInUsd) -> void
 LangChain.Providers.WithDebugExtensions
 override LangChain.Providers.ChatResponse.ToString() -> string!
+override LangChain.Providers.ChatResponseDelta.ToString() -> string!
 override LangChain.Providers.Data.ToString() -> string!
 override LangChain.Providers.Message.ToString() -> string!
 override LangChain.Providers.SpeechToTextResponse.ToString() -> string!
