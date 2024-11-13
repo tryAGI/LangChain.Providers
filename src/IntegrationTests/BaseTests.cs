@@ -94,28 +94,29 @@ public class BaseTests
     //[TestCase(ProviderType.Ollama)]
     public async Task FiveRandomWords_Streaming(ProviderType providerType)
     {
-        var requests = new List<ChatRequest>();
-        var deltas = new List<ChatResponseDelta>();
-        var responses = new List<ChatResponse>();
+        var requestsFromEvent = new List<ChatRequest>();
+        var deltasFromEvent = new List<ChatResponseDelta>();
+        var responsesFromEvent = new List<ChatResponse>();
+        var responsesFromAsyncEnumerable = new List<ChatResponse>();
 
         var (llm, _, provider) = Helpers.GetModels(providerType);
         llm.RequestSent += (_, request) =>
         {
             Console.WriteLine($"RequestSent: {request.Messages.AsHistory()}");
-            requests.Add(request);
+            requestsFromEvent.Add(request);
         };
         llm.DeltaReceived += (_, delta) =>
         {
             Console.WriteLine($"DeltaReceived: {delta.Content}");
-            deltas.Add(delta);
+            deltasFromEvent.Add(delta);
         };
         llm.ResponseReceived += (_, response) =>
         {
             Console.WriteLine($"ResponseReceived: {response}");
-            responses.Add(response);
+            responsesFromEvent.Add(response);
         };
 
-        var response = await llm.GenerateAsync(
+        var enumerable = llm.GenerateAsync(
             request: "Answer me five random words",
             new ChatSettings
             {
@@ -123,43 +124,55 @@ public class BaseTests
             },
             cancellationToken: CancellationToken.None);
 
-        Console.WriteLine($"LLM response: {response}"); // The cloaked figure.
-        Console.WriteLine($"Usage: {response.Usage}"); // Print usage and price
+        await foreach (var response in enumerable)
+        {
+            Console.WriteLine($"LLM partial response: {response}"); // The cloaked figure.
+            
+            responsesFromAsyncEnumerable.Add(response);
+        }
 
-        requests.Should().HaveCount(1);
-        deltas.Should().HaveCountGreaterOrEqualTo(5);
-        responses.Should().HaveCount(1);
+        var lastResponse = responsesFromAsyncEnumerable.Last();
+        lastResponse.Should().NotBeNull();
+        
+        Console.WriteLine($"Last LLM response: {lastResponse}"); // The cloaked figure.
+        Console.WriteLine($"Usage: {lastResponse.Usage}"); // Print usage and price
 
-        response.LastMessageContent.Should().NotBeNull();
+        requestsFromEvent.Should().HaveCount(1);
+        deltasFromEvent.Should().HaveCountGreaterOrEqualTo(5);
+        //deltasFromEvent.Should().BeEquivalentTo(responsesFromAsyncEnumerable.Select(x => x.Delta));
+        responsesFromEvent.Should().HaveCount(1);
+        responsesFromEvent.Should().BeEquivalentTo([responsesFromAsyncEnumerable.Last()]);
 
-        response.Usage.Messages.Should().Be(1);
-        response.Usage.Time.Should().BeGreaterThan(TimeSpan.Zero);
+        lastResponse.LastMessageContent.Should().NotBeNull();
+
+        lastResponse.Usage.Messages.Should().Be(1);
+        lastResponse.Usage.Time.Should().BeGreaterThan(TimeSpan.Zero);
         if (providerType != ProviderType.OpenRouter)
         {
-            response.Usage.InputTokens.Should().BeGreaterThan(0);
-            response.Usage.OutputTokens.Should().BeGreaterThan(0);
-            response.Usage.TotalTokens.Should().BeGreaterThan(0);
+            lastResponse.Usage.InputTokens.Should().BeGreaterThan(0);
+            lastResponse.Usage.OutputTokens.Should().BeGreaterThan(0);
+            lastResponse.Usage.TotalTokens.Should().BeGreaterThan(0);
         }
         if (providerType == ProviderType.OpenAi)
         {
-            response.Usage.PriceInUsd.Should().HaveValue().And.BeGreaterThan(0);
+            lastResponse.Usage.PriceInUsd.Should().HaveValue().And.BeGreaterThan(0);
         }
 
-        llm.Usage.Should().BeEquivalentTo(response.Usage);
-        provider.Usage.Should().BeEquivalentTo(response.Usage);
+        llm.Usage.Should().BeEquivalentTo(lastResponse.Usage);
+        provider.Usage.Should().BeEquivalentTo(lastResponse.Usage);
 
-        response.Messages.Should().HaveCount(2);
-        response.Messages[0].Role.Should().Be(MessageRole.Human);
-        response.Messages[0].Content.Should().NotBeNullOrEmpty();
-        response.Messages[1].Role.Should().Be(MessageRole.Ai);
-        response.Messages[1].Content.Should().NotBeNullOrEmpty();
-        response.Messages[1].Content.Should().NotBe(response.Messages[0].Content);
-        response.Messages[1].Content.Should().Be(response.LastMessageContent);
-        response.Delta.Should().BeNull();
-        response.FinishReason.Should().Be(ChatResponseFinishReason.Stop);
-        response.LastMessage.Should().NotBeNull().And.Be(response.Messages[1]);
-        response.ToolCalls.Should().BeEmpty();
-        response.UsedSettings.Should().NotBeNull();
+        lastResponse.Messages.Should().HaveCount(2);
+        lastResponse.Messages[0].Role.Should().Be(MessageRole.Human);
+        lastResponse.Messages[0].Content.Should().NotBeNullOrEmpty();
+        lastResponse.Messages[1].Role.Should().Be(MessageRole.Ai);
+        lastResponse.Messages[1].Content.Should().NotBeNullOrEmpty();
+        lastResponse.Messages[1].Content.Should().NotBe(lastResponse.Messages[0].Content);
+        lastResponse.Messages[1].Content.Should().Be(lastResponse.LastMessageContent);
+        lastResponse.Delta.Should().BeNull();
+        lastResponse.FinishReason.Should().Be(ChatResponseFinishReason.Stop);
+        lastResponse.LastMessage.Should().NotBeNull().And.Be(lastResponse.Messages[1]);
+        lastResponse.ToolCalls.Should().BeEmpty();
+        lastResponse.UsedSettings.Should().NotBeNull();
     }
 
     [TestCase(ProviderType.OpenAi)]
