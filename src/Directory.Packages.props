@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.407.1" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.408.2" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.407.2" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.408.3" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.0.0" />
     <PackageVersion Include="CSharpToJsonSchema" Version="3.9.1" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
@@ -33,7 +33,7 @@
     <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.3" />
     <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.2" />
     <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.2" />
-    <PackageVersion Include="LangChain.Polyfills" Version="0.15.3-dev.12" />
+    <PackageVersion Include="LangChain.Polyfills" Version="0.15.3-dev.14" />
     <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.2" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.17.0" />
@@ -67,7 +67,7 @@
     <PackageVersion Include="System.Text.Json" Version="9.0.0-rc.2.24473.5" />
     <PackageVersion Include="Tiktoken" Version="2.1.1" />
     <PackageVersion Include="tryAGI.OpenAI" Version="3.9.2-dev.7" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
     <PackageVersion Include="MinVer" Version="6.0.0">
