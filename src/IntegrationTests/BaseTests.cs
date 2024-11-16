@@ -1,4 +1,5 @@
-﻿using LangChain.Chains.LLM;
+﻿using System.Diagnostics;
+using LangChain.Chains.LLM;
 using LangChain.Prompts;
 using LangChain.Providers;
 using LangChain.Schema;
@@ -94,6 +95,8 @@ public class BaseTests
     //[TestCase(ProviderType.Ollama)]
     public async Task FiveRandomWords_Streaming(ProviderType providerType)
     {
+        var stopwatch = Stopwatch.StartNew();
+        
         var requestsFromEvent = new List<ChatRequest>();
         var deltasFromEvent = new List<ChatResponseDelta>();
         var responsesFromEvent = new List<ChatResponse>();
@@ -102,17 +105,17 @@ public class BaseTests
         var (llm, _, provider) = Helpers.GetModels(providerType);
         llm.RequestSent += (_, request) =>
         {
-            Console.WriteLine($"RequestSent: {request.Messages.AsHistory()}");
+            Console.WriteLine($"{stopwatch.Elapsed}. RequestSent: {request.Messages.AsHistory()}");
             requestsFromEvent.Add(request);
         };
         llm.DeltaReceived += (_, delta) =>
         {
-            Console.WriteLine($"DeltaReceived: {delta.Content}");
+            Console.WriteLine($"{stopwatch.Elapsed}. DeltaReceived: {delta.Content}");
             deltasFromEvent.Add(delta);
         };
         llm.ResponseReceived += (_, response) =>
         {
-            Console.WriteLine($"ResponseReceived: {response}");
+            Console.WriteLine($"{stopwatch.Elapsed}. ResponseReceived: {response}");
             responsesFromEvent.Add(response);
         };
 
@@ -126,7 +129,7 @@ public class BaseTests
 
         await foreach (var response in enumerable)
         {
-            Console.WriteLine($"LLM partial response: {response}"); // The cloaked figure.
+            Console.WriteLine($"{stopwatch.Elapsed}. LLM partial response: {response}"); // The cloaked figure.
             
             responsesFromAsyncEnumerable.Add(response);
         }
@@ -134,8 +137,8 @@ public class BaseTests
         var lastResponse = responsesFromAsyncEnumerable.Last();
         lastResponse.Should().NotBeNull();
         
-        Console.WriteLine($"Last LLM response: {lastResponse}"); // The cloaked figure.
-        Console.WriteLine($"Usage: {lastResponse.Usage}"); // Print usage and price
+        Console.WriteLine($"{stopwatch.Elapsed}. Last LLM response: {lastResponse}"); // The cloaked figure.
+        Console.WriteLine($"{stopwatch.Elapsed}. Usage: {lastResponse.Usage}"); // Print usage and price
 
         requestsFromEvent.Should().HaveCount(1);
         deltasFromEvent.Should().HaveCountGreaterOrEqualTo(5);
