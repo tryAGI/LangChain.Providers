@@ -40,6 +40,17 @@ public enum DeepInfraModelIds
     MetaLlama31405BInstruct,
 
     /// <summary>
+    /// Name: Meta-Llama-3.1-8B-Instruct-Turbo <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.04/MTok <br/>
+    /// Completion Cost: $0.04/MTok <br/>
+    /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo</a> 
+    /// </summary>
+    MetaLlama318BInstructTurbo,
+
+    /// <summary>
     /// Name: Meta-Llama-3.1-70B-Instruct-Turbo <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
@@ -49,6 +60,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo</a> 
     /// </summary>
     MetaLlama3170BInstructTurbo,
+
+    /// <summary>
+    /// Name: Qwen2.5-Coder-32B-Instruct <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.18/MTok <br/>
+    /// Completion Cost: $0.18/MTok <br/>
+    /// Description: Qwen2.5-Coder is the latest series of Code-Specific Qwen large language models (formerly known as CodeQwen). It has significant improvements in code generation, code reasoning and code fixing. A more comprehensive foundation for real-world applications such as Code Agents. Not only enhancing coding capabilities but also maintaining its strengths in mathematics and general competencies. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct">https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct</a> 
+    /// </summary>
+    Qwen25Coder32BInstruct,
 
     /// <summary>
     /// Name: Llama-3.1-Nemotron-70B-Instruct <br/>
@@ -131,8 +153,8 @@ public enum DeepInfraModelIds
     /// Name: MythoMax-L2-13b <br/>
     /// Organization: Gryphe <br/>
     /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.1/MTok <br/>
-    /// Completion Cost: $0.1/MTok <br/>
+    /// Prompt Cost: $0.08/MTok <br/>
+    /// Completion Cost: $0.08/MTok <br/>
     /// Description:  <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Gryphe/MythoMax-L2-13b">https://huggingface.co/Gryphe/MythoMax-L2-13b</a> 
     /// </summary>
@@ -214,6 +236,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2-7B-Instruct">https://huggingface.co/Qwen/Qwen2-7B-Instruct</a> 
     /// </summary>
     Qwen27BInstruct,
+
+    /// <summary>
+    /// Name: Qwen2.5-7B-Instruct <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.06/MTok <br/>
+    /// Completion Cost: $0.06/MTok <br/>
+    /// Description: The 7 billion parameter Qwen2.5 excels in language understanding, multilingual capabilities, coding, mathematics, and reasoning <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct">https://huggingface.co/Qwen/Qwen2.5-7B-Instruct</a> 
+    /// </summary>
+    Qwen257BInstruct,
 
     /// <summary>
     /// Name: Qwen2.5-Coder-7B <br/>

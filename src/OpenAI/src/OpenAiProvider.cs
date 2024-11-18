@@ -1,6 +1,3 @@
-using OpenAI;
-using System.Reflection;
-
 namespace LangChain.Providers.OpenAI;
 
 /// <summary>

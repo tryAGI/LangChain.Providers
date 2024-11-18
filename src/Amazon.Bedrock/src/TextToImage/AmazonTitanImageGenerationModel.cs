@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Net.Mime;
 using System.Text.Json.Nodes;
 using LangChain.Providers.Amazon.Bedrock.Internal;
 using LangChain.Providers.Amazon.Bedrock.TextToImage.Settings;

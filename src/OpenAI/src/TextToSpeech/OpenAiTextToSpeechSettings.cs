@@ -1,5 +1,3 @@
-using OpenAI;
-
 // ReSharper disable once CheckNamespace
 namespace LangChain.Providers.OpenAI;
 

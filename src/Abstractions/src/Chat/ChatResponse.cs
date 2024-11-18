@@ -56,7 +56,7 @@ public class ChatResponse
         {
             return Delta.ToString();
         }
-        
+
         return LastMessageContent;
     }
 

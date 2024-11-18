@@ -1,4 +1,11 @@
+
+/* Unmerged change from project 'LangChain.Providers.Azure(netstandard2.0)'
+Before:
 using Azure;
+using Azure.AI.OpenAI;
+After:
+using Azure.AI.OpenAI;
+*/
 using Azure.AI.OpenAI;
 using OpenAI.Chat;
 using System.ClientModel;
@@ -67,7 +74,7 @@ public class AzureOpenAiProvider : Provider
         ApiKey = configuration.ApiKey ?? throw new ArgumentException("ApiKey is not defined", nameof(configuration));
         Endpoint = configuration.Endpoint ?? throw new ArgumentException("Endpoint is not defined", nameof(configuration));
         DeploymentID = configuration.DeploymentID ?? throw new ArgumentException("DeploymentID is not defined", nameof(configuration));
-        Client = new AzureOpenAIClient(new Uri(Endpoint), new ApiKeyCredential(ApiKey));      
+        Client = new AzureOpenAIClient(new Uri(Endpoint), new ApiKeyCredential(ApiKey));
         ChatClient = Client.GetChatClient(DeploymentID);
     }
 

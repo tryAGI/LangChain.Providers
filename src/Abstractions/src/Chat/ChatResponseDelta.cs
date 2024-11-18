@@ -12,7 +12,7 @@ public class ChatResponseDelta
     /// The contents of the chunk message.
     /// </summary>
     public string Content { get; set; } = string.Empty;
-    
+
     /// <inheritdoc />
     public override string ToString()
     {
