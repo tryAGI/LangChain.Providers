@@ -96,7 +96,7 @@ public class BaseTests
     public async Task FiveRandomWords_Streaming(ProviderType providerType)
     {
         var stopwatch = Stopwatch.StartNew();
-        
+
         var requestsFromEvent = new List<ChatRequest>();
         var deltasFromEvent = new List<ChatResponseDelta>();
         var responsesFromEvent = new List<ChatResponse>();
@@ -130,13 +130,13 @@ public class BaseTests
         await foreach (var response in enumerable)
         {
             Console.WriteLine($"{stopwatch.Elapsed}. LLM partial response: {response}"); // The cloaked figure.
-            
+
             responsesFromAsyncEnumerable.Add(response);
         }
 
         var lastResponse = responsesFromAsyncEnumerable.Last();
         lastResponse.Should().NotBeNull();
-        
+
         Console.WriteLine($"{stopwatch.Elapsed}. Last LLM response: {lastResponse}"); // The cloaked figure.
         Console.WriteLine($"{stopwatch.Elapsed}. Usage: {lastResponse.Usage}"); // Print usage and price
 

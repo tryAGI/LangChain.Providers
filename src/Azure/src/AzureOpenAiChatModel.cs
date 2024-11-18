@@ -2,7 +2,6 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using OpenAI.Chat;
-using System.Text.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.Json.Serialization;
 namespace LangChain.Providers.Azure;
@@ -45,7 +44,7 @@ public class AzureOpenAiChatModel(
             modelSettings: Settings,
             providerSettings: provider.ChatSettings);
 
-        List<ChatTool> tools = ExtarctTools(request);              
+        List<ChatTool> tools = ExtarctTools(request);
 
         do
         {
@@ -145,7 +144,7 @@ public class AzureOpenAiChatModel(
                 {
                     yield break;
                 }
-                
+
                 var message = response.Value.Content.FirstOrDefault()?.Text;
                 var newMessages = ToMessages(response.Value);
                 messages.AddRange(newMessages);
@@ -254,12 +253,12 @@ public class AzureOpenAiChatModel(
 
             case MessageRole.ToolCall:
                 var toolNameAndId = message.ToolName?.Split(':') ??
-                                    throw new ArgumentException("Invalid functionCall name and id string"); 
-                
+                                    throw new ArgumentException("Invalid functionCall name and id string");
+
                 var toolCall = OpenAI.Chat.ChatToolCall.CreateFunctionToolCall(toolNameAndId.ElementAtOrDefault(1),
                         toolNameAndId.ElementAtOrDefault(0),
                         BinaryData.FromString(message.Content));
-                
+
                 OpenAI.Chat.ChatToolCall[] chatToolCalls = { toolCall };
                 return new AssistantChatMessage(chatToolCalls);
 
@@ -272,7 +271,7 @@ public class AzureOpenAiChatModel(
                 throw new ArgumentOutOfRangeException(nameof(message));
         }
     }
-    
+
     [CLSCompliant(false)]
     protected static IReadOnlyCollection<Message> ToMessages(ChatCompletion message)
     {
@@ -310,7 +309,7 @@ public class AzureOpenAiChatModel(
             Messages = 1,
             PriceInUsd = priceInUsd,
         };
-    }    
+    }
 
     public int CountTokens(string text)
     {

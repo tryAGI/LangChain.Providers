@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Net;
 using HtmlAgilityPack;
 
 namespace LangChain.Providers.OpenRouter.CodeGenerator.Helpers;
