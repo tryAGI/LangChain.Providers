@@ -15,6 +15,11 @@ public class MetaLlama318BInstructModel(DeepInfraProvider provider) : DeepInfraM
 public class MetaLlama31405BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama31405BInstruct);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.DeepseekV25"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class DeepseekV25Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekV25);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.MetaLlama318BInstructTurbo"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class MetaLlama318BInstructTurboModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama318BInstructTurbo);
@@ -118,6 +123,11 @@ public class Qwen25Coder7BModel(DeepInfraProvider provider) : DeepInfraModel(pro
 /// <inheritdoc cref="DeepInfraModelIds.L370BEuryaleV21"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class L370BEuryaleV21Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.L370BEuryaleV21);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.L38BLunarisV1"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class L38BLunarisV1Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.L38BLunarisV1);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.L3170BEuryaleV22"/>
