@@ -40,6 +40,17 @@ public enum DeepInfraModelIds
     MetaLlama31405BInstruct,
 
     /// <summary>
+    /// Name: DeepSeek-V2.5 <br/>
+    /// Organization: deepseek-ai <br/>
+    /// Context Length: 65536 <br/>
+    /// Prompt Cost: $0.7/MTok <br/>
+    /// Completion Cost: $0.7/MTok <br/>
+    /// Description: DeepSeek-V2.5 is an upgraded version that combines DeepSeek-V2-Chat and DeepSeek-Coder-V2-Instruct. The new model integrates the general and coding abilities of the two previous versions. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V2.5">https://huggingface.co/deepseek-ai/DeepSeek-V2.5</a> 
+    /// </summary>
+    DeepseekV25,
+
+    /// <summary>
     /// Name: Meta-Llama-3.1-8B-Instruct-Turbo <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
@@ -269,6 +280,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3-70B-Euryale-v2.1">https://huggingface.co/Sao10K/L3-70B-Euryale-v2.1</a> 
     /// </summary>
     L370BEuryaleV21,
+
+    /// <summary>
+    /// Name: L3-8B-Lunaris-v1 <br/>
+    /// Organization: Sao10K <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.05/MTok <br/>
+    /// Completion Cost: $0.05/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3-8B-Lunaris-v1">https://huggingface.co/Sao10K/L3-8B-Lunaris-v1</a> 
+    /// </summary>
+    L38BLunarisV1,
 
     /// <summary>
     /// Name: L3.1-70B-Euryale-v2.2 <br/>
