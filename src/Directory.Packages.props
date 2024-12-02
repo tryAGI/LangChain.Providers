@@ -5,12 +5,12 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.410.1" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.411" />
     <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.408.12" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.0.0" />
     <PackageVersion Include="CSharpToJsonSchema" Version="3.9.1" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
-    <PackageVersion Include="FluentAssertions" Version="6.12.2" />
+    <PackageVersion Include="FluentAssertions" Version="7.0.0" />
     <PackageVersion Include="GitHubActionsTestLogger" Version="2.4.1" />
     <PackageVersion Include="Google.Cloud.AIPlatform.V1" Version="3.9.0" />
     <PackageVersion Include="Google_GenerativeAI" Version="1.0.2" />
@@ -74,7 +74,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="Whisper.net" Version="1.5.0" />
-    <PackageVersion Include="Whisper.net.Runtime" Version="1.7.2" />
+    <PackageVersion Include="Whisper.net" Version="1.7.3" />
+    <PackageVersion Include="Whisper.net.Runtime" Version="1.7.3" />
   </ItemGroup>
 </Project>
