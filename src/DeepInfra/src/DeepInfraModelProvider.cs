@@ -12,6 +12,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.MetaLlama3170BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct",131072,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama318BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-8B-Instruct",131072,6E-08,6E-08)},
         { DeepInfraModelIds.MetaLlama31405BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-405B-Instruct",32768,1.79E-06,1.79E-06)},
+        { DeepInfraModelIds.Qwq32BPreview, ToMetadata("Qwen/QwQ-32B-Preview",32768,1.5E-07,6E-07)},
         { DeepInfraModelIds.DeepseekV25, ToMetadata("deepseek-ai/DeepSeek-V2.5",65536,7E-07,1.4E-06)},
         { DeepInfraModelIds.MetaLlama318BInstructTurbo, ToMetadata("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",131072,4E-08,5.0000000000000004E-08)},
         { DeepInfraModelIds.MetaLlama3170BInstructTurbo, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",131072,2.9E-07,4.0000000000000003E-07)},

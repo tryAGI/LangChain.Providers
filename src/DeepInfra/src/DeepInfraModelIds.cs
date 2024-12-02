@@ -40,6 +40,17 @@ public enum DeepInfraModelIds
     MetaLlama31405BInstruct,
 
     /// <summary>
+    /// Name: QwQ-32B-Preview <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.15/MTok <br/>
+    /// Completion Cost: $0.15/MTok <br/>
+    /// Description: QwQ is an experimental research model developed by the Qwen Team, designed to advance AI reasoning capabilities. This model embodies the spirit of philosophical inquiry, approaching problems with genuine wonder and doubt. QwQ demonstrates impressive analytical abilities, achieving scores of 65.2% on GPQA, 50.0% on AIME, 90.6% on MATH-500, and 50.0% on LiveCodeBench. With its contemplative approach and exceptional performance on complex problems. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QwQ-32B-Preview">https://huggingface.co/Qwen/QwQ-32B-Preview</a> 
+    /// </summary>
+    Qwq32BPreview,
+
+    /// <summary>
     /// Name: DeepSeek-V2.5 <br/>
     /// Organization: deepseek-ai <br/>
     /// Context Length: 65536 <br/>
