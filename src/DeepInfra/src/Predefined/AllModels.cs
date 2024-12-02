@@ -15,6 +15,11 @@ public class MetaLlama318BInstructModel(DeepInfraProvider provider) : DeepInfraM
 public class MetaLlama31405BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama31405BInstruct);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.Qwq32BPreview"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Qwq32BPreviewModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwq32BPreview);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.DeepseekV25"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class DeepseekV25Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekV25);
