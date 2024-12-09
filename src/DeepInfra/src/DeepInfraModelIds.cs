@@ -7,11 +7,33 @@ public enum DeepInfraModelIds
 {
 
     /// <summary>
+    /// Name: Llama-3.3-70B-Instruct <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.23/MTok <br/>
+    /// Completion Cost: $0.23/MTok <br/>
+    /// Description: Llama 3.3-70B is a multilingual LLM trained on a massive dataset of 15 trillion tokens, fine-tuned for instruction-following and conversational dialogue. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct</a> 
+    /// </summary>
+    Llama3370BInstruct,
+
+    /// <summary>
+    /// Name: Llama-3.3-70B-Instruct-Turbo <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.13/MTok <br/>
+    /// Completion Cost: $0.13/MTok <br/>
+    /// Description: Llama 3.3-70B Turbo is a highly optimized version of the Llama 3.3-70B model, utilizing FP8 quantization to deliver significantly faster inference speeds with a minor trade-off in accuracy. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct-Turbo</a> 
+    /// </summary>
+    Llama3370BInstructTurbo,
+
+    /// <summary>
     /// Name: Meta-Llama-3.1-70B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.35/MTok <br/>
-    /// Completion Cost: $0.35/MTok <br/>
+    /// Prompt Cost: $0.23/MTok <br/>
+    /// Completion Cost: $0.23/MTok <br/>
     /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct</a> 
     /// </summary>
@@ -21,8 +43,8 @@ public enum DeepInfraModelIds
     /// Name: Meta-Llama-3.1-8B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.06/MTok <br/>
-    /// Completion Cost: $0.06/MTok <br/>
+    /// Prompt Cost: $0.03/MTok <br/>
+    /// Completion Cost: $0.03/MTok <br/>
     /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct</a> 
     /// </summary>
@@ -32,8 +54,8 @@ public enum DeepInfraModelIds
     /// Name: Meta-Llama-3.1-405B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $1.79/MTok <br/>
-    /// Completion Cost: $1.79/MTok <br/>
+    /// Prompt Cost: $0.9/MTok <br/>
+    /// Completion Cost: $0.9/MTok <br/>
     /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct</a> 
     /// </summary>
@@ -51,22 +73,11 @@ public enum DeepInfraModelIds
     Qwq32BPreview,
 
     /// <summary>
-    /// Name: DeepSeek-V2.5 <br/>
-    /// Organization: deepseek-ai <br/>
-    /// Context Length: 65536 <br/>
-    /// Prompt Cost: $0.7/MTok <br/>
-    /// Completion Cost: $0.7/MTok <br/>
-    /// Description: DeepSeek-V2.5 is an upgraded version that combines DeepSeek-V2-Chat and DeepSeek-Coder-V2-Instruct. The new model integrates the general and coding abilities of the two previous versions. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V2.5">https://huggingface.co/deepseek-ai/DeepSeek-V2.5</a> 
-    /// </summary>
-    DeepseekV25,
-
-    /// <summary>
     /// Name: Meta-Llama-3.1-8B-Instruct-Turbo <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.04/MTok <br/>
-    /// Completion Cost: $0.04/MTok <br/>
+    /// Prompt Cost: $0.02/MTok <br/>
+    /// Completion Cost: $0.02/MTok <br/>
     /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo</a> 
     /// </summary>
@@ -76,8 +87,8 @@ public enum DeepInfraModelIds
     /// Name: Meta-Llama-3.1-70B-Instruct-Turbo <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.29/MTok <br/>
-    /// Completion Cost: $0.29/MTok <br/>
+    /// Prompt Cost: $0.13/MTok <br/>
+    /// Completion Cost: $0.13/MTok <br/>
     /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo</a> 
     /// </summary>
@@ -87,8 +98,8 @@ public enum DeepInfraModelIds
     /// Name: Qwen2.5-Coder-32B-Instruct <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.18/MTok <br/>
-    /// Completion Cost: $0.18/MTok <br/>
+    /// Prompt Cost: $0.08/MTok <br/>
+    /// Completion Cost: $0.08/MTok <br/>
     /// Description: Qwen2.5-Coder is the latest series of Code-Specific Qwen large language models (formerly known as CodeQwen). It has significant improvements in code generation, code reasoning and code fixing. A more comprehensive foundation for real-world applications such as Code Agents. Not only enhancing coding capabilities but also maintaining its strengths in mathematics and general competencies. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct">https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct</a> 
     /// </summary>
@@ -98,8 +109,8 @@ public enum DeepInfraModelIds
     /// Name: Llama-3.1-Nemotron-70B-Instruct <br/>
     /// Organization: nvidia <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.35/MTok <br/>
-    /// Completion Cost: $0.35/MTok <br/>
+    /// Prompt Cost: $0.23/MTok <br/>
+    /// Completion Cost: $0.23/MTok <br/>
     /// Description: Llama-3.1-Nemotron-70B-Instruct is a large language model customized by NVIDIA to improve the helpfulness of LLM generated responses to user queries. This model reaches Arena Hard of 85.0, AlpacaEval 2 LC of 57.6 and GPT-4-Turbo MT-Bench of 8.98, which are known to be predictive of LMSys Chatbot Arena Elo.  As of 16th Oct 2024, this model is #1 on all three automatic alignment benchmarks (verified tab for AlpacaEval 2 LC), edging out strong frontier models such as GPT-4o and Claude 3.5 Sonnet. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct">https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct</a> 
     /// </summary>
@@ -109,8 +120,8 @@ public enum DeepInfraModelIds
     /// Name: Qwen2.5-72B-Instruct <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.35/MTok <br/>
-    /// Completion Cost: $0.35/MTok <br/>
+    /// Prompt Cost: $0.23/MTok <br/>
+    /// Completion Cost: $0.23/MTok <br/>
     /// Description: Qwen2.5 is a model pretrained on a large-scale dataset of up to 18 trillion tokens, offering significant improvements in knowledge, coding, mathematics, and instruction following compared to its predecessor Qwen2. The model also features enhanced capabilities in generating long texts, understanding structured data, and generating structured outputs, while supporting multilingual capabilities for over 29 languages. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-72B-Instruct">https://huggingface.co/Qwen/Qwen2.5-72B-Instruct</a> 
     /// </summary>
@@ -219,8 +230,8 @@ public enum DeepInfraModelIds
     /// Name: Hermes-3-Llama-3.1-405B <br/>
     /// Organization: NousResearch <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $1.79/MTok <br/>
-    /// Completion Cost: $1.79/MTok <br/>
+    /// Prompt Cost: $0.9/MTok <br/>
+    /// Completion Cost: $0.9/MTok <br/>
     /// Description: Hermes 3 is a cutting-edge language model that offers advanced capabilities in roleplaying, reasoning, and conversation. It's a fine-tuned version of the Llama-3.1 405B foundation model, designed to align with user needs and provide powerful control. Key features include reliable function calling, structured output, generalist assistant capabilities, and improved code generation. Hermes 3 is competitive with Llama-3.1 Instruct models, with its own strengths and weaknesses. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B">https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B</a> 
     /// </summary>
@@ -263,8 +274,8 @@ public enum DeepInfraModelIds
     /// Name: Qwen2.5-7B-Instruct <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.06/MTok <br/>
-    /// Completion Cost: $0.06/MTok <br/>
+    /// Prompt Cost: $0.02/MTok <br/>
+    /// Completion Cost: $0.02/MTok <br/>
     /// Description: The 7 billion parameter Qwen2.5 excels in language understanding, multilingual capabilities, coding, mathematics, and reasoning <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct">https://huggingface.co/Qwen/Qwen2.5-7B-Instruct</a> 
     /// </summary>
@@ -274,8 +285,8 @@ public enum DeepInfraModelIds
     /// Name: Qwen2.5-Coder-7B <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.06/MTok <br/>
-    /// Completion Cost: $0.06/MTok <br/>
+    /// Prompt Cost: $0.02/MTok <br/>
+    /// Completion Cost: $0.02/MTok <br/>
     /// Description: Qwen2.5-Coder-7B is a powerful code-specific large language model with 7.61 billion parameters. It's designed for code generation, reasoning, and fixing tasks. The model covers 92 programming languages and has been trained on 5.5 trillion tokens of data, including source code, text-code grounding, and synthetic data. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-7B">https://huggingface.co/Qwen/Qwen2.5-Coder-7B</a> 
     /// </summary>
@@ -296,9 +307,9 @@ public enum DeepInfraModelIds
     /// Name: L3-8B-Lunaris-v1 <br/>
     /// Organization: Sao10K <br/>
     /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.05/MTok <br/>
-    /// Completion Cost: $0.05/MTok <br/>
-    /// Description:  <br/>
+    /// Prompt Cost: $0.03/MTok <br/>
+    /// Completion Cost: $0.03/MTok <br/>
+    /// Description: A generalist / roleplaying model merge based on Llama 3. Sao10K has carefully selected the values based on extensive personal experimentation and has fine-tuned them to create a customized recipe. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3-8B-Lunaris-v1">https://huggingface.co/Sao10K/L3-8B-Lunaris-v1</a> 
     /// </summary>
     L38BLunarisV1,
@@ -439,8 +450,8 @@ public enum DeepInfraModelIds
     /// Name: gemma-2-9b-it <br/>
     /// Organization: google <br/>
     /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.06/MTok <br/>
-    /// Completion Cost: $0.06/MTok <br/>
+    /// Prompt Cost: $0.03/MTok <br/>
+    /// Completion Cost: $0.03/MTok <br/>
     /// Description: Gemma is a family of lightweight, state-of-the-art open models from Google. The 9B Gemma 2 model delivers class-leading performance, outperforming Llama 3 8B and other open models in its size category. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-2-9b-it">https://huggingface.co/google/gemma-2-9b-it</a> 
     /// </summary>
@@ -516,8 +527,8 @@ public enum DeepInfraModelIds
     /// Name: Llama-3.2-3B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.03/MTok <br/>
-    /// Completion Cost: $0.03/MTok <br/>
+    /// Prompt Cost: $0.02/MTok <br/>
+    /// Completion Cost: $0.02/MTok <br/>
     /// Description: The Meta Llama 3.2 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction-tuned generative models in 1B and 3B sizes (text in/text out) <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct">https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct</a> 
     /// </summary>
@@ -527,8 +538,8 @@ public enum DeepInfraModelIds
     /// Name: Meta-Llama-3-70B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.35/MTok <br/>
-    /// Completion Cost: $0.35/MTok <br/>
+    /// Prompt Cost: $0.23/MTok <br/>
+    /// Completion Cost: $0.23/MTok <br/>
     /// Description: Model Details Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8 and 70B sizes. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct</a> 
     /// </summary>
@@ -538,8 +549,8 @@ public enum DeepInfraModelIds
     /// Name: Meta-Llama-3-8B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.06/MTok <br/>
-    /// Completion Cost: $0.06/MTok <br/>
+    /// Prompt Cost: $0.03/MTok <br/>
+    /// Completion Cost: $0.03/MTok <br/>
     /// Description: Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8 and 70B sizes. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct</a> 
     /// </summary>
@@ -593,8 +604,8 @@ public enum DeepInfraModelIds
     /// Name: Mistral-7B-Instruct-v0.3 <br/>
     /// Organization: mistralai <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.06/MTok <br/>
-    /// Completion Cost: $0.06/MTok <br/>
+    /// Prompt Cost: $0.03/MTok <br/>
+    /// Completion Cost: $0.03/MTok <br/>
     /// Description: Mistral-7B-Instruct-v0.3 is an instruction-tuned model, next iteration of of Mistral 7B that has larger vocabulary, newer tokenizer and supports function calling. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3</a> 
     /// </summary>
@@ -604,8 +615,8 @@ public enum DeepInfraModelIds
     /// Name: Mistral-Nemo-Instruct-2407 <br/>
     /// Organization: mistralai <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.13/MTok <br/>
-    /// Completion Cost: $0.13/MTok <br/>
+    /// Prompt Cost: $0.04/MTok <br/>
+    /// Completion Cost: $0.04/MTok <br/>
     /// Description: 12B model trained jointly by Mistral AI and NVIDIA, it significantly outperforms existing models smaller or similar in size. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407">https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407</a> 
     /// </summary>
