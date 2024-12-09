@@ -1,5 +1,15 @@
 namespace LangChain.Providers.DeepInfra.Predefined;
 
+/// <inheritdoc cref="DeepInfraModelIds.Llama3370BInstruct"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Llama3370BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama3370BInstruct);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.Llama3370BInstructTurbo"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Llama3370BInstructTurboModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama3370BInstructTurbo);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.MetaLlama3170BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class MetaLlama3170BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama3170BInstruct);
@@ -18,11 +28,6 @@ public class MetaLlama31405BInstructModel(DeepInfraProvider provider) : DeepInfr
 /// <inheritdoc cref="DeepInfraModelIds.Qwq32BPreview"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class Qwq32BPreviewModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwq32BPreview);
-
-
-/// <inheritdoc cref="DeepInfraModelIds.DeepseekV25"/>
-/// <param name="provider">Deep Infra Provider Instance</param>
-public class DeepseekV25Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekV25);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.MetaLlama318BInstructTurbo"/>
