@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.413.1" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.411.1" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.413.2" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.411.2" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.1.0" />
     <PackageVersion Include="CSharpToJsonSchema" Version="3.9.1" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
@@ -33,7 +33,7 @@
     <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.15.3" />
     <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.15.2" />
     <PackageVersion Include="LangChain.Extensions.Docker" Version="0.15.2" />
-    <PackageVersion Include="LangChain.Polyfills" Version="0.15.3-dev.14" />
+    <PackageVersion Include="LangChain.Polyfills" Version="0.15.3-dev.21" />
     <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.15.2" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.17.0" />
