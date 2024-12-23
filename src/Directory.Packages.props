@@ -5,8 +5,8 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.413.8" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.411.8" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.414" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.411.9" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.1.0" />
     <PackageVersion Include="CSharpToJsonSchema" Version="3.9.1" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
@@ -52,7 +52,7 @@
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Npgsql" Version="9.0.2" />
     <PackageVersion Include="Ollama" Version="1.12.1-dev.1" />
-    <PackageVersion Include="NUnit" Version="4.3.0" />
+    <PackageVersion Include="NUnit" Version="4.3.1" />
     <PackageVersion Include="NUnit3TestAdapter" Version="4.6.0" />
     <PackageVersion Include="PolySharp" Version="1.15.0">
       <PrivateAssets>all</PrivateAssets>
