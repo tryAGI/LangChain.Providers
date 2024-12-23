@@ -65,8 +65,8 @@ public enum DeepInfraModelIds
     /// Name: QwQ-32B-Preview <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.15/MTok <br/>
-    /// Completion Cost: $0.15/MTok <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
     /// Description: QwQ is an experimental research model developed by the Qwen Team, designed to advance AI reasoning capabilities. This model embodies the spirit of philosophical inquiry, approaching problems with genuine wonder and doubt. QwQ demonstrates impressive analytical abilities, achieving scores of 65.2% on GPQA, 50.0% on AIME, 90.6% on MATH-500, and 50.0% on LiveCodeBench. With its contemplative approach and exceptional performance on complex problems. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QwQ-32B-Preview">https://huggingface.co/Qwen/QwQ-32B-Preview</a> 
     /// </summary>
@@ -186,8 +186,8 @@ public enum DeepInfraModelIds
     /// Name: MythoMax-L2-13b <br/>
     /// Organization: Gryphe <br/>
     /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.08/MTok <br/>
-    /// Completion Cost: $0.08/MTok <br/>
+    /// Prompt Cost: $0.06/MTok <br/>
+    /// Completion Cost: $0.06/MTok <br/>
     /// Description:  <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Gryphe/MythoMax-L2-13b">https://huggingface.co/Gryphe/MythoMax-L2-13b</a> 
     /// </summary>
@@ -615,8 +615,8 @@ public enum DeepInfraModelIds
     /// Name: Mistral-Nemo-Instruct-2407 <br/>
     /// Organization: mistralai <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.04/MTok <br/>
-    /// Completion Cost: $0.04/MTok <br/>
+    /// Prompt Cost: $0.03/MTok <br/>
+    /// Completion Cost: $0.03/MTok <br/>
     /// Description: 12B model trained jointly by Mistral AI and NVIDIA, it significantly outperforms existing models smaller or similar in size. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407">https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407</a> 
     /// </summary>
