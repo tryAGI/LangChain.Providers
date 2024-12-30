@@ -25,7 +25,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="HtmlAgilityPack" Version="1.11.71" />
+    <PackageVersion Include="HtmlAgilityPack" Version="1.11.72" />
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
     <PackageVersion Include="LangChain.Core" Version="0.15.2" />
     <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.15.3" />
@@ -52,7 +52,7 @@
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Npgsql" Version="9.0.2" />
     <PackageVersion Include="Ollama" Version="1.12.1-dev.1" />
-    <PackageVersion Include="NUnit" Version="4.3.1" />
+    <PackageVersion Include="NUnit" Version="4.3.2" />
     <PackageVersion Include="NUnit3TestAdapter" Version="4.6.0" />
     <PackageVersion Include="PolySharp" Version="1.15.0">
       <PrivateAssets>all</PrivateAssets>
