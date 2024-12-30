@@ -21,8 +21,8 @@ public enum DeepInfraModelIds
     /// Name: Llama-3.3-70B-Instruct-Turbo <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.13/MTok <br/>
-    /// Completion Cost: $0.13/MTok <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
     /// Description: Llama 3.3-70B Turbo is a highly optimized version of the Llama 3.3-70B model, utilizing FP8 quantization to deliver significantly faster inference speeds with a minor trade-off in accuracy. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct-Turbo</a> 
     /// </summary>
@@ -54,8 +54,8 @@ public enum DeepInfraModelIds
     /// Name: Meta-Llama-3.1-405B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
+    /// Prompt Cost: $0.8/MTok <br/>
+    /// Completion Cost: $0.8/MTok <br/>
     /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct">https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct</a> 
     /// </summary>
@@ -87,8 +87,8 @@ public enum DeepInfraModelIds
     /// Name: Meta-Llama-3.1-70B-Instruct-Turbo <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.13/MTok <br/>
-    /// Completion Cost: $0.13/MTok <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
     /// Description: Meta developed and released the Meta Llama 3.1 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B and 405B sizes <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo</a> 
     /// </summary>
@@ -98,8 +98,8 @@ public enum DeepInfraModelIds
     /// Name: Qwen2.5-Coder-32B-Instruct <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.08/MTok <br/>
-    /// Completion Cost: $0.08/MTok <br/>
+    /// Prompt Cost: $0.07/MTok <br/>
+    /// Completion Cost: $0.07/MTok <br/>
     /// Description: Qwen2.5-Coder is the latest series of Code-Specific Qwen large language models (formerly known as CodeQwen). It has significant improvements in code generation, code reasoning and code fixing. A more comprehensive foundation for real-world applications such as Code Agents. Not only enhancing coding capabilities but also maintaining its strengths in mathematics and general competencies. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct">https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct</a> 
     /// </summary>
@@ -109,8 +109,8 @@ public enum DeepInfraModelIds
     /// Name: Llama-3.1-Nemotron-70B-Instruct <br/>
     /// Organization: nvidia <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.23/MTok <br/>
-    /// Completion Cost: $0.23/MTok <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
     /// Description: Llama-3.1-Nemotron-70B-Instruct is a large language model customized by NVIDIA to improve the helpfulness of LLM generated responses to user queries. This model reaches Arena Hard of 85.0, AlpacaEval 2 LC of 57.6 and GPT-4-Turbo MT-Bench of 8.98, which are known to be predictive of LMSys Chatbot Arena Elo.  As of 16th Oct 2024, this model is #1 on all three automatic alignment benchmarks (verified tab for AlpacaEval 2 LC), edging out strong frontier models such as GPT-4o and Claude 3.5 Sonnet. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct">https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct</a> 
     /// </summary>
@@ -230,8 +230,8 @@ public enum DeepInfraModelIds
     /// Name: Hermes-3-Llama-3.1-405B <br/>
     /// Organization: NousResearch <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.9/MTok <br/>
-    /// Completion Cost: $0.9/MTok <br/>
+    /// Prompt Cost: $0.8/MTok <br/>
+    /// Completion Cost: $0.8/MTok <br/>
     /// Description: Hermes 3 is a cutting-edge language model that offers advanced capabilities in roleplaying, reasoning, and conversation. It's a fine-tuned version of the Llama-3.1 405B foundation model, designed to align with user needs and provide powerful control. Key features include reliable function calling, structured output, generalist assistant capabilities, and improved code generation. Hermes 3 is competitive with Llama-3.1 Instruct models, with its own strengths and weaknesses. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B">https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B</a> 
     /// </summary>
@@ -247,6 +247,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Phind/Phind-CodeLlama-34B-v2">https://huggingface.co/Phind/Phind-CodeLlama-34B-v2</a> 
     /// </summary>
     PhindCodellama34BV2,
+
+    /// <summary>
+    /// Name: QVQ-72B-Preview <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 128000 <br/>
+    /// Prompt Cost: $0.25/MTok <br/>
+    /// Completion Cost: $0.25/MTok <br/>
+    /// Description: QVQ-72B-Preview is an experimental research model developed by the Qwen team, focusing on enhancing visual reasoning capabilities. QVQ-72B-Preview has achieved remarkable performance on various benchmarks. It scored a remarkable 70.3% on the Multimodal Massive Multi-task Understanding (MMMU) benchmark <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QVQ-72B-Preview">https://huggingface.co/Qwen/QVQ-72B-Preview</a> 
+    /// </summary>
+    Qvq72BPreview,
 
     /// <summary>
     /// Name: Qwen2-72B-Instruct <br/>
