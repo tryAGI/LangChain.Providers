@@ -110,6 +110,11 @@ public class Hermes3Llama31405BModel(DeepInfraProvider provider) : DeepInfraMode
 public class PhindCodellama34BV2Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.PhindCodellama34BV2);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.Qvq72BPreview"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Qvq72BPreviewModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qvq72BPreview);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.Qwen272BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class Qwen272BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Qwen272BInstruct);
