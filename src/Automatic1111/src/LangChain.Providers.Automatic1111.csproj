@@ -4,6 +4,9 @@
 		<TargetFrameworks>net4.6.2;netstandard2.0;net8.0;net9.0</TargetFrameworks>
 		<SignAssembly>false</SignAssembly>
 		<NoWarn>$(NoWarn);CA1003;CA1307;CA1054</NoWarn>
+		<IsTrimmable>false</IsTrimmable>
+		<IsAotCompatible>false</IsAotCompatible>
+		<NoWarn>$(NoWarn);IL2075</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>

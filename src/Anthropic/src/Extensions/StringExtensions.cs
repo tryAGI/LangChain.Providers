@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace LangChain.Providers.Anthropic.Extensions;
+﻿namespace LangChain.Providers.Anthropic.Extensions;
 
 /// <summary>
 /// </summary>
@@ -62,10 +60,3 @@ internal static class StringExtensions
         return AsPrompt(string.Join("\n\n", content));
     }
 }
-
-[JsonSourceGenerationOptions(
-    PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
-    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-    Converters = [typeof(JsonStringEnumConverter)])]
-[JsonSerializable(typeof(Dictionary<string, object>))]
-internal sealed partial class SourceGenerationContext : JsonSerializerContext;
