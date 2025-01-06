@@ -425,6 +425,17 @@ public enum DeepInfraModelIds
     Airoboros70B,
 
     /// <summary>
+    /// Name: DeepSeek-V3 <br/>
+    /// Organization: deepseek-ai <br/>
+    /// Context Length: 32000 <br/>
+    /// Prompt Cost: $1/MTok <br/>
+    /// Completion Cost: $1/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">https://huggingface.co/deepseek-ai/DeepSeek-V3</a> 
+    /// </summary>
+    DeepseekV3,
+
+    /// <summary>
     /// Name: codegemma-7b-it <br/>
     /// Organization: google <br/>
     /// Context Length: 8192 <br/>

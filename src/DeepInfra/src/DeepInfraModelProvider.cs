@@ -47,6 +47,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.Dolphin291Llama370B, ToMetadata("cognitivecomputations/dolphin-2.9.1-llama-3-70b",8192,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.DbrxInstruct, ToMetadata("databricks/dbrx-instruct",32768,6E-07,6E-07)},
         { DeepInfraModelIds.Airoboros70B, ToMetadata("deepinfra/airoboros-70b",4096,7E-07,9.000000000000001E-07)},
+        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",32000,1E-06,2E-06)},
         { DeepInfraModelIds.Codegemma7BIt, ToMetadata("google/codegemma-7b-it",8192,7E-08,7E-08)},
         { DeepInfraModelIds.Gemma117BIt, ToMetadata("google/gemma-1.1-7b-it",8192,7E-08,7E-08)},
         { DeepInfraModelIds.Gemma227BIt, ToMetadata("google/gemma-2-27b-it",8192,2.7E-07,2.7E-07)},

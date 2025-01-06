@@ -190,6 +190,11 @@ public class DbrxInstructModel(DeepInfraProvider provider) : DeepInfraModel(prov
 public class Airoboros70BModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Airoboros70B);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.DeepseekV3"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class DeepseekV3Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekV3);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.Codegemma7BIt"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class Codegemma7BItModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Codegemma7BIt);
