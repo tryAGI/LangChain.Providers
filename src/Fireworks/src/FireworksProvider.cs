@@ -1,5 +1,5 @@
 using LangChain.Providers.OpenAI;
-using OpenAI;
+using tryAGI.OpenAI;
 
 namespace LangChain.Providers.Fireworks;
 

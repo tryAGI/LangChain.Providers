@@ -1,4 +1,4 @@
-using OpenAI;
+using tryAGI.OpenAI;
 
 namespace LangChain.Providers.Together;
 
