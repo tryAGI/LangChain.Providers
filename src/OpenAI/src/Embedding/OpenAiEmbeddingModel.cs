@@ -62,7 +62,7 @@ public class OpenAiEmbeddingModel(
             providerSettings: provider.EmbeddingSettings);
         var results = await Task.WhenAll(batches.Select(async batch =>
         {
-            var response = await provider.Api.Embeddings.CreateEmbeddingAsync(
+            var response = await provider.Client.Embeddings.CreateEmbeddingAsync(
                 input: batch,
                 model: Id,
                 encodingFormat: CreateEmbeddingRequestEncodingFormat.Float,

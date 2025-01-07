@@ -30,7 +30,7 @@ public class OpenAiTextToSpeechModel(
             requestSettings: settings,
             modelSettings: Settings,
             providerSettings: provider.TextToSpeechSettings);
-        var response = await provider.Api.Audio.CreateSpeechAsync(
+        var response = await provider.Client.Audio.CreateSpeechAsync(
             input: request.Prompt,
             model: usedSettings.Model ?? CreateSpeechRequestModel.Tts1,
             voice: usedSettings.Voice!.Value,

@@ -10,16 +10,16 @@ public class OpenAiProvider : Provider
     /// <summary>
     /// 
     /// </summary>
-    public OpenAiApi Api { get; private set; }
+    public OpenAiClient Client { get; private set; }
 
     #endregion
 
     #region Constructors
 
-    public OpenAiProvider(OpenAiApi openAiApi)
+    public OpenAiProvider(OpenAiClient client)
         : base(id: OpenAiConfiguration.SectionName)
     {
-        Api = openAiApi ?? throw new ArgumentNullException(nameof(openAiApi));
+        Client = client ?? throw new ArgumentNullException(nameof(client));
     }
 
     public OpenAiProvider(OpenAiConfiguration configuration)
@@ -28,11 +28,11 @@ public class OpenAiProvider : Provider
         configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         var apiKey = configuration.ApiKey ?? throw new ArgumentException("ApiKey is not defined", nameof(configuration));
 
-        Api = configuration.Endpoint != null &&
-              !string.IsNullOrWhiteSpace(configuration.Endpoint)
-                ? new OpenAiApi(baseUri: new Uri(configuration.Endpoint))
-                : new OpenAiApi();
-        Api.AuthorizeUsingBearer(apiKey);
+        Client = configuration.Endpoint != null &&
+                 !string.IsNullOrWhiteSpace(configuration.Endpoint)
+                ? new OpenAiClient(baseUri: new Uri(configuration.Endpoint))
+                : new OpenAiClient();
+        Client.AuthorizeUsingBearer(apiKey);
         ChatSettings = configuration.ChatSettings;
         EmbeddingSettings = configuration.EmbeddingSettings;
         TextToImageSettings = configuration.TextToImageSettings;
@@ -49,10 +49,10 @@ public class OpenAiProvider : Provider
     {
         apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
 
-        Api = customEndpoint != null
-            ? new OpenAiApi(baseUri: new Uri(customEndpoint))
-            : new OpenAiApi();
-        Api.AuthorizeUsingBearer(apiKey);
+        Client = customEndpoint != null
+            ? new OpenAiClient(baseUri: new Uri(customEndpoint))
+            : new OpenAiClient();
+        Client.AuthorizeUsingBearer(apiKey);
     }
 
     #endregion

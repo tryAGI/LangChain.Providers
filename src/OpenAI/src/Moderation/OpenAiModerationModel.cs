@@ -24,7 +24,7 @@ public class OpenAiModerationModel(
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
-        var response = await provider.Api.Moderations.CreateModerationAsync(
+        var response = await provider.Client.Moderations.CreateModerationAsync(
             input: request.Prompt,
             model: Id,
             cancellationToken).ConfigureAwait(false);

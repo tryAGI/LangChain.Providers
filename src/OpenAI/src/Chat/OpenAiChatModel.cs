@@ -205,7 +205,7 @@ public partial class OpenAiChatModel(
             ChatResponseFinishReason? finishReason = null;
             if (usedSettings.UseStreaming == true)
             {
-                var enumerable = provider.Api.Chat.CreateChatCompletionAsStreamAsync(
+                var enumerable = provider.Client.Chat.CreateChatCompletionAsStreamAsync(
                     chatRequest,
                     cancellationToken).ConfigureAwait(false);
 
@@ -257,7 +257,7 @@ public partial class OpenAiChatModel(
             }
             else
             {
-                var response = await provider.Api.Chat.CreateChatCompletionAsync(
+                var response = await provider.Client.Chat.CreateChatCompletionAsync(
                     chatRequest,
                     cancellationToken).ConfigureAwait(false);
                 var message = response.Choices.First().Message;

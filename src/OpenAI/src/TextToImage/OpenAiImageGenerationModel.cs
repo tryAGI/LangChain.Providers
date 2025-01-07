@@ -34,7 +34,7 @@ public class OpenAiTextToImageModel(
             providerSettings: provider.TextToImageSettings,
             defaultSettings: OpenAiTextToImageSettings.GetDefaultSettings(Id));
 
-        var response = await provider.Api.Images.CreateImageAsync(
+        var response = await provider.Client.Images.CreateImageAsync(
             prompt: request.Prompt,
             model: Id,
             n: usedSettings.NumberOfResults!.Value,
