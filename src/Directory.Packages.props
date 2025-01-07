@@ -5,10 +5,10 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.414.4" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.411.13" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.414.5" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.411.14" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.1.0" />
-    <PackageVersion Include="CSharpToJsonSchema" Version="3.9.1" />
+    <PackageVersion Include="CSharpToJsonSchema" Version="3.10.1" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
     <PackageVersion Include="FluentAssertions" Version="7.0.0" />
     <PackageVersion Include="GitHubActionsTestLogger" Version="2.4.1" />
