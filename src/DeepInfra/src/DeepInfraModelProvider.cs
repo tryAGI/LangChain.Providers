@@ -1,4 +1,4 @@
-using tryAGI.OpenAI;
+using OpenAI;
 
 namespace LangChain.Providers.DeepInfra;
 
@@ -11,6 +11,7 @@ public static class DeepInfraModelProvider
     {
         { DeepInfraModelIds.Llama3370BInstruct, ToMetadata("meta-llama/Llama-3.3-70B-Instruct",131072,2.3000000000000002E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Llama3370BInstructTurbo, ToMetadata("meta-llama/Llama-3.3-70B-Instruct-Turbo",131072,1.2E-07,3E-07)},
+        { DeepInfraModelIds.Phi4, ToMetadata("microsoft/phi-4",16384,7E-08,1.4E-07)},
         { DeepInfraModelIds.MetaLlama3170BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct",131072,2.3000000000000002E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama318BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-8B-Instruct",131072,3E-08,5.0000000000000004E-08)},
         { DeepInfraModelIds.MetaLlama31405BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-405B-Instruct",32768,8.000000000000001E-07,8.000000000000001E-07)},
@@ -36,9 +37,9 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.Qwen27BInstruct, ToMetadata("Qwen/Qwen2-7B-Instruct",32768,6E-08,6E-08)},
         { DeepInfraModelIds.Qwen257BInstruct, ToMetadata("Qwen/Qwen2.5-7B-Instruct",32768,2E-08,5.0000000000000004E-08)},
         { DeepInfraModelIds.Qwen25Coder7B, ToMetadata("Qwen/Qwen2.5-Coder-7B",32768,2E-08,5.0000000000000004E-08)},
-        { DeepInfraModelIds.L370BEuryaleV21, ToMetadata("Sao10K/L3-70B-Euryale-v2.1",8192,3.5E-07,4.0000000000000003E-07)},
+        { DeepInfraModelIds.L370BEuryaleV21, ToMetadata("Sao10K/L3-70B-Euryale-v2.1",8192,7E-07,8.000000000000001E-07)},
         { DeepInfraModelIds.L38BLunarisV1, ToMetadata("Sao10K/L3-8B-Lunaris-v1",8192,3E-08,6E-08)},
-        { DeepInfraModelIds.L3170BEuryaleV22, ToMetadata("Sao10K/L3.1-70B-Euryale-v2.2",131072,3.5E-07,4.0000000000000003E-07)},
+        { DeepInfraModelIds.L3170BEuryaleV22, ToMetadata("Sao10K/L3.1-70B-Euryale-v2.2",131072,7E-07,8.000000000000001E-07)},
         { DeepInfraModelIds.Starcoder215B, ToMetadata("bigcode/starcoder2-15b",16384,4.0000000000000003E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Starcoder215BInstructV01, ToMetadata("bigcode/starcoder2-15b-instruct-v0.1",null,1.5E-07,1.5E-07)},
         { DeepInfraModelIds.Codellama34BInstructHf, ToMetadata("codellama/CodeLlama-34b-Instruct-hf",4096,6E-07,6E-07)},
@@ -47,7 +48,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.Dolphin291Llama370B, ToMetadata("cognitivecomputations/dolphin-2.9.1-llama-3-70b",8192,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.DbrxInstruct, ToMetadata("databricks/dbrx-instruct",32768,6E-07,6E-07)},
         { DeepInfraModelIds.Airoboros70B, ToMetadata("deepinfra/airoboros-70b",4096,7E-07,9.000000000000001E-07)},
-        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",32000,1E-06,2E-06)},
+        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",32000,8.5E-07,9.000000000000001E-07)},
         { DeepInfraModelIds.Codegemma7BIt, ToMetadata("google/codegemma-7b-it",8192,7E-08,7E-08)},
         { DeepInfraModelIds.Gemma117BIt, ToMetadata("google/gemma-1.1-7b-it",8192,7E-08,7E-08)},
         { DeepInfraModelIds.Gemma227BIt, ToMetadata("google/gemma-2-27b-it",8192,2.7E-07,2.7E-07)},
