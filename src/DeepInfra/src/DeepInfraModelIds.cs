@@ -29,6 +29,17 @@ public enum DeepInfraModelIds
     Llama3370BInstructTurbo,
 
     /// <summary>
+    /// Name: phi-4 <br/>
+    /// Organization: microsoft <br/>
+    /// Context Length: 16384 <br/>
+    /// Prompt Cost: $0.07/MTok <br/>
+    /// Completion Cost: $0.07/MTok <br/>
+    /// Description: Phi-4 is a model built upon a blend of synthetic datasets, data from filtered public domain websites, and acquired academic books and Q&A datasets. The goal of this approach was to ensure that small capable models were trained with data focused on high quality and advanced reasoning. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/microsoft/phi-4">https://huggingface.co/microsoft/phi-4</a> 
+    /// </summary>
+    Phi4,
+
+    /// <summary>
     /// Name: Meta-Llama-3.1-70B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
@@ -307,8 +318,8 @@ public enum DeepInfraModelIds
     /// Name: L3-70B-Euryale-v2.1 <br/>
     /// Organization: Sao10K <br/>
     /// Context Length: 8192 <br/>
-    /// Prompt Cost: $0.35/MTok <br/>
-    /// Completion Cost: $0.35/MTok <br/>
+    /// Prompt Cost: $0.7/MTok <br/>
+    /// Completion Cost: $0.7/MTok <br/>
     /// Description: Euryale 70B v2.1 is a model focused on creative roleplay from Sao10k <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3-70B-Euryale-v2.1">https://huggingface.co/Sao10K/L3-70B-Euryale-v2.1</a> 
     /// </summary>
@@ -329,8 +340,8 @@ public enum DeepInfraModelIds
     /// Name: L3.1-70B-Euryale-v2.2 <br/>
     /// Organization: Sao10K <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.35/MTok <br/>
-    /// Completion Cost: $0.35/MTok <br/>
+    /// Prompt Cost: $0.7/MTok <br/>
+    /// Completion Cost: $0.7/MTok <br/>
     /// Description: Euryale 3.1 - 70B v2.2 is a model focused on creative roleplay from Sao10k <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3.1-70B-Euryale-v2.2">https://huggingface.co/Sao10K/L3.1-70B-Euryale-v2.2</a> 
     /// </summary>
@@ -428,8 +439,8 @@ public enum DeepInfraModelIds
     /// Name: DeepSeek-V3 <br/>
     /// Organization: deepseek-ai <br/>
     /// Context Length: 32000 <br/>
-    /// Prompt Cost: $1/MTok <br/>
-    /// Completion Cost: $1/MTok <br/>
+    /// Prompt Cost: $0.85/MTok <br/>
+    /// Completion Cost: $0.85/MTok <br/>
     /// Description:  <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">https://huggingface.co/deepseek-ai/DeepSeek-V3</a> 
     /// </summary>

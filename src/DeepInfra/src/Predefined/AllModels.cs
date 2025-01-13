@@ -10,6 +10,11 @@ public class Llama3370BInstructModel(DeepInfraProvider provider) : DeepInfraMode
 public class Llama3370BInstructTurboModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Llama3370BInstructTurbo);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.Phi4"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class Phi4Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Phi4);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.MetaLlama3170BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class MetaLlama3170BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama3170BInstruct);
