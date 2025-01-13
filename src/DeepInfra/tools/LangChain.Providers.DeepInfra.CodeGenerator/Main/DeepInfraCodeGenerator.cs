@@ -216,7 +216,7 @@ internal static class DeepInfraCodeGenerator
         var completionCost = Math.Round(((double?)modelToken.SelectToken("pricing.cents_per_output_token") ?? 0) * 10000, 2);
 
         var description =
-            FormattableString.Invariant($"Name: {modelName} <br/>\r\n/// Organization: {organization} <br/>\r\n/// Context Length: {contextLength} <br/>\r\n/// Prompt Cost: ${promptCost}/MTok <br/>\r\n/// Completion Cost: ${promptCost}/MTok <br/>\r\n/// Description: {(string?)modelToken["description"]} <br/>\r\n/// HuggingFace Url: <a href=\"https://huggingface.co/{modelId}\">https://huggingface.co/{modelId}</a>");
+            FormattableString.Invariant($"Name: {modelName} <br/>\r\n/// Organization: {organization} <br/>\r\n/// Context Length: {contextLength} <br/>\r\n/// Prompt Cost: ${promptCost}/MTok <br/>\r\n/// Completion Cost: ${promptCost}/MTok <br/>\r\n/// Description: {((string?)modelToken["description"])?.Replace("&", "&amp;", StringComparison.Ordinal)} <br/>\r\n/// HuggingFace Url: <a href=\"https://huggingface.co/{modelId}\">https://huggingface.co/{modelId}</a>");
 
         //Enum Member code with doc
         var enumMemberCode = GetEnumMemberCode(enumMemberName, description);

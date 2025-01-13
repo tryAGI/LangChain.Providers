@@ -34,7 +34,7 @@ public enum DeepInfraModelIds
     /// Context Length: 16384 <br/>
     /// Prompt Cost: $0.07/MTok <br/>
     /// Completion Cost: $0.07/MTok <br/>
-    /// Description: Phi-4 is a model built upon a blend of synthetic datasets, data from filtered public domain websites, and acquired academic books and Q&A datasets. The goal of this approach was to ensure that small capable models were trained with data focused on high quality and advanced reasoning. <br/>
+    /// Description: Phi-4 is a model built upon a blend of synthetic datasets, data from filtered public domain websites, and acquired academic books and Q&amp;A datasets. The goal of this approach was to ensure that small capable models were trained with data focused on high quality and advanced reasoning. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/microsoft/phi-4">https://huggingface.co/microsoft/phi-4</a> 
     /// </summary>
     Phi4,
