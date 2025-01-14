@@ -26,20 +26,7 @@ public class OllamaChatModel(
     {
         request = request ?? throw new ArgumentNullException(nameof(request));
 
-        try
-        {
-            var runningModels = await Provider.Api.Models.ListRunningModelsAsync(cancellationToken).ConfigureAwait(false);
-            if (runningModels.Models != null &&
-                runningModels.Models.All(x => x.Model?.Contains(Id) != true))
-            {
-                await Provider.Api.Models.PullModelAsync(Id, cancellationToken: cancellationToken)
-                    .EnsureSuccessAsync().ConfigureAwait(false);
-            }
-        }
-        catch (HttpRequestException)
-        {
-            // Ignore
-        }
+        await Provider.PullModelIfRequiredAndAllowedAsync(Id, cancellationToken).ConfigureAwait(false);
 
         var usedSettings = OllamaChatSettings.Calculate(
             requestSettings: settings,
