@@ -141,7 +141,7 @@ public class BaseTests
         Console.WriteLine($"{stopwatch.Elapsed}. Usage: {lastResponse.Usage}"); // Print usage and price
 
         requestsFromEvent.Should().HaveCount(1);
-        deltasFromEvent.Should().HaveCountGreaterOrEqualTo(5);
+        deltasFromEvent.Should().HaveCountGreaterThanOrEqualTo(5);
         //deltasFromEvent.Should().BeEquivalentTo(responsesFromAsyncEnumerable.Select(x => x.Delta));
         responsesFromEvent.Should().HaveCount(1);
         responsesFromEvent.Should().BeEquivalentTo([responsesFromAsyncEnumerable.Last()]);
