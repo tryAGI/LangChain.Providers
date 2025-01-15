@@ -5,12 +5,12 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.414.10" />
-    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.411.19" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.414.11" />
+    <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.411.20" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.1.0" />
     <PackageVersion Include="CSharpToJsonSchema" Version="3.10.1" />
     <PackageVersion Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
-    <PackageVersion Include="FluentAssertions" Version="7.0.0" />
+    <PackageVersion Include="FluentAssertions" Version="8.0.0" />
     <PackageVersion Include="GitHubActionsTestLogger" Version="2.4.1" />
     <PackageVersion Include="Google.Cloud.AIPlatform.V1" Version="3.9.0" />
     <PackageVersion Include="Google_GenerativeAI" Version="1.0.2" />
@@ -61,13 +61,13 @@
     <PackageVersion Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
     <PackageVersion Include="System.CommandLine.NamingConventionBinder" Version="2.0.0-beta4.22272.1" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageVersion Include="System.Memory.Data" Version="9.0.0" />
+    <PackageVersion Include="System.Memory.Data" Version="9.0.1" />
     <PackageVersion Include="System.Net.Http" Version="4.3.4" />
     <PackageVersion Include="System.Net.Http.Json" Version="9.0.0" />
-    <PackageVersion Include="System.Text.Json" Version="9.0.0" />
+    <PackageVersion Include="System.Text.Json" Version="9.0.1" />
     <PackageVersion Include="Tiktoken" Version="2.2.0" />
     <PackageVersion Include="tryAGI.OpenAI" Version="3.9.3-dev.36" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.1" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.0" />
     <PackageVersion Include="MinVer" Version="6.0.0">
