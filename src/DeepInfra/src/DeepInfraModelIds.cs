@@ -249,6 +249,17 @@ public enum DeepInfraModelIds
     Hermes3Llama31405B,
 
     /// <summary>
+    /// Name: Sky-T1-32B-Preview <br/>
+    /// Organization: NovaSky-AI <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
+    /// Description: This is a 32B reasoning model trained from Qwen2.5-32B-Instruct with 17K data. The performance is on par with o1-preview model on both math and coding. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/NovaSky-AI/Sky-T1-32B-Preview">https://huggingface.co/NovaSky-AI/Sky-T1-32B-Preview</a> 
+    /// </summary>
+    SkyT132BPreview,
+
+    /// <summary>
     /// Name: Phind-CodeLlama-34B-v2 <br/>
     /// Organization: Phind <br/>
     /// Context Length: 4096 <br/>
@@ -346,6 +357,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3.1-70B-Euryale-v2.2">https://huggingface.co/Sao10K/L3.1-70B-Euryale-v2.2</a> 
     /// </summary>
     L3170BEuryaleV22,
+
+    /// <summary>
+    /// Name: L3.3-70B-Euryale-v2.3 <br/>
+    /// Organization: Sao10K <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.7/MTok <br/>
+    /// Completion Cost: $0.7/MTok <br/>
+    /// Description: L3.3-70B-Euryale-v2.3 is a model focused on creative roleplay from Sao10k <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3.3-70B-Euryale-v2.3">https://huggingface.co/Sao10K/L3.3-70B-Euryale-v2.3</a> 
+    /// </summary>
+    L3370BEuryaleV23,
 
     /// <summary>
     /// Name: starcoder2-15b <br/>

@@ -110,6 +110,11 @@ public class Llama213BTiefighterModel(DeepInfraProvider provider) : DeepInfraMod
 public class Hermes3Llama31405BModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Hermes3Llama31405B);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.SkyT132BPreview"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class SkyT132BPreviewModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.SkyT132BPreview);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.PhindCodellama34BV2"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class PhindCodellama34BV2Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.PhindCodellama34BV2);
@@ -153,6 +158,11 @@ public class L38BLunarisV1Model(DeepInfraProvider provider) : DeepInfraModel(pro
 /// <inheritdoc cref="DeepInfraModelIds.L3170BEuryaleV22"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class L3170BEuryaleV22Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.L3170BEuryaleV22);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.L3370BEuryaleV23"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class L3370BEuryaleV23Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.L3370BEuryaleV23);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.Starcoder215B"/>
