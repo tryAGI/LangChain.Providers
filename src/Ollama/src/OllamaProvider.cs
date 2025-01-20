@@ -17,7 +17,7 @@ public sealed class OllamaProvider(
     {
         Timeout = TimeSpan.FromHours(1),
     }, baseUri: new Uri(url));
-    
+
     /// <summary>
     /// OllamaChatModel and OllamaEmbeddingModel will pull models automatically if this is true.
     /// </summary>
@@ -27,7 +27,7 @@ public sealed class OllamaProvider(
     {
         Api.Dispose();
     }
-    
+
     public async Task PullModelIfRequiredAndAllowedAsync(
         string id,
         CancellationToken cancellationToken = default)
@@ -36,7 +36,7 @@ public sealed class OllamaProvider(
         {
             return;
         }
-        
+
         try
         {
             // Pull the model if it is not running
