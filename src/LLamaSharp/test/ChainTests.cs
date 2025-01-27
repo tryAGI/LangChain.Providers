@@ -10,6 +10,7 @@ namespace LangChain.Providers.LLamaSharp.IntegrationTests;
 public class ChainTests
 {
     [Test]
+    [Explicit]
     public async Task PromptTest()
     {
         var chain =
@@ -23,6 +24,7 @@ public class ChainTests
     }
 
     [Test]
+    [Explicit]
     public async Task FiveWords()
     {
         var modelPath = await HuggingFaceModelDownloader.GetModelAsync(
