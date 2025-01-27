@@ -40,6 +40,39 @@ public enum DeepInfraModelIds
     Phi4,
 
     /// <summary>
+    /// Name: DeepSeek-V3 <br/>
+    /// Organization: deepseek-ai <br/>
+    /// Context Length: 16000 <br/>
+    /// Prompt Cost: $0.85/MTok <br/>
+    /// Completion Cost: $0.85/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">https://huggingface.co/deepseek-ai/DeepSeek-V3</a> 
+    /// </summary>
+    DeepseekV3,
+
+    /// <summary>
+    /// Name: DeepSeek-R1 <br/>
+    /// Organization: deepseek-ai <br/>
+    /// Context Length: 16000 <br/>
+    /// Prompt Cost: $0.85/MTok <br/>
+    /// Completion Cost: $0.85/MTok <br/>
+    /// Description: DeepSeek-R1-Zero is a model trained via large-scale reinforcement learning (RL) without supervised fine-tuning (SFT) as a preliminary step, demonstrated remarkable performance on reasoning. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1">https://huggingface.co/deepseek-ai/DeepSeek-R1</a> 
+    /// </summary>
+    DeepseekR1,
+
+    /// <summary>
+    /// Name: DeepSeek-R1-Distill-Llama-70B <br/>
+    /// Organization: deepseek-ai <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.23/MTok <br/>
+    /// Completion Cost: $0.23/MTok <br/>
+    /// Description: DeepSeek-R1-Distill-Llama-70B is a highly efficient language model that leverages knowledge distillation to achieve state-of-the-art performance. This model distills the reasoning patterns of larger models into a smaller, more agile architecture, resulting in exceptional results on benchmarks like AIME 2024, MATH-500, and LiveCodeBench. With 70 billion parameters, DeepSeek-R1-Distill-Llama-70B offers a unique balance of accuracy and efficiency, making it an ideal choice for a wide range of natural language processing tasks.  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B">https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B</a> 
+    /// </summary>
+    DeepseekR1DistillLlama70B,
+
+    /// <summary>
     /// Name: Meta-Llama-3.1-70B-Instruct <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
@@ -456,17 +489,6 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/deepinfra/airoboros-70b">https://huggingface.co/deepinfra/airoboros-70b</a> 
     /// </summary>
     Airoboros70B,
-
-    /// <summary>
-    /// Name: DeepSeek-V3 <br/>
-    /// Organization: deepseek-ai <br/>
-    /// Context Length: 32000 <br/>
-    /// Prompt Cost: $0.85/MTok <br/>
-    /// Completion Cost: $0.85/MTok <br/>
-    /// Description:  <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">https://huggingface.co/deepseek-ai/DeepSeek-V3</a> 
-    /// </summary>
-    DeepseekV3,
 
     /// <summary>
     /// Name: codegemma-7b-it <br/>

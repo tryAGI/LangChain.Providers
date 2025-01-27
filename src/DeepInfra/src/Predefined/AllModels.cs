@@ -15,6 +15,21 @@ public class Llama3370BInstructTurboModel(DeepInfraProvider provider) : DeepInfr
 public class Phi4Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Phi4);
 
 
+/// <inheritdoc cref="DeepInfraModelIds.DeepseekV3"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class DeepseekV3Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekV3);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.DeepseekR1"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class DeepseekR1Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekR1);
+
+
+/// <inheritdoc cref="DeepInfraModelIds.DeepseekR1DistillLlama70B"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class DeepseekR1DistillLlama70BModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekR1DistillLlama70B);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.MetaLlama3170BInstruct"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class MetaLlama3170BInstructModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.MetaLlama3170BInstruct);
@@ -203,11 +218,6 @@ public class DbrxInstructModel(DeepInfraProvider provider) : DeepInfraModel(prov
 /// <inheritdoc cref="DeepInfraModelIds.Airoboros70B"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class Airoboros70BModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.Airoboros70B);
-
-
-/// <inheritdoc cref="DeepInfraModelIds.DeepseekV3"/>
-/// <param name="provider">Deep Infra Provider Instance</param>
-public class DeepseekV3Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekV3);
 
 
 /// <inheritdoc cref="DeepInfraModelIds.Codegemma7BIt"/>
