@@ -88,7 +88,7 @@ public class AnthropicClaude3ChatModel(
         else
         {
             var response = await provider.Api.InvokeModelAsync(Id, bodyJson, cancellationToken).ConfigureAwait(false);
-            usage = GetUsage(response);
+            usage = GetUsage(response?["usage"]);
 
             var generatedText = response?["content"]?[0]?["text"]?.GetValue<string>() ?? "";
 
