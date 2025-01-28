@@ -39,6 +39,8 @@ public class AnthropicClaude3ChatModel(
             modelSettings: Settings,
             providerSettings: provider.ChatSettings);
 
+        Usage? usage = null;
+
         var bodyJson = CreateBodyJson(prompt, usedSettings, request.Image);
 
         if (usedSettings.UseStreaming == true)
@@ -51,7 +53,15 @@ public class AnthropicClaude3ChatModel(
                 var streamEvent = (PayloadPart)payloadPart;
                 var chunk = await JsonSerializer.DeserializeAsync<JsonObject>(streamEvent.Bytes, cancellationToken: cancellationToken)
                     .ConfigureAwait(false);
+
+                usage ??= GetUsage(chunk?["message"]?["usage"]);
                 var type = chunk?["type"]!.GetValue<string>().ToUpperInvariant();
+
+                if (type == "MESSAGE_DELTA")
+                {
+                    usage += GetUsage(chunk?["usage"]);
+                }
+
                 if (type == "CONTENT_BLOCK_DELTA")
                 {
                     var delta = chunk?["delta"]?["text"]!.GetValue<string>();
@@ -61,10 +71,6 @@ public class AnthropicClaude3ChatModel(
                         Content = delta ?? string.Empty,
                     });
                     stringBuilder.Append(delta);
-                }
-                if (type == "CONTENT_BLOCK_STOP")
-                {
-                    break;
                 }
             }
 
@@ -82,24 +88,27 @@ public class AnthropicClaude3ChatModel(
         else
         {
             var response = await provider.Api.InvokeModelAsync(Id, bodyJson, cancellationToken).ConfigureAwait(false);
+            usage = GetUsage(response);
 
             var generatedText = response?["content"]?[0]?["text"]?.GetValue<string>() ?? "";
 
             messages.Add(generatedText.AsAiMessage());
         }
 
-        var usage = Usage.Empty with
+        usage ??= Usage.Empty;
+        usage = usage.Value with
         {
             Time = watch.Elapsed,
+            Messages = messages.Count,
         };
-        AddUsage(usage);
-        provider.AddUsage(usage);
+        AddUsage(usage.Value);
+        provider.AddUsage(usage.Value);
 
         var chatResponse = new ChatResponse
         {
             Messages = messages,
             UsedSettings = usedSettings,
-            Usage = usage,
+            Usage = usage.Value,
         };
         OnResponseReceived(chatResponse);
 
@@ -161,5 +170,25 @@ public class AnthropicClaude3ChatModel(
         }
 
         return bodyJson;
+    }
+
+    /// <summary>
+    /// Extracts usage information from the provided JSON node.
+    /// </summary>
+    /// <param name="usageNode">The JSON node containing usage information.</param>
+    /// <returns>A <see cref="Usage"/> object with the extracted usage data.</returns>
+    private Usage GetUsage(JsonNode? usageNode)
+    {
+        var inputTokens = usageNode?["input_tokens"]?.GetValue<int>() ?? 0;
+        var outputTokens = usageNode?["output_tokens"]?.GetValue<int>() ?? 0;
+        var priceInUsd = 0.0;
+
+        return Usage.Empty with
+        {
+            InputTokens = inputTokens,
+            OutputTokens = outputTokens,
+            Messages = 0,
+            PriceInUsd = priceInUsd,
+        };
     }
 }
