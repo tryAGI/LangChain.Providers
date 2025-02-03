@@ -5,7 +5,7 @@
   <ItemGroup>
     <PackageVersion Include="Anthropic" Version="1.4.4" />
     <PackageVersion Include="Anyscale" Version="1.0.2" />
-    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.417" />
+    <PackageVersion Include="AWSSDK.BedrockAgentRuntime" Version="3.7.418" />
     <PackageVersion Include="AWSSDK.BedrockRuntime" Version="3.7.412.4" />
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.1.0" />
     <PackageVersion Include="CSharpToJsonSchema" Version="3.10.1" />
@@ -27,17 +27,17 @@
     </PackageVersion>
     <PackageVersion Include="HtmlAgilityPack" Version="1.11.72" />
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
-    <PackageVersion Include="LangChain.Core" Version="0.16.0" />
-    <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.16.0" />
-    <PackageVersion Include="LangChain.Databases.InMemory" Version="0.16.0" />
-    <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.16.0" />
-    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.16.0" />
-    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.16.0" />
-    <PackageVersion Include="LangChain.Polyfills" Version="0.16.0" />
-    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.16.0" />
+    <PackageVersion Include="LangChain.Core" Version="0.17.0" />
+    <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.17.0" />
+    <PackageVersion Include="LangChain.Databases.InMemory" Version="0.17.0" />
+    <PackageVersion Include="LangChain.Databases.Sqlite" Version="0.17.0" />
+    <PackageVersion Include="LangChain.DocumentLoaders.Pdf" Version="0.17.0" />
+    <PackageVersion Include="LangChain.Extensions.Docker" Version="0.17.0" />
+    <PackageVersion Include="LangChain.Polyfills" Version="0.17.0" />
+    <PackageVersion Include="LangChain.Splitters.Abstractions" Version="0.17.0" />
     <PackageVersion Include="LeonardoAi" Version="0.1.0" />
     <PackageVersion Include="LLamaSharp" Version="0.20.0" />
-    <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.20.0" />
+    <PackageVersion Include="LLamaSharp.Backend.Cpu" Version="0.21.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4" />
