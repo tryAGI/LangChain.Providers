@@ -7,56 +7,12 @@ public enum DeepInfraModelIds
 {
 
     /// <summary>
-    /// Name: Llama-3.3-70B-Instruct <br/>
-    /// Organization: meta-llama <br/>
-    /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.23/MTok <br/>
-    /// Completion Cost: $0.23/MTok <br/>
-    /// Description: Llama 3.3-70B is a multilingual LLM trained on a massive dataset of 15 trillion tokens, fine-tuned for instruction-following and conversational dialogue. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct</a> 
-    /// </summary>
-    Llama3370BInstruct,
-
-    /// <summary>
-    /// Name: Llama-3.3-70B-Instruct-Turbo <br/>
-    /// Organization: meta-llama <br/>
-    /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.12/MTok <br/>
-    /// Completion Cost: $0.12/MTok <br/>
-    /// Description: Llama 3.3-70B Turbo is a highly optimized version of the Llama 3.3-70B model, utilizing FP8 quantization to deliver significantly faster inference speeds with a minor trade-off in accuracy. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct-Turbo</a> 
-    /// </summary>
-    Llama3370BInstructTurbo,
-
-    /// <summary>
-    /// Name: phi-4 <br/>
-    /// Organization: microsoft <br/>
-    /// Context Length: 16384 <br/>
-    /// Prompt Cost: $0.07/MTok <br/>
-    /// Completion Cost: $0.07/MTok <br/>
-    /// Description: Phi-4 is a model built upon a blend of synthetic datasets, data from filtered public domain websites, and acquired academic books and Q&amp;A datasets. The goal of this approach was to ensure that small capable models were trained with data focused on high quality and advanced reasoning. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/microsoft/phi-4">https://huggingface.co/microsoft/phi-4</a> 
-    /// </summary>
-    Phi4,
-
-    /// <summary>
-    /// Name: DeepSeek-V3 <br/>
-    /// Organization: deepseek-ai <br/>
-    /// Context Length: 16000 <br/>
-    /// Prompt Cost: $0.85/MTok <br/>
-    /// Completion Cost: $0.85/MTok <br/>
-    /// Description:  <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">https://huggingface.co/deepseek-ai/DeepSeek-V3</a> 
-    /// </summary>
-    DeepseekV3,
-
-    /// <summary>
     /// Name: DeepSeek-R1 <br/>
     /// Organization: deepseek-ai <br/>
     /// Context Length: 16000 <br/>
-    /// Prompt Cost: $0.85/MTok <br/>
-    /// Completion Cost: $0.85/MTok <br/>
-    /// Description: DeepSeek-R1-Zero is a model trained via large-scale reinforcement learning (RL) without supervised fine-tuning (SFT) as a preliminary step, demonstrated remarkable performance on reasoning. <br/>
+    /// Prompt Cost: $0.75/MTok <br/>
+    /// Completion Cost: $0.75/MTok <br/>
+    /// Description: We introduce DeepSeek-R1, which incorporates cold-start data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks.  <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1">https://huggingface.co/deepseek-ai/DeepSeek-R1</a> 
     /// </summary>
     DeepseekR1,
@@ -71,6 +27,72 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B">https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B</a> 
     /// </summary>
     DeepseekR1DistillLlama70B,
+
+    /// <summary>
+    /// Name: DeepSeek-V3 <br/>
+    /// Organization: deepseek-ai <br/>
+    /// Context Length: 16000 <br/>
+    /// Prompt Cost: $0.49/MTok <br/>
+    /// Completion Cost: $0.49/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">https://huggingface.co/deepseek-ai/DeepSeek-V3</a> 
+    /// </summary>
+    DeepseekV3,
+
+    /// <summary>
+    /// Name: Llama-3.3-70B-Instruct-Turbo <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
+    /// Description: Llama 3.3-70B Turbo is a highly optimized version of the Llama 3.3-70B model, utilizing FP8 quantization to deliver significantly faster inference speeds with a minor trade-off in accuracy. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct-Turbo">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct-Turbo</a> 
+    /// </summary>
+    Llama3370BInstructTurbo,
+
+    /// <summary>
+    /// Name: Llama-3.3-70B-Instruct <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.23/MTok <br/>
+    /// Completion Cost: $0.23/MTok <br/>
+    /// Description: Llama 3.3-70B is a multilingual LLM trained on a massive dataset of 15 trillion tokens, fine-tuned for instruction-following and conversational dialogue. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct</a> 
+    /// </summary>
+    Llama3370BInstruct,
+
+    /// <summary>
+    /// Name: Mistral-Small-24B-Instruct-2501 <br/>
+    /// Organization: mistralai <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.07/MTok <br/>
+    /// Completion Cost: $0.07/MTok <br/>
+    /// Description: Mistral Small 3 is a 24B-parameter language model optimized for low-latency performance across common AI tasks. Released under the Apache 2.0 license, it features both pre-trained and instruction-tuned versions designed for efficient local deployment.  The model achieves 81% accuracy on the MMLU benchmark and performs competitively with larger models like Llama 3.3 70B and Qwen 32B, while operating at three times the speed on equivalent hardware. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501">https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501</a> 
+    /// </summary>
+    MistralSmall24BInstruct2501,
+
+    /// <summary>
+    /// Name: DeepSeek-R1-Distill-Qwen-32B <br/>
+    /// Organization: deepseek-ai <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
+    /// Description: DeepSeek R1 Distill Qwen 32B is a distilled large language model based on Qwen 2.5 32B, using outputs from DeepSeek R1. It outperforms OpenAI's o1-mini across various benchmarks, achieving new state-of-the-art results for dense models.  Other benchmark results include:  AIME 2024: 72.6 | MATH-500: 94.3 | CodeForces Rating: 1691. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B">https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B</a> 
+    /// </summary>
+    DeepseekR1DistillQwen32B,
+
+    /// <summary>
+    /// Name: phi-4 <br/>
+    /// Organization: microsoft <br/>
+    /// Context Length: 16384 <br/>
+    /// Prompt Cost: $0.07/MTok <br/>
+    /// Completion Cost: $0.07/MTok <br/>
+    /// Description: Phi-4 is a model built upon a blend of synthetic datasets, data from filtered public domain websites, and acquired academic books and Q&amp;A datasets. The goal of this approach was to ensure that small capable models were trained with data focused on high quality and advanced reasoning. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/microsoft/phi-4">https://huggingface.co/microsoft/phi-4</a> 
+    /// </summary>
+    Phi4,
 
     /// <summary>
     /// Name: Meta-Llama-3.1-70B-Instruct <br/>

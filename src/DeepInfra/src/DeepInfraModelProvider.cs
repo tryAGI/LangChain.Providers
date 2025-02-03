@@ -9,12 +9,14 @@ public static class DeepInfraModelProvider
 {
     private static Dictionary<DeepInfraModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
-        { DeepInfraModelIds.Llama3370BInstruct, ToMetadata("meta-llama/Llama-3.3-70B-Instruct",131072,2.3000000000000002E-07,4.0000000000000003E-07)},
-        { DeepInfraModelIds.Llama3370BInstructTurbo, ToMetadata("meta-llama/Llama-3.3-70B-Instruct-Turbo",131072,1.2E-07,3E-07)},
-        { DeepInfraModelIds.Phi4, ToMetadata("microsoft/phi-4",16384,7E-08,1.4E-07)},
-        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",16000,8.5E-07,9.000000000000001E-07)},
-        { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",16000,8.5E-07,2.5E-06)},
+        { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",16000,7.5E-07,2.4E-06)},
         { DeepInfraModelIds.DeepseekR1DistillLlama70B, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Llama-70B",131072,2.3000000000000002E-07,6.9E-07)},
+        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",16000,4.9E-07,8.900000000000001E-07)},
+        { DeepInfraModelIds.Llama3370BInstructTurbo, ToMetadata("meta-llama/Llama-3.3-70B-Instruct-Turbo",131072,1.2E-07,3E-07)},
+        { DeepInfraModelIds.Llama3370BInstruct, ToMetadata("meta-llama/Llama-3.3-70B-Instruct",131072,2.3000000000000002E-07,4.0000000000000003E-07)},
+        { DeepInfraModelIds.MistralSmall24BInstruct2501, ToMetadata("mistralai/Mistral-Small-24B-Instruct-2501",32768,7E-08,1.4E-07)},
+        { DeepInfraModelIds.DeepseekR1DistillQwen32B, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",131072,1.2E-07,1.8E-07)},
+        { DeepInfraModelIds.Phi4, ToMetadata("microsoft/phi-4",16384,7E-08,1.4E-07)},
         { DeepInfraModelIds.MetaLlama3170BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-70B-Instruct",131072,2.3000000000000002E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MetaLlama318BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-8B-Instruct",131072,3E-08,5.0000000000000004E-08)},
         { DeepInfraModelIds.MetaLlama31405BInstruct, ToMetadata("meta-llama/Meta-Llama-3.1-405B-Instruct",32768,8.000000000000001E-07,8.000000000000001E-07)},
