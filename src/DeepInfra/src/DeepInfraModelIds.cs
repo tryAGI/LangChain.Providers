@@ -9,7 +9,7 @@ public enum DeepInfraModelIds
     /// <summary>
     /// Name: DeepSeek-R1 <br/>
     /// Organization: deepseek-ai <br/>
-    /// Context Length: 16000 <br/>
+    /// Context Length: 32768 <br/>
     /// Prompt Cost: $0.75/MTok <br/>
     /// Completion Cost: $0.75/MTok <br/>
     /// Description: We introduce DeepSeek-R1, which incorporates cold-start data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks.  <br/>
@@ -31,10 +31,10 @@ public enum DeepInfraModelIds
     /// <summary>
     /// Name: DeepSeek-V3 <br/>
     /// Organization: deepseek-ai <br/>
-    /// Context Length: 16000 <br/>
+    /// Context Length: 32768 <br/>
     /// Prompt Cost: $0.49/MTok <br/>
     /// Completion Cost: $0.49/MTok <br/>
-    /// Description:  <br/>
+    /// Description: DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token. To achieve efficient inference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent Attention (MLA) and DeepSeekMoE architectures, which were thoroughly validated in DeepSeek-V2.  <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">https://huggingface.co/deepseek-ai/DeepSeek-V3</a> 
     /// </summary>
     DeepseekV3,
@@ -328,7 +328,7 @@ public enum DeepInfraModelIds
     /// <summary>
     /// Name: QVQ-72B-Preview <br/>
     /// Organization: Qwen <br/>
-    /// Context Length: 128000 <br/>
+    /// Context Length: 32000 <br/>
     /// Prompt Cost: $0.25/MTok <br/>
     /// Completion Cost: $0.25/MTok <br/>
     /// Description: QVQ-72B-Preview is an experimental research model developed by the Qwen team, focusing on enhancing visual reasoning capabilities. QVQ-72B-Preview has achieved remarkable performance on various benchmarks. It scored a remarkable 70.3% on the Multimodal Massive Multi-task Understanding (MMMU) benchmark <br/>
