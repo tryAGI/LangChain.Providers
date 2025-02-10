@@ -9,9 +9,9 @@ public static class DeepInfraModelProvider
 {
     private static Dictionary<DeepInfraModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
-        { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",16000,7.5E-07,2.4E-06)},
+        { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",32768,7.5E-07,2.4E-06)},
         { DeepInfraModelIds.DeepseekR1DistillLlama70B, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Llama-70B",131072,2.3000000000000002E-07,6.9E-07)},
-        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",16000,4.9E-07,8.900000000000001E-07)},
+        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",32768,4.9E-07,8.900000000000001E-07)},
         { DeepInfraModelIds.Llama3370BInstructTurbo, ToMetadata("meta-llama/Llama-3.3-70B-Instruct-Turbo",131072,1.2E-07,3E-07)},
         { DeepInfraModelIds.Llama3370BInstruct, ToMetadata("meta-llama/Llama-3.3-70B-Instruct",131072,2.3000000000000002E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MistralSmall24BInstruct2501, ToMetadata("mistralai/Mistral-Small-24B-Instruct-2501",32768,7E-08,1.4E-07)},
@@ -38,7 +38,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.Hermes3Llama31405B, ToMetadata("NousResearch/Hermes-3-Llama-3.1-405B",131072,8.000000000000001E-07,8.000000000000001E-07)},
         { DeepInfraModelIds.SkyT132BPreview, ToMetadata("NovaSky-AI/Sky-T1-32B-Preview",32768,1.2E-07,1.8E-07)},
         { DeepInfraModelIds.PhindCodellama34BV2, ToMetadata("Phind/Phind-CodeLlama-34B-v2",4096,6E-07,6E-07)},
-        { DeepInfraModelIds.Qvq72BPreview, ToMetadata("Qwen/QVQ-72B-Preview",128000,2.5E-07,5E-07)},
+        { DeepInfraModelIds.Qvq72BPreview, ToMetadata("Qwen/QVQ-72B-Preview",32000,2.5E-07,5E-07)},
         { DeepInfraModelIds.Qwen272BInstruct, ToMetadata("Qwen/Qwen2-72B-Instruct",32768,3.5E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.Qwen27BInstruct, ToMetadata("Qwen/Qwen2-7B-Instruct",32768,6E-08,6E-08)},
         { DeepInfraModelIds.Qwen257BInstruct, ToMetadata("Qwen/Qwen2.5-7B-Instruct",32768,2E-08,5.0000000000000004E-08)},
