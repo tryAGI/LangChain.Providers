@@ -11,7 +11,7 @@ namespace LangChain.Providers.Google
 
         public async Task<int> CountTokens(IEnumerable<Message> messages)
         {
-            var response = await this.Api.CountTokens(new CountTokensRequest() { Contents = messages.Select(ToRequestMessage).ToArray() }).ConfigureAwait(false);
+            var response = await this.Api.CountTokensAsync(new CountTokensRequest() { Contents = messages.Select(ToRequestMessage).ToList() }).ConfigureAwait(false);
 
             return response.TotalTokens;
         }

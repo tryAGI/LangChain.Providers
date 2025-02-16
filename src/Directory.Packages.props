@@ -13,7 +13,7 @@
     <PackageVersion Include="FluentAssertions" Version="8.0.1" />
     <PackageVersion Include="GitHubActionsTestLogger" Version="2.4.1" />
     <PackageVersion Include="Google.Cloud.AIPlatform.V1" Version="3.9.0" />
-    <PackageVersion Include="Google_GenerativeAI" Version="1.0.2" />
+    <PackageVersion Include="Google_GenerativeAI" Version="2.0.4" />
     <PackageVersion Include="GroqSharp" Version="1.1.2" />
     <PackageVersion Include="H.Generators.Extensions" Version="1.22.0" />
     <PackageVersion Include="H.Generators.Tests.Extensions" Version="1.22.0" />

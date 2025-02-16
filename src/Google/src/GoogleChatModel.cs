@@ -1,6 +1,10 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using GenerativeAI.Models;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using GenerativeAI;
+using GenerativeAI.Core;
 using GenerativeAI.Types;
 using LangChain.Providers.Google.Extensions;
 
@@ -27,11 +31,14 @@ public partial class GoogleChatModel(
     private GenerativeModel Api { get; } = new(
         provider.ApiKey,
         id,
-        provider.HttpClient)
+        httpClient:provider.HttpClient)
     {
-        AutoCallFunction = false,
-        AutoReplyFunction = false,
-        AutoHandleBadFunctionCalls = false
+       FunctionCallingBehaviour = new FunctionCallingBehaviour()
+       {
+           AutoCallFunction = false,
+           AutoReplyFunction = false,
+           AutoHandleBadFunctionCalls = false
+       }
     };
 
     #endregion
@@ -52,13 +59,13 @@ public partial class GoogleChatModel(
         };
     }
 
-    private static Message ToMessage(EnhancedGenerateContentResponse message)
+    private static Message ToMessage(GenerateContentResponse message)
     {
         if (message.GetFunction() != null)
         {
             var function = message.GetFunction();
 
-            return new Message(function?.Arguments.GetString() ?? string.Empty,
+            return new Message(  function?.Args.GetStringForFunctionArgs() ?? string.Empty,
                 MessageRole.ToolCall, function?.Name);
         }
 
@@ -67,13 +74,13 @@ public partial class GoogleChatModel(
             MessageRole.Ai);
     }
 
-    private async Task<EnhancedGenerateContentResponse> CreateChatCompletionAsync(
+    private async Task<GenerateContentResponse> CreateChatCompletionAsync(
         IReadOnlyCollection<Message> messages,
         CancellationToken cancellationToken = default)
     {
         var request = new GenerateContentRequest
         {
-            Contents = messages.Select(ToRequestMessage).ToArray(),
+            Contents = messages.Select(ToRequestMessage).ToList(),
             Tools = GlobalTools.ToGenerativeAiTools()
         };
 
@@ -94,7 +101,7 @@ public partial class GoogleChatModel(
     {
         var request = new GenerateContentRequest
         {
-            Contents = messages.Select(ToRequestMessage).ToArray()
+            Contents = messages.Select(ToRequestMessage).ToList()
         };
         if (provider.Configuration != null)
             request.GenerationConfig = new GenerationConfig
@@ -104,11 +111,18 @@ public partial class GoogleChatModel(
                 TopP = provider.Configuration.TopP,
                 Temperature = provider.Configuration.Temperature
             };
-        var res = await Api.StreamContentAsync(request, OnDeltaReceived, cancellationToken)
-            .ConfigureAwait(false);
+        StringBuilder sb = new StringBuilder();
+        await foreach (var response in Api.StreamContentAsync(request, cancellationToken))
+        {
+            var text = response.Text() ?? string.Empty;
+           
+            sb.Append(text);
+            OnDeltaReceived(text);
+        }
+       
 
         return new Message(
-            res,
+            sb.ToString(),
             MessageRole.Ai);
     }
 
@@ -173,7 +187,7 @@ public partial class GoogleChatModel(
 
                 if (Calls.TryGetValue(name, out var func))
                 {
-                    var args = function?.Arguments.GetString() ?? string.Empty;
+                    var args = function?.Args.GetStringForFunctionArgs() ?? string.Empty;
 
                     var jsonResult = await func(args, cancellationToken).ConfigureAwait(false);
                     messages.Add(jsonResult.AsToolResultMessage(name));
@@ -216,7 +230,7 @@ public partial class GoogleChatModel(
 
         yield return chatResponse;
     }
-    private Usage GetUsage(EnhancedGenerateContentResponse response)
+    private Usage GetUsage(GenerateContentResponse response)
     {
         var outputTokens = response.UsageMetadata?.CandidatesTokenCount ?? 0;
         var inputTokens = response.UsageMetadata?.PromptTokenCount ?? 0;

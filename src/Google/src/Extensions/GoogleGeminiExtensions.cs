@@ -1,47 +1,63 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using CSharpToJsonSchema;
-using GenerativeAI.Tools;
+using GenerativeAI;
 using GenerativeAI.Types;
+using Tool = CSharpToJsonSchema.Tool;
 
 namespace LangChain.Providers.Google.Extensions;
 
 internal static class GoogleGeminiExtensions
 {
-    public static bool IsFunctionCall(this EnhancedGenerateContentResponse response)
+    public static bool IsFunctionCall(this GenerateContentResponse response)
     {
         return response.GetFunction() != null;
     }
 
-    public static List<GenerativeAITool> ToGenerativeAiTools(this IEnumerable<Tool> functions)
+    public static List<GenerativeAI.Types.Tool?> ToGenerativeAiTools(this IEnumerable<Tool> functions)
     {
-        return new List<GenerativeAITool>([
-            new GenerativeAITool
+        var declarations = functions
+            .Where(x => x != null)
+            .Select(x => new FunctionDeclaration
             {
-                FunctionDeclaration = functions.Select(x => new ChatCompletionFunction
+                Name = x.Name ?? string.Empty,
+                Description = x.Description ?? string.Empty,
+                Parameters = x.Parameters is OpenApiSchema schema ? ToFunctionParameters(schema) : null,
+            })
+            .ToList();
+
+        if (declarations.Any())
+        {
+            return new List<GenerativeAI.Types.Tool?>
+            {
+                new GenerativeAI.Types.Tool
                 {
-                    Name = x.Name ?? string.Empty,
-                    Description = x.Description ?? string.Empty,
-                    Parameters = ToFunctionParameters((OpenApiSchema)x.Parameters!),
-                }).ToList(),
-            }
-        ]);
+                    FunctionDeclarations = declarations
+                }
+            };
+        }
+
+        return null;
     }
-    public static ChatCompletionFunctionParameters ToFunctionParameters(this OpenApiSchema schema)
+
+    public static string GetStringForFunctionArgs(this object? arguments)
     {
-        if (schema.Items == null) return new ChatCompletionFunctionParameters();
-        var parameters = new ChatCompletionFunctionParameters();
-
-        parameters.AdditionalProperties.Add("type", schema.Items.Type);
-        if (schema.Items.Description != null && !string.IsNullOrEmpty(schema.Items.Description))
-            parameters.AdditionalProperties.Add("description", schema.Items.Description);
-        if (schema.Items.Properties != null)
-            parameters.AdditionalProperties.Add("properties", schema.Items.Properties);
-        if (schema.Items.Required != null)
-            parameters.AdditionalProperties.Add("required", schema.Items.Required);
-
-        return parameters;
+        if (arguments == null)
+            return string.Empty;
+        if (arguments is JsonElement jsonElement)
+            return jsonElement.ToString();
+        else
+        {
+            return null;
+        }
     }
+
+    public static Schema? ToFunctionParameters(this OpenApiSchema openApiSchema)
+    {
+        var text = JsonSerializer.Serialize(openApiSchema);
+        return JsonSerializer.Deserialize<Schema?>(text);
+    }
+
     public static string GetString(this IDictionary<string, object>? arguments)
     {
         if (arguments == null)
