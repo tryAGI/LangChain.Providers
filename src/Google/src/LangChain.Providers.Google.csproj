@@ -20,6 +20,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj"/>
+        <ProjectReference Include="..\..\OpenAI\src\LangChain.Providers.OpenAI.csproj" />
     </ItemGroup>
 
 </Project>
