@@ -1,8 +1,6 @@
 ﻿using GenerativeAI;
 using GenerativeAI.Exceptions;
 using GenerativeAI.Types;
-using LangChain.Providers.OpenAI;
-using tryAGI.OpenAI;
 
 namespace LangChain.Providers.Google;
 
@@ -13,13 +11,7 @@ public class GoogleEmbeddingModel(
     string id)
     : Model<EmbeddingSettings>(id), IEmbeddingModel
 {
-    public GoogleEmbeddingModel(
-        GoogleProvider provider,
-        CreateEmbeddingRequestModel id)
-        : this(provider, id.ToValueString())
-    {
-    }
-
+   
     public EmbeddingModel EmbeddingModel { get; } =
         new EmbeddingModel(provider.ApiKey, id, httpClient: provider.HttpClient);
 
