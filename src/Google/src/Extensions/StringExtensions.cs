@@ -1,7 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Nodes;
-using GenerativeAI.Extensions;
-using GenerativeAI.Tools;
+using GenerativeAI;
 using GenerativeAI.Types;
 
 namespace LangChain.Providers.Google.Extensions;
@@ -56,10 +55,9 @@ public static class StringExtensions
         var content = new Content([
             new Part
             {
-                FunctionCall = new ChatFunctionCall
+                FunctionCall = new FunctionCall()
                 {
-                    Arguments = JsonSerializer.Deserialize(args, SourceGenerationContext.Default.DictionaryStringString)?
-                        .ToDictionary(x => x.Key, x => (object)x.Value) ?? [],
+                    Args = JsonNode.Parse(args),
                     Name = functionName
                 }
             }
@@ -76,6 +74,20 @@ public static class StringExtensions
     [CLSCompliant(false)]
     public static Content AsFunctionResultContent(this string args, string functionName)
     {
-        return JsonNode.Parse(args).ToFunctionCallContent(functionName);
+        var functionResponse = new FunctionResponse()
+        {
+            Response = new
+            {
+                Name = functionName,
+                Content = JsonNode.Parse(args)
+            },
+            Name = functionName
+        };
+        var content = new Content(){Role = Roles.Function};
+        content.AddPart(new Part()
+        {
+            FunctionResponse = functionResponse
+        });
+        return content;
     }
 }

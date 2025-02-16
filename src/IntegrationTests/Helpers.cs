@@ -120,11 +120,8 @@ public static class Helpers
                                 throw new InconclusiveException("GOOGLE_API_KEY is not set"),
                         httpClient: new HttpClient());
                     var llm = new Gemini15FlashModel(provider);
-
-                    // Use OpenAI embeddings for now because Google doesn't have embeddings yet
-                    var embeddings = new TextEmbeddingV3SmallModel(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
+                    
+                    var embeddings = new GoogleTextEmbedding(provider);
 
                     return (llm, embeddings, provider);
                 }
