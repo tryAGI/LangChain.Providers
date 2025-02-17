@@ -11,7 +11,7 @@ public class GoogleEmbeddingModel(
     string id)
     : Model<EmbeddingSettings>(id), IEmbeddingModel
 {
-   
+
     public EmbeddingModel EmbeddingModel { get; } =
         new EmbeddingModel(provider.ApiKey, id, httpClient: provider.HttpClient);
 

@@ -6,4 +6,3 @@ namespace LangChain.Providers.Google.Predefined;
 public class GoogleTextEmbedding(GoogleProvider provider)
     : GoogleEmbeddingModel(
         provider, GoogleAIModels.TextEmbedding);
-        

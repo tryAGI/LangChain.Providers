@@ -31,7 +31,7 @@ public class GoogleProvider : Provider
     /// <summary>
     /// </summary>
     public GoogleConfiguration? Configuration { get; set; }
-    
+
     public GoogleEmbeddingSettings? EmbeddingSettings { get; set; }
 
     #endregion

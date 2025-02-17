@@ -83,7 +83,7 @@ public static class StringExtensions
             },
             Name = functionName
         };
-        var content = new Content(){Role = Roles.Function};
+        var content = new Content() { Role = Roles.Function };
         content.AddPart(new Part()
         {
             FunctionResponse = functionResponse

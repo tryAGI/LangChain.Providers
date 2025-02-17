@@ -120,7 +120,7 @@ public static class Helpers
                                 throw new InconclusiveException("GOOGLE_API_KEY is not set"),
                         httpClient: new HttpClient());
                     var llm = new Gemini15FlashModel(provider);
-                    
+
                     var embeddings = new GoogleTextEmbedding(provider);
 
                     return (llm, embeddings, provider);
