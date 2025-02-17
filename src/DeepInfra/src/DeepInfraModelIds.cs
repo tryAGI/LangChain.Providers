@@ -9,7 +9,7 @@ public enum DeepInfraModelIds
     /// <summary>
     /// Name: DeepSeek-R1 <br/>
     /// Organization: deepseek-ai <br/>
-    /// Context Length: 32768 <br/>
+    /// Context Length: 65536 <br/>
     /// Prompt Cost: $0.75/MTok <br/>
     /// Completion Cost: $0.75/MTok <br/>
     /// Description: We introduce DeepSeek-R1, which incorporates cold-start data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks.  <br/>
@@ -31,7 +31,7 @@ public enum DeepInfraModelIds
     /// <summary>
     /// Name: DeepSeek-V3 <br/>
     /// Organization: deepseek-ai <br/>
-    /// Context Length: 32768 <br/>
+    /// Context Length: 65536 <br/>
     /// Prompt Cost: $0.49/MTok <br/>
     /// Completion Cost: $0.49/MTok <br/>
     /// Description: DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token. To achieve efficient inference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent Attention (MLA) and DeepSeekMoE architectures, which were thoroughly validated in DeepSeek-V2.  <br/>
@@ -128,17 +128,6 @@ public enum DeepInfraModelIds
     MetaLlama31405BInstruct,
 
     /// <summary>
-    /// Name: QwQ-32B-Preview <br/>
-    /// Organization: Qwen <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.12/MTok <br/>
-    /// Completion Cost: $0.12/MTok <br/>
-    /// Description: QwQ is an experimental research model developed by the Qwen Team, designed to advance AI reasoning capabilities. This model embodies the spirit of philosophical inquiry, approaching problems with genuine wonder and doubt. QwQ demonstrates impressive analytical abilities, achieving scores of 65.2% on GPQA, 50.0% on AIME, 90.6% on MATH-500, and 50.0% on LiveCodeBench. With its contemplative approach and exceptional performance on complex problems. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QwQ-32B-Preview">https://huggingface.co/Qwen/QwQ-32B-Preview</a> 
-    /// </summary>
-    Qwq32BPreview,
-
-    /// <summary>
     /// Name: Meta-Llama-3.1-8B-Instruct-Turbo <br/>
     /// Organization: meta-llama <br/>
     /// Context Length: 131072 <br/>
@@ -186,8 +175,8 @@ public enum DeepInfraModelIds
     /// Name: Qwen2.5-72B-Instruct <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.23/MTok <br/>
-    /// Completion Cost: $0.23/MTok <br/>
+    /// Prompt Cost: $0.13/MTok <br/>
+    /// Completion Cost: $0.13/MTok <br/>
     /// Description: Qwen2.5 is a model pretrained on a large-scale dataset of up to 18 trillion tokens, offering significant improvements in knowledge, coding, mathematics, and instruction following compared to its predecessor Qwen2. The model also features enhanced capabilities in generating long texts, understanding structured data, and generating structured outputs, while supporting multilingual capabilities for over 29 languages. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/Qwen2.5-72B-Instruct">https://huggingface.co/Qwen/Qwen2.5-72B-Instruct</a> 
     /// </summary>
@@ -335,6 +324,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QVQ-72B-Preview">https://huggingface.co/Qwen/QVQ-72B-Preview</a> 
     /// </summary>
     Qvq72BPreview,
+
+    /// <summary>
+    /// Name: QwQ-32B-Preview <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 32768 <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
+    /// Description: QwQ is an experimental research model developed by the Qwen Team, designed to advance AI reasoning capabilities. This model embodies the spirit of philosophical inquiry, approaching problems with genuine wonder and doubt. QwQ demonstrates impressive analytical abilities, achieving scores of 65.2% on GPQA, 50.0% on AIME, 90.6% on MATH-500, and 50.0% on LiveCodeBench. With its contemplative approach and exceptional performance on complex problems. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QwQ-32B-Preview">https://huggingface.co/Qwen/QwQ-32B-Preview</a> 
+    /// </summary>
+    Qwq32BPreview,
 
     /// <summary>
     /// Name: Qwen2-72B-Instruct <br/>
