@@ -265,7 +265,7 @@ public class BaseTests
     [Explicit]
     public async Task GoogleEmbeddingTest()
     {
-        var (llm,embeddingModel , _) = Helpers.GetModels(ProviderType.Google);
+        var (llm, embeddingModel, _) = Helpers.GetModels(ProviderType.Google);
 
         var embeddings = await embeddingModel.CreateEmbeddingsAsync(new EmbeddingRequest()
         {

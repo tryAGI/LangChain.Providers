@@ -2,7 +2,7 @@
 
 namespace LangChain.Providers.Google;
 
-public class GoogleEmbeddingSettings:EmbeddingSettings
+public class GoogleEmbeddingSettings : EmbeddingSettings
 {
     /// <summary>
     /// Optional. Optional reduced dimension for the output embedding. If set, excessive values in the output embedding are truncated from the end. Supported by newer models since 2024 only. You cannot set this value if using the earlier model (models/embedding-001).
@@ -12,7 +12,7 @@ public class GoogleEmbeddingSettings:EmbeddingSettings
     {
         OutputDimensionality = null
     };
-    
+
     /// <summary>
     /// Calculate the settings to use for the request.
     /// </summary>

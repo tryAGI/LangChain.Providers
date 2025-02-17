@@ -31,14 +31,14 @@ public partial class GoogleChatModel(
     private GenerativeModel Api { get; } = new(
         provider.ApiKey,
         id,
-        httpClient:provider.HttpClient)
+        httpClient: provider.HttpClient)
     {
-       FunctionCallingBehaviour = new FunctionCallingBehaviour()
-       {
-           AutoCallFunction = false,
-           AutoReplyFunction = false,
-           AutoHandleBadFunctionCalls = false
-       }
+        FunctionCallingBehaviour = new FunctionCallingBehaviour()
+        {
+            AutoCallFunction = false,
+            AutoReplyFunction = false,
+            AutoHandleBadFunctionCalls = false
+        }
     };
 
     #endregion
@@ -65,7 +65,7 @@ public partial class GoogleChatModel(
         {
             var function = message.GetFunction();
 
-            return new Message(  function?.Args.GetStringForFunctionArgs() ?? string.Empty,
+            return new Message(function?.Args.GetStringForFunctionArgs() ?? string.Empty,
                 MessageRole.ToolCall, function?.Name);
         }
 
@@ -112,14 +112,14 @@ public partial class GoogleChatModel(
                 Temperature = provider.Configuration.Temperature
             };
         StringBuilder sb = new StringBuilder();
-        await foreach (var response in Api.StreamContentAsync(request, cancellationToken))
+        await foreach (var response in Api.StreamContentAsync(request, cancellationToken).ConfigureAwait(false))
         {
             var text = response.Text() ?? string.Empty;
-           
+
             sb.Append(text);
             OnDeltaReceived(text);
         }
-       
+
 
         return new Message(
             sb.ToString(),
