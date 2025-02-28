@@ -25,7 +25,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="HtmlAgilityPack" Version="1.11.73" />
+    <PackageVersion Include="HtmlAgilityPack" Version="1.11.74" />
     <PackageVersion Include="HuggingFace" Version="0.2.4" />
     <PackageVersion Include="LangChain.Core" Version="0.17.0" />
     <PackageVersion Include="LangChain.Databases.Abstractions" Version="0.17.0" />
