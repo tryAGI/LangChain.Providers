@@ -1,5 +1,10 @@
 namespace LangChain.Providers.DeepInfra.Predefined;
 
+/// <inheritdoc cref="DeepInfraModelIds.DeepseekR1Turbo"/>
+/// <param name="provider">Deep Infra Provider Instance</param>
+public class DeepseekR1TurboModel(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekR1Turbo);
+
+
 /// <inheritdoc cref="DeepInfraModelIds.DeepseekR1"/>
 /// <param name="provider">Deep Infra Provider Instance</param>
 public class DeepseekR1Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.DeepseekR1);

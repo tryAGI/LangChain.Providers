@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text;
+using System.Text.Json;
 using H;
 using LangChain.Providers.Together.CodeGenerator.Classes;
 using Newtonsoft.Json.Linq;
@@ -32,18 +33,18 @@ internal static class TogetherCodeGenerator
         //Load Together Ai Model Info...
         Console.WriteLine("Loading Model Page...");
         var models = await GetModelInfosAsync(options).ConfigureAwait(false);
-        Console.WriteLine($"{models.Count} Models Found...");
+        Console.WriteLine($"{models.Length} Models Found...");
 
 
         //Run loop for each model
         var duplicateSet = new HashSet<string?>();
 
         int count = 0;
-        for (var i = 0; i < models.Count; i++)
+        for (var i = 0; i < models.Length; i++)
         {
-            var item = ParseModelInfo(count, (JObject)models[i], options);
+            var item = ParseModelInfo(count, models[i], options);
 
-            if (item != null && duplicateSet.Add(item.EnumMemberCode))
+            if (item != null && duplicateSet.Add(item.EnumMemberName))
             {
                 list.Add(item);
                 count++;
@@ -69,12 +70,12 @@ internal static class TogetherCodeGenerator
         Console.WriteLine("Task Completed!");
     }
 
-    private static async Task<JArray> GetModelInfosAsync(GenerationOptions options)
+    private static async Task<ModelData[]> GetModelInfosAsync(GenerationOptions options)
     {
         var modelInfoText = await GetStringAsync(new Uri("https://api.together.xyz/api/models?&info"), options)
             .ConfigureAwait(false);
 
-        return JArray.Parse(modelInfoText);
+        return JsonSerializer.Deserialize<ModelData[]>(modelInfoText);
     }
 
     #endregion
@@ -175,39 +176,41 @@ internal static class TogetherCodeGenerator
     /// <param name="modelToken"></param>
     /// <param name="options"></param>
     /// <returns></returns>
-    private static ModelInfo? ParseModelInfo(int i, JObject? modelToken, GenerationOptions options)
+    private static ModelInfo? ParseModelInfo(int i, ModelData? modelToken, GenerationOptions options)
     {
         if (modelToken == null)
             return null;
-
-        if ((string?)modelToken["display_type"] != "chat" && (string?)modelToken["display_type"] != "code")
+        
+        if ((string?)modelToken.DisplayType != "chat" && (string?)modelToken.DisplayType != "code")
             return null;
 
-        if (!modelToken.ContainsKey("instances")) return null;
+        if (modelToken.Instances == null ) return null;
 
         //Modal Name
-        var modelName = (string)modelToken["display_name"]!;
+        var modelName = modelToken.DisplayName;
 
         if (string.IsNullOrEmpty(modelName))
             return null;
 
         //Model Id
-        var modelId = (string)modelToken["name"]!;
+        var modelId = modelToken.Name;
 
-        var organization = (string)modelToken["creator_organization"]!;
+        if(string.IsNullOrEmpty(modelId))
+            return null;
+        var organization = modelToken.CreatorOrganization;
         var enumMemberName = GetModelIdsEnumMemberFromName(modelId, modelName, options);
 
 
-        var length = modelToken["context_length"];
+        var length = modelToken.ContextLength;
         if (length == null)
             return null;
-        var contextLength = (int)(modelToken["context_length"] ?? 0);
+        var contextLength = (modelToken.ContextLength ?? 0);
         var tokenLength = contextLength.ToString();
-        var promptCost = (double)(modelToken.SelectToken("pricing.input") ?? 0) * 0.004;
-        var completionCost = (double)(modelToken.SelectToken("pricing.output") ?? 0) * 0.004;
+        var promptCost = (double)(modelToken.Pricing?.Input ?? 0) * 0.004;
+        var completionCost = (double)(modelToken.Pricing?.Output ?? 0) * 0.004;
 
         var description =
-            FormattableString.Invariant($"Name: {(string)modelName} <br/>\r\n/// Organization: {organization} <br/>\r\n/// Context Length: {contextLength} <br/>\r\n/// Prompt Cost: ${promptCost}/MTok <br/>\r\n/// Completion Cost: ${promptCost}/MTok <br/>\r\n/// Description: {(string?)modelToken["description"]} <br/>\r\n/// HuggingFace Url: <a href=\"https://huggingface.co/{modelId}\">https://huggingface.co/{modelId}</a>");
+            FormattableString.Invariant($"Name: {(string)modelName} <br/>\r\n/// Organization: {organization} <br/>\r\n/// Context Length: {contextLength} <br/>\r\n/// Prompt Cost: ${promptCost}/MTok <br/>\r\n/// Completion Cost: ${promptCost}/MTok <br/>\r\n/// Description: {(string?)modelToken.Description} <br/>\r\n/// HuggingFace Url: <a href=\"https://huggingface.co/{modelId}\">https://huggingface.co/{modelId}</a>");
 
         //Enum Member code with doc
         var enumMemberCode = GetEnumMemberCode(enumMemberName, description);

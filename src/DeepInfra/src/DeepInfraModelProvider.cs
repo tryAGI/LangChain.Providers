@@ -9,6 +9,7 @@ public static class DeepInfraModelProvider
 {
     private static Dictionary<DeepInfraModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
+        { DeepInfraModelIds.DeepseekR1Turbo, ToMetadata("deepseek-ai/DeepSeek-R1-Turbo",32768,2E-06,6E-06)},
         { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",65536,7.5E-07,2.4E-06)},
         { DeepInfraModelIds.DeepseekR1DistillLlama70B, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Llama-70B",131072,2.3000000000000002E-07,6.9E-07)},
         { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",65536,4.9E-07,8.900000000000001E-07)},
