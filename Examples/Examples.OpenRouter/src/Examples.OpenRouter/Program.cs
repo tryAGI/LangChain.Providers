@@ -5,7 +5,7 @@ using LangChain.Providers.OpenRouter;
 OpenRouterConfiguration configuration = new();
 string apiKey = Environment.GetEnvironmentVariable("OPENROUTER_APIKEY") ?? throw new ArgumentNullException("no ApiKey is present");
 OpenRouterProvider provider = new(apiKey);
-OpenRouterModel model = new OpenRouterModel(provider, OpenRouterModelIds.Phi3MediumInstructFree);
+OpenRouterModel model = new OpenRouterModel(provider, OpenRouterModelIds.MoonshotAiMoonlight16BA3bInstructFree);
 
 
 Console.WriteLine("Phi:");
