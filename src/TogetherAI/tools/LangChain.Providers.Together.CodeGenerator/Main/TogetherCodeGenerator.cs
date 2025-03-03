@@ -27,7 +27,7 @@ internal static class TogetherCodeGenerator
         if (string.IsNullOrEmpty(options.TogetherApiKey))
             throw new ArgumentException(nameof(options.TogetherApiKey));
 
-        
+
         //Load Together Ai Model Info...
         Console.WriteLine("Loading Model Page...");
         var models = await GetModelInfosAsync(options).ConfigureAwait(false);
@@ -35,19 +35,19 @@ internal static class TogetherCodeGenerator
 
 
         //Run loop for each model
-        var textModels = GetTextModels(models,options);
-        var embeddingModels = GetEmbeddingModels(models,options);
-        
+        var textModels = GetTextModels(models, options);
+        var embeddingModels = GetEmbeddingModels(models, options);
+
         //Sort Models by index
         var sorted = textModels.OrderBy(s => s.Index).ToList();
 
         //Create AllModels.cs
-       // Console.WriteLine("Creating AllModels.cs...");
+        // Console.WriteLine("Creating AllModels.cs...");
         //await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
         //Create AllEmbeddingModels.cs
-       // Console.WriteLine("Creating AllEmbeddingModels.cs...");
-       // await CreateAllEmbeddingModelsFile(embeddingModels, options.OutputFolder).ConfigureAwait(false);
+        // Console.WriteLine("Creating AllEmbeddingModels.cs...");
+        // await CreateAllEmbeddingModelsFile(embeddingModels, options.OutputFolder).ConfigureAwait(false);
 
         sorted.AddRange(embeddingModels);
         //Create TogetherModelIds.cs
@@ -231,11 +231,11 @@ internal static class TogetherCodeGenerator
     {
         if (modelToken == null)
             return null;
-        
-        if ((string?)modelToken.DisplayType != "chat" && (string?)modelToken.DisplayType != "code" )
+
+        if ((string?)modelToken.DisplayType != "chat" && (string?)modelToken.DisplayType != "code")
             return null;
-        
-        if (modelToken.Instances == null ) return null;
+
+        if (modelToken.Instances == null) return null;
 
         //Modal Name
         var modelName = modelToken.DisplayName;
@@ -246,7 +246,7 @@ internal static class TogetherCodeGenerator
         //Model Id
         var modelId = modelToken.Name;
 
-        if(string.IsNullOrEmpty(modelId))
+        if (string.IsNullOrEmpty(modelId))
             return null;
         var organization = modelToken.CreatorOrganization;
         var enumMemberName = GetModelIdsEnumMemberFromName(modelId, modelName, options);
@@ -286,7 +286,7 @@ internal static class TogetherCodeGenerator
             ModeType = GetModelType(modelToken.DisplayType),
         };
     }
-    
+
     /// <summary>
     ///     Parses Model info from open router docs
     /// </summary>
@@ -298,11 +298,11 @@ internal static class TogetherCodeGenerator
     {
         if (modelToken == null)
             return null;
-        
-        if ((string?)modelToken.DisplayType != "embedding" )
+
+        if ((string?)modelToken.DisplayType != "embedding")
             return null;
-        
-        if (modelToken.Instances == null ) return null;
+
+        if (modelToken.Instances == null) return null;
 
         //Modal Name
         var modelName = modelToken.DisplayName;
@@ -313,7 +313,7 @@ internal static class TogetherCodeGenerator
         //Model Id
         var modelId = modelToken.Name;
 
-        if(string.IsNullOrEmpty(modelId))
+        if (string.IsNullOrEmpty(modelId))
             return null;
         var organization = modelToken.CreatorOrganization;
         var enumMemberName = GetModelIdsEnumMemberFromName(modelId, modelName, options);
@@ -387,7 +387,7 @@ internal static class TogetherCodeGenerator
             $"public class {enumMemberName}Model(TogetherProvider provider) : TogetherModel(provider, TogetherModelIds.{enumMemberName});");
         return sb.ToString();
     }
-    
+
     private static string GetPreDefinedEmbeddingClassCode(string enumMemberName)
     {
         var sb = new StringBuilder();

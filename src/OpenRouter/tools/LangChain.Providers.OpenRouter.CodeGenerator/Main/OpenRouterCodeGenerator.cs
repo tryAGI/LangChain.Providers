@@ -49,7 +49,7 @@ internal static class OpenRouterCodeGenerator
         var sorted = list.OrderBy(s => s.Index).ToList();
 
         //Create AllModels.cs
-       // Console.WriteLine("Creating AllModels.cs...");
+        // Console.WriteLine("Creating AllModels.cs...");
         //await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
         //Create OpenRouterModelIds.cs
@@ -244,7 +244,7 @@ internal static class OpenRouterCodeGenerator
             sb.AppendLine(
                 $"public class {enumMemberName.Replace("_", "", StringComparison.OrdinalIgnoreCase)}Model(OpenRouterProvider provider) : OpenRouterModel(provider, OpenRouterModelIds.{enumMemberName});");
         }
-        
+
         return sb.ToString();
     }
 
