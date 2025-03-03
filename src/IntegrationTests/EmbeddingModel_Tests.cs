@@ -112,7 +112,7 @@ public class EmbeddingModel_Tests
 
         var embeddings = await embeddingModel.CreateEmbeddingsAsync(new EmbeddingRequest()
         {
-           Strings = this.Strings
+            Strings = this.Strings
         });
         embeddings.Values.Should().HaveCountGreaterThan(0);
         embeddings.Values.First().Should().HaveCountGreaterThan(0);
@@ -130,7 +130,7 @@ public class EmbeddingModel_Tests
         embeddings.Values.Should().HaveCountGreaterThan(0);
         embeddings.Values.First().Should().HaveCountGreaterThan(0);
     }
-    
+
     [TestCase]
     public async Task DeepInfraEmbeddingTest()
     {

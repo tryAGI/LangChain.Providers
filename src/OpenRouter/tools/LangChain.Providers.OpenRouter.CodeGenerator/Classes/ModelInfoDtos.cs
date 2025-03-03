@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-public class ListModelsResponse
+internal class ListModelsResponse
 {
     [JsonPropertyName("data")]
     public List<Model>? Models { get; set; }
 }
 
-public class Model
+internal class Model
 {
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -39,7 +39,7 @@ public class Model
     public object? PerRequestLimits { get; set; }
 }
 
-public class Architecture
+internal class Architecture
 {
     [JsonPropertyName("modality")]
     public string? Modality { get; set; }
@@ -51,7 +51,7 @@ public class Architecture
     public object? InstructType { get; set; }
 }
 
-public class Pricing
+internal class Pricing
 {
     [JsonPropertyName("prompt")]
     public string? Prompt { get; set; }
@@ -66,7 +66,7 @@ public class Pricing
     public string? Request { get; set; }
 }
 
-public class TopProvider
+internal class TopProvider
 {
     [JsonPropertyName("context_length")]
     public int? ContextLength { get; set; }

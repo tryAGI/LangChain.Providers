@@ -1,6 +1,6 @@
 ﻿namespace LangChain.Providers.DeepInfra.CodeGenerator.Classes;
 
-public enum ModelType
+internal enum ModelType
 {
     Text,
     Embedding,

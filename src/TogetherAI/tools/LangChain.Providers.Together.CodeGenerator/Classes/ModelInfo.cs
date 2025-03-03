@@ -14,7 +14,7 @@ internal sealed class ModelInfo
     public ModelType ModeType { get; set; } = ModelType.Text;
 }
 
-public enum ModelType
+internal enum ModelType
 {
     Text,
     Embedding,

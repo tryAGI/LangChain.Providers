@@ -31,29 +31,29 @@ internal static class DeepInfraCodeGenerator
         var models = await GetModelsAsync(options).ConfigureAwait(false);
 
         Console.WriteLine("Parsing Embedding Models...");
-        
+
         var embeddingModels = await GetEmbeddingModelsAsync(options).ConfigureAwait(false);
 
-        Console.WriteLine($"{models.Count+embeddingModels.Count} Models Found...");
+        Console.WriteLine($"{models.Count + embeddingModels.Count} Models Found...");
 
         //Sort Models by index
         var sorted = models.OrderBy(s => s.Index).ToList();
 
         //Create AllModels.cs
-       // Console.WriteLine("Creating AllModels.cs...");
-       // await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
+        // Console.WriteLine("Creating AllModels.cs...");
+        // await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
         //Create AllEmbeddingModels.cs
         //Console.WriteLine("Creating AllEmbeddingModels.cs...");
         //await CreateAllEmbeddingModelsFile(embeddingModels, options.OutputFolder).ConfigureAwait(false);
 
         sorted.AddRange(embeddingModels);
-        
+
         //Create DeepInfraModelIds.cs
         Console.WriteLine("Creating DeepInfraModelIds.cs...");
         await CreateDeepInfraModelIdsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
-        
+
         //Create DeepInfraModelIds.cs
         Console.WriteLine("Creating DeepInfraModelProvider.cs...");
         await CreateDeepInfraModelProviderFile(sorted, options.OutputFolder).ConfigureAwait(false);
@@ -327,8 +327,8 @@ internal static class DeepInfraCodeGenerator
         var sb = new StringBuilder();
         sb.AppendLine(
             $"/// <inheritdoc cref=\"DeepInfraModelIds.{enumMemberName}\"/>\r\n/// <param name=\"provider\">Deep Infra Provider Instance</param>");
-        
-        if(modelType == ModelType.Text)
+
+        if (modelType == ModelType.Text)
             sb.AppendLine(
                 $"public class {enumMemberName.Replace("_", "", StringComparison.OrdinalIgnoreCase)}Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.{enumMemberName});");
         else if (modelType == ModelType.Embedding)

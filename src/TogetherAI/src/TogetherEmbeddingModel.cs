@@ -17,7 +17,7 @@ public class TogetherEmbeddingModel(TogetherProvider provider, string id)
     {
     }
 
-    private TogetherApi _client 
+    private TogetherApi _client
     {
         get
         {
@@ -66,10 +66,10 @@ public class TogetherEmbeddingModel(TogetherProvider provider, string id)
         var results = await Task.WhenAll(batches.Select(async batch =>
         {
             var response = await _client.Embeddings.EmbeddingsAsync(new EmbeddingsRequest()
-                {
-                    Input = batch,
-                    Model = Id
-                },
+            {
+                Input = batch,
+                Model = Id
+            },
                 cancellationToken: cancellationToken).ConfigureAwait(false);
 
             return response.Data

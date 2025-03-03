@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-public class ModelData
+internal class ModelData
 {
     [JsonPropertyName("modelInstanceConfig")]
     public ModelInstanceConfig? ModelInstanceConfig { get; set; }
@@ -176,7 +176,7 @@ public class ModelData
     public string? AutopilotPool { get; set; }
 }
 
-public class ModelInstanceConfig
+internal class ModelInstanceConfig
 {
     [JsonPropertyName("appearsIn")]
     public List<object>? AppearsIn { get; set; }
@@ -185,7 +185,7 @@ public class ModelInstanceConfig
     public int? Order { get; set; }
 }
 
-public class Pricing
+internal class Pricing
 {
     [JsonPropertyName("hourly")]
     public int? Hourly { get; set; }
@@ -209,7 +209,7 @@ public class Pricing
     public Reserved? Reserved { get; set; }
 }
 
-public class PixelPricing
+internal class PixelPricing
 {
     [JsonPropertyName("pricePerPixelDollar")]
     public double? PricePerPixelDollar { get; set; }
@@ -218,7 +218,7 @@ public class PixelPricing
     public int? DefaultMinSteps { get; set; }
 }
 
-public class Reserved
+internal class Reserved
 {
     [JsonPropertyName("pricePerHourDollar")]
     public double? PricePerHourDollar { get; set; }
@@ -242,7 +242,7 @@ public class Reserved
     public List<AuditLog>? AuditLogs { get; set; }
 }
 
-public class AuditLog
+internal class AuditLog
 {
     [JsonPropertyName("timestamp")]
     public DateTime? Timestamp { get; set; }
@@ -254,7 +254,7 @@ public class AuditLog
     public Updates? Updates { get; set; }
 }
 
-public class Updates
+internal class Updates
 {
     [JsonPropertyName("dollarPrice")]
     public string? DollarPrice { get; set; }
@@ -263,7 +263,7 @@ public class Updates
     public string? AutoscalePricePerHourDollar { get; set; }
 }
 
-public class Instance
+internal class Instance
 {
     [JsonPropertyName("avzone")]
     public string? Avzone { get; set; }
@@ -275,13 +275,13 @@ public class Instance
     public InstanceConfig? Config { get; set; }
 }
 
-public class InstanceConfig
+internal class InstanceConfig
 {
     [JsonPropertyName("routing")]
     public string? Routing { get; set; }
 }
 
-public class Depth
+internal class Depth
 {
     [JsonPropertyName("num_asks")]
     public int? NumAsks { get; set; }
@@ -311,7 +311,7 @@ public class Depth
     public double? RetryRate { get; set; }
 }
 
-public class Stat
+internal class Stat
 {
     [JsonPropertyName("avzone")]
     public string? Avzone { get; set; }
@@ -338,7 +338,7 @@ public class Stat
     public double? RetryRate { get; set; }
 }
 
-public class Config
+internal class Config
 {
     [JsonPropertyName("stop")]
     public List<string>? Stop { get; set; }
@@ -434,7 +434,7 @@ public class Config
     public bool? SessionCache { get; set; }
 }
 
-public class ConstraintVariant
+internal class ConstraintVariant
 {
     [JsonPropertyName("type")]
     public string? Type { get; set; }
@@ -443,7 +443,7 @@ public class ConstraintVariant
     public string? ModelName { get; set; }
 }
 
-public class ContextLengthVariant
+internal class ContextLengthVariant
 {
     [JsonPropertyName("min_context")]
     public int? MinContext { get; set; }
@@ -452,7 +452,7 @@ public class ContextLengthVariant
     public string? ModelName { get; set; }
 }
 
-public class Reroute
+internal class Reroute
 {
     [JsonPropertyName("strategy")]
     public string? Strategy { get; set; }
@@ -461,7 +461,7 @@ public class Reroute
     public List<Rule>? Rules { get; set; }
 }
 
-public class Rule
+internal class Rule
 {
     [JsonPropertyName("match")]
     public string? Match { get; set; }
@@ -470,7 +470,7 @@ public class Rule
     public string? Target { get; set; }
 }
 
-public class Optimized
+internal class Optimized
 {
     [JsonPropertyName("512x512")]
     public string? _512x512 { get; set; }
@@ -500,13 +500,13 @@ public class Optimized
     public string? _1792x1792 { get; set; }
 }
 
-public class SafetyConfig
+internal class SafetyConfig
 {
     [JsonPropertyName("max_tokens")]
     public int? MaxTokens { get; set; }
 }
 
-public class Slo
+internal class Slo
 {
     [JsonPropertyName("ttft")]
     public int? Ttft { get; set; }
@@ -518,7 +518,7 @@ public class Slo
     public int? TotalCapacityTps { get; set; }
 }
 
-public class AccessControl
+internal class AccessControl
 {
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
@@ -527,7 +527,7 @@ public class AccessControl
     public string? Role { get; set; }
 }
 
-public class Fairness
+internal class Fairness
 {
     [JsonPropertyName("enabled")]
     public bool? Enabled { get; set; }
@@ -542,7 +542,7 @@ public class Fairness
     public string? Epoch { get; set; }
 }
 
-public class Regulator
+internal class Regulator
 {
     [JsonPropertyName("enabled")]
     public bool? Enabled { get; set; }
@@ -563,7 +563,7 @@ public class Regulator
     public string? Version { get; set; }
 }
 
-public class Proxy
+internal class Proxy
 {
     [JsonPropertyName("circuit_breaker_mode_enabled")]
     public bool? CircuitBreakerModeEnabled { get; set; }
@@ -572,7 +572,7 @@ public class Proxy
     public int? MaxRetries { get; set; }
 }
 
-public class LoraConfig
+internal class LoraConfig
 {
     [JsonPropertyName("lora_support")]
     public bool? LoraSupport { get; set; }
@@ -581,11 +581,11 @@ public class LoraConfig
     public int? MaxLora { get; set; }
 }
 
-public class ImageConfig
+internal class ImageConfig
 {
 }
 
-public class MaxQpsUserOverride
+internal class MaxQpsUserOverride
 {
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
@@ -594,7 +594,7 @@ public class MaxQpsUserOverride
     public int? MaxQps { get; set; }
 }
 
-public class AudioConfig
+internal class AudioConfig
 {
     [JsonPropertyName("voices")]
     public Dictionary<string, string>? Voices { get; set; }
@@ -603,13 +603,13 @@ public class AudioConfig
     public string? DefaultVoice { get; set; }
 }
 
-public class ExternalInstances
+internal class ExternalInstances
 {
     [JsonPropertyName("bfl")]
     public Bfl? Bfl { get; set; }
 }
 
-public class Bfl
+internal class Bfl
 {
     [JsonPropertyName("model_name")]
     public string? ModelName { get; set; }
