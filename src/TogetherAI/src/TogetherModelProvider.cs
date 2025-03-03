@@ -60,6 +60,12 @@ public static class TogetherModelProvider
         { TogetherModelIds.DeepseekR1DistillLlama70BFree, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free",8192,0,0)},
         { TogetherModelIds.DeepseekR1DistillQwen14B, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",131072,1.6000000000000001E-06,1.6000000000000001E-06)},
         { TogetherModelIds.Mistral7BInstruct, ToMetadata("mistralai/Mistral-7B-Instruct-v0.1",32768,2.0000000000000002E-07,2.0000000000000002E-07)},
+        { TogetherModelIds.UaeLargeV1, ToMetadata("WhereIsAI/UAE-Large-V1",0,1.6E-08,1.6E-08)},
+        { TogetherModelIds.M2BertRetrieval32K, ToMetadata("togethercomputer/m2-bert-80M-32k-retrieval",0,8E-09,8E-09)},
+        { TogetherModelIds.BaaiBgeLarge1P5, ToMetadata("BAAI/bge-large-en-v1.5",0,1.6E-08,1.6E-08)},
+        { TogetherModelIds.M2BertRetrieval8K, ToMetadata("togethercomputer/m2-bert-80M-8k-retrieval",0,8E-09,8E-09)},
+        { TogetherModelIds.M2BertRetrieval2K, ToMetadata("togethercomputer/m2-bert-80M-2k-retrieval",0,8E-09,8E-09)},
+        { TogetherModelIds.BaaiBgeBase15, ToMetadata("BAAI/bge-base-en-v1.5",0,8E-09,8E-09)},
 
     };
 

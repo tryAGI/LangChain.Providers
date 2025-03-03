@@ -82,6 +82,23 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.MinicpmLlama3V25, ToMetadata("openbmb/MiniCPM-Llama3-V-2_5",8192,3.4000000000000003E-07,3.4000000000000003E-07)},
         { DeepInfraModelIds.OpenChat368B, ToMetadata("openchat/openchat-3.6-8b",8192,6E-08,6E-08)},
         { DeepInfraModelIds.OpenChat35, ToMetadata("openchat/openchat_3.5",8192,6E-08,6E-08)},
+        { DeepInfraModelIds.BgeBaseEnV15, ToMetadata("BAAI/bge-base-en-v1.5",512,0,0)},
+        { DeepInfraModelIds.BgeEnIcl, ToMetadata("BAAI/bge-en-icl",8192,1E-08,0)},
+        { DeepInfraModelIds.BgeLargeEnV15, ToMetadata("BAAI/bge-large-en-v1.5",512,1E-08,0)},
+        { DeepInfraModelIds.BgeM3, ToMetadata("BAAI/bge-m3",8192,1E-08,0)},
+        { DeepInfraModelIds.E5BaseV2, ToMetadata("intfloat/e5-base-v2",512,0,0)},
+        { DeepInfraModelIds.E5LargeV2, ToMetadata("intfloat/e5-large-v2",512,1E-08,0)},
+        { DeepInfraModelIds.MultilingualE5Large, ToMetadata("intfloat/multilingual-e5-large",512,1E-08,0)},
+        { DeepInfraModelIds.AllMinilmL12V2, ToMetadata("sentence-transformers/all-MiniLM-L12-v2",512,0,0)},
+        { DeepInfraModelIds.AllMinilmL6V2, ToMetadata("sentence-transformers/all-MiniLM-L6-v2",512,0,0)},
+        { DeepInfraModelIds.AllMpnetBaseV2, ToMetadata("sentence-transformers/all-mpnet-base-v2",512,0,0)},
+        { DeepInfraModelIds.ClipVitB32, ToMetadata("sentence-transformers/clip-ViT-B-32",77,0,0)},
+        { DeepInfraModelIds.ClipVitB32MultilingualV1, ToMetadata("sentence-transformers/clip-ViT-B-32-multilingual-v1",512,0,0)},
+        { DeepInfraModelIds.MultiQaMpnetBaseDotV1, ToMetadata("sentence-transformers/multi-qa-mpnet-base-dot-v1",512,0,0)},
+        { DeepInfraModelIds.ParaphraseMinilmL6V2, ToMetadata("sentence-transformers/paraphrase-MiniLM-L6-v2",512,0,0)},
+        { DeepInfraModelIds.Text2vecBaseChinese, ToMetadata("shibing624/text2vec-base-chinese",512,0,0)},
+        { DeepInfraModelIds.GteBase, ToMetadata("thenlper/gte-base",512,0,0)},
+        { DeepInfraModelIds.GteLarge, ToMetadata("thenlper/gte-large",512,1E-08,0)},
 
     };
 

@@ -47,6 +47,7 @@
     <PackageVersion Include="MSTest.TestAdapter" Version="3.6.1" />
     <PackageVersion Include="MSTest.TestFramework" Version="3.6.1" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing.MSTest" Version="1.1.2" />
+    <PackageVersion Include="Together" Version="0.9.0" />
     <PackageVersion Include="Verify.MSTest" Version="27.0.1" />
     <PackageVersion Include="Verify.SourceGenerators" Version="2.5.0" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />

@@ -10,4 +10,5 @@ internal sealed class ModelInfo
     public string? PredefinedClassCode { get; set; }
     public string? EnumMemberName { get; set; }
     public string? EnumMemberCode { get; set; }
+    public ModelType ModelType { get; set; } = ModelType.Text;
 }

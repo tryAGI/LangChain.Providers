@@ -27,9 +27,7 @@ internal static class TogetherCodeGenerator
         if (string.IsNullOrEmpty(options.TogetherApiKey))
             throw new ArgumentException(nameof(options.TogetherApiKey));
 
-        //Initialize fields.
-        var list = new List<ModelInfo>();
-
+        
         //Load Together Ai Model Info...
         Console.WriteLine("Loading Model Page...");
         var models = await GetModelInfosAsync(options).ConfigureAwait(false);
@@ -37,6 +35,75 @@ internal static class TogetherCodeGenerator
 
 
         //Run loop for each model
+        var textModels = GetTextModels(models,options);
+        var embeddingModels = GetEmbeddingModels(models,options);
+        
+        //Sort Models by index
+        var sorted = textModels.OrderBy(s => s.Index).ToList();
+
+        //Create AllModels.cs
+        Console.WriteLine("Creating AllModels.cs...");
+        await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
+
+        //Create AllEmbeddingModels.cs
+        Console.WriteLine("Creating AllEmbeddingModels.cs...");
+        await CreateAllEmbeddingModelsFile(embeddingModels, options.OutputFolder).ConfigureAwait(false);
+
+        sorted.AddRange(embeddingModels);
+        //Create TogetherModelIds.cs
+        Console.WriteLine("Creating TogetherModelIds.cs...");
+        await CreateTogetherModelIdsFile(sorted, options.OutputFolder).ConfigureAwait(false);
+
+        //Create TogetherModelIds.cs
+        Console.WriteLine("Creating TogetherModelProvider.cs...");
+        await CreateTogetherModelProviderFile(sorted, options.OutputFolder).ConfigureAwait(false);
+
+        Console.WriteLine($"{textModels.Count} Models added into repo.");
+        Console.WriteLine("Task Completed!");
+    }
+
+    private static async Task CreateAllEmbeddingModelsFile(List<ModelInfo> sorted, string outputFolder)
+    {
+        var sb3 = new StringBuilder();
+        foreach (var item in sorted)
+        {
+            sb3.AppendLine(item.PredefinedClassCode);
+            sb3.AppendLine();
+        }
+
+        var classesFileContent =
+            Resources.AllModels_cs.AsString()
+                .Replace("{{TogetherClasses}}", sb3.ToString(), StringComparison.InvariantCulture);
+        var path1 = Path.Join(outputFolder, "Predefined");
+        Directory.CreateDirectory(path1);
+        var fileName = Path.Combine(path1, "AllEmbeddingModels.cs");
+        await File.WriteAllTextAsync(fileName, classesFileContent).ConfigureAwait(false);
+        Console.WriteLine($"Saved to {fileName}");
+    }
+
+    private static List<ModelInfo> GetEmbeddingModels(ModelData[] models, GenerationOptions options = null)
+    {
+        List<ModelInfo> list = new();
+        var duplicateSet = new HashSet<string?>();
+
+        int count = 0;
+        for (var i = 0; i < models.Length; i++)
+        {
+            var item = ParseEmbeddingModelInfo(count, models[i], options);
+
+            if (item != null && duplicateSet.Add(item.EnumMemberName))
+            {
+                list.Add(item);
+                count++;
+            }
+        }
+
+        return list;
+    }
+
+    private static List<ModelInfo> GetTextModels(ModelData[] models, GenerationOptions options = null)
+    {
+        List<ModelInfo> list = new();
         var duplicateSet = new HashSet<string?>();
 
         int count = 0;
@@ -51,23 +118,7 @@ internal static class TogetherCodeGenerator
             }
         }
 
-        //Sort Models by index
-        var sorted = list.OrderBy(s => s.Index).ToList();
-
-        //Create AllModels.cs
-        Console.WriteLine("Creating AllModels.cs...");
-        await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
-
-        //Create TogetherModelIds.cs
-        Console.WriteLine("Creating TogetherModelIds.cs...");
-        await CreateTogetherModelIdsFile(sorted, options.OutputFolder).ConfigureAwait(false);
-
-        //Create TogetherModelIds.cs
-        Console.WriteLine("Creating TogetherModelProvider.cs...");
-        await CreateTogetherModelProviderFile(sorted, options.OutputFolder).ConfigureAwait(false);
-
-        Console.WriteLine($"{count} Models added into repo.");
-        Console.WriteLine("Task Completed!");
+        return list;
     }
 
     private static async Task<ModelData[]> GetModelInfosAsync(GenerationOptions options)
@@ -181,9 +232,9 @@ internal static class TogetherCodeGenerator
         if (modelToken == null)
             return null;
         
-        if ((string?)modelToken.DisplayType != "chat" && (string?)modelToken.DisplayType != "code")
+        if ((string?)modelToken.DisplayType != "chat" && (string?)modelToken.DisplayType != "code" )
             return null;
-
+        
         if (modelToken.Instances == null ) return null;
 
         //Modal Name
@@ -231,7 +282,86 @@ internal static class TogetherCodeGenerator
             ModelName = modelName,
             PredefinedClassCode = predefinedClassCode,
             EnumMemberCode = enumMemberCode,
-            Description = description
+            Description = description,
+            ModeType = GetModelType(modelToken.DisplayType),
+        };
+    }
+    
+    /// <summary>
+    ///     Parses Model info from open router docs
+    /// </summary>
+    /// <param name="i"></param>
+    /// <param name="modelToken"></param>
+    /// <param name="options"></param>
+    /// <returns></returns>
+    private static ModelInfo? ParseEmbeddingModelInfo(int i, ModelData? modelToken, GenerationOptions options)
+    {
+        if (modelToken == null)
+            return null;
+        
+        if ((string?)modelToken.DisplayType != "embedding" )
+            return null;
+        
+        if (modelToken.Instances == null ) return null;
+
+        //Modal Name
+        var modelName = modelToken.DisplayName;
+
+        if (string.IsNullOrEmpty(modelName))
+            return null;
+
+        //Model Id
+        var modelId = modelToken.Name;
+
+        if(string.IsNullOrEmpty(modelId))
+            return null;
+        var organization = modelToken.CreatorOrganization;
+        var enumMemberName = GetModelIdsEnumMemberFromName(modelId, modelName, options);
+
+
+        // var length = modelToken.ContextLength;
+        // if (length == null)
+        //     return null;
+        // var contextLength = (modelToken.ContextLength ?? 0);
+        //var tokenLength = contextLength.ToString();
+        var promptCost = (double)(modelToken.Pricing?.Input ?? 0) * 0.004;
+        var completionCost = (double)(modelToken.Pricing?.Output ?? 0) * 0.004;
+
+        var description =
+            FormattableString.Invariant($"Name: {(string)modelName} <br/>\r\n/// Organization: {organization} <br/>\r\n/// Prompt Cost: ${promptCost}/MTok <br/>\r\n/// Completion Cost: ${promptCost}/MTok <br/>\r\n/// Description: {(string?)modelToken.Description} <br/>\r\n/// HuggingFace Url: <a href=\"https://huggingface.co/{modelId}\">https://huggingface.co/{modelId}</a>");
+
+        //Enum Member code with doc
+        var enumMemberCode = GetEnumMemberCode(enumMemberName, description);
+
+        //Code for adding ChatModel into Dictionary<Together AiModelIds,ChatModels>() 
+        var dicAddCode = GetDicAddCode(enumMemberName, modelId, "0", promptCost / (1000 * 1000),
+            completionCost / (1000 * 1000));
+
+        //Code for Predefined Model Class
+        var predefinedClassCode = GetPreDefinedEmbeddingClassCode(enumMemberName);
+
+        return new ModelInfo
+        {
+            DicAddCode = dicAddCode,
+            EnumMemberName = enumMemberName,
+            Index = i,
+            ModelId = modelId,
+            ModelName = modelName,
+            PredefinedClassCode = predefinedClassCode,
+            EnumMemberCode = enumMemberCode,
+            Description = description,
+            ModeType = GetModelType(modelToken.DisplayType),
+        };
+    }
+
+    private static ModelType GetModelType(string displayType)
+    {
+        return displayType switch
+        {
+            "chat" or "code" => ModelType.Text,
+            "embedding" => ModelType.Embedding,
+            "image" => ModelType.Image,
+            _ => throw new ArgumentOutOfRangeException(nameof(displayType), displayType, null)
         };
     }
 
@@ -252,9 +382,19 @@ internal static class TogetherCodeGenerator
     {
         var sb = new StringBuilder();
         sb.AppendLine(
-            $"/// <inheritdoc cref=\"TogetherModelIds.{enumMemberName}\"/>\r\n/// <param name=\"provider\">Open Router Provider Instance</param>");
+            $"/// <inheritdoc cref=\"TogetherModelIds.{enumMemberName}\"/>\r\n/// <param name=\"provider\">Together AI Provider Instance</param>");
         sb.AppendLine(
             $"public class {enumMemberName}Model(TogetherProvider provider) : TogetherModel(provider, TogetherModelIds.{enumMemberName});");
+        return sb.ToString();
+    }
+    
+    private static string GetPreDefinedEmbeddingClassCode(string enumMemberName)
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine(
+            $"/// <inheritdoc cref=\"TogetherModelIds.{enumMemberName}\"/>\r\n/// <param name=\"provider\">Together AI Provider Instance</param>");
+        sb.AppendLine(
+            $"public class {enumMemberName}EmbeddingModel(TogetherProvider provider) : TogetherEmbeddingModel(provider, TogetherModelIds.{enumMemberName});");
         return sb.ToString();
     }
 

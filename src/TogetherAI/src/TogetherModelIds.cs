@@ -567,4 +567,64 @@ public enum TogetherModelIds
         /// </summary>
         Mistral7BInstruct,
         
+        /// <summary>
+        /// Name: UAE-Large-V1 <br/>
+        /// Organization: WhereIsAI <br/>
+        /// Prompt Cost: $0.016/MTok <br/>
+        /// Completion Cost: $0.016/MTok <br/>
+        /// Description: A universal English sentence embedding WhereIsAI/UAE-Large-V1 achieves SOTA on the MTEB Leaderboard with an average score of 64.64! <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/WhereIsAI/UAE-Large-V1">https://huggingface.co/WhereIsAI/UAE-Large-V1</a>
+        /// </summary>
+        UaeLargeV1,
+        
+        /// <summary>
+        /// Name: M2-BERT-Retrieval-32k <br/>
+        /// Organization: Together <br/>
+        /// Prompt Cost: $0.008/MTok <br/>
+        /// Completion Cost: $0.008/MTok <br/>
+        /// Description: The 80M checkpoint for M2-BERT-base from the paper Monarch Mixer: A Simple Sub-Quadratic GEMM-Based Architecture with sequence length 8192, and it has been fine-tuned for retrieval. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/m2-bert-80M-32k-retrieval">https://huggingface.co/togethercomputer/m2-bert-80M-32k-retrieval</a>
+        /// </summary>
+        M2BertRetrieval32K,
+        
+        /// <summary>
+        /// Name: BAAI-Bge-Large-1p5 <br/>
+        /// Organization: BAAI <br/>
+        /// Prompt Cost: $0.016/MTok <br/>
+        /// Completion Cost: $0.016/MTok <br/>
+        /// Description: bge is short for BAAI general embedding, it maps any text to a low-dimensional dense vector using FlagEmbedding <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/BAAI/bge-large-en-v1.5">https://huggingface.co/BAAI/bge-large-en-v1.5</a>
+        /// </summary>
+        BaaiBgeLarge1P5,
+        
+        /// <summary>
+        /// Name: M2-BERT-Retrieval-8k <br/>
+        /// Organization: Together <br/>
+        /// Prompt Cost: $0.008/MTok <br/>
+        /// Completion Cost: $0.008/MTok <br/>
+        /// Description: The 80M checkpoint for M2-BERT-base from the paper Monarch Mixer: A Simple Sub-Quadratic GEMM-Based Architecture with sequence length 8192, and it has been fine-tuned for retrieval. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/m2-bert-80M-8k-retrieval">https://huggingface.co/togethercomputer/m2-bert-80M-8k-retrieval</a>
+        /// </summary>
+        M2BertRetrieval8K,
+        
+        /// <summary>
+        /// Name: M2-BERT-Retrieval-2K <br/>
+        /// Organization: Together <br/>
+        /// Prompt Cost: $0.008/MTok <br/>
+        /// Completion Cost: $0.008/MTok <br/>
+        /// Description: M2-BERT from the Monarch Mixer paper fine-tuned for retrieval <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/togethercomputer/m2-bert-80M-2k-retrieval">https://huggingface.co/togethercomputer/m2-bert-80M-2k-retrieval</a>
+        /// </summary>
+        M2BertRetrieval2K,
+        
+        /// <summary>
+        /// Name: BAAI-Bge-Base-1.5 <br/>
+        /// Organization: BAAI <br/>
+        /// Prompt Cost: $0.008/MTok <br/>
+        /// Completion Cost: $0.008/MTok <br/>
+        /// Description: bge is short for BAAI general embedding, it maps any text to a low-dimensional dense vector using FlagEmbedding <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/BAAI/bge-base-en-v1.5">https://huggingface.co/BAAI/bge-base-en-v1.5</a>
+        /// </summary>
+        BaaiBgeBase15,
+        
 }

@@ -809,4 +809,191 @@ public enum DeepInfraModelIds
         /// </summary>
         OpenChat35,
         
+        /// <summary>
+        /// Name: bge-base-en-v1.5 <br/>
+        /// Organization: BAAI <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: BGE embedding is a general Embedding Model. It is pre-trained using retromae and trained on large-scale pair data using contrastive learning. Note that the goal of pre-training is to reconstruct the text, and the pre-trained model cannot be used for similarity calculation directly, it needs to be fine-tuned <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/BAAI/bge-base-en-v1.5">https://huggingface.co/BAAI/bge-base-en-v1.5</a> 
+        /// </summary>
+        BgeBaseEnV15,
+        
+        /// <summary>
+        /// Name: bge-en-icl <br/>
+        /// Organization: BAAI <br/>
+        /// Context Length: 8192 <br/>
+        /// Prompt Cost: $0.01/MTok <br/>
+        /// Completion Cost: $0.01/MTok <br/>
+        /// Description: A LLM-based embedding model with in-context learning capabilities that achieves SOTA performance on BEIR and AIR-Bench. It leverages few-shot examples to enhance task performance. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/BAAI/bge-en-icl">https://huggingface.co/BAAI/bge-en-icl</a> 
+        /// </summary>
+        BgeEnIcl,
+        
+        /// <summary>
+        /// Name: bge-large-en-v1.5 <br/>
+        /// Organization: BAAI <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0.01/MTok <br/>
+        /// Completion Cost: $0.01/MTok <br/>
+        /// Description: BGE embedding is a general Embedding Model. It is pre-trained using retromae and trained on large-scale pair data using contrastive learning. Note that the goal of pre-training is to reconstruct the text, and the pre-trained model cannot be used for similarity calculation directly, it needs to be fine-tuned <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/BAAI/bge-large-en-v1.5">https://huggingface.co/BAAI/bge-large-en-v1.5</a> 
+        /// </summary>
+        BgeLargeEnV15,
+        
+        /// <summary>
+        /// Name: bge-m3 <br/>
+        /// Organization: BAAI <br/>
+        /// Context Length: 8192 <br/>
+        /// Prompt Cost: $0.01/MTok <br/>
+        /// Completion Cost: $0.01/MTok <br/>
+        /// Description: BGE-M3 is a versatile text embedding model that supports multi-functionality, multi-linguality, and multi-granularity, allowing it to perform dense retrieval, multi-vector retrieval, and sparse retrieval in over 100 languages and with input sizes up to 8192 tokens. The model can be used in a retrieval pipeline with hybrid retrieval and re-ranking to achieve higher accuracy and stronger generalization capabilities. BGE-M3 has shown state-of-the-art performance on several benchmarks, including MKQA, MLDR, and NarritiveQA, and can be used as a drop-in replacement for other embedding models like DPR and BGE-v1.5. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/BAAI/bge-m3">https://huggingface.co/BAAI/bge-m3</a> 
+        /// </summary>
+        BgeM3,
+        
+        /// <summary>
+        /// Name: e5-base-v2 <br/>
+        /// Organization: intfloat <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: Text Embeddings by Weakly-Supervised Contrastive Pre-training. Model has 24 layers and 1024 out dim.  <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/intfloat/e5-base-v2">https://huggingface.co/intfloat/e5-base-v2</a> 
+        /// </summary>
+        E5BaseV2,
+        
+        /// <summary>
+        /// Name: e5-large-v2 <br/>
+        /// Organization: intfloat <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0.01/MTok <br/>
+        /// Completion Cost: $0.01/MTok <br/>
+        /// Description: Text Embeddings by Weakly-Supervised Contrastive Pre-training. Model has 24 layers and 1024 out dim.  <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/intfloat/e5-large-v2">https://huggingface.co/intfloat/e5-large-v2</a> 
+        /// </summary>
+        E5LargeV2,
+        
+        /// <summary>
+        /// Name: multilingual-e5-large <br/>
+        /// Organization: intfloat <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0.01/MTok <br/>
+        /// Completion Cost: $0.01/MTok <br/>
+        /// Description: The Multilingual-E5-large model is a 24-layer text embedding model with an embedding size of 1024, trained on a mixture of multilingual datasets and supporting 100 languages. The model achieves state-of-the-art results on the Mr. TyDi benchmark, outperforming other models such as BM25 and mDPR. The model is intended for use in text retrieval and semantic similarity tasks, and should be used with the "query: " and "passage: " prefixes for input texts to achieve optimal performance. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/intfloat/multilingual-e5-large">https://huggingface.co/intfloat/multilingual-e5-large</a> 
+        /// </summary>
+        MultilingualE5Large,
+        
+        /// <summary>
+        /// Name: all-MiniLM-L12-v2 <br/>
+        /// Organization: sentence-transformers <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: We present a sentence transformation model that generates semantically similar sentences. Our model is based on the Sentence-Transformers architecture and was trained on a large dataset of sentence pairs. We evaluate the effectiveness of our model by measuring its ability to generate similar sentences that are close to the original sentence in meaning. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2">https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2</a> 
+        /// </summary>
+        AllMinilmL12V2,
+        
+        /// <summary>
+        /// Name: all-MiniLM-L6-v2 <br/>
+        /// Organization: sentence-transformers <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: We present a sentence transformation model that achieves state-of-the-art results on various NLP tasks without requiring task-specific architectures or fine-tuning. Our approach leverages contrastive learning and utilizes a variety of datasets to learn robust sentence representations. We evaluate our model on several benchmarks and demonstrate its effectiveness in various applications such as text classification, sentiment analysis, named entity recognition, and question answering. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2</a> 
+        /// </summary>
+        AllMinilmL6V2,
+        
+        /// <summary>
+        /// Name: all-mpnet-base-v2 <br/>
+        /// Organization: sentence-transformers <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: A sentence transformation model that has been trained on a wide range of datasets, including but not limited to S2ORC, WikiAnwers, PAQ, Stack Exchange, and Yahoo! Answers. Our model can be used for various NLP tasks such as clustering, sentiment analysis, and question answering. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/sentence-transformers/all-mpnet-base-v2">https://huggingface.co/sentence-transformers/all-mpnet-base-v2</a> 
+        /// </summary>
+        AllMpnetBaseV2,
+        
+        /// <summary>
+        /// Name: clip-ViT-B-32 <br/>
+        /// Organization: sentence-transformers <br/>
+        /// Context Length: 77 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: The CLIP model maps text and images to a shared vector space, enabling various applications such as image search, zero-shot image classification, and image clustering. The model can be used easily after installation, and its performance is demonstrated through zero-shot ImageNet validation set accuracy scores. Multilingual versions of the model are also available for 50+ languages. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/sentence-transformers/clip-ViT-B-32">https://huggingface.co/sentence-transformers/clip-ViT-B-32</a> 
+        /// </summary>
+        ClipVitB32,
+        
+        /// <summary>
+        /// Name: clip-ViT-B-32-multilingual-v1 <br/>
+        /// Organization: sentence-transformers <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: This model is a multilingual version of the OpenAI CLIP-ViT-B32 model, which maps text and images to a common dense vector space. It includes a text embedding model that works for 50+ languages and an image encoder from CLIP. The model was trained using Multilingual Knowledge Distillation, where a multilingual DistilBERT model was trained as a student model to align the vector space of the original CLIP image encoder across many languages. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/sentence-transformers/clip-ViT-B-32-multilingual-v1">https://huggingface.co/sentence-transformers/clip-ViT-B-32-multilingual-v1</a> 
+        /// </summary>
+        ClipVitB32MultilingualV1,
+        
+        /// <summary>
+        /// Name: multi-qa-mpnet-base-dot-v1 <br/>
+        /// Organization: sentence-transformers <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: We present a sentence transformation model that maps sentences and paragraphs to a 768-dimensional dense vector space, suitable for semantic search tasks. The model is trained on 215 million question-answer pairs from various sources, including WikiAnswers, PAQ, Stack Exchange, MS MARCO, GOOAQ, Amazon QA, Yahoo Answers, Search QA, ELI5, and Natural Questions. Our model uses a contrastive learning objective. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/sentence-transformers/multi-qa-mpnet-base-dot-v1">https://huggingface.co/sentence-transformers/multi-qa-mpnet-base-dot-v1</a> 
+        /// </summary>
+        MultiQaMpnetBaseDotV1,
+        
+        /// <summary>
+        /// Name: paraphrase-MiniLM-L6-v2 <br/>
+        /// Organization: sentence-transformers <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: We present a sentence similarity model based on the Sentence Transformers architecture, which maps sentences to a 384-dimensional dense vector space. The model uses a pre-trained BERT encoder and applies mean pooling on top of the contextualized word embeddings to obtain sentence embeddings. We evaluate the model on the Sentence Embeddings Benchmark. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/sentence-transformers/paraphrase-MiniLM-L6-v2">https://huggingface.co/sentence-transformers/paraphrase-MiniLM-L6-v2</a> 
+        /// </summary>
+        ParaphraseMinilmL6V2,
+        
+        /// <summary>
+        /// Name: text2vec-base-chinese <br/>
+        /// Organization: shibing624 <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: A sentence similarity model that can be used for various NLP tasks such as text classification, sentiment analysis, named entity recognition, question answering, and more. It utilizes the CoSENT architecture, which consists of a transformer encoder and a pooling module, to encode input texts into vectors that capture their semantic meaning. The model was trained on the nli_zh dataset and achieved high performance on various benchmark datasets. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/shibing624/text2vec-base-chinese">https://huggingface.co/shibing624/text2vec-base-chinese</a> 
+        /// </summary>
+        Text2vecBaseChinese,
+        
+        /// <summary>
+        /// Name: gte-base <br/>
+        /// Organization: thenlper <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0/MTok <br/>
+        /// Completion Cost: $0/MTok <br/>
+        /// Description: The GTE models are trained by Alibaba DAMO Academy. They are mainly based on the BERT framework and currently offer three different sizes of models, including GTE-large, GTE-base, and GTE-small. The GTE models are trained on a large-scale corpus of relevance text pairs, covering a wide range of domains and scenarios. This enables the GTE models to be applied to various downstream tasks of text embeddings, including information retrieval, semantic textual similarity, text reranking, etc. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/thenlper/gte-base">https://huggingface.co/thenlper/gte-base</a> 
+        /// </summary>
+        GteBase,
+        
+        /// <summary>
+        /// Name: gte-large <br/>
+        /// Organization: thenlper <br/>
+        /// Context Length: 512 <br/>
+        /// Prompt Cost: $0.01/MTok <br/>
+        /// Completion Cost: $0.01/MTok <br/>
+        /// Description: The GTE models are trained by Alibaba DAMO Academy. They are mainly based on the BERT framework and currently offer three different sizes of models, including GTE-large, GTE-base, and GTE-small. The GTE models are trained on a large-scale corpus of relevance text pairs, covering a wide range of domains and scenarios. This enables the GTE models to be applied to various downstream tasks of text embeddings, including information retrieval, semantic textual similarity, text reranking, etc. <br/>
+        /// HuggingFace Url: <a href="https://huggingface.co/thenlper/gte-large">https://huggingface.co/thenlper/gte-large</a> 
+        /// </summary>
+        GteLarge,
+        
 }
