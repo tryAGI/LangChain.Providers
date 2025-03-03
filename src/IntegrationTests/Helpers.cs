@@ -51,7 +51,7 @@ public static class Helpers
                         apiKey: Environment.GetEnvironmentVariable("TOGETHER_API_KEY") ??
                         throw new InconclusiveException("TOGETHER_API_KEY is not set"));
                     var llm = new TogetherModel(provider, id: "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo");
-                    var embeddings = new OpenAiEmbeddingModel(provider, id: "togethercomputer/m2-bert-80M-2k-retrieval");
+                    var embeddings = new TogetherEmbeddingModel(provider, TogetherModelIds.M2BertRetrieval2K);
 
                     return (llm, embeddings, provider);
                 }
@@ -104,12 +104,14 @@ public static class Helpers
                     var provider = new DeepInfraProvider(
                         apiKey: Environment.GetEnvironmentVariable("DEEPINFRA_API_KEY") ??
                                 throw new InconclusiveException("DEEPINFRA_API_KEY is not set"));
-                    var llm = new Providers.DeepInfra.Predefined.MetaLlama318BInstructModel(provider);
+                    var llm = new DeepInfraModel(provider, DeepInfraModelIds.Phi4);
 
-                    // Use OpenAI embeddings for now because DeepInfra doesn't have embeddings yet
-                    var embeddings = new TextEmbeddingV3SmallModel(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
+                    // // Use OpenAI embeddings for now because DeepInfra doesn't have embeddings yet
+                    // var embeddings = new TextEmbeddingV3SmallModel(
+                    //     Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
+                    //     throw new InconclusiveException("OPENAI_API_KEY is not set"));
+
+                    var embeddings = new DeepInfraEmbeddingModel(provider, DeepInfraModelIds.BgeBaseEnV15);
 
                     return (llm, embeddings, provider);
                 }

@@ -30,26 +30,96 @@ internal static class DeepInfraCodeGenerator
         Console.WriteLine("Loading Models...");
         var models = await GetModelsAsync(options).ConfigureAwait(false);
 
+        Console.WriteLine("Parsing Embedding Models...");
+        
+        var embeddingModels = await GetEmbeddingModelsAsync(options).ConfigureAwait(false);
 
-        Console.WriteLine($"{models.Count} Models Found...");
-
+        Console.WriteLine($"{models.Count+embeddingModels.Count} Models Found...");
 
         //Sort Models by index
         var sorted = models.OrderBy(s => s.Index).ToList();
 
         //Create AllModels.cs
-        Console.WriteLine("Creating AllModels.cs...");
-        await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
+       // Console.WriteLine("Creating AllModels.cs...");
+       // await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
+        //Create AllEmbeddingModels.cs
+        //Console.WriteLine("Creating AllEmbeddingModels.cs...");
+        //await CreateAllEmbeddingModelsFile(embeddingModels, options.OutputFolder).ConfigureAwait(false);
+
+        sorted.AddRange(embeddingModels);
+        
         //Create DeepInfraModelIds.cs
         Console.WriteLine("Creating DeepInfraModelIds.cs...");
         await CreateDeepInfraModelIdsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
+        
         //Create DeepInfraModelIds.cs
         Console.WriteLine("Creating DeepInfraModelProvider.cs...");
         await CreateDeepInfraModelProviderFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
         Console.WriteLine("Task Completed!");
+    }
+
+    private static async Task CreateAllEmbeddingModelsFile(List<ModelInfo> sorted, string outputFolder)
+    {
+        var sb3 = new StringBuilder();
+        foreach (var item in sorted)
+        {
+            sb3.AppendLine(item.PredefinedClassCode);
+            sb3.AppendLine();
+        }
+
+        var classesFileContent =
+            H.Resources.AllModels_cs.AsString().Replace("{{DeepInfraClasses}}", sb3.ToString(), StringComparison.InvariantCulture);
+        var path1 = Path.Join(outputFolder, "Predefined");
+        Directory.CreateDirectory(path1);
+        var fileName = Path.Combine(path1, "AllEmbeddingModels.cs");
+        await File.WriteAllTextAsync(fileName, classesFileContent).ConfigureAwait(false);
+        Console.WriteLine($"Saved to {fileName}");
+    }
+
+    private static async Task<List<ModelInfo>> GetEmbeddingModelsAsync(GenerationOptions options)
+    {
+        var str = await GetStringAsync(new Uri("https://deepinfra.com/models/embeddings")).ConfigureAwait(false);
+        var lbb = new DocumentHelper();
+        var list = new List<ModelInfo>();
+        int index = 0;
+        //Parse Html
+        var hashSet = new HashSet<string?>();
+        do
+        {
+            lbb.DocumentText = str ?? string.Empty;
+            var links = lbb.FindNode("script", "type", "json", true);
+
+            if (links == null)
+                throw new InvalidOperationException("Model Info script node not found in the HTML document.");
+
+            var json = JObject.Parse(links.InnerText);
+
+            var models = (JArray)json.SelectToken("props.pageProps.models")!;
+
+            foreach (var model in models)
+            {
+                var modelInfo = ParseModelInfo(index, model, options, ModelType.Embedding);
+                if (modelInfo != null && hashSet.Add(modelInfo.EnumMemberCode))
+                {
+                    list.Add(modelInfo);
+                }
+            }
+
+            var nextPage = lbb.FindNode("a", "aria-label", "next page", true);
+            if (nextPage != null)
+            {
+                str = await GetStringAsync(new Uri($"https://deepinfra.com{nextPage.GetAttributeValue("href", "")}"))
+                    .ConfigureAwait(false);
+                if (string.IsNullOrEmpty(str))
+                    break;
+            }
+            else break;
+
+        } while (true);
+        return list;
     }
 
     private static async Task<List<ModelInfo>> GetModelsAsync(GenerationOptions options)
@@ -74,7 +144,7 @@ internal static class DeepInfraCodeGenerator
 
             foreach (var model in models)
             {
-                var modelInfo = ParseModelInfo(index, model, options);
+                var modelInfo = ParseModelInfo(index, model, options, ModelType.Text);
                 if (modelInfo != null && hashSet.Add(modelInfo.EnumMemberCode))
                 {
                     list.Add(modelInfo);
@@ -190,7 +260,7 @@ internal static class DeepInfraCodeGenerator
     /// <param name="modelToken"></param>
     /// <param name="options"></param>
     /// <returns></returns>
-    private static ModelInfo? ParseModelInfo(int i, JToken? modelToken, GenerationOptions options)
+    private static ModelInfo? ParseModelInfo(int i, JToken? modelToken, GenerationOptions options, ModelType modelType)
     {
         if (modelToken == null)
             return null;
@@ -226,7 +296,7 @@ internal static class DeepInfraCodeGenerator
             completionCost / (1000 * 1000));
 
         //Code for Predefined Model Class
-        var predefinedClassCode = GetPreDefinedClassCode(enumMemberName);
+        var predefinedClassCode = GetPreDefinedClassCode(enumMemberName, modelType);
 
         return new ModelInfo
         {
@@ -237,7 +307,8 @@ internal static class DeepInfraCodeGenerator
             ModelName = modelName,
             PredefinedClassCode = predefinedClassCode,
             EnumMemberCode = enumMemberCode,
-            Description = description
+            Description = description,
+            ModelType = modelType
         };
     }
 
@@ -251,13 +322,20 @@ internal static class DeepInfraCodeGenerator
         return sb2.ToString();
     }
 
-    private static string GetPreDefinedClassCode(string enumMemberName)
+    private static string GetPreDefinedClassCode(string enumMemberName, ModelType modelType)
     {
         var sb = new StringBuilder();
         sb.AppendLine(
             $"/// <inheritdoc cref=\"DeepInfraModelIds.{enumMemberName}\"/>\r\n/// <param name=\"provider\">Deep Infra Provider Instance</param>");
-        sb.AppendLine(
-            $"public class {enumMemberName.Replace("_", "", StringComparison.OrdinalIgnoreCase)}Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.{enumMemberName});");
+        
+        if(modelType == ModelType.Text)
+            sb.AppendLine(
+                $"public class {enumMemberName.Replace("_", "", StringComparison.OrdinalIgnoreCase)}Model(DeepInfraProvider provider) : DeepInfraModel(provider, DeepInfraModelIds.{enumMemberName});");
+        else if (modelType == ModelType.Embedding)
+        {
+            sb.AppendLine(
+                $"public class {enumMemberName.Replace("_", "", StringComparison.OrdinalIgnoreCase)}EmbeddingModel(DeepInfraProvider provider) : DeepInfraEmbeddingModel(provider, DeepInfraModelIds.{enumMemberName});");
+        }
         return sb.ToString();
     }
 
