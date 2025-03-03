@@ -10,7 +10,7 @@ var rootCommand = new RootCommand(
     new Option<string>(
         ["--output", "-o"], () => "../../../../../src", "Output directory"),
     new Option<string?>(
-    ["--key", "-k"], () => Environment.GetEnvironmentVariable("Together_Api_Key", EnvironmentVariableTarget.User), "Together AI API Key")
+    ["--key", "-k"], () => Environment.GetEnvironmentVariable("Together_Api_Key"), "Together AI API Key")
 };
 
 rootCommand.Handler = CommandHandler.Create(async (bool underscore, string output, string key) =>

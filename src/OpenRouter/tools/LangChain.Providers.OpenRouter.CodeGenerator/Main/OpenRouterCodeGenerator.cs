@@ -49,8 +49,8 @@ internal static class OpenRouterCodeGenerator
         var sorted = list.OrderBy(s => s.Index).ToList();
 
         //Create AllModels.cs
-        Console.WriteLine("Creating AllModels.cs...");
-        await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
+       // Console.WriteLine("Creating AllModels.cs...");
+        //await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
         //Create OpenRouterModelIds.cs
         Console.WriteLine("Creating OpenRouterModelIds.cs...");

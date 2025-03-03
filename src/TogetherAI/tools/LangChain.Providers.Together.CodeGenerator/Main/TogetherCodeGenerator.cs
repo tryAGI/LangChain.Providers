@@ -42,12 +42,12 @@ internal static class TogetherCodeGenerator
         var sorted = textModels.OrderBy(s => s.Index).ToList();
 
         //Create AllModels.cs
-        Console.WriteLine("Creating AllModels.cs...");
-        await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
+       // Console.WriteLine("Creating AllModels.cs...");
+        //await CreateAllModelsFile(sorted, options.OutputFolder).ConfigureAwait(false);
 
         //Create AllEmbeddingModels.cs
-        Console.WriteLine("Creating AllEmbeddingModels.cs...");
-        await CreateAllEmbeddingModelsFile(embeddingModels, options.OutputFolder).ConfigureAwait(false);
+       // Console.WriteLine("Creating AllEmbeddingModels.cs...");
+       // await CreateAllEmbeddingModelsFile(embeddingModels, options.OutputFolder).ConfigureAwait(false);
 
         sorted.AddRange(embeddingModels);
         //Create TogetherModelIds.cs
