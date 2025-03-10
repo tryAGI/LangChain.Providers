@@ -29,6 +29,28 @@ public enum DeepInfraModelIds
     DeepseekR1,
 
     /// <summary>
+    /// Name: QwQ-32B <br/>
+    /// Organization: Qwen <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.12/MTok <br/>
+    /// Completion Cost: $0.12/MTok <br/>
+    /// Description: QwQ is the reasoning model of the Qwen series. Compared with conventional instruction-tuned models, QwQ, which is capable of thinking and reasoning, can achieve significantly enhanced performance in downstream tasks, especially hard problems. QwQ-32B is the medium-sized reasoning model, which is capable of achieving competitive performance against state-of-the-art reasoning models, e.g., DeepSeek-R1, o1-mini. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QwQ-32B">https://huggingface.co/Qwen/QwQ-32B</a> 
+    /// </summary>
+    Qwq32B,
+
+    /// <summary>
+    /// Name: Phi-4-multimodal-instruct <br/>
+    /// Organization: microsoft <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.07/MTok <br/>
+    /// Completion Cost: $0.07/MTok <br/>
+    /// Description: Phi-4-multimodal-instruct is a lightweight open multimodal foundation model that leverages the language, vision, and speech research and datasets used for Phi-3.5 and 4.0 models. The model processes text, image, and audio inputs, generating text outputs, and comes with 128K token context length. The model underwent an enhancement process, incorporating both supervised fine-tuning, direct preference optimization and RLHF (Reinforcement Learning from Human Feedback) to support precise instruction adherence and safety measures. The languages that each modal supports are the following: - Text: Arabic, Chinese, Czech, Danish, Dutch, English, Finnish, French, German, Hebrew, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, Swedish, Thai, Turkish, Ukrainian - Vision: English - Audio: English, Chinese, German, French, Italian, Japanese, Spanish, Portuguese <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/microsoft/Phi-4-multimodal-instruct">https://huggingface.co/microsoft/Phi-4-multimodal-instruct</a> 
+    /// </summary>
+    Phi4MultimodalInstruct,
+
+    /// <summary>
     /// Name: DeepSeek-R1-Distill-Llama-70B <br/>
     /// Organization: deepseek-ai <br/>
     /// Context Length: 131072 <br/>
@@ -227,17 +249,6 @@ public enum DeepInfraModelIds
     Wizardlm28X22b,
 
     /// <summary>
-    /// Name: Yi-34B-Chat <br/>
-    /// Organization: 01-ai <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.6/MTok <br/>
-    /// Completion Cost: $0.6/MTok <br/>
-    /// Description:  <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/01-ai/Yi-34B-Chat">https://huggingface.co/01-ai/Yi-34B-Chat</a> 
-    /// </summary>
-    Yi34BChat,
-
-    /// <summary>
     /// Name: chronos-hermes-13b-v2 <br/>
     /// Organization: Austism <br/>
     /// Context Length: 4096 <br/>
@@ -269,17 +280,6 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Gryphe/MythoMax-L2-13b-turbo">https://huggingface.co/Gryphe/MythoMax-L2-13b-turbo</a> 
     /// </summary>
     MythomaxL213BTurbo,
-
-    /// <summary>
-    /// Name: zephyr-orpo-141b-A35b-v0.1 <br/>
-    /// Organization: HuggingFaceH4 <br/>
-    /// Context Length: 65536 <br/>
-    /// Prompt Cost: $0.65/MTok <br/>
-    /// Completion Cost: $0.65/MTok <br/>
-    /// Description: Zephyr 141B-A35B is an instruction-tuned (assistant) version of Mixtral-8x22B. It was fine-tuned on a mix of publicly available, synthetic datasets. It achieves strong performance on chat benchmarks. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1">https://huggingface.co/HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1</a> 
-    /// </summary>
-    ZephyrOrpo141BA35bV01,
 
     /// <summary>
     /// Name: LLaMA2-13B-Tiefighter <br/>
@@ -436,17 +436,6 @@ public enum DeepInfraModelIds
     L3370BEuryaleV23,
 
     /// <summary>
-    /// Name: starcoder2-15b <br/>
-    /// Organization: bigcode <br/>
-    /// Context Length: 16384 <br/>
-    /// Prompt Cost: $0.4/MTok <br/>
-    /// Completion Cost: $0.4/MTok <br/>
-    /// Description: StarCoder2-15B model is a 15B parameter model trained on 600+ programming languages. It specializes in code completion. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/bigcode/starcoder2-15b">https://huggingface.co/bigcode/starcoder2-15b</a> 
-    /// </summary>
-    Starcoder215B,
-
-    /// <summary>
     /// Name: starcoder2-15b-instruct-v0.1 <br/>
     /// Organization: bigcode <br/>
     /// Context Length:  <br/>
@@ -456,28 +445,6 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/bigcode/starcoder2-15b-instruct-v0.1">https://huggingface.co/bigcode/starcoder2-15b-instruct-v0.1</a> 
     /// </summary>
     Starcoder215BInstructV01,
-
-    /// <summary>
-    /// Name: CodeLlama-34b-Instruct-hf <br/>
-    /// Organization: codellama <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.6/MTok <br/>
-    /// Completion Cost: $0.6/MTok <br/>
-    /// Description: Code Llama is a state-of-the-art LLM capable of generating code, and natural language about code, from both code and natural language prompts. This particular instance is the 34b instruct variant <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-34b-Instruct-hf">https://huggingface.co/codellama/CodeLlama-34b-Instruct-hf</a> 
-    /// </summary>
-    Codellama34BInstructHf,
-
-    /// <summary>
-    /// Name: CodeLlama-70b-Instruct-hf <br/>
-    /// Organization: codellama <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.7/MTok <br/>
-    /// Completion Cost: $0.7/MTok <br/>
-    /// Description: CodeLlama-70b is the largest and latest code generation from the Code Llama collection.  <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf">https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf</a> 
-    /// </summary>
-    Codellama70BInstructHf,
 
     /// <summary>
     /// Name: dolphin-2.6-mixtral-8x7b <br/>
@@ -502,17 +469,6 @@ public enum DeepInfraModelIds
     Dolphin291Llama370B,
 
     /// <summary>
-    /// Name: dbrx-instruct <br/>
-    /// Organization: databricks <br/>
-    /// Context Length: 32768 <br/>
-    /// Prompt Cost: $0.6/MTok <br/>
-    /// Completion Cost: $0.6/MTok <br/>
-    /// Description: DBRX is an open source LLM created by Databricks. It uses mixture-of-experts (MoE) architecture with 132B total parameters of which 36B parameters are active on any input. It outperforms existing open source LLMs like Llama 2 70B and Mixtral-8x7B on standard industry benchmarks for language understanding, programming, math, and logic. <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/databricks/dbrx-instruct">https://huggingface.co/databricks/dbrx-instruct</a> 
-    /// </summary>
-    DbrxInstruct,
-
-    /// <summary>
     /// Name: airoboros-70b <br/>
     /// Organization: deepinfra <br/>
     /// Context Length: 4096 <br/>
@@ -533,6 +489,39 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/google/codegemma-7b-it">https://huggingface.co/google/codegemma-7b-it</a> 
     /// </summary>
     Codegemma7BIt,
+
+    /// <summary>
+    /// Name: gemini-1.5-flash <br/>
+    /// Organization: google <br/>
+    /// Context Length: 1000000 <br/>
+    /// Prompt Cost: $0.08/MTok <br/>
+    /// Completion Cost: $0.08/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemini-1.5-flash">https://huggingface.co/google/gemini-1.5-flash</a> 
+    /// </summary>
+    Gemini15Flash,
+
+    /// <summary>
+    /// Name: gemini-1.5-flash-8b <br/>
+    /// Organization: google <br/>
+    /// Context Length: 1000000 <br/>
+    /// Prompt Cost: $0.04/MTok <br/>
+    /// Completion Cost: $0.04/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemini-1.5-flash-8b">https://huggingface.co/google/gemini-1.5-flash-8b</a> 
+    /// </summary>
+    Gemini15Flash8B,
+
+    /// <summary>
+    /// Name: gemini-2.0-flash-001 <br/>
+    /// Organization: google <br/>
+    /// Context Length: 1000000 <br/>
+    /// Prompt Cost: $0.1/MTok <br/>
+    /// Completion Cost: $0.1/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemini-2.0-flash-001">https://huggingface.co/google/gemini-2.0-flash-001</a> 
+    /// </summary>
+    Gemini20Flash001,
 
     /// <summary>
     /// Name: gemma-1.1-7b-it <br/>
@@ -610,17 +599,6 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-2-70b-chat-hf">https://huggingface.co/meta-llama/Llama-2-70b-chat-hf</a> 
     /// </summary>
     Llama270BChatHf,
-
-    /// <summary>
-    /// Name: Llama-2-7b-chat-hf <br/>
-    /// Organization: meta-llama <br/>
-    /// Context Length: 4096 <br/>
-    /// Prompt Cost: $0.07/MTok <br/>
-    /// Completion Cost: $0.07/MTok <br/>
-    /// Description: Llama 2 is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. This is the repository for the 7B fine-tuned model, optimized for dialogue use cases and converted for the Hugging Face Transformers format.  <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">https://huggingface.co/meta-llama/Llama-2-7b-chat-hf</a> 
-    /// </summary>
-    Llama27BChatHf,
 
     /// <summary>
     /// Name: Llama-3.2-1B-Instruct <br/>
@@ -744,17 +722,6 @@ public enum DeepInfraModelIds
     Mixtral8X22bInstructV01,
 
     /// <summary>
-    /// Name: Mixtral-8x22B-v0.1 <br/>
-    /// Organization: mistralai <br/>
-    /// Context Length: 65536 <br/>
-    /// Prompt Cost: $0.65/MTok <br/>
-    /// Completion Cost: $0.65/MTok <br/>
-    /// Description: Mixtral-8x22B is the latest and largest mixture of expert large language model (LLM) from Mistral AI. This is state of the art machine learning model using a mixture 8 of experts (MoE) 22b models. During inference 2 expers are selected. This architecture allows large models to be fast and cheap at inference.  This model is not instruction tuned.  <br/>
-    /// HuggingFace Url: <a href="https://huggingface.co/mistralai/Mixtral-8x22B-v0.1">https://huggingface.co/mistralai/Mixtral-8x22B-v0.1</a> 
-    /// </summary>
-    Mixtral8X22bV01,
-
-    /// <summary>
     /// Name: Mixtral-8x7B-Instruct-v0.1 <br/>
     /// Organization: mistralai <br/>
     /// Context Length: 32768 <br/>
@@ -852,6 +819,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/BAAI/bge-m3">https://huggingface.co/BAAI/bge-m3</a> 
     /// </summary>
     BgeM3,
+
+    /// <summary>
+    /// Name: bge-m3-multi <br/>
+    /// Organization: BAAI <br/>
+    /// Context Length: 8192 <br/>
+    /// Prompt Cost: $0.01/MTok <br/>
+    /// Completion Cost: $0.01/MTok <br/>
+    /// Description: BGE-M3 is a multilingual text embedding model developed by BAAI, distinguished by its Multi-Linguality (supporting 100+ languages), Multi-Functionality (unified dense, multi-vector, and sparse retrieval), and Multi-Granularity (handling inputs from short queries to 8192-token documents). It achieves state-of-the-art retrieval performance across diverse benchmarks while maintaining a single model for multiple retrieval modes. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/BAAI/bge-m3-multi">https://huggingface.co/BAAI/bge-m3-multi</a> 
+    /// </summary>
+    BgeM3Multi,
 
     /// <summary>
     /// Name: e5-base-v2 <br/>
