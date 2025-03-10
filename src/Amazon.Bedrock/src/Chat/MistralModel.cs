@@ -9,7 +9,7 @@ using LangChain.Providers.Amazon.Bedrock.Internal;
 // ReSharper disable once CheckNamespace
 namespace LangChain.Providers.Amazon.Bedrock;
 
-public abstract class MistralModel(
+public class MistralModel(
     BedrockProvider provider,
     string id)
     : ChatModel(id)
@@ -51,7 +51,7 @@ public abstract class MistralModel(
                 var streamEvent = (PayloadPart)payloadPart;
                 var chunk = await JsonSerializer.DeserializeAsync<JsonObject>(streamEvent.Bytes, cancellationToken: cancellationToken)
                     .ConfigureAwait(false);
-                var delta = chunk?["outputText"]!.GetValue<string>();
+                var delta = chunk?["outputs"]?[0]?["text"]?.GetValue<string>();
 
                 OnDeltaReceived(new ChatResponseDelta
                 {
@@ -59,8 +59,8 @@ public abstract class MistralModel(
                 });
                 stringBuilder.Append(delta);
 
-                var finished = chunk?["completionReason"]?.GetValue<string>();
-                if (finished?.ToUpperInvariant() == "FINISH")
+                var finished = chunk?["outputs"]?[0]?["stop_reason"]?.GetValue<string>();
+                if (finished?.ToUpperInvariant() is "STOP" or "LENGTH")
                 {
                     break;
                 }
