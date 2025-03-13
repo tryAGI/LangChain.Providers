@@ -74,13 +74,12 @@ public static class StringExtensions
     [CLSCompliant(false)]
     public static Content AsFunctionResultContent(this string args, string functionName)
     {
+        var result = new JsonObject();
+        result.Add("name", functionName);
+        result.Add("content", JsonNode.Parse(args));
         var functionResponse = new FunctionResponse()
         {
-            Response = new
-            {
-                Name = functionName,
-                Content = JsonNode.Parse(args)
-            },
+            Response = result,
             Name = functionName
         };
         var content = new Content() { Role = Roles.Function };

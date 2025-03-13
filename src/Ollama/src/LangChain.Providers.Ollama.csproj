@@ -17,10 +17,6 @@
 		<PackageReference Include="System.Text.Json" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="System.Text.Json" />
-	</ItemGroup>
-
 	<PropertyGroup Label="NuGet">
 		<Description>Ollama Chat model provider.</Description>
 		<PackageTags>$(PackageTags);Ollama;api</PackageTags>
@@ -32,6 +28,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+	  <PackageReference Include="System.Text.Json" />
 	</ItemGroup>
 
 </Project>
