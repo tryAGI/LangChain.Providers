@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using CSharpToJsonSchema;
 using GenerativeAI;
@@ -47,10 +48,11 @@ internal static class GoogleGeminiExtensions
             return string.Empty;
         if (arguments is JsonElement jsonElement)
             return jsonElement.ToString();
-        else
+        else if (arguments is JsonNode jsonNode)
         {
-            return null;
+            return jsonNode.ToJsonString();
         }
+        else throw new Exception("Unknown type");
     }
 
     [RequiresUnreferencedCode("Calls System.Text.Json.JsonSerializer.Serialize<TValue>(TValue, JsonSerializerOptions)")]

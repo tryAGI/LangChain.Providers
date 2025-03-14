@@ -10,15 +10,8 @@
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net4.6.2'">
+		<PackageReference Include="System.Text.Json" />
 		<Reference Include="System.Net.Http" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net4.6.2'">
-		<PackageReference Include="System.Text.Json" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="System.Text.Json" />
 	</ItemGroup>
 
 	<ItemGroup Label="Usings">
@@ -32,6 +25,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+	  <PackageReference Include="System.Text.Json" />
 	</ItemGroup>
 
 </Project>
