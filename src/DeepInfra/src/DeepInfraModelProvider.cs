@@ -9,12 +9,13 @@ public static class DeepInfraModelProvider
 {
     private static Dictionary<DeepInfraModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
-        { DeepInfraModelIds.DeepseekR1Turbo, ToMetadata("deepseek-ai/DeepSeek-R1-Turbo",32768,2E-06,6E-06)},
-        { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",65536,7.5E-07,2.4E-06)},
+        { DeepInfraModelIds.DeepseekR1Turbo, ToMetadata("deepseek-ai/DeepSeek-R1-Turbo",32768,1E-06,3E-06)},
+        { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",65536,5.5E-07,2.1899999999999998E-06)},
         { DeepInfraModelIds.Qwq32B, ToMetadata("Qwen/QwQ-32B",131072,1.2E-07,1.8E-07)},
+        { DeepInfraModelIds.Gemma327BIt, ToMetadata("google/gemma-3-27b-it",131072,1.0000000000000001E-07,2.0000000000000002E-07)},
         { DeepInfraModelIds.Phi4MultimodalInstruct, ToMetadata("microsoft/Phi-4-multimodal-instruct",131072,7E-08,1.4E-07)},
         { DeepInfraModelIds.DeepseekR1DistillLlama70B, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Llama-70B",131072,2.3000000000000002E-07,6.9E-07)},
-        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",65536,4.9E-07,8.900000000000001E-07)},
+        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",65536,4.0000000000000003E-07,8.900000000000001E-07)},
         { DeepInfraModelIds.Llama3370BInstructTurbo, ToMetadata("meta-llama/Llama-3.3-70B-Instruct-Turbo",131072,1.2E-07,3E-07)},
         { DeepInfraModelIds.Llama3370BInstruct, ToMetadata("meta-llama/Llama-3.3-70B-Instruct",131072,2.3000000000000002E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MistralSmall24BInstruct2501, ToMetadata("mistralai/Mistral-Small-24B-Instruct-2501",32768,7E-08,1.4E-07)},
@@ -48,6 +49,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.L38BLunarisV1, ToMetadata("Sao10K/L3-8B-Lunaris-v1",8192,3E-08,6E-08)},
         { DeepInfraModelIds.L3170BEuryaleV22, ToMetadata("Sao10K/L3.1-70B-Euryale-v2.2",131072,7E-07,8.000000000000001E-07)},
         { DeepInfraModelIds.L3370BEuryaleV23, ToMetadata("Sao10K/L3.3-70B-Euryale-v2.3",131072,7E-07,8.000000000000001E-07)},
+        { DeepInfraModelIds.Claude37SonnetLatest, ToMetadata("anthropic/claude-3-7-sonnet-latest",200000,3.2999999999999997E-06,1.65E-05)},
         { DeepInfraModelIds.Starcoder215BInstructV01, ToMetadata("bigcode/starcoder2-15b-instruct-v0.1",null,1.5E-07,1.5E-07)},
         { DeepInfraModelIds.Dolphin26Mixtral8X7B, ToMetadata("cognitivecomputations/dolphin-2.6-mixtral-8x7b",32768,2.4E-07,2.4E-07)},
         { DeepInfraModelIds.Dolphin291Llama370B, ToMetadata("cognitivecomputations/dolphin-2.9.1-llama-3-70b",8192,3.5E-07,4.0000000000000003E-07)},
