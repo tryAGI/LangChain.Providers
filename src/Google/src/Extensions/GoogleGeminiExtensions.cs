@@ -55,12 +55,10 @@ internal static class GoogleGeminiExtensions
         else throw new Exception("Unknown type");
     }
 
-    [RequiresUnreferencedCode("Calls System.Text.Json.JsonSerializer.Serialize<TValue>(TValue, JsonSerializerOptions)")]
-    [RequiresDynamicCode("Calls System.Text.Json.JsonSerializer.Serialize<TValue>(TValue, JsonSerializerOptions)")]
     public static Schema? ToFunctionParameters(this OpenApiSchema openApiSchema)
     {
-        var text = JsonSerializer.Serialize(openApiSchema);
-        return JsonSerializer.Deserialize<Schema?>(text);
+        var text = JsonSerializer.Serialize(openApiSchema,CSharpToJsonSchema.OpenApiSchemaJsonContext.Default.OpenApiSchema);
+        return JsonSerializer.Deserialize<Schema?>(text,TypesSerializerContext.Default.Schema);
     }
 
     public static string GetString(this IDictionary<string, object>? arguments)
