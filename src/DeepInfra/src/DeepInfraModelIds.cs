@@ -10,8 +10,8 @@ public enum DeepInfraModelIds
     /// Name: DeepSeek-R1-Turbo <br/>
     /// Organization: deepseek-ai <br/>
     /// Context Length: 32768 <br/>
-    /// Prompt Cost: $2/MTok <br/>
-    /// Completion Cost: $2/MTok <br/>
+    /// Prompt Cost: $1/MTok <br/>
+    /// Completion Cost: $1/MTok <br/>
     /// Description: We introduce DeepSeek-R1, which incorporates cold-start data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks.  <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1-Turbo">https://huggingface.co/deepseek-ai/DeepSeek-R1-Turbo</a> 
     /// </summary>
@@ -21,8 +21,8 @@ public enum DeepInfraModelIds
     /// Name: DeepSeek-R1 <br/>
     /// Organization: deepseek-ai <br/>
     /// Context Length: 65536 <br/>
-    /// Prompt Cost: $0.75/MTok <br/>
-    /// Completion Cost: $0.75/MTok <br/>
+    /// Prompt Cost: $0.55/MTok <br/>
+    /// Completion Cost: $0.55/MTok <br/>
     /// Description: We introduce DeepSeek-R1, which incorporates cold-start data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks.  <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1">https://huggingface.co/deepseek-ai/DeepSeek-R1</a> 
     /// </summary>
@@ -38,6 +38,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QwQ-32B">https://huggingface.co/Qwen/QwQ-32B</a> 
     /// </summary>
     Qwq32B,
+
+    /// <summary>
+    /// Name: gemma-3-27b-it <br/>
+    /// Organization: google <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.1/MTok <br/>
+    /// Completion Cost: $0.1/MTok <br/>
+    /// Description: Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities, including structured outputs and function calling. Gemma 3 27B is Google's latest open source model, successor to Gemma 2 <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-3-27b-it">https://huggingface.co/google/gemma-3-27b-it</a> 
+    /// </summary>
+    Gemma327BIt,
 
     /// <summary>
     /// Name: Phi-4-multimodal-instruct <br/>
@@ -65,8 +76,8 @@ public enum DeepInfraModelIds
     /// Name: DeepSeek-V3 <br/>
     /// Organization: deepseek-ai <br/>
     /// Context Length: 65536 <br/>
-    /// Prompt Cost: $0.49/MTok <br/>
-    /// Completion Cost: $0.49/MTok <br/>
+    /// Prompt Cost: $0.4/MTok <br/>
+    /// Completion Cost: $0.4/MTok <br/>
     /// Description: DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token. To achieve efficient inference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent Attention (MLA) and DeepSeekMoE architectures, which were thoroughly validated in DeepSeek-V2.  <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3">https://huggingface.co/deepseek-ai/DeepSeek-V3</a> 
     /// </summary>
@@ -434,6 +445,17 @@ public enum DeepInfraModelIds
     /// HuggingFace Url: <a href="https://huggingface.co/Sao10K/L3.3-70B-Euryale-v2.3">https://huggingface.co/Sao10K/L3.3-70B-Euryale-v2.3</a> 
     /// </summary>
     L3370BEuryaleV23,
+
+    /// <summary>
+    /// Name: claude-3-7-sonnet-latest <br/>
+    /// Organization: anthropic <br/>
+    /// Context Length: 200000 <br/>
+    /// Prompt Cost: $3.3/MTok <br/>
+    /// Completion Cost: $3.3/MTok <br/>
+    /// Description:  <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/anthropic/claude-3-7-sonnet-latest">https://huggingface.co/anthropic/claude-3-7-sonnet-latest</a> 
+    /// </summary>
+    Claude37SonnetLatest,
 
     /// <summary>
     /// Name: starcoder2-15b-instruct-v0.1 <br/>
