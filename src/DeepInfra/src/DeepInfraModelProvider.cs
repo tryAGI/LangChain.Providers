@@ -13,7 +13,7 @@ public static class DeepInfraModelProvider
         { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",65536,5.5E-07,2.1899999999999998E-06)},
         { DeepInfraModelIds.Qwq32B, ToMetadata("Qwen/QwQ-32B",131072,1.2E-07,1.8E-07)},
         { DeepInfraModelIds.Gemma327BIt, ToMetadata("google/gemma-3-27b-it",131072,1.0000000000000001E-07,2.0000000000000002E-07)},
-        { DeepInfraModelIds.Phi4MultimodalInstruct, ToMetadata("microsoft/Phi-4-multimodal-instruct",131072,7E-08,1.4E-07)},
+        { DeepInfraModelIds.Phi4MultimodalInstruct, ToMetadata("microsoft/Phi-4-multimodal-instruct",131072,5.0000000000000004E-08,1.0000000000000001E-07)},
         { DeepInfraModelIds.DeepseekR1DistillLlama70B, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Llama-70B",131072,2.3000000000000002E-07,6.9E-07)},
         { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",65536,4.0000000000000003E-07,8.900000000000001E-07)},
         { DeepInfraModelIds.Llama3370BInstructTurbo, ToMetadata("meta-llama/Llama-3.3-70B-Instruct-Turbo",131072,1.2E-07,3E-07)},
