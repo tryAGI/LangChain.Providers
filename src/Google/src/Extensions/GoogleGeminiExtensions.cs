@@ -57,8 +57,8 @@ internal static class GoogleGeminiExtensions
 
     public static Schema? ToFunctionParameters(this OpenApiSchema openApiSchema)
     {
-        var text = JsonSerializer.Serialize(openApiSchema,CSharpToJsonSchema.OpenApiSchemaJsonContext.Default.OpenApiSchema);
-        return JsonSerializer.Deserialize<Schema?>(text,TypesSerializerContext.Default.Schema);
+        var text = JsonSerializer.Serialize(openApiSchema, CSharpToJsonSchema.OpenApiSchemaJsonContext.Default.OpenApiSchema);
+        return JsonSerializer.Deserialize<Schema?>(text, TypesSerializerContext.Default.Schema);
     }
 
     public static string GetString(this IDictionary<string, object>? arguments)
