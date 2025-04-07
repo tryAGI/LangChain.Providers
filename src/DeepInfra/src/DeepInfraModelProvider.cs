@@ -9,13 +9,18 @@ public static class DeepInfraModelProvider
 {
     private static Dictionary<DeepInfraModelIds, ChatModelMetadata> Models { get; set; } = new()
     {
+        { DeepInfraModelIds.Llama4Maverick17B128EInstructFp8, ToMetadata("meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",131072,2.0000000000000002E-07,6E-07)},
+        { DeepInfraModelIds.Llama4Scout17B16EInstruct, ToMetadata("meta-llama/Llama-4-Scout-17B-16E-Instruct",131072,1.0000000000000001E-07,3E-07)},
         { DeepInfraModelIds.DeepseekR1Turbo, ToMetadata("deepseek-ai/DeepSeek-R1-Turbo",32768,1E-06,3E-06)},
-        { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",65536,5.5E-07,2.1899999999999998E-06)},
-        { DeepInfraModelIds.Qwq32B, ToMetadata("Qwen/QwQ-32B",131072,1.2E-07,1.8E-07)},
+        { DeepInfraModelIds.DeepseekR1, ToMetadata("deepseek-ai/DeepSeek-R1",163840,5.5E-07,2.1899999999999998E-06)},
+        { DeepInfraModelIds.Qwq32B, ToMetadata("Qwen/QwQ-32B",131072,1.5E-07,2.0000000000000002E-07)},
+        { DeepInfraModelIds.DeepseekV30324, ToMetadata("deepseek-ai/DeepSeek-V3-0324",163840,4.0000000000000003E-07,8.900000000000001E-07)},
         { DeepInfraModelIds.Gemma327BIt, ToMetadata("google/gemma-3-27b-it",131072,1.0000000000000001E-07,2.0000000000000002E-07)},
-        { DeepInfraModelIds.Phi4MultimodalInstruct, ToMetadata("microsoft/Phi-4-multimodal-instruct",131072,7E-08,1.4E-07)},
+        { DeepInfraModelIds.Gemma312BIt, ToMetadata("google/gemma-3-12b-it",131072,5.0000000000000004E-08,1.0000000000000001E-07)},
+        { DeepInfraModelIds.Gemma34BIt, ToMetadata("google/gemma-3-4b-it",131072,2E-08,4E-08)},
+        { DeepInfraModelIds.Phi4MultimodalInstruct, ToMetadata("microsoft/Phi-4-multimodal-instruct",131072,5.0000000000000004E-08,1.0000000000000001E-07)},
         { DeepInfraModelIds.DeepseekR1DistillLlama70B, ToMetadata("deepseek-ai/DeepSeek-R1-Distill-Llama-70B",131072,2.3000000000000002E-07,6.9E-07)},
-        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",65536,4.0000000000000003E-07,8.900000000000001E-07)},
+        { DeepInfraModelIds.DeepseekV3, ToMetadata("deepseek-ai/DeepSeek-V3",163840,4.0000000000000003E-07,8.900000000000001E-07)},
         { DeepInfraModelIds.Llama3370BInstructTurbo, ToMetadata("meta-llama/Llama-3.3-70B-Instruct-Turbo",131072,1.2E-07,3E-07)},
         { DeepInfraModelIds.Llama3370BInstruct, ToMetadata("meta-llama/Llama-3.3-70B-Instruct",131072,2.3000000000000002E-07,4.0000000000000003E-07)},
         { DeepInfraModelIds.MistralSmall24BInstruct2501, ToMetadata("mistralai/Mistral-Small-24B-Instruct-2501",32768,7E-08,1.4E-07)},

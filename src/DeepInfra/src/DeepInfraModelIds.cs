@@ -7,6 +7,28 @@ public enum DeepInfraModelIds
 {
 
     /// <summary>
+    /// Name: Llama-4-Maverick-17B-128E-Instruct-FP8 <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.2/MTok <br/>
+    /// Completion Cost: $0.2/MTok <br/>
+    /// Description: The Llama 4 collection of models are natively multimodal AI models that enable text and multimodal experiences. These models leverage a mixture-of-experts architecture to offer industry-leading performance in text and image understanding. Llama 4 Maverick, a 17 billion parameter model with 128 experts <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8">https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8</a> 
+    /// </summary>
+    Llama4Maverick17B128EInstructFp8,
+
+    /// <summary>
+    /// Name: Llama-4-Scout-17B-16E-Instruct <br/>
+    /// Organization: meta-llama <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.1/MTok <br/>
+    /// Completion Cost: $0.1/MTok <br/>
+    /// Description: The Llama 4 collection of models are natively multimodal AI models that enable text and multimodal experiences. These models leverage a mixture-of-experts architecture to offer industry-leading performance in text and image understanding. Llama 4 Scout, a 17 billion parameter model with 16 experts <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct">https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct</a> 
+    /// </summary>
+    Llama4Scout17B16EInstruct,
+
+    /// <summary>
     /// Name: DeepSeek-R1-Turbo <br/>
     /// Organization: deepseek-ai <br/>
     /// Context Length: 32768 <br/>
@@ -20,7 +42,7 @@ public enum DeepInfraModelIds
     /// <summary>
     /// Name: DeepSeek-R1 <br/>
     /// Organization: deepseek-ai <br/>
-    /// Context Length: 65536 <br/>
+    /// Context Length: 163840 <br/>
     /// Prompt Cost: $0.55/MTok <br/>
     /// Completion Cost: $0.55/MTok <br/>
     /// Description: We introduce DeepSeek-R1, which incorporates cold-start data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks.  <br/>
@@ -32,12 +54,23 @@ public enum DeepInfraModelIds
     /// Name: QwQ-32B <br/>
     /// Organization: Qwen <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.12/MTok <br/>
-    /// Completion Cost: $0.12/MTok <br/>
+    /// Prompt Cost: $0.15/MTok <br/>
+    /// Completion Cost: $0.15/MTok <br/>
     /// Description: QwQ is the reasoning model of the Qwen series. Compared with conventional instruction-tuned models, QwQ, which is capable of thinking and reasoning, can achieve significantly enhanced performance in downstream tasks, especially hard problems. QwQ-32B is the medium-sized reasoning model, which is capable of achieving competitive performance against state-of-the-art reasoning models, e.g., DeepSeek-R1, o1-mini. <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/Qwen/QwQ-32B">https://huggingface.co/Qwen/QwQ-32B</a> 
     /// </summary>
     Qwq32B,
+
+    /// <summary>
+    /// Name: DeepSeek-V3-0324 <br/>
+    /// Organization: deepseek-ai <br/>
+    /// Context Length: 163840 <br/>
+    /// Prompt Cost: $0.4/MTok <br/>
+    /// Completion Cost: $0.4/MTok <br/>
+    /// Description: DeepSeek-V3-0324, a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token, an improved iteration over DeepSeek-V3. <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3-0324">https://huggingface.co/deepseek-ai/DeepSeek-V3-0324</a> 
+    /// </summary>
+    DeepseekV30324,
 
     /// <summary>
     /// Name: gemma-3-27b-it <br/>
@@ -51,11 +84,33 @@ public enum DeepInfraModelIds
     Gemma327BIt,
 
     /// <summary>
+    /// Name: gemma-3-12b-it <br/>
+    /// Organization: google <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.05/MTok <br/>
+    /// Completion Cost: $0.05/MTok <br/>
+    /// Description: Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities, including structured outputs and function calling. Gemma 3-12B is Google's latest open source model, successor to Gemma 2 <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-3-12b-it">https://huggingface.co/google/gemma-3-12b-it</a> 
+    /// </summary>
+    Gemma312BIt,
+
+    /// <summary>
+    /// Name: gemma-3-4b-it <br/>
+    /// Organization: google <br/>
+    /// Context Length: 131072 <br/>
+    /// Prompt Cost: $0.02/MTok <br/>
+    /// Completion Cost: $0.02/MTok <br/>
+    /// Description: Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities, including structured outputs and function calling. Gemma 3-12B is Google's latest open source model, successor to Gemma 2 <br/>
+    /// HuggingFace Url: <a href="https://huggingface.co/google/gemma-3-4b-it">https://huggingface.co/google/gemma-3-4b-it</a> 
+    /// </summary>
+    Gemma34BIt,
+
+    /// <summary>
     /// Name: Phi-4-multimodal-instruct <br/>
     /// Organization: microsoft <br/>
     /// Context Length: 131072 <br/>
-    /// Prompt Cost: $0.07/MTok <br/>
-    /// Completion Cost: $0.07/MTok <br/>
+    /// Prompt Cost: $0.05/MTok <br/>
+    /// Completion Cost: $0.05/MTok <br/>
     /// Description: Phi-4-multimodal-instruct is a lightweight open multimodal foundation model that leverages the language, vision, and speech research and datasets used for Phi-3.5 and 4.0 models. The model processes text, image, and audio inputs, generating text outputs, and comes with 128K token context length. The model underwent an enhancement process, incorporating both supervised fine-tuning, direct preference optimization and RLHF (Reinforcement Learning from Human Feedback) to support precise instruction adherence and safety measures. The languages that each modal supports are the following: - Text: Arabic, Chinese, Czech, Danish, Dutch, English, Finnish, French, German, Hebrew, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, Swedish, Thai, Turkish, Ukrainian - Vision: English - Audio: English, Chinese, German, French, Italian, Japanese, Spanish, Portuguese <br/>
     /// HuggingFace Url: <a href="https://huggingface.co/microsoft/Phi-4-multimodal-instruct">https://huggingface.co/microsoft/Phi-4-multimodal-instruct</a> 
     /// </summary>
@@ -75,7 +130,7 @@ public enum DeepInfraModelIds
     /// <summary>
     /// Name: DeepSeek-V3 <br/>
     /// Organization: deepseek-ai <br/>
-    /// Context Length: 65536 <br/>
+    /// Context Length: 163840 <br/>
     /// Prompt Cost: $0.4/MTok <br/>
     /// Completion Cost: $0.4/MTok <br/>
     /// Description: DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token. To achieve efficient inference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent Attention (MLA) and DeepSeekMoE architectures, which were thoroughly validated in DeepSeek-V2.  <br/>
