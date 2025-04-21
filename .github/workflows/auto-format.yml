@@ -9,7 +9,7 @@ permissions:
   actions: write
 
 jobs:
-  together:
+  auto-format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
