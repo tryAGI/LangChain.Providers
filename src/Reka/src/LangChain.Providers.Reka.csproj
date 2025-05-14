@@ -15,14 +15,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="H.NSwag.Generator">
+        <PackageReference Include="H.NSwag.Generator" Version="14.1.0.1">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="System.ComponentModel.Annotations" />
-        <PackageReference Include="System.Net.Http.Json" />
-        <PackageReference Include="System.Text.Json" />
-        <PackageReference Include="LangChain.Polyfills" />
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+        <PackageReference Include="System.Net.Http.Json" Version="9.0.5" />
+        <PackageReference Include="System.Text.Json" Version="9.0.5" />
+        <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.47" />
     </ItemGroup>
 
     <ItemGroup>

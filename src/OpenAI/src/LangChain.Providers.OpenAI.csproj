@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="tryAGI.OpenAI" />
-        <PackageReference Include="LangChain.Polyfills" />
+        <PackageReference Include="tryAGI.OpenAI" Version="4.2.1-dev.6" />
+        <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.47" />
     </ItemGroup>
 
     <ItemGroup Label="Usings">

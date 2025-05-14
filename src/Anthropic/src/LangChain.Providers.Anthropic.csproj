@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Anthropic"/>
-        <PackageReference Include="LangChain.Polyfills"/>
+        <PackageReference Include="Anthropic" Version="3.5.0"/>
+        <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.47"/>
     </ItemGroup>
 
     <ItemGroup Label="Usings">

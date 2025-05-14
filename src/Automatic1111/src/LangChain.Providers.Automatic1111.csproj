@@ -10,8 +10,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LLamaSharp" />
-		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="LLamaSharp" Version="0.23.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup Label="Usings">

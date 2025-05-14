@@ -13,8 +13,8 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net4.6.2'">
-		<PackageReference Include="System.Net.Http" />
-		<PackageReference Include="System.Text.Json" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Text.Json" Version="9.0.5" />
 	</ItemGroup>
 
 	<PropertyGroup Label="NuGet">
@@ -23,7 +23,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Ollama" />
+	  <PackageReference Include="Ollama" Version="1.15.1-dev.13" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -31,7 +31,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-	  <PackageReference Include="System.Text.Json" />
+	  <PackageReference Include="System.Text.Json" Version="9.0.5" />
 	</ItemGroup>
 
 </Project>

@@ -23,9 +23,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="LangChain.Core" />
-      <PackageReference Include="Newtonsoft.Json" />
-      <PackageReference Include="System.Text.Json" />
+      <PackageReference Include="LangChain.Core" Version="0.17.1-dev.47" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="System.Text.Json" Version="9.0.5" />
     </ItemGroup>
 
 </Project>

@@ -6,11 +6,11 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json"/>
-        <PackageReference Include="System.Memory.Data"/>
-        <PackageReference Include="System.Text.Json"/>
-        <PackageReference Include="Azure.AI.OpenAI"/>
-        <PackageReference Include="LangChain.Polyfills"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="System.Memory.Data" Version="9.0.5"/>
+        <PackageReference Include="System.Text.Json" Version="9.0.5"/>
+        <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0"/>
+        <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.47"/>
     </ItemGroup>
 
     <ItemGroup Label="Usings">

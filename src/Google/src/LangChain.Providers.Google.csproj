@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Google_GenerativeAI"/>
+        <PackageReference Include="Google_GenerativeAI" Version="2.5.10"/>
     </ItemGroup>
 
     <ItemGroup Label="Usings">
