@@ -14,7 +14,7 @@ public class HuggingFaceChatModel(
     #region Properties
 
     /// <inheritdoc/>
-    public override int ContextLength => ApiHelpers.CalculateContextLength(Id);
+    public override int ContextLength => 0;// ApiHelpers.CalculateContextLength(Id);
 
     #endregion
 
@@ -36,7 +36,7 @@ public class HuggingFaceChatModel(
     private static Message ToMessage(ICollection<GenerateTextResponseValue> message)
     {
         return new Message(
-            Content: message.First().Generated_text,
+            Content: message.First().GeneratedText,
             Role: MessageRole.Ai);
     }
 
@@ -44,19 +44,19 @@ public class HuggingFaceChatModel(
         IReadOnlyCollection<Message> messages,
         CancellationToken cancellationToken = default)
     {
-        return await provider.Api.GenerateTextAsync(modelId: Id, body: new GenerateTextRequest
+        return await provider.Api.GenerateTextAsync(modelId: Id, new GenerateTextRequest
         {
             Inputs = messages
                 .Select(ToRequestMessage)
                 .ToArray().AsPrompt(),
             Parameters = new GenerateTextRequestParameters
             {
-                Max_new_tokens = 250,
+                MaxNewTokens = 250,
             },
             Options = new GenerateTextRequestOptions
             {
-                Use_cache = true,
-                Wait_for_model = false,
+                UseCache = true,
+                WaitForModel = false,
             },
         }, cancellationToken).ConfigureAwait(false);
     }

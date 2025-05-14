@@ -21,7 +21,7 @@ public class HuggingFaceProvider : Provider
     /// 
     /// </summary>
     [CLSCompliant(false)]
-    public HuggingFaceApi Api { get; set; }
+    public HuggingFaceClient Api { get; set; }
 
     #endregion
 
@@ -39,7 +39,7 @@ public class HuggingFaceProvider : Provider
         configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         ApiKey = configuration.ApiKey ?? throw new ArgumentException("ApiKey is not defined", nameof(configuration));
         HttpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-        Api = new HuggingFaceApi(apiKey: ApiKey, HttpClient);
+        Api = new HuggingFaceClient(apiKey: ApiKey, HttpClient);
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ public class HuggingFaceProvider : Provider
     {
         ApiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
         HttpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-        Api = new HuggingFaceApi(apiKey: ApiKey, HttpClient);
+        Api = new HuggingFaceClient(apiKey: ApiKey, HttpClient);
     }
 
     #endregion

@@ -1,6 +1,4 @@
 ﻿using LangChain.Providers;
-using LangChain.Providers.Anthropic;
-using LangChain.Providers.Anthropic.Predefined;
 using LangChain.Providers.Anyscale;
 using LangChain.Providers.Anyscale.Predefined;
 using LangChain.Providers.Azure;
@@ -127,20 +125,20 @@ public static class Helpers
 
                     return (llm, embeddings, provider);
                 }
-            case ProviderType.Anthropic:
-                {
-                    var provider = new AnthropicProvider(
-                        apiKey: Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY") ??
-                                throw new InconclusiveException("ANTHROPIC_API_KEY is not set"));
-                    var llm = new Claude35Sonnet(provider);
-
-                    // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
-                    var embeddings = new TextEmbeddingV3SmallModel(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
-
-                    return (llm, embeddings, provider);
-                }
+            // case ProviderType.Anthropic:
+            //     {
+            //         var provider = new AnthropicProvider(
+            //             apiKey: Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY") ??
+            //                     throw new InconclusiveException("ANTHROPIC_API_KEY is not set"));
+            //         var llm = new Claude35Sonnet(provider);
+            //
+            //         // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
+            //         var embeddings = new TextEmbeddingV3SmallModel(
+            //             Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
+            //             throw new InconclusiveException("OPENAI_API_KEY is not set"));
+            //
+            //         return (llm, embeddings, provider);
+            //     }
             case ProviderType.Groq:
                 {
                     var config = new GroqConfiguration()

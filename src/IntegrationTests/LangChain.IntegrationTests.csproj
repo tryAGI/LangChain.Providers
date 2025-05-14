@@ -7,7 +7,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Amazon.Bedrock\src\LangChain.Providers.Amazon.Bedrock.csproj" />
-        <ProjectReference Include="..\Anthropic\src\LangChain.Providers.Anthropic.csproj" />
         <ProjectReference Include="..\Anyscale\src\LangChain.Providers.Anyscale.csproj" />
         <ProjectReference Include="..\Automatic1111\src\LangChain.Providers.Automatic1111.csproj" />
         <ProjectReference Include="..\Azure\src\LangChain.Providers.Azure.csproj" />

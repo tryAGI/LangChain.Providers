@@ -1,3 +1,4 @@
+using System.Net.Http;
 using Whisper.net.Ggml;
 
 namespace LangChain.Providers.WhisperNet;
@@ -21,14 +22,16 @@ public sealed class WhisperNetModelDownloader
             Directory.CreateDirectory(storagePath);
         }
 
+        using var httpClient = new HttpClient();
+        var downloader = new WhisperGgmlDownloader(httpClient);
         if (usingCoreMl)
         {
-            await WhisperGgmlDownloader.GetEncoderCoreMLModelAsync(type, cancellationToken)
+            await downloader.GetEncoderCoreMLModelAsync(type, cancellationToken)
                 .ExtractToPath(storagePath)
                 .ConfigureAwait(false);
         }
 
-        using var modelStream = await WhisperGgmlDownloader.GetGgmlModelAsync(type, quantizationType, cancellationToken).ConfigureAwait(false);
+        using var modelStream = await downloader.GetGgmlModelAsync(type, quantizationType, cancellationToken).ConfigureAwait(false);
 
 #pragma warning disable CA1308
         var fileName = $"gglm-{type.ToString().ToLowerInvariant()}";

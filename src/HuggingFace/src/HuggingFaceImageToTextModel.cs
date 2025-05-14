@@ -37,7 +37,7 @@ public class HuggingFaceImageToTextModel(
         httpRequest.Content = imageContent;
 
         var response = await provider.HttpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseContentRead, cancellationToken).ConfigureAwait(false);
-        var json = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+        var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
         var generation = JsonSerializer.Deserialize(json, SourceGenerationContext.Default.ImageToTextGenerationResponse) ??
                          throw new InvalidOperationException("Response is null");
 
