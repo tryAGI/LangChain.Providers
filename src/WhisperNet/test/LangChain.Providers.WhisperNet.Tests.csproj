@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
@@ -8,7 +8,7 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="System.Text.Json" Version="9.0.5" />
         <PackageReference Include="Whisper.net.Runtime" Version="1.8.1" />
-        <PackageReference Include="LangChain.Core" Version="0.17.1-dev.47" />
+        <PackageReference Include="LangChain.Core" Version="0.17.1-dev.51" />
     </ItemGroup>
 
     <ItemGroup>
