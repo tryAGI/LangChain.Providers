@@ -6,10 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LangChain.Core" Version="0.17.1-dev.47" />
+    <PackageReference Include="LangChain.Core" Version="0.17.1-dev.51" />
     <PackageReference Include="LangChain.Databases.InMemory" Version="0.17.1-dev.11" />
     <PackageReference Include="LangChain.Databases.Sqlite" Version="0.17.1-dev.11" />
-    <PackageReference Include="LangChain.DocumentLoaders.Pdf" Version="0.17.1-dev.47" />
+    <PackageReference Include="LangChain.DocumentLoaders.Pdf" Version="0.17.1-dev.51" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0" />
     <PackageReference Include="Npgsql" Version="9.0.3" />
     <PackageReference Include="System.Memory.Data" Version="9.0.5" />

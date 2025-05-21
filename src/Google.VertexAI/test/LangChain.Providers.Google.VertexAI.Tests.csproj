@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
@@ -7,8 +7,8 @@
 	<ItemGroup>
 		<PackageReference Include="LangChain.Databases.InMemory" Version="0.17.1-dev.11" />
 		<PackageReference Include="LangChain.Databases.Sqlite" Version="0.17.1-dev.11" />
-		<PackageReference Include="LangChain.Core" Version="0.17.1-dev.47" />
-		<PackageReference Include="LangChain.DocumentLoaders.Pdf" Version="0.17.1-dev.47" />
+		<PackageReference Include="LangChain.Core" Version="0.17.1-dev.51" />
+		<PackageReference Include="LangChain.DocumentLoaders.Pdf" Version="0.17.1-dev.51" />
 		<PackageReference Include="System.Text.Json" Version="9.0.5" />
 	</ItemGroup>
 
