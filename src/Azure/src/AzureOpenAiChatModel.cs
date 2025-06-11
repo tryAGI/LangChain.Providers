@@ -77,6 +77,8 @@ public class AzureOpenAiChatModel(
             ChatResponseFinishReason? finishReason = null;
 
             var chatMessage = messages.Select(ToRequestMessage).ToList();
+            CombineImageWithChatMessage(request, chatMessage);
+
             if (usedSettings.UseStreaming == true)
             {
                 var enumerable = provider.ChatClient.CompleteChatStreamingAsync(
@@ -85,7 +87,6 @@ public class AzureOpenAiChatModel(
                     cancellationToken).ConfigureAwait(false);
 
                 var stringBuilder = new StringBuilder(capacity: 1024);
-
 
                 await foreach (StreamingChatCompletionUpdate streamResponse in enumerable)
                 {
@@ -208,6 +209,16 @@ public class AzureOpenAiChatModel(
             }
         }
         while (true);
+    }
+
+    private static void CombineImageWithChatMessage(ChatRequest request, List<ChatMessage> chatMessage)
+    {
+        if (request.Image != null && !request.Image.IsEmpty)
+        {
+            ChatMessageContentPart imageContentPart = ChatMessageContentPart.CreateImagePart(request.Image, request.Image.MediaType, ChatImageDetailLevel.Auto);
+            var userImageChatMessage = new UserChatMessage(imageContentPart);
+            chatMessage.Add(userImageChatMessage);
+        }
     }
 
     private List<ChatTool> ExtarctTools(ChatRequest request)
