@@ -245,7 +245,10 @@ public class AzureOpenAiChatModel(
         //             """u8.ToArray());
 
         var tools = request.Tools.Concat(GlobalTools).Select(s => ChatTool.CreateFunctionTool(
-            s.Name ?? string.Empty, s.Description, BinaryData.FromString(JsonSerializer.Serialize(s.Parameters, SourceGenerationContext.Default.String))
+            s.Name ?? string.Empty, s.Description, BinaryData.FromString(JsonSerializer.Serialize(s.Parameters, new JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
+            }))
             )).ToList();
         return tools;
     }
