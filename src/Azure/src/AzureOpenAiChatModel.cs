@@ -4,6 +4,7 @@ using System.Text;
 using OpenAI.Chat;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.Json.Serialization;
+using System.Text.Json;
 namespace LangChain.Providers.Azure;
 
 /// <summary>
