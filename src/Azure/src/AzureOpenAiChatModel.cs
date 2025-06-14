@@ -2,8 +2,9 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using OpenAI.Chat;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.Json.Serialization;
+using System.Text.Json;
+using Newtonsoft.Json;
 namespace LangChain.Providers.Azure;
 
 /// <summary>
@@ -223,30 +224,18 @@ public class AzureOpenAiChatModel(
 
     private List<ChatTool> ExtarctTools(ChatRequest request)
     {
-        //var parameters = request.Tools.Concat(GlobalTools).Select(s => JsonSerializer.Serialize(s.Parameters, new JsonSerializerOptions
-        //{
-        //    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
-        //})).ToList();
-
-        //var testParameter = BinaryData.FromBytes("""
-        //             {
-        //                 "type": "object",
-        //                 "description": "Get the current weather in a given location",                         
-        //                 "properties": {
-        //                     "location": {
-        //                         "type": "string",
-        //                         "description": "The city and state, e.g. San Francisco, CA",
-        //                         "additionalProperties": false
-        //                     }
-        //                 },
-        //                 "required": ["location"],
-        //                 "additionalProperties": false                         
-        //             }
-        //             """u8.ToArray());
-
         var tools = request.Tools.Concat(GlobalTools).Select(s => ChatTool.CreateFunctionTool(
-            s.Name ?? string.Empty, s.Description, BinaryData.FromString(JsonSerializer.Serialize(s.Parameters, SourceGenerationContext.Default.String))
-            )).ToList();
+            s.Name ?? string.Empty, s.Description, BinaryData.FromString(
+                JsonConvert.SerializeObject(
+                    s.Parameters,
+                    new JsonSerializerSettings
+                    {
+                        // Ignore default values when serializing, similar to System.Text.Json's DefaultIgnoreCondition
+                        DefaultValueHandling = DefaultValueHandling.Ignore
+                    }
+                )
+            )
+        )).ToList();
         return tools;
     }
 
