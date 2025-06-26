@@ -9,11 +9,13 @@ using LangChain.Providers.Fireworks;
 using LangChain.Providers.Google;
 using LangChain.Providers.Google.Predefined;
 using LangChain.Providers.Groq;
+using LangChain.Providers.MicrosoftExtensionsAI;
 using LangChain.Providers.Ollama;
 using LangChain.Providers.OpenAI;
 using LangChain.Providers.OpenAI.Predefined;
 using LangChain.Providers.OpenRouter;
 using LangChain.Providers.Together;
+using Microsoft.Extensions.AI;
 
 namespace LangChain.IntegrationTests;
 
@@ -139,6 +141,16 @@ public static class Helpers
             //
             //         return (llm, embeddings, provider);
             //     }
+            case ProviderType.MicrosoftExtensionsAI:
+                {
+                    string apikey =
+                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
+                        throw new InconclusiveException("OPENAI_API_KEY is not set");
+
+                    IChatClient client = new OpenAI.Chat.ChatClient("gpt-4o", apikey).AsIChatClient();
+                    IEmbeddingGenerator embeddingGenerator = new OpenAI.Embeddings.EmbeddingClient("text-embedding-3-small", apikey).AsIEmbeddingGenerator();
+                    return (new ChatClientModel(client), new EmbeddingGeneratorModel(embeddingGenerator), null!);
+                }
             case ProviderType.Groq:
                 {
                     var config = new GroqConfiguration()

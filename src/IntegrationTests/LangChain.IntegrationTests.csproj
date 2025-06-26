@@ -19,12 +19,14 @@
         <ProjectReference Include="..\Ollama\src\LangChain.Providers.Ollama.csproj" />
         <ProjectReference Include="..\OpenRouter\src\LangChain.Providers.OpenRouter.csproj" />
         <ProjectReference Include="..\TogetherAI\src\LangChain.Providers.Together.csproj" />
+        <ProjectReference Include="..\MicrosoftExtensionsAI\src\LangChain.Providers.MicrosoftExtensionsAI.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="LangChain.Core" Version="0.17.1-dev.51" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="System.Text.Json" Version="9.0.6" />
+      <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.6.0-preview.1.25310.2" />
     </ItemGroup>
 
 </Project>

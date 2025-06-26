@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net4.6.2;netstandard2.0;net8.0;net9.0</TargetFrameworks>
+        <NoWarn>$(NoWarn);CA1002;CS3001;CS3003</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.6.0" />
+      <PackageReference Include="Microsoft.Extensions.AI" Version="9.6.0" />
+        <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.47" />
+    </ItemGroup>
+
+    <ItemGroup Label="Usings">
+        <Using Include="Microsoft.Extensions.AI" />
+        <Using Include="System.Net.Http" />
+    </ItemGroup>
+
+    <PropertyGroup Label="NuGet">
+        <Description>Microsoft.Extensions.AI LLM and Chat model provider.</Description>
+        <PackageTags>$(PackageTags);openai;api</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
