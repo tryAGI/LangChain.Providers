@@ -18,6 +18,7 @@ public class BaseTests
     [TestCase(ProviderType.DeepInfra)]
     [TestCase(ProviderType.DeepSeek)]
     //[TestCase(ProviderType.Ollama)]
+    [TestCase(ProviderType.MicrosoftExtensionsAI)]
     public async Task FiveRandomWords(ProviderType providerType)
     {
         var requests = new List<ChatRequest>();
@@ -68,7 +69,7 @@ public class BaseTests
         }
 
         llm.Usage.Should().BeEquivalentTo(response.Usage);
-        provider.Usage.Should().BeEquivalentTo(response.Usage);
+        provider?.Usage.Should().BeEquivalentTo(response.Usage);
 
         response.Messages.Should().HaveCount(2);
         response.Messages[0].Role.Should().Be(MessageRole.Human);
@@ -93,6 +94,7 @@ public class BaseTests
     [TestCase(ProviderType.DeepInfra)]
     [TestCase(ProviderType.DeepSeek)]
     //[TestCase(ProviderType.Ollama)]
+    [TestCase(ProviderType.MicrosoftExtensionsAI)]
     public async Task FiveRandomWords_Streaming(ProviderType providerType)
     {
         var stopwatch = Stopwatch.StartNew();
@@ -162,7 +164,7 @@ public class BaseTests
         }
 
         llm.Usage.Should().BeEquivalentTo(lastResponse.Usage);
-        provider.Usage.Should().BeEquivalentTo(lastResponse.Usage);
+        provider?.Usage.Should().BeEquivalentTo(lastResponse.Usage);
 
         lastResponse.Messages.Should().HaveCount(2);
         lastResponse.Messages[0].Role.Should().Be(MessageRole.Human);
@@ -186,6 +188,7 @@ public class BaseTests
     //[TestCase(ProviderType.Anthropic)]
     //[TestCase(ProviderType.DeepInfra)]
     [TestCase(ProviderType.DeepSeek)]
+    [TestCase(ProviderType.MicrosoftExtensionsAI)]
     public async Task SimpleChain(ProviderType providerType)
     {
         var (llm, _, _) = Helpers.GetModels(providerType);
@@ -214,6 +217,7 @@ public class BaseTests
     // [TestCase(ProviderType.Anthropic)]
     // [TestCase(ProviderType.DeepInfra)]
     // [TestCase(ProviderType.DeepSeek)]
+    [TestCase(ProviderType.MicrosoftExtensionsAI)]
     public async Task Tools_Weather(ProviderType providerType)
     {
         var (llm, _, _) = Helpers.GetModels(providerType);
@@ -229,7 +233,7 @@ public class BaseTests
             });
         response.Usage.InputTokens.Should().BeGreaterThan(0);
         response.Usage.OutputTokens.Should().BeGreaterThan(0);
-        response.Usage.PriceInUsd.Should().BeGreaterThan(0);
+        response.Usage.PriceInUsd?.Should().BeGreaterThan(0);
 
         Console.WriteLine(response.Messages.AsHistory());
     }
@@ -243,6 +247,7 @@ public class BaseTests
     //[TestCase(ProviderType.DeepInfra)]
     //[TestCase(ProviderType.Google)]
     //[TestCase(ProviderType.Anthropic)]
+    [TestCase(ProviderType.MicrosoftExtensionsAI)]
     public async Task Tools_Books(ProviderType providerType)
     {
         var (llm, _, _) = Helpers.GetModels(providerType);
@@ -257,7 +262,7 @@ public class BaseTests
             });
         response.Usage.InputTokens.Should().BeGreaterThan(0);
         response.Usage.OutputTokens.Should().BeGreaterThan(0);
-        response.Usage.PriceInUsd.Should().BeGreaterThan(0);
+        response.Usage.PriceInUsd?.Should().BeGreaterThan(0);
 
         Console.WriteLine(response.Messages.AsHistory());
     }

@@ -105,36 +105,16 @@ public class EmbeddingModel_Tests
         "Necessity knows no law.",
         "Failing to prepare is preparing to fail."
     };
+
     [Explicit]
-    public async Task GoogleEmbeddingTest()
+    public async Task GoogleEmbeddingTest() => await EmbeddingTest(ProviderType.Google);
+
+    [TestCase(ProviderType.Together)]
+    [TestCase(ProviderType.DeepInfra)]
+    [TestCase(ProviderType.MicrosoftExtensionsAI)]
+    public async Task EmbeddingTest(ProviderType providerType)
     {
-        var (llm, embeddingModel, _) = Helpers.GetModels(ProviderType.Google);
-
-        var embeddings = await embeddingModel.CreateEmbeddingsAsync(new EmbeddingRequest()
-        {
-            Strings = this.Strings
-        });
-        embeddings.Values.Should().HaveCountGreaterThan(0);
-        embeddings.Values.First().Should().HaveCountGreaterThan(0);
-    }
-
-    [TestCase]
-    public async Task TogetherEmbeddingTest()
-    {
-        var (llm, embeddingModel, _) = Helpers.GetModels(ProviderType.Together);
-
-        var embeddings = await embeddingModel.CreateEmbeddingsAsync(new EmbeddingRequest()
-        {
-            Strings = this.Strings
-        });
-        embeddings.Values.Should().HaveCountGreaterThan(0);
-        embeddings.Values.First().Should().HaveCountGreaterThan(0);
-    }
-
-    [TestCase]
-    public async Task DeepInfraEmbeddingTest()
-    {
-        var (llm, embeddingModel, _) = Helpers.GetModels(ProviderType.DeepInfra);
+        var (llm, embeddingModel, _) = Helpers.GetModels(providerType);
 
         var embeddings = await embeddingModel.CreateEmbeddingsAsync(new EmbeddingRequest()
         {
