@@ -43,7 +43,7 @@ public sealed class EmbeddingGeneratorModel : Model<EmbeddingSettings>, IEmbeddi
         {
             return Generator is IEmbeddingGenerator<DataContent, Embedding<float>> generator ?
                 Process(await generator.GenerateAsync([.. images.Select(i => new DataContent(i.ToByteArray(), "image/*"))], options, cancellationToken).ConfigureAwait(false)) :
-                throw new InvalidOperationException("The generator does not support string embeddings.");
+                throw new InvalidOperationException("The generator does not support image embeddings.");
         }
         
         return Process([]);
