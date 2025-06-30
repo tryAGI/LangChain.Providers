@@ -152,7 +152,7 @@ public sealed class ChatClientModel : ChatModel, IChatModel
 
             UsedSettings = settings ?? new(),
 
-            Messages = [..request.Messages, ..responseMessages],
+            Messages = [.. request.Messages, .. responseMessages],
 
             ToolCalls = [.. response.Messages.SelectMany(m => m.Contents).OfType<FunctionCallContent>().Select(fc => new ChatToolCall
                 {
@@ -183,7 +183,7 @@ public sealed class ChatClientModel : ChatModel, IChatModel
         role == ChatRole.Tool ? MessageRole.ToolResult :
         MessageRole.Chat;
 
-    private static Message? ToMessage(ChatRole? role, AIContent content) => 
+    private static Message? ToMessage(ChatRole? role, AIContent content) =>
         content switch
         {
             TextContent textContent => (Message?)new Message(textContent.Text, ToMessageRole(role)),

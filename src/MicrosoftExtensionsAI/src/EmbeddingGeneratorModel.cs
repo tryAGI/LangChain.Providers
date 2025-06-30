@@ -34,18 +34,18 @@ public sealed class EmbeddingGeneratorModel : Model<EmbeddingSettings>, IEmbeddi
 
         if (request.Strings is { Count: > 0 } strings)
         {
-            return Generator is IEmbeddingGenerator<string, Embedding<float>> generator ? 
+            return Generator is IEmbeddingGenerator<string, Embedding<float>> generator ?
                 Process(await generator.GenerateAsync(strings, options, cancellationToken).ConfigureAwait(false)) :
                 throw new InvalidOperationException("The generator does not support string embeddings.");
         }
-        
+
         if (request.Images is { Count: > 0 } images)
         {
             return Generator is IEmbeddingGenerator<DataContent, Embedding<float>> generator ?
                 Process(await generator.GenerateAsync([.. images.Select(i => new DataContent(i.ToByteArray(), "image/*"))], options, cancellationToken).ConfigureAwait(false)) :
                 throw new InvalidOperationException("The generator does not support image embeddings.");
         }
-        
+
         return Process([]);
 
         EmbeddingResponse Process(GeneratedEmbeddings<Embedding<float>> results)
