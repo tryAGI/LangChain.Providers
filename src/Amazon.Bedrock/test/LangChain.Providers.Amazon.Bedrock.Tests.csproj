@@ -12,8 +12,8 @@
     <PackageReference Include="LangChain.DocumentLoaders.Pdf" Version="0.17.1-dev.51" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0" />
     <PackageReference Include="Npgsql" Version="9.0.3" />
-    <PackageReference Include="System.Memory.Data" Version="9.0.6" />
-    <PackageReference Include="System.Text.Json" Version="9.0.6" />
+    <PackageReference Include="System.Memory.Data" Version="9.0.7" />
+    <PackageReference Include="System.Text.Json" Version="9.0.7" />
   </ItemGroup>
 
   <ItemGroup>
