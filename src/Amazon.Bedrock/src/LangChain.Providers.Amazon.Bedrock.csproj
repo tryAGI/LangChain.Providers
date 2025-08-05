@@ -18,7 +18,7 @@
 		<PackageReference Include="AWSSDK.BedrockAgentRuntime" Version="4.0.1.1" />
 		<PackageReference Include="AWSSDK.BedrockRuntime" Version="4.0.0.2" />
 		<PackageReference Include="LangChain.Splitters.Abstractions" Version="0.17.1-dev.47" />
-		<PackageReference Include="System.Text.Json" Version="9.0.5" />
+		<PackageReference Include="System.Text.Json" Version="9.0.8" />
 	</ItemGroup>
 	
 	<ItemGroup Condition="'$(TargetFramework)' == 'net4.6.2'">
