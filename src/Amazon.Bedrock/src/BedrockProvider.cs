@@ -56,6 +56,19 @@ public class BedrockProvider : Provider
         AgentApi = new AmazonBedrockAgentRuntimeClient(agentRuntimeConfig);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BedrockProvider"/> class with the given clients.
+    /// </summary>
+    /// <param name="runtimeClient">The Amazon Bedrock Runtime client.</param>
+    /// <param name="agentRuntimeClient">The Amazon Bedrock Agent Runtime client.</param>
+    [CLSCompliant(false)]
+    public BedrockProvider(AmazonBedrockRuntimeClient runtimeClient, AmazonBedrockAgentRuntimeClient agentRuntimeClient)
+        : base(DefaultProviderId)
+    {
+        Api = runtimeClient;
+        AgentApi = agentRuntimeClient;
+    }
+
     #region Properties
 
     [CLSCompliant(false)]
