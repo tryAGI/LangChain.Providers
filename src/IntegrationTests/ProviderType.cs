@@ -16,4 +16,5 @@ public enum ProviderType
     Reka,
     GitHub,
     Ollama,
+    MicrosoftExtensionsAI,
 }
