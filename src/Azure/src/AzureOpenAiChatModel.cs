@@ -79,18 +79,19 @@ public class AzureOpenAiChatModel(
 
             var chatMessage = messages.Select(ToRequestMessage).ToList();
             CombineImageWithChatMessage(request, chatMessage);
-
+            string? model = null;
+            
             if (usedSettings.UseStreaming == true)
             {
                 var enumerable = provider.ChatClient.CompleteChatStreamingAsync(
                     chatMessage,
                     chatCompletionsOptions,
                     cancellationToken).ConfigureAwait(false);
-
+                
                 var stringBuilder = new StringBuilder(capacity: 1024);
-
                 await foreach (StreamingChatCompletionUpdate streamResponse in enumerable)
                 {
+                    model ??= streamResponse.Model;
                     foreach (ChatMessageContentPart contentPart in streamResponse.ContentUpdate)
                     {
                         var delta = new ChatResponseDelta
@@ -147,6 +148,7 @@ public class AzureOpenAiChatModel(
                     yield break;
                 }
 
+                model = response.Value.Model;
                 var message = response.Value.Content.FirstOrDefault()?.Text;
                 var newMessages = ToMessages(response.Value);
                 messages.AddRange(newMessages);
@@ -186,6 +188,7 @@ public class AzureOpenAiChatModel(
 
             var newResponse = new ChatResponse
             {
+                Model = model ?? string.Empty,
                 Messages = messages,
                 UsedSettings = usedSettings,
                 Usage = usage.Value,
