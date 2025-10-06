@@ -38,6 +38,8 @@ LangChain.Providers.ChatResponse.LastMessage.get -> LangChain.Providers.Message?
 LangChain.Providers.ChatResponse.LastMessageContent.get -> string!
 LangChain.Providers.ChatResponse.Messages.get -> System.Collections.Generic.IReadOnlyList<LangChain.Providers.Message>!
 LangChain.Providers.ChatResponse.Messages.init -> void
+LangChain.Providers.ChatResponse.Model.get -> string!
+LangChain.Providers.ChatResponse.Model.init -> void
 LangChain.Providers.ChatResponse.ToolCalls.get -> System.Collections.Generic.IReadOnlyList<LangChain.Providers.ChatToolCall!>!
 LangChain.Providers.ChatResponse.ToolCalls.set -> void
 LangChain.Providers.ChatResponse.Usage.get -> LangChain.Providers.Usage
