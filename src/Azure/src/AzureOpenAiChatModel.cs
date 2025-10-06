@@ -80,14 +80,14 @@ public class AzureOpenAiChatModel(
             var chatMessage = messages.Select(ToRequestMessage).ToList();
             CombineImageWithChatMessage(request, chatMessage);
             string? model = null;
-            
+
             if (usedSettings.UseStreaming == true)
             {
                 var enumerable = provider.ChatClient.CompleteChatStreamingAsync(
                     chatMessage,
                     chatCompletionsOptions,
                     cancellationToken).ConfigureAwait(false);
-                
+
                 var stringBuilder = new StringBuilder(capacity: 1024);
                 await foreach (StreamingChatCompletionUpdate streamResponse in enumerable)
                 {
