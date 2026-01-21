@@ -16,11 +16,12 @@
 
     <ItemGroup>
         <PackageReference Include="Anyscale" Version="1.0.2" />
-        <PackageReference Include="System.Text.Json" Version="9.0.5" />
+        <PackageReference Include="System.Text.Json" Version="10.0.2" />
         <PackageReference Include="Tiktoken" Version="2.2.0" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.51" />
         <ProjectReference Include="..\..\Abstractions\src\LangChain.Providers.Abstractions.csproj" />
         <ProjectReference Include="..\..\OpenAI\src\LangChain.Providers.OpenAI.csproj" />
     </ItemGroup>
