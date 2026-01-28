@@ -16,7 +16,7 @@
 
     <ItemGroup>
         <PackageReference Include="Anyscale" Version="1.0.2" />
-        <PackageReference Include="System.Text.Json" Version="9.0.5" />
+        <PackageReference Include="System.Text.Json" Version="10.0.2" />
         <PackageReference Include="Tiktoken" Version="2.2.0" />
     </ItemGroup>
 
