@@ -20,9 +20,9 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-        <PackageReference Include="System.Net.Http.Json" Version="9.0.5" />
-        <PackageReference Include="System.Text.Json" Version="9.0.5" />
-        <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.47" />
+        <PackageReference Include="System.Net.Http.Json" Version="10.0.2" />
+        <PackageReference Include="System.Text.Json" Version="10.0.2" />
+        <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.51" />
     </ItemGroup>
 
     <ItemGroup>
