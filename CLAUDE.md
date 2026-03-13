@@ -10,7 +10,7 @@ AI provider abstractions and implementations for the LangChain .NET ecosystem. D
 
 ```bash
 # Build the entire solution
-dotnet build LangChain.Providers.sln
+dotnet build LangChain.Providers.slnx
 
 # Run integration tests (requires API keys for most providers)
 dotnet test src/IntegrationTests/LangChain.IntegrationTests.csproj
