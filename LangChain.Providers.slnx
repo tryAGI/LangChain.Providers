@@ -8,9 +8,6 @@
   <Folder Name="/Examples/Pollinations/">
     <Project Path="Examples/Examples.Pollinations/src/Examples.Pollinations/Examples.Pollinations.csproj" />
   </Folder>
-  <Folder Name="/Helpers/">
-    <Project Path="src/Helpers/GenerateDocs/GenerateDocs.csproj" />
-  </Folder>
   <Folder Name="/Misc/">
     <File Path=".gitignore" />
     <File Path="LICENSE" />

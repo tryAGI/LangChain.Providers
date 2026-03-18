@@ -59,8 +59,6 @@ src/
 ├── Suno/src/                  # Suno (music generation)
 ├── Pollinations/src/          # Pollinations AI
 ├── IntegrationTests/          # Cross-provider integration tests
-└── Helpers/
-    ├── GenerateDocs/          # Documentation generation
 Examples/                      # Example projects (Ollama, OpenRouter, Pollinations)
 ```
 
