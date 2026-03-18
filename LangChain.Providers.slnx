@@ -10,7 +10,6 @@
   </Folder>
   <Folder Name="/Helpers/">
     <Project Path="src/Helpers/GenerateDocs/GenerateDocs.csproj" />
-    <Project Path="src/Helpers/TrimmingHelper/TrimmingHelper.csproj" />
   </Folder>
   <Folder Name="/Misc/">
     <File Path=".gitignore" />
