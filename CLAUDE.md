@@ -22,8 +22,8 @@ dotnet test src/Amazon.Bedrock/test/LangChain.Providers.Amazon.Bedrock.Tests.csp
 # Run a specific test
 dotnet test src/IntegrationTests/LangChain.IntegrationTests.csproj --filter "FullyQualifiedName~OpenAI"
 
-# Validate trimming/NativeAOT compatibility
-dotnet build src/Helpers/TrimmingHelper/TrimmingHelper.csproj
+# Validate trimming/NativeAOT compatibility (requires: dotnet tool install -g autosdk.cli --prerelease)
+autosdk trim src/libs/*//*.csproj
 ```
 
 Tests require provider-specific API keys via environment variables. Tests skip (not fail) if keys are unset.
@@ -61,7 +61,6 @@ src/
 ├── IntegrationTests/          # Cross-provider integration tests
 └── Helpers/
     ├── GenerateDocs/          # Documentation generation
-    └── TrimmingHelper/        # Trimming/NativeAOT check
 Examples/                      # Example projects (Ollama, OpenRouter, Pollinations)
 ```
 
