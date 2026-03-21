@@ -4,7 +4,9 @@ public abstract class TextToMusicModel(string id) : Model<TextToMusicSettings>(i
 {
     #region Events
 
-    /// <inheritdoc cref="IChatModel.RequestSent"/>
+    /// <summary>
+    /// Occurs before request is sent to the model.
+    /// </summary>
     public event EventHandler<TextToMusicRequest>? RequestSent;
 
     protected void OnRequestSent(TextToMusicRequest request)

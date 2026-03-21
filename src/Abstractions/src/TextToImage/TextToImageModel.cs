@@ -4,7 +4,9 @@ public abstract class TextToImageModel(string id) : Model<TextToImageSettings>(i
 {
     #region Events
 
-    /// <inheritdoc cref="IChatModel.RequestSent"/>
+    /// <summary>
+    /// Occurs before request is sent to the model.
+    /// </summary>
     public event EventHandler<TextToImageRequest>? RequestSent;
 
     protected void OnRequestSent(TextToImageRequest request)

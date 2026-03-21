@@ -1,21 +1,5 @@
-﻿using LangChain.Providers;
-using LangChain.Providers.Anyscale;
-using LangChain.Providers.Anyscale.Predefined;
+using LangChain.Providers;
 using LangChain.Providers.Azure;
-using LangChain.Providers.DeepInfra;
-using LangChain.Providers.DeepSeek;
-using LangChain.Providers.DeepSeek.Predefined;
-using LangChain.Providers.Fireworks;
-using LangChain.Providers.Google;
-using LangChain.Providers.Google.Predefined;
-using LangChain.Providers.Groq;
-using LangChain.Providers.MicrosoftExtensionsAI;
-using LangChain.Providers.Ollama;
-using LangChain.Providers.OpenAI;
-using LangChain.Providers.OpenAI.Predefined;
-using LangChain.Providers.OpenRouter;
-using LangChain.Providers.Together;
-using Microsoft.Extensions.AI;
 
 namespace LangChain.IntegrationTests;
 
@@ -25,175 +9,16 @@ public static class Helpers
     {
         switch (providerType)
         {
-            case ProviderType.OpenAi:
-                {
-                    var provider = new OpenAiProvider(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
-                    var llm = new OpenAiLatestFastChatModel(provider);
-                    var embeddings = new TextEmbeddingV3SmallModel(provider);
-
-                    return (llm, embeddings, provider);
-                }
-            case ProviderType.Ollama:
-                {
-                    // url: "http://10.10.0.125:11434/api"
-                    var provider = new OllamaProvider(url: "http://10.10.0.125:11434/api");
-                    var llm = new OllamaChatModel(provider, id: "llama3.1");
-                    var embeddings = new OllamaEmbeddingModel(provider, id: "all-minilm");
-
-                    return (llm, embeddings, provider);
-                }
-            case ProviderType.Together:
-                {
-                    // https://www.together.ai/blog/embeddings-endpoint-release
-                    var provider = new TogetherProvider(
-                        apiKey: Environment.GetEnvironmentVariable("TOGETHER_API_KEY") ??
-                        throw new InconclusiveException("TOGETHER_API_KEY is not set"));
-                    var llm = new TogetherModel(provider, id: "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo");
-                    var embeddings = new TogetherEmbeddingModel(provider, TogetherModelIds.M2BertRetrieval2K);
-
-                    return (llm, embeddings, provider);
-                }
-            case ProviderType.Anyscale:
-                {
-                    // https://app.endpoints.anyscale.com/
-                    var provider = new AnyscaleProvider(
-                        apiKey: Environment.GetEnvironmentVariable("ANYSCALE_API_KEY") ??
-                                throw new InconclusiveException("ANYSCALE_API_KEY is not set"));
-                    var llm = new Llama2SmallModel(provider);
-
-                    // Use OpenAI embeddings for now because Anyscale doesn't have embeddings yet
-                    var embeddings = new TextEmbeddingV3SmallModel(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
-
-                    return (llm, embeddings, provider);
-                }
-            case ProviderType.Fireworks:
-                {
-                    // https://fireworks.ai/account/api-keys
-                    var provider = new FireworksProvider(
-                        apiKey: Environment.GetEnvironmentVariable("FIREWORKS_API_KEY") ??
-                                throw new InconclusiveException("FIREWORKS_API_KEY is not set"));
-                    var llm = new FireworksModel(provider, id: "accounts/fireworks/models/llama-v3p1-8b-instruct");
-
-                    // Use OpenAI embeddings for now because Anyscale doesn't have embeddings yet
-                    var embeddings = new TextEmbeddingV3SmallModel(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
-
-                    return (llm, embeddings, provider);
-                }
-            case ProviderType.OpenRouter:
-                {
-                    var provider = new OpenRouterProvider(
-                        apiKey: Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ??
-                                throw new InconclusiveException("OPENROUTER_API_KEY is not set"));
-                    var llm = new OpenRouterModel(provider, id: "meta-llama/llama-3.1-8b-instruct");
-
-                    // Use OpenAI embeddings for now because OpenRouter doesn't have embeddings yet
-                    var embeddings = new TextEmbeddingV3SmallModel(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
-
-                    return (llm, embeddings, provider);
-                }
-            case ProviderType.DeepInfra:
-                {
-                    var provider = new DeepInfraProvider(
-                        apiKey: Environment.GetEnvironmentVariable("DEEPINFRA_API_KEY") ??
-                                throw new InconclusiveException("DEEPINFRA_API_KEY is not set"));
-                    var llm = new DeepInfraModel(provider, DeepInfraModelIds.Phi4);
-
-                    // // Use OpenAI embeddings for now because DeepInfra doesn't have embeddings yet
-                    // var embeddings = new TextEmbeddingV3SmallModel(
-                    //     Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                    //     throw new InconclusiveException("OPENAI_API_KEY is not set"));
-
-                    var embeddings = new DeepInfraEmbeddingModel(provider, DeepInfraModelIds.BgeBaseEnV15);
-
-                    return (llm, embeddings, provider);
-                }
-            case ProviderType.Google:
-                {
-                    var provider = new GoogleProvider(
-                        apiKey: Environment.GetEnvironmentVariable("GOOGLE_API_KEY") ??
-                                throw new InconclusiveException("GOOGLE_API_KEY is not set"),
-                        httpClient: new HttpClient());
-                    var llm = new Gemini15FlashModel(provider);
-
-                    var embeddings = new GoogleTextEmbedding(provider);
-
-                    return (llm, embeddings, provider);
-                }
-            // case ProviderType.Anthropic:
-            //     {
-            //         var provider = new AnthropicProvider(
-            //             apiKey: Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY") ??
-            //                     throw new InconclusiveException("ANTHROPIC_API_KEY is not set"));
-            //         var llm = new Claude35Sonnet(provider);
-            //
-            //         // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
-            //         var embeddings = new TextEmbeddingV3SmallModel(
-            //             Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-            //             throw new InconclusiveException("OPENAI_API_KEY is not set"));
-            //
-            //         return (llm, embeddings, provider);
-            //     }
-            case ProviderType.MicrosoftExtensionsAI:
-                {
-                    string apikey =
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set");
-
-                    IChatClient client = new OpenAI.Chat.ChatClient("gpt-4o", apikey).AsIChatClient();
-                    IEmbeddingGenerator embeddingGenerator = new OpenAI.Embeddings.EmbeddingClient("text-embedding-3-small", apikey).AsIEmbeddingGenerator();
-                    return (new ChatClientModel(client), new EmbeddingGeneratorModel(embeddingGenerator), null!);
-                }
-            case ProviderType.Groq:
-                {
-                    var config = new GroqConfiguration()
-                    {
-                        ApiKey = Environment.GetEnvironmentVariable("GROQ_API_KEY") ??
-                                 throw new InconclusiveException("GROQ_API_KEY is not set.")
-                    };
-
-                    var provider = new GroqProvider(config);
-                    var llm = new GroqChatModel(provider, id: "llama3-70b-8192");
-
-                    // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
-                    var embeddings = new TextEmbeddingV3SmallModel(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
-
-                    return (llm, embeddings, provider);
-                }
-            case ProviderType.DeepSeek:
-                {
-                    var apiKey =
-                        Environment.GetEnvironmentVariable("DEEPSEEK_API_KEY") ??
-                        throw new InconclusiveException("DEEPSEEK_API_KEY is not set");
-                    var provider = new DeepSeekProvider(apiKey);
-                    var llm = new DeepSeekChatModel(provider);
-
-                    // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
-                    var embeddings = new TextEmbeddingV3SmallModel(
-                        Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-                        throw new InconclusiveException("OPENAI_API_KEY is not set"));
-
-                    return (llm, embeddings, provider);
-                }
             // case ProviderType.Azure:
             //     {
             //         var apiKey =
-            //             Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY", EnvironmentVariableTarget.User) ??
+            //             Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY") ??
             //             throw new InconclusiveException("AZURE_OPENAI_API_KEY is not set");
             //         var apiEndpoint =
-            //             Environment.GetEnvironmentVariable("AZURE_OPENAI_API_ENDPOINT", EnvironmentVariableTarget.User) ??
+            //             Environment.GetEnvironmentVariable("AZURE_OPENAI_API_ENDPOINT") ??
             //             throw new InconclusiveException("AZURE_OPENAI_API_ENDPOINT is not set");
             //         var deploymentName =
-            //             Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_NAME", EnvironmentVariableTarget.User) ??
+            //             Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_NAME") ??
             //             throw new InconclusiveException("AZURE_OPENAI_DEPLOYMENT_NAME is not set");
             //
             //         var configuration = new AzureOpenAiConfiguration
@@ -205,10 +30,7 @@ public static class Helpers
             //         var provider = new AzureOpenAiProvider(configuration);
             //         var llm = new AzureOpenAiChatModel(provider, deploymentName);
             //
-            //         // Use OpenAI embeddings for now because Anthropic doesn't have embeddings yet
-            //         var embeddings = new TextEmbeddingV3SmallModel(
-            //             Environment.GetEnvironmentVariable("OPENAI_API_KEY") ??
-            //             throw new InconclusiveException("OPENAI_API_KEY is not set"));
+            //         var embeddings = new AzureOpenAiEmbeddingModel(provider, deploymentName);
             //
             //         return (llm, embeddings, provider);
             //     }

@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using LangChain.Chains.LLM;
 using LangChain.Prompts;
 using LangChain.Providers;
@@ -9,16 +9,7 @@ namespace LangChain.IntegrationTests;
 [TestFixture]
 public class BaseTests
 {
-    [TestCase(ProviderType.OpenAi)]
-    [TestCase(ProviderType.Together)]
-    [TestCase(ProviderType.OpenRouter)]
-    [TestCase(ProviderType.Fireworks)]
-    //[TestCase(ProviderType.Google)]
-    //[TestCase(ProviderType.Anthropic)]
-    [TestCase(ProviderType.DeepInfra)]
-    [TestCase(ProviderType.DeepSeek)]
-    //[TestCase(ProviderType.Ollama)]
-    [TestCase(ProviderType.MicrosoftExtensionsAI)]
+    // [TestCase(ProviderType.Azure)]
     public async Task FiveRandomWords(ProviderType providerType)
     {
         var requests = new List<ChatRequest>();
@@ -57,16 +48,9 @@ public class BaseTests
 
         response.Usage.Messages.Should().Be(1);
         response.Usage.Time.Should().BeGreaterThan(TimeSpan.Zero);
-        if (providerType != ProviderType.OpenRouter)
-        {
-            response.Usage.InputTokens.Should().BeGreaterThan(0);
-            response.Usage.OutputTokens.Should().BeGreaterThan(0);
-            response.Usage.TotalTokens.Should().BeGreaterThan(0);
-        }
-        if (providerType == ProviderType.OpenAi)
-        {
-            response.Usage.PriceInUsd.Should().HaveValue().And.BeGreaterThan(0);
-        }
+        response.Usage.InputTokens.Should().BeGreaterThan(0);
+        response.Usage.OutputTokens.Should().BeGreaterThan(0);
+        response.Usage.TotalTokens.Should().BeGreaterThan(0);
 
         llm.Usage.Should().BeEquivalentTo(response.Usage);
         provider?.Usage.Should().BeEquivalentTo(response.Usage);
@@ -85,16 +69,7 @@ public class BaseTests
         response.UsedSettings.Should().NotBeNull();
     }
 
-    [TestCase(ProviderType.OpenAi)]
-    [TestCase(ProviderType.Together)]
-    //[TestCase(ProviderType.OpenRouter)]
-    //[TestCase(ProviderType.Fireworks)]
-    //[TestCase(ProviderType.Google)]
-    //[TestCase(ProviderType.Anthropic)]
-    [TestCase(ProviderType.DeepInfra)]
-    [TestCase(ProviderType.DeepSeek)]
-    //[TestCase(ProviderType.Ollama)]
-    [TestCase(ProviderType.MicrosoftExtensionsAI)]
+    // [TestCase(ProviderType.Azure)]
     public async Task FiveRandomWords_Streaming(ProviderType providerType)
     {
         var stopwatch = Stopwatch.StartNew();
@@ -144,7 +119,6 @@ public class BaseTests
 
         requestsFromEvent.Should().HaveCount(1);
         deltasFromEvent.Should().HaveCountGreaterThanOrEqualTo(5);
-        //deltasFromEvent.Should().BeEquivalentTo(responsesFromAsyncEnumerable.Select(x => x.Delta));
         responsesFromEvent.Should().HaveCount(1);
         responsesFromEvent.Should().BeEquivalentTo([responsesFromAsyncEnumerable.Last()]);
 
@@ -152,16 +126,9 @@ public class BaseTests
 
         lastResponse.Usage.Messages.Should().Be(1);
         lastResponse.Usage.Time.Should().BeGreaterThan(TimeSpan.Zero);
-        if (providerType != ProviderType.OpenRouter)
-        {
-            lastResponse.Usage.InputTokens.Should().BeGreaterThan(0);
-            lastResponse.Usage.OutputTokens.Should().BeGreaterThan(0);
-            lastResponse.Usage.TotalTokens.Should().BeGreaterThan(0);
-        }
-        if (providerType == ProviderType.OpenAi)
-        {
-            lastResponse.Usage.PriceInUsd.Should().HaveValue().And.BeGreaterThan(0);
-        }
+        lastResponse.Usage.InputTokens.Should().BeGreaterThan(0);
+        lastResponse.Usage.OutputTokens.Should().BeGreaterThan(0);
+        lastResponse.Usage.TotalTokens.Should().BeGreaterThan(0);
 
         llm.Usage.Should().BeEquivalentTo(lastResponse.Usage);
         provider?.Usage.Should().BeEquivalentTo(lastResponse.Usage);
@@ -180,15 +147,7 @@ public class BaseTests
         lastResponse.UsedSettings.Should().NotBeNull();
     }
 
-    [TestCase(ProviderType.OpenAi)]
-    [TestCase(ProviderType.Together)]
-    [TestCase(ProviderType.OpenRouter)]
-    [TestCase(ProviderType.Fireworks)]
-    //[TestCase(ProviderType.Google)]
-    //[TestCase(ProviderType.Anthropic)]
-    //[TestCase(ProviderType.DeepInfra)]
-    [TestCase(ProviderType.DeepSeek)]
-    [TestCase(ProviderType.MicrosoftExtensionsAI)]
+    // [TestCase(ProviderType.Azure)]
     public async Task SimpleChain(ProviderType providerType)
     {
         var (llm, _, _) = Helpers.GetModels(providerType);
@@ -209,15 +168,7 @@ public class BaseTests
         result.Value["text"].ToString().Should().NotBeEmpty();
     }
 
-    [TestCase(ProviderType.OpenAi)]
-    // [TestCase(ProviderType.Together)]
-    // [TestCase(ProviderType.OpenRouter)]
-    // [TestCase(ProviderType.Fireworks)]
-    [TestCase(ProviderType.Google)]
-    // [TestCase(ProviderType.Anthropic)]
-    // [TestCase(ProviderType.DeepInfra)]
-    // [TestCase(ProviderType.DeepSeek)]
-    [TestCase(ProviderType.MicrosoftExtensionsAI)]
+    // [TestCase(ProviderType.Azure)]
     public async Task Tools_Weather(ProviderType providerType)
     {
         var (llm, _, _) = Helpers.GetModels(providerType);
@@ -233,21 +184,11 @@ public class BaseTests
             });
         response.Usage.InputTokens.Should().BeGreaterThan(0);
         response.Usage.OutputTokens.Should().BeGreaterThan(0);
-        response.Usage.PriceInUsd?.Should().BeGreaterThan(0);
 
         Console.WriteLine(response.Messages.AsHistory());
     }
 
-    [TestCase(ProviderType.OpenAi)]
-    //[TestCase(ProviderType.Anyscale)]
-    //[TestCase(ProviderType.Together)]
-    //[TestCase(ProviderType.OpenRouter)]
-    //[TestCase(ProviderType.Fireworks)]
-    //[TestCase(ProviderType.OpenRouter)]
-    //[TestCase(ProviderType.DeepInfra)]
-    //[TestCase(ProviderType.Google)]
-    //[TestCase(ProviderType.Anthropic)]
-    [TestCase(ProviderType.MicrosoftExtensionsAI)]
+    // [TestCase(ProviderType.Azure)]
     public async Task Tools_Books(ProviderType providerType)
     {
         var (llm, _, _) = Helpers.GetModels(providerType);
@@ -262,10 +203,7 @@ public class BaseTests
             });
         response.Usage.InputTokens.Should().BeGreaterThan(0);
         response.Usage.OutputTokens.Should().BeGreaterThan(0);
-        response.Usage.PriceInUsd?.Should().BeGreaterThan(0);
 
         Console.WriteLine(response.Messages.AsHistory());
     }
-
-
 }

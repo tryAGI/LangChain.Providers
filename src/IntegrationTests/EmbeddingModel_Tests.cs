@@ -1,4 +1,4 @@
-﻿using LangChain.Providers;
+using LangChain.Providers;
 
 namespace LangChain.IntegrationTests;
 
@@ -106,12 +106,7 @@ public class EmbeddingModel_Tests
         "Failing to prepare is preparing to fail."
     };
 
-    [Explicit]
-    public async Task GoogleEmbeddingTest() => await EmbeddingTest(ProviderType.Google);
-
-    [TestCase(ProviderType.Together)]
-    [TestCase(ProviderType.DeepInfra)]
-    [TestCase(ProviderType.MicrosoftExtensionsAI)]
+    // [TestCase(ProviderType.Azure)]
     public async Task EmbeddingTest(ProviderType providerType)
     {
         var (llm, embeddingModel, _) = Helpers.GetModels(providerType);

@@ -1,13 +1,4 @@
 <Solution>
-  <Folder Name="/Examples/">
-    <Project Path="Examples/Examples.Ollama/Examples.Ollama.csproj" />
-  </Folder>
-  <Folder Name="/Examples/OpenRouter/">
-    <Project Path="Examples/Examples.OpenRouter/src/Examples.OpenRouter/Examples.OpenRouter.csproj" />
-  </Folder>
-  <Folder Name="/Examples/Pollinations/">
-    <Project Path="Examples/Examples.Pollinations/src/Examples.Pollinations/Examples.Pollinations.csproj" />
-  </Folder>
   <Folder Name="/Misc/">
     <File Path=".gitignore" />
     <File Path="LICENSE" />
@@ -50,10 +41,6 @@
     <Project Path="src/Amazon.Sagemaker/src/LangChain.Providers.Amazon.SageMaker.csproj" />
     <Project Path="src/Amazon.Sagemaker/test/LangChain.Providers.Amazon.SageMaker.Tests.csproj" />
   </Folder>
-  <Folder Name="/Providers/Anthropic/" />
-  <Folder Name="/Providers/Anyscale/">
-    <Project Path="src/Anyscale/src/LangChain.Providers.Anyscale.csproj" />
-  </Folder>
   <Folder Name="/Providers/Automatic1111/">
     <Project Path="src/Automatic1111/src/LangChain.Providers.Automatic1111.csproj" />
     <Project Path="src/Automatic1111/test/LangChain.Providers.Automatic1111.Tests.csproj" />
@@ -61,55 +48,20 @@
   <Folder Name="/Providers/Azure/">
     <Project Path="src/Azure/src/LangChain.Providers.Azure.csproj" />
   </Folder>
-  <Folder Name="/Providers/DeepInfra/">
-    <Project Path="src/DeepInfra/src/LangChain.Providers.DeepInfra.csproj" />
-  </Folder>
-  <Folder Name="/Providers/DeepSeek/">
-    <Project Path="src/DeepSeek/src/LangChain.Providers.DeepSeek.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Fireworks/">
-    <Project Path="src/Fireworks/src/LangChain.Providers.Fireworks.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Google/">
-    <Project Path="src/Google/src/LangChain.Providers.Google.csproj" />
-  </Folder>
   <Folder Name="/Providers/Google/VertexAI/">
     <Project Path="src/Google.VertexAI/src/LangChain.Providers.Google.VertexAI.csproj" />
     <Project Path="src/Google.VertexAI/test/LangChain.Providers.Google.VertexAI.Tests.csproj" />
   </Folder>
-  <Folder Name="/Providers/Groq/">
-    <Project Path="src/Groq/src/LangChain.Providers.Groq.csproj" />
-  </Folder>
-  <Folder Name="/Providers/HuggingFace/">
-    <Project Path="src/HuggingFace/src/LangChain.Providers.HuggingFace.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Leonardo/" />
   <Folder Name="/Providers/LLamaSharp/">
     <Project Path="src/LLamaSharp/src/LangChain.Providers.LLamaSharp.csproj" />
     <Project Path="src/LLamaSharp/test/LangChain.Providers.LLamaSharp.Tests.csproj" />
   </Folder>
-  <Folder Name="/Providers/Ollama/">
-    <Project Path="src/Ollama/src/LangChain.Providers.Ollama.csproj" />
-    <Project Path="src/Ollama/test/LangChain.Providers.Ollama.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Providers/OpenAI/">
-    <Project Path="src/OpenAI/src/LangChain.Providers.OpenAI.csproj" />
-  </Folder>
-  <Folder Name="/Providers/OpenRouter/">
-    <Project Path="src/OpenRouter/src/LangChain.Providers.OpenRouter.csproj" />
-  </Folder>
   <Folder Name="/Providers/Pollinations/">
     <Project Path="src/Pollinations/src/LangChain.Providers.Pollinations/LangChain.Providers.Pollinations.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Reka/">
-    <Project Path="src/Reka/src/LangChain.Providers.Reka.csproj" />
   </Folder>
   <Folder Name="/Providers/Suno/">
     <Project Path="src/Suno/src/LangChain.Providers.Suno.csproj" />
     <Project Path="src/Suno/test/LangChain.Providers.Suno.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Together/">
-    <Project Path="src/TogetherAI/src/LangChain.Providers.Together.csproj" />
   </Folder>
   <Folder Name="/Providers/WhisperNet/">
     <Project Path="src/WhisperNet/src/LangChain.Providers.WhisperNet.csproj" />

@@ -6,23 +6,16 @@ namespace LangChain.Providers;
 public interface ISupportsCountTokens
 {
     /// <summary>
-    /// Counts the number of tokens in the given prompt and input.
+    /// Counts the number of tokens in the given text.
     /// </summary>
     /// <param name="text"></param>
     /// <returns></returns>
     public int CountTokens(string text);
 
     /// <summary>
-    /// Counts the number of tokens in the given prompt and input.
+    /// Counts the number of tokens in the given messages.
     /// </summary>
     /// <param name="messages"></param>
     /// <returns></returns>
     public int CountTokens(IReadOnlyCollection<Message> messages);
-
-    /// <summary>
-    /// Counts the number of tokens in the given prompt and input.
-    /// </summary>
-    /// <param name="request"></param>
-    /// <returns></returns>
-    public int CountTokens(ChatRequest request);
 }
