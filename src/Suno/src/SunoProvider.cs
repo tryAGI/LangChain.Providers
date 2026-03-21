@@ -2,7 +2,7 @@ using LangChain.Providers.Suno.Sdk;
 
 namespace LangChain.Providers.Suno;
 
-public class SunoProvider : Provider
+public class SunoProvider : Model
 {
     #region Properties
 

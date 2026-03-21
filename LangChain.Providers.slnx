@@ -31,41 +31,12 @@
     <File Path="src/Abstractions/README.md" />
     <Project Path="src/Abstractions/src/LangChain.Providers.Abstractions.csproj" />
   </Folder>
-  <Folder Name="/Providers/Amazon/" />
-  <Folder Name="/Providers/Amazon/Bedrock/">
-    <File Path="src/Amazon.Bedrock/README.md" />
-    <Project Path="src/Amazon.Bedrock/src/LangChain.Providers.Amazon.Bedrock.csproj" />
-    <Project Path="src/Amazon.Bedrock/test/LangChain.Providers.Amazon.Bedrock.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Amazon/SageMaker/">
-    <Project Path="src/Amazon.Sagemaker/src/LangChain.Providers.Amazon.SageMaker.csproj" />
-    <Project Path="src/Amazon.Sagemaker/test/LangChain.Providers.Amazon.SageMaker.Tests.csproj" />
-  </Folder>
   <Folder Name="/Providers/Automatic1111/">
     <Project Path="src/Automatic1111/src/LangChain.Providers.Automatic1111.csproj" />
     <Project Path="src/Automatic1111/test/LangChain.Providers.Automatic1111.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Azure/">
-    <Project Path="src/Azure/src/LangChain.Providers.Azure.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Google/VertexAI/">
-    <Project Path="src/Google.VertexAI/src/LangChain.Providers.Google.VertexAI.csproj" />
-    <Project Path="src/Google.VertexAI/test/LangChain.Providers.Google.VertexAI.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Providers/LLamaSharp/">
-    <Project Path="src/LLamaSharp/src/LangChain.Providers.LLamaSharp.csproj" />
-    <Project Path="src/LLamaSharp/test/LangChain.Providers.LLamaSharp.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Providers/Pollinations/">
-    <Project Path="src/Pollinations/src/LangChain.Providers.Pollinations/LangChain.Providers.Pollinations.csproj" />
   </Folder>
   <Folder Name="/Providers/Suno/">
     <Project Path="src/Suno/src/LangChain.Providers.Suno.csproj" />
     <Project Path="src/Suno/test/LangChain.Providers.Suno.Tests.csproj" />
   </Folder>
-  <Folder Name="/Providers/WhisperNet/">
-    <Project Path="src/WhisperNet/src/LangChain.Providers.WhisperNet.csproj" />
-    <Project Path="src/WhisperNet/test/LangChain.Providers.WhisperNet.Tests.csproj" />
-  </Folder>
-  <Project Path="src/IntegrationTests/LangChain.IntegrationTests.csproj" />
 </Solution>
