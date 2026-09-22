@@ -15,6 +15,9 @@ updates:
           - "*"
     ignore:
       - dependency-name: Microsoft.CodeAnalysis.CSharp
+      - dependency-name: LangChain.Core
+        versions:
+          - "0.17.1"
 
   - package-ecosystem: "github-actions"
     directory: "/"
