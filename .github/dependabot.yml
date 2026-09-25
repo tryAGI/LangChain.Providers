@@ -8,13 +8,14 @@ updates:
   - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: "weekly"
     groups:
       all:
         patterns:
           - "*"
     ignore:
       - dependency-name: Microsoft.CodeAnalysis.CSharp
+      - dependency-name: LangChain.Core
 
   - package-ecosystem: "github-actions"
     directory: "/"

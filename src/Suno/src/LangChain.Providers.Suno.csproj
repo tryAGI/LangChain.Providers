@@ -15,9 +15,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Net.Http.Json" Version="9.0.5" />
-        <PackageReference Include="LangChain.Polyfills" Version="0.17.1-dev.47" />
-        <PackageReference Include="System.Text.Json" Version="9.0.5" />
+        <PackageReference Include="System.Net.Http.Json" Version="10.0.12" />
+        <PackageReference Include="LangChain.Polyfills" Version="0.17.1" />
+        <PackageReference Include="System.Text.Json" Version="10.0.12" />
     </ItemGroup>
 
     <ItemGroup>
