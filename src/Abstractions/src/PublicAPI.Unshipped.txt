@@ -64,6 +64,8 @@ LangChain.Providers.ITextToSpeechModel.GenerateSpeechAsync(LangChain.Providers.T
 LangChain.Providers.Message
 LangChain.Providers.Message.Content.get -> string!
 LangChain.Providers.Message.Content.init -> void
+LangChain.Providers.Message.Deconstruct(out string! Content, out LangChain.Providers.MessageRole Role, out string? ToolName) -> void
+LangChain.Providers.Message.Equals(LangChain.Providers.Message other) -> bool
 LangChain.Providers.Message.Message() -> void
 LangChain.Providers.Message.Message(string! Content, LangChain.Providers.MessageRole Role, string? ToolName = null) -> void
 LangChain.Providers.Message.Role.get -> LangChain.Providers.MessageRole
@@ -161,6 +163,8 @@ LangChain.Providers.TextToSpeechResponse.Usage.init -> void
 LangChain.Providers.TextToSpeechSettings
 LangChain.Providers.TextToSpeechSettings.TextToSpeechSettings() -> void
 LangChain.Providers.Usage
+LangChain.Providers.Usage.Deconstruct(out int InputTokens, out int OutputTokens, out int Messages, out System.TimeSpan Time, out double? PriceInUsd) -> void
+LangChain.Providers.Usage.Equals(LangChain.Providers.Usage other) -> bool
 LangChain.Providers.Usage.InputTokens.get -> int
 LangChain.Providers.Usage.InputTokens.init -> void
 LangChain.Providers.Usage.Messages.get -> int
@@ -175,7 +179,9 @@ LangChain.Providers.Usage.TotalTokens.get -> int
 LangChain.Providers.Usage.Usage() -> void
 LangChain.Providers.Usage.Usage(int InputTokens, int OutputTokens, int Messages, System.TimeSpan Time, double? PriceInUsd) -> void
 override LangChain.Providers.Data.ToString() -> string!
+override LangChain.Providers.Message.GetHashCode() -> int
 override LangChain.Providers.Message.ToString() -> string!
+override LangChain.Providers.Usage.GetHashCode() -> int
 static LangChain.Providers.Data.FromBase64(string! base64) -> LangChain.Providers.Data!
 static LangChain.Providers.Data.FromBytes(byte[]! bytes) -> LangChain.Providers.Data!
 static LangChain.Providers.Data.FromStream(System.IO.Stream! stream) -> LangChain.Providers.Data!
@@ -190,7 +196,9 @@ static LangChain.Providers.Message.Add(LangChain.Providers.Message left, LangCha
 static LangChain.Providers.Message.Ai(string! content) -> LangChain.Providers.Message
 static LangChain.Providers.Message.Empty.get -> LangChain.Providers.Message
 static LangChain.Providers.Message.Human(string! content) -> LangChain.Providers.Message
+static LangChain.Providers.Message.operator !=(LangChain.Providers.Message left, LangChain.Providers.Message right) -> bool
 static LangChain.Providers.Message.operator +(LangChain.Providers.Message a, LangChain.Providers.Message b) -> LangChain.Providers.Message
+static LangChain.Providers.Message.operator ==(LangChain.Providers.Message left, LangChain.Providers.Message right) -> bool
 static LangChain.Providers.MessageStringExtensions.AsAiMessage(this string! text) -> LangChain.Providers.Message
 static LangChain.Providers.MessageStringExtensions.AsChatMessage(this string! text) -> LangChain.Providers.Message
 static LangChain.Providers.MessageStringExtensions.AsHistory(this System.Collections.Generic.IReadOnlyCollection<LangChain.Providers.Message>! messages) -> string!
@@ -220,8 +228,13 @@ static LangChain.Providers.Usage.Add(LangChain.Providers.Usage left, LangChain.P
 static LangChain.Providers.Usage.Divide(LangChain.Providers.Usage left, double right) -> LangChain.Providers.Usage
 static LangChain.Providers.Usage.Empty.get -> LangChain.Providers.Usage
 static LangChain.Providers.Usage.Multiply(LangChain.Providers.Usage left, double right) -> LangChain.Providers.Usage
+static LangChain.Providers.Usage.operator !=(LangChain.Providers.Usage left, LangChain.Providers.Usage right) -> bool
 static LangChain.Providers.Usage.operator *(LangChain.Providers.Usage a, double b) -> LangChain.Providers.Usage
 static LangChain.Providers.Usage.operator +(LangChain.Providers.Usage a, LangChain.Providers.Usage b) -> LangChain.Providers.Usage
 static LangChain.Providers.Usage.operator -(LangChain.Providers.Usage a, LangChain.Providers.Usage b) -> LangChain.Providers.Usage
 static LangChain.Providers.Usage.operator /(LangChain.Providers.Usage a, double b) -> LangChain.Providers.Usage
+static LangChain.Providers.Usage.operator ==(LangChain.Providers.Usage left, LangChain.Providers.Usage right) -> bool
 static LangChain.Providers.Usage.Subtract(LangChain.Providers.Usage left, LangChain.Providers.Usage right) -> LangChain.Providers.Usage
+~override LangChain.Providers.Message.Equals(object obj) -> bool
+~override LangChain.Providers.Usage.Equals(object obj) -> bool
+~override LangChain.Providers.Usage.ToString() -> string
